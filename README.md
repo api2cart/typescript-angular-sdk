@@ -1,45 +1,80 @@
-# TypeScript Angular sdk
-# What is API2Cart
-<b>With API2Cart shopping platform integration is easy.</b>
+## @
 
-<h2><b>Overview</b></h2>
+This generator creates TypeScript/JavaScript client that utilizes fetch-api.
 
-API2Cart is a unified API that allows to integrate with 40+ shopping platforms and marketplaces like Magento, Shopify, WooCommerce, Amazon, eBay and others at once. 
+### Building
 
-<p align="left">
-  <img src="https://api2cart.com/wp-content/uploads/2018/07/scheme-for-adv.jpg">
-</p>
+To build and compile the typescript sources to javascript use:
+```
+npm install
+npm run build
+```
 
+### Publishing
 
-Using API2Cart B2B software providers can easily connect to any supported eCommerce platform and never worry about developing separate connections. Moreover, API2Cart takes care of platform updates and maintains the integration.
+First build the package then run ```npm publish```
 
-<h2><b>How Does API2Cart Work</b></h2>
+### Consuming
 
-API2Cart provides 100+ API methods to get, add, update, and sync various e-store data such as customers, orders, products, and categories, etc.
+Navigate to the folder of your consuming project and run one of the following commands.
 
-See all supported methods and platforms https://api2cart.com/supported-api-methods/.
+_published:_
 
-To get started with API2Cart <a href="https://app.api2cart.com/#register">register an account</a> for a 30-day free trial. Add stores and execute methods to see how you will be able to work with store entities.
+```
+npm install @ --save
+```
 
-<h2><b>Documentation For Authorization</b></h2>
-<b>api_key</b>
-<ul>
-  <li>Type: API key</li>
-  <li>API key parameter name: api_key</li>
-  <li>Location: URL query string</li>
-</ul>
+_unPublished (not recommended):_
 
-<b>store_key</b>
-<ul>
-  <li>Type: API key</li>
-  <li>API key parameter name: store_key</li>
-  <li>Location: URL query string</li>
-</ul>
+```
+npm install PATH_TO_GENERATED_PACKAGE --save
+```
 
-<h2><b>Documentation for API Endpoints</b></h2>
-All URIs are relative to https://api.api2cart.com/v1.1
+### Usage
 
-Our <a href="https://docs.api2cart.com/">documentation</a> includes explanations, code samples and interactive examples. 
+Below code snippet shows exemplary usage of the configuration and the API based 
+on the typical `PetStore` example used for OpenAPI. 
 
-<h2><b>Support</b></h2>
-If you have any questions or issues, you can <a href="https://api2cart.com/contact-us/">contact us</a> in whatever way is convenient for you. We provide full-tech 24/7 support.
+```
+import * as your_api from 'your_api_package'
+
+// Covers all auth methods included in your OpenAPI yaml definition
+const authConfig: your_api.AuthMethodsConfiguration = {
+    "api_key": "YOUR_API_KEY"
+}
+
+// Implements a simple middleware to modify requests before (`pre`) they are sent
+// and after (`post`) they have been received 
+class Test implements your_api.Middleware {
+    pre(context: your_api.RequestContext): Promise<your_api.RequestContext> {
+        // Modify context here and return
+        return Promise.resolve(context);
+    }
+
+    post(context: your_api.ResponseContext): Promise<your_api.ResponseContext> {
+        return Promise.resolve(context);
+    }
+
+}
+
+// Create configuration parameter object
+const configurationParameters = {
+    httpApi: new your_api.JQueryHttpLibrary(), // Can also be ignored - default is usually fine
+    baseServer: your_api.servers[0], // First server is default
+    authMethods: authConfig, // No auth is default
+    promiseMiddleware: [new Test()],
+}
+
+// Convert to actual configuration
+const config = your_api.createConfiguration(configurationParameters);
+
+// Use configuration with your_api
+const api = new your_api.PetApi(config);
+your_api.Pet p = new your_api.Pet();
+p.name = "My new pet";
+p.photoUrls = [];
+p.tags = [];
+p.status = "available";
+Promise<your_api.Pet> createdPet = api.addPet(p);
+
+```
