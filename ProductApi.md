@@ -3112,6 +3112,7 @@ const request: ProductApiProductUpdateRequest = {
       "materials[0]=Aluminum&materials[1]=Brass",
     ],
     autoRenew: false,
+    onSale: false,
   },
 };
 

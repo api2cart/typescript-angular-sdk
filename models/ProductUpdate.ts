@@ -325,6 +325,10 @@ export class ProductUpdate {
     * When true, automatically renews a listing upon its expiration.
     */
     'autoRenew'?: boolean;
+    /**
+    * Set whether the product on sale
+    */
+    'onSale'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -802,6 +806,12 @@ export class ProductUpdate {
         {
             "name": "autoRenew",
             "baseName": "auto_renew",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "onSale",
+            "baseName": "on_sale",
             "type": "boolean",
             "format": ""
         }    ];

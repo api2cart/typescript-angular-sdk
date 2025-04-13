@@ -53,6 +53,7 @@ export class Product {
     'weightUnit'?: string;
     'sortOrder'?: number;
     'inStock'?: boolean;
+    'onSale'?: boolean;
     'backorders'?: string;
     'manageStock'?: string;
     'isStockManaged'?: boolean;
@@ -262,6 +263,12 @@ export class Product {
         {
             "name": "inStock",
             "baseName": "in_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "onSale",
+            "baseName": "on_sale",
             "type": "boolean",
             "format": ""
         },
