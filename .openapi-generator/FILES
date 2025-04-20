@@ -312,6 +312,7 @@ models/ProductAddCertificationsInnerFilesInner.ts
 models/ProductAddCertificationsInnerImagesInner.ts
 models/ProductAddFilesInner.ts
 models/ProductAddGroupPricesInner.ts
+models/ProductAddLogisticInfoInner.ts
 models/ProductAddManufacturerInfo.ts
 models/ProductAddPackageDetails.ts
 models/ProductAddSalesTax.ts

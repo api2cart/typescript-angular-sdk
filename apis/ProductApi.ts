@@ -510,6 +510,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param brandIds Retrieves brands specified by brand ids
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param categoryId Retrieves product brands specified by category id
      * @param storeId Store Id
      * @param langId Language id
      * @param createdFrom Retrieve entities from their creation date
@@ -521,8 +522,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param findWhere Entity search that is specified by the comma-separated unique fields
      * @param findValue Entity search that is specified by some value
      */
-    public async productBrandList(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productBrandList(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, categoryId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -575,6 +577,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        }
+
+        // Query Params
+        if (categoryId !== undefined) {
+            requestContext.setQueryParam("category_id", ObjectSerializer.serialize(categoryId, "string", ""));
         }
 
         // Query Params

@@ -272,6 +272,7 @@ import { ProductAddCertificationsInnerFilesInner } from '../models/ProductAddCer
 import { ProductAddCertificationsInnerImagesInner } from '../models/ProductAddCertificationsInnerImagesInner';
 import { ProductAddFilesInner } from '../models/ProductAddFilesInner';
 import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner';
+import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
@@ -5692,6 +5693,7 @@ export class ObservableProductApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [brandIds] Retrieves brands specified by brand ids
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [categoryId] Retrieves product brands specified by category id
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [createdFrom] Retrieve entities from their creation date
@@ -5703,8 +5705,8 @@ export class ObservableProductApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findValue] Entity search that is specified by some value
      */
-    public productBrandListWithHttpInfo(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductBrandList>> {
-        const requestContextPromise = this.requestFactory.productBrandList(start, count, pageCursor, params, brandIds, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options);
+    public productBrandListWithHttpInfo(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, categoryId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductBrandList>> {
+        const requestContextPromise = this.requestFactory.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5731,6 +5733,7 @@ export class ObservableProductApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [brandIds] Retrieves brands specified by brand ids
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [categoryId] Retrieves product brands specified by category id
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [createdFrom] Retrieve entities from their creation date
@@ -5742,8 +5745,8 @@ export class ObservableProductApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findValue] Entity search that is specified by some value
      */
-    public productBrandList(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<ModelResponseProductBrandList> {
-        return this.productBrandListWithHttpInfo(start, count, pageCursor, params, brandIds, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductBrandList>) => apiResponse.data));
+    public productBrandList(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, categoryId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<ModelResponseProductBrandList> {
+        return this.productBrandListWithHttpInfo(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductBrandList>) => apiResponse.data));
     }
 
     /**

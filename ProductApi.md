@@ -228,10 +228,21 @@ const request: ProductApiProductAddRequest = {
     ],
     imageUrl: "https://docs.api2cart.com/img/logo.png",
     imageName: "abibas.png",
+    additionalImageUrls: [
+      "additionalImageUrls_example",
+    ],
     reservePrice: 65.9,
     buyitnowPrice: 65.9,
     conditionDescription: "Almost perfect condition, a few scratches",
     auctionConfidentialityLevel: "public",
+    logisticInfo: [
+      {
+        logisticId: 3.14,
+        isFree: true,
+        shippingFee: 3.14,
+        sizeId: 3.14,
+      },
+    ],
     availFrom: "avail_from=2029-10-25T15:54:37-0500",
     tags: "tag1,tag2",
     clearCache: false,
@@ -761,6 +772,8 @@ const request: ProductApiProductBrandListRequest = {
   brandIds: "4,5",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
+    // Retrieves product brands specified by category id (optional)
+  categoryId: "6",
     // Store Id (optional)
   storeId: "1",
     // Language id (optional)
@@ -798,6 +811,7 @@ Name | Type | Description  | Notes
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,short_description,active,url'
  **brandIds** | [**string**] | Retrieves brands specified by brand ids | (optional) defaults to undefined
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **categoryId** | [**string**] | Retrieves product brands specified by category id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined

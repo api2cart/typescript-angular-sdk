@@ -268,6 +268,7 @@ export * from '../models/ProductAddCertificationsInnerFilesInner';
 export * from '../models/ProductAddCertificationsInnerImagesInner';
 export * from '../models/ProductAddFilesInner';
 export * from '../models/ProductAddGroupPricesInner';
+export * from '../models/ProductAddLogisticInfoInner';
 export * from '../models/ProductAddManufacturerInfo';
 export * from '../models/ProductAddPackageDetails';
 export * from '../models/ProductAddSalesTax';
@@ -705,6 +706,7 @@ import { ProductAddCertificationsInnerFilesInner } from '../models/ProductAddCer
 import { ProductAddCertificationsInnerImagesInner } from '../models/ProductAddCertificationsInnerImagesInner';
 import { ProductAddFilesInner } from '../models/ProductAddFilesInner';
 import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner';
+import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
@@ -1174,6 +1176,7 @@ let typeMap: {[index: string]: any} = {
     "ProductAddCertificationsInnerImagesInner": ProductAddCertificationsInnerImagesInner,
     "ProductAddFilesInner": ProductAddFilesInner,
     "ProductAddGroupPricesInner": ProductAddGroupPricesInner,
+    "ProductAddLogisticInfoInner": ProductAddLogisticInfoInner,
     "ProductAddManufacturerInfo": ProductAddManufacturerInfo,
     "ProductAddPackageDetails": ProductAddPackageDetails,
     "ProductAddSalesTax": ProductAddSalesTax,

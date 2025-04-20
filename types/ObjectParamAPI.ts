@@ -271,6 +271,7 @@ import { ProductAddCertificationsInnerFilesInner } from '../models/ProductAddCer
 import { ProductAddCertificationsInnerImagesInner } from '../models/ProductAddCertificationsInnerImagesInner';
 import { ProductAddFilesInner } from '../models/ProductAddFilesInner';
 import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner';
+import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
@@ -8189,6 +8190,13 @@ export interface ProductApiProductBrandListRequest {
      */
     exclude?: string
     /**
+     * Retrieves product brands specified by category id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductBrandList
+     */
+    categoryId?: string
+    /**
      * Store Id
      * Defaults to: undefined
      * @type string
@@ -10186,7 +10194,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productBrandListWithHttpInfo(param: ProductApiProductBrandListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductBrandList>> {
-        return this.api.productBrandListWithHttpInfo(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
+        return this.api.productBrandListWithHttpInfo(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.categoryId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
     }
 
     /**
@@ -10195,7 +10203,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productBrandList(param: ProductApiProductBrandListRequest = {}, options?: Configuration): Promise<ModelResponseProductBrandList> {
-        return this.api.productBrandList(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
+        return this.api.productBrandList(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.categoryId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
     }
 
     /**

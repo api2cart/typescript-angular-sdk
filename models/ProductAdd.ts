@@ -14,6 +14,7 @@ import { ProductAddBestOffer } from '../models/ProductAddBestOffer';
 import { ProductAddCertificationsInner } from '../models/ProductAddCertificationsInner';
 import { ProductAddFilesInner } from '../models/ProductAddFilesInner';
 import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner';
+import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
@@ -286,6 +287,10 @@ export class ProductAdd {
     */
     'imageName'?: string;
     /**
+    * Image Url
+    */
+    'additionalImageUrls'?: Array<string>;
+    /**
     * Defines reserve price value
     */
     'reservePrice'?: number;
@@ -301,6 +306,10 @@ export class ProductAdd {
     * This allows buyers to remain anonymous when the bid or buy an item.
     */
     'auctionConfidentialityLevel'?: string;
+    /**
+    * Defines product\'s logistic channel settings
+    */
+    'logisticInfo'?: Array<ProductAddLogisticInfoInner>;
     /**
     * Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
     */
@@ -862,6 +871,12 @@ export class ProductAdd {
             "format": ""
         },
         {
+            "name": "additionalImageUrls",
+            "baseName": "additional_image_urls",
+            "type": "Array<string>",
+            "format": "uri"
+        },
+        {
             "name": "reservePrice",
             "baseName": "reserve_price",
             "type": "number",
@@ -883,6 +898,12 @@ export class ProductAdd {
             "name": "auctionConfidentialityLevel",
             "baseName": "auction_confidentiality_level",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "logisticInfo",
+            "baseName": "logistic_info",
+            "type": "Array<ProductAddLogisticInfoInner>",
             "format": ""
         },
         {
