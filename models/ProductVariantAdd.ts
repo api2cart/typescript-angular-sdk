@@ -20,6 +20,10 @@ export class ProductVariantAdd {
     */
     'productId'?: string;
     /**
+    * Defines variant\'s attributes list
+    */
+    'attributes'?: Array<ProductVariantAddAttributesInner>;
+    /**
     * Defines variant\'s name that has to be added
     */
     'name'?: string;
@@ -28,17 +32,41 @@ export class ProductVariantAdd {
     */
     'model': string;
     /**
-    * Defines variant\'s sku that has to be added
+    * Specifies variant\'s description
     */
-    'sku'?: string;
+    'description'?: string;
     /**
-    * A barcode is a unique code composed of numbers used as a product identifier.
+    * Defines short description
     */
-    'barcode'?: string;
+    'shortDescription'?: string;
     /**
-    * Global Trade Item Number. An GTIN is an identifier for trade items.
+    * Specifies the set of visible/invisible product\'s variants for users
     */
-    'gtin'?: string;
+    'availableForView'?: boolean;
+    /**
+    * Specifies the set of visible/invisible product\'s variants for sale
+    */
+    'availableForSale'?: boolean;
+    /**
+    * Defines whether the product is virtual
+    */
+    'isVirtual'?: boolean;
+    /**
+    * Defines as a default variant
+    */
+    'isDefault'?: boolean;
+    /**
+    * Add variants specified by store id
+    */
+    'storeId'?: string;
+    /**
+    * Assign variant to the stores that is specified by comma-separated stores\' id
+    */
+    'storesIds'?: string;
+    /**
+    * Language id
+    */
+    'langId'?: string;
     /**
     * Defines new product\'s variant price
     */
@@ -51,18 +79,6 @@ export class ProductVariantAdd {
     * Defines new product\'s cost price
     */
     'costPrice'?: number;
-    /**
-    * Specifies fixed cost shipping price
-    */
-    'fixedCostShippingPrice'?: number;
-    /**
-    * Defines variant\'s attributes list
-    */
-    'attributes'?: Array<ProductVariantAddAttributesInner>;
-    /**
-    * Specifies variant\'s description
-    */
-    'description'?: string;
     /**
     * Specifies variant\'s model that has to be added
     */
@@ -80,13 +96,29 @@ export class ProductVariantAdd {
     */
     'spriceExpire'?: string;
     /**
-    * Specifies the set of visible/invisible product\'s variants for users
+    * Defines product\'s tier prices
     */
-    'availableForView'?: boolean;
+    'tierPrices'?: Array<ProductAddTierPricesInner>;
     /**
-    * Specifies the set of visible/invisible product\'s variants for sale
+    * Defines product variant\'s quantity that has to be added
     */
-    'availableForSale'?: boolean;
+    'quantity'?: number;
+    /**
+    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
+    */
+    'warehouseId'?: string;
+    /**
+    * Set stock status
+    */
+    'inStock'?: boolean;
+    /**
+    * Set backorder status
+    */
+    'backorderStatus'?: string;
+    /**
+    * Defines inventory tracking for product variant
+    */
+    'manageStock'?: boolean;
     /**
     * Weight
     */
@@ -108,29 +140,41 @@ export class ProductVariantAdd {
     */
     'weightUnit'?: string;
     /**
-    * Defines short description
+    * Defines variant\'s sku that has to be added
     */
-    'shortDescription'?: string;
+    'sku'?: string;
     /**
-    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
+    * A barcode is a unique code composed of numbers used as a product identifier.
     */
-    'warehouseId'?: string;
+    'barcode'?: string;
     /**
-    * Defines product variant\'s quantity that has to be added
+    * Global Trade Item Number. An GTIN is an identifier for trade items.
     */
-    'quantity'?: number;
+    'gtin'?: string;
     /**
-    * Defines the date of entity creation
+    * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
     */
-    'createdAt'?: string;
+    'upc'?: string;
+    /**
+    * European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
+    */
+    'ean'?: string;
+    /**
+    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
+    */
+    'mpn'?: string;
+    /**
+    * International Standard Book Number. An ISBN is a unique identifier for books.
+    */
+    'isbn'?: string;
     /**
     * Specifies the product variant\'s manufacturer
     */
     'manufacturer'?: string;
     /**
-    * Defines tax classes where entity has to be added
+    * Defines the date of entity creation
     */
-    'taxClassId'?: string;
+    'createdAt'?: string;
     /**
     * Defines unique meta title for each entity
     */
@@ -148,81 +192,37 @@ export class ProductVariantAdd {
     */
     'url'?: string;
     /**
-    * Add variants specified by store id
+    * Defines tax classes where entity has to be added
     */
-    'storeId'?: string;
-    /**
-    * Language id
-    */
-    'langId'?: string;
-    /**
-    * Is cache clear required
-    */
-    'clearCache'?: boolean;
+    'taxClassId'?: string;
     /**
     * Specifies whether a tax is charged
     */
     'taxable'?: boolean;
     /**
-    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
+    * Specifies fixed cost shipping price
     */
-    'harmonizedSystemCode'?: string;
-    /**
-    * The country where the inventory item was made
-    */
-    'countryOfOrigin'?: string;
-    /**
-    * Defines inventory tracking for product variant
-    */
-    'manageStock'?: boolean;
-    /**
-    * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
-    */
-    'upc'?: string;
-    /**
-    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
-    */
-    'mpn'?: string;
-    /**
-    * European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
-    */
-    'ean'?: string;
-    /**
-    * International Standard Book Number. An ISBN is a unique identifier for books.
-    */
-    'isbn'?: string;
-    /**
-    * Assign variant to the stores that is specified by comma-separated stores\' id
-    */
-    'storesIds'?: string;
-    /**
-    * Defines as a default variant
-    */
-    'isDefault'?: boolean;
+    'fixedCostShippingPrice'?: number;
     /**
     * Specifies variant\'s free shipping flag that has to be added
     */
     'isFreeShipping'?: boolean;
     /**
+    * The country where the inventory item was made
+    */
+    'countryOfOrigin'?: string;
+    /**
+    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
+    */
+    'harmonizedSystemCode'?: string;
+    /**
     * String containing the JSON representation of the supplied data
     */
     'marketplaceItemProperties'?: string;
     /**
-    * Set stock status
+    * Is cache clear required
     */
-    'inStock'?: boolean;
-    /**
-    * Set backorder status
-    */
-    'backorderStatus'?: string;
-    /**
-    * Defines product\'s tier prices
-    */
-    'tierPrices'?: Array<ProductAddTierPricesInner>;
-    /**
-    * Defines whether the product is virtual
-    */
-    'isVirtual'?: boolean;
+    'clearCache'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -233,6 +233,12 @@ export class ProductVariantAdd {
             "name": "productId",
             "baseName": "product_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "attributes",
+            "baseName": "attributes",
+            "type": "Array<ProductVariantAddAttributesInner>",
             "format": ""
         },
         {
@@ -248,20 +254,56 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "sku",
-            "baseName": "sku",
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },
         {
-            "name": "barcode",
-            "baseName": "barcode",
+            "name": "shortDescription",
+            "baseName": "short_description",
             "type": "string",
             "format": ""
         },
         {
-            "name": "gtin",
-            "baseName": "gtin",
+            "name": "availableForView",
+            "baseName": "available_for_view",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "availableForSale",
+            "baseName": "available_for_sale",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isVirtual",
+            "baseName": "is_virtual",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isDefault",
+            "baseName": "is_default",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storesIds",
+            "baseName": "stores_ids",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "langId",
+            "baseName": "lang_id",
             "type": "string",
             "format": ""
         },
@@ -281,24 +323,6 @@ export class ProductVariantAdd {
             "name": "costPrice",
             "baseName": "cost_price",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "fixedCostShippingPrice",
-            "baseName": "fixed_cost_shipping_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "attributes",
-            "baseName": "attributes",
-            "type": "Array<ProductVariantAddAttributesInner>",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
             "format": ""
         },
         {
@@ -326,14 +350,38 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "availableForView",
-            "baseName": "available_for_view",
+            "name": "tierPrices",
+            "baseName": "tier_prices",
+            "type": "Array<ProductAddTierPricesInner>",
+            "format": ""
+        },
+        {
+            "name": "quantity",
+            "baseName": "quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "warehouseId",
+            "baseName": "warehouse_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "inStock",
+            "baseName": "in_stock",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "availableForSale",
-            "baseName": "available_for_sale",
+            "name": "backorderStatus",
+            "baseName": "backorder_status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "manageStock",
+            "baseName": "manage_stock",
             "type": "boolean",
             "format": ""
         },
@@ -368,26 +416,44 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "shortDescription",
-            "baseName": "short_description",
+            "name": "sku",
+            "baseName": "sku",
             "type": "string",
             "format": ""
         },
         {
-            "name": "warehouseId",
-            "baseName": "warehouse_id",
+            "name": "barcode",
+            "baseName": "barcode",
             "type": "string",
             "format": ""
         },
         {
-            "name": "quantity",
-            "baseName": "quantity",
-            "type": "number",
+            "name": "gtin",
+            "baseName": "gtin",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "createdAt",
-            "baseName": "created_at",
+            "name": "upc",
+            "baseName": "upc",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "ean",
+            "baseName": "ean",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mpn",
+            "baseName": "mpn",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isbn",
+            "baseName": "isbn",
             "type": "string",
             "format": ""
         },
@@ -398,8 +464,8 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "taxClassId",
-            "baseName": "tax_class_id",
+            "name": "createdAt",
+            "baseName": "created_at",
             "type": "string",
             "format": ""
         },
@@ -428,21 +494,9 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "storeId",
-            "baseName": "store_id",
+            "name": "taxClassId",
+            "baseName": "tax_class_id",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "langId",
-            "baseName": "lang_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "clearCache",
-            "baseName": "clear_cache",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -452,57 +506,9 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
-            "name": "harmonizedSystemCode",
-            "baseName": "harmonized_system_code",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "countryOfOrigin",
-            "baseName": "country_of_origin",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "manageStock",
-            "baseName": "manage_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "upc",
-            "baseName": "upc",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "mpn",
-            "baseName": "mpn",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ean",
-            "baseName": "ean",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isbn",
-            "baseName": "isbn",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "storesIds",
-            "baseName": "stores_ids",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isDefault",
-            "baseName": "is_default",
-            "type": "boolean",
+            "name": "fixedCostShippingPrice",
+            "baseName": "fixed_cost_shipping_price",
+            "type": "number",
             "format": ""
         },
         {
@@ -512,32 +518,26 @@ export class ProductVariantAdd {
             "format": ""
         },
         {
+            "name": "countryOfOrigin",
+            "baseName": "country_of_origin",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "harmonizedSystemCode",
+            "baseName": "harmonized_system_code",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "marketplaceItemProperties",
             "baseName": "marketplace_item_properties",
             "type": "string",
             "format": ""
         },
         {
-            "name": "inStock",
-            "baseName": "in_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "backorderStatus",
-            "baseName": "backorder_status",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "tierPrices",
-            "baseName": "tier_prices",
-            "type": "Array<ProductAddTierPricesInner>",
-            "format": ""
-        },
-        {
-            "name": "isVirtual",
-            "baseName": "is_virtual",
+            "name": "clearCache",
+            "baseName": "clear_cache",
             "type": "boolean",
             "format": ""
         }    ];

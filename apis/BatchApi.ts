@@ -21,14 +21,14 @@ export class BatchApiRequestFactory extends BaseAPIRequestFactory {
      * batch.job.list
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param ids Filter batch jobs by ids
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param processedFrom Retrieve entities according to their processing datetime
      * @param processedTo Retrieve entities according to their processing datetime
-     * @param ids Filter batch jobs by ids
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async batchJobList(count?: number, pageCursor?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, ids?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async batchJobList(count?: number, pageCursor?: string, ids?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -57,6 +57,11 @@ export class BatchApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
         if (createdFrom !== undefined) {
             requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
         }
@@ -74,11 +79,6 @@ export class BatchApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (processedTo !== undefined) {
             requestContext.setQueryParam("processed_to", ObjectSerializer.serialize(processedTo, "string", ""));
-        }
-
-        // Query Params
-        if (ids !== undefined) {
-            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
         }
 
         // Query Params

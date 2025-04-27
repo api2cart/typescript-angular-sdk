@@ -32,11 +32,11 @@ const request: BasketApiBasketInfoRequest = {
     // Store Id (optional)
   storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result}",
 };
 
 const data = await apiInstance.basketInfo(request);
@@ -50,9 +50,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Entity id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
 
 
 ### Return type
@@ -269,12 +269,12 @@ const configuration = createConfiguration();
 const apiInstance = new BasketApi(configuration);
 
 const request: BasketApiBasketLiveShippingServiceListRequest = {
-    // Store Id (optional)
-  storeId: "1",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Store Id (optional)
+  storeId: "1",
 };
 
 const data = await apiInstance.basketLiveShippingServiceList(request);
@@ -286,9 +286,9 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
 ### Return type

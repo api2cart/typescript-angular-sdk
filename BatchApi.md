@@ -28,6 +28,8 @@ const request: BatchApiBatchJobListRequest = {
   count: 20,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
+    // Filter batch jobs by ids (optional)
+  ids: "24,25",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -36,8 +38,6 @@ const request: BatchApiBatchJobListRequest = {
   processedFrom: "2100-08-29 13:45:52",
     // Retrieve entities according to their processing datetime (optional)
   processedTo: "2100-08-29 13:45:52",
-    // Filter batch jobs by ids (optional)
-  ids: "24,25",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result}",
 };
@@ -53,11 +53,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **ids** | [**string**] | Filter batch jobs by ids | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **processedFrom** | [**string**] | Retrieve entities according to their processing datetime | (optional) defaults to undefined
  **processedTo** | [**string**] | Retrieve entities according to their processing datetime | (optional) defaults to undefined
- **ids** | [**string**] | Filter batch jobs by ids | (optional) defaults to undefined
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to '{return_code,return_message,pagination,result}'
 
 

@@ -144,18 +144,18 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartCatalogPriceRulesListRequest = {
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Retrieves  catalog_price_rules by ids (optional)
   ids: "24,25",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result{catalog_price_rules_count,catalog_price_rules{id,type,name,avail,usage_count,actions,conditions}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
 };
@@ -169,12 +169,12 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **ids** | [**string**] | Retrieves  catalog_price_rules by ids | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -384,16 +384,15 @@ const apiInstance = new CartApi(configuration);
 const request: CartApiCartCouponAddRequest = {
   
   cartCouponAdd: {
-    storeId: "1",
     code: "000_BIG_SALE_000",
-    name: "Sale! -30%",
-    codes: [
-      "codes[0]=000_BIG_SALE_000&codes[1]=000_BIG_SALE_001&codes[2]=000_BIG_SALE_002",
-    ],
     actionType: "percent",
     actionApplyTo: "order_total",
     actionScope: "matching_items",
     actionAmount: 15.5,
+    codes: [
+      "codes[0]=000_BIG_SALE_000&codes[1]=000_BIG_SALE_001&codes[2]=000_BIG_SALE_002",
+    ],
+    name: "Sale! -30%",
     dateStart: "2019-12-29 06:44:30",
     dateEnd: "2020-01-05 01:00:00",
     usageLimit: 99,
@@ -403,6 +402,7 @@ const request: CartApiCartCouponAddRequest = {
     actionConditionOperator: "ONE_OF",
     actionConditionValue: "17834222,45466663",
     includeTax: true,
+    storeId: "1",
   },
 };
 
@@ -465,14 +465,14 @@ const request: CartApiCartCouponConditionAddRequest = {
   operator: "==",
     // Defines condition value, can be comma separated according to the operator.
   value: "2",
-    // Store Id (optional)
-  storeId: "1",
     // Defines condition operator (optional)
   target: "coupon_action",
     // Indicates whether to apply a discount for taxes. (optional)
   includeTax: true,
     // Indicates whether to apply a discount for shipping. (optional)
   includeShipping: true,
+    // Store Id (optional)
+  storeId: "1",
 };
 
 const data = await apiInstance.cartCouponConditionAdd(request);
@@ -489,10 +489,10 @@ Name | Type | Description  | Notes
  **key** | [**&#39;total&#39; | &#39;subtotal&#39; | &#39;shipping_total&#39; | &#39;total_quantity&#39; | &#39;total_weight&#39; | &#39;country&#39; | &#39;product_id&#39; | &#39;variant_id&#39; | &#39;category_id&#39; | &#39;customer_id&#39; | &#39;item_price&#39; | &#39;item_total_price&#39; | &#39;item_quantity&#39; | &#39;carrier_id&#39;**]**Array<&#39;total&#39; &#124; &#39;subtotal&#39; &#124; &#39;shipping_total&#39; &#124; &#39;total_quantity&#39; &#124; &#39;total_weight&#39; &#124; &#39;country&#39; &#124; &#39;product_id&#39; &#124; &#39;variant_id&#39; &#124; &#39;category_id&#39; &#124; &#39;customer_id&#39; &#124; &#39;item_price&#39; &#124; &#39;item_total_price&#39; &#124; &#39;item_quantity&#39; &#124; &#39;carrier_id&#39;>** | Defines condition entity attribute key | defaults to undefined
  **operator** | [**string**] | Defines condition operator | defaults to undefined
  **value** | [**string**] | Defines condition value, can be comma separated according to the operator. | defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **target** | [**string**] | Defines condition operator | (optional) defaults to 'coupon_prerequisite'
  **includeTax** | [**boolean**] | Indicates whether to apply a discount for taxes. | (optional) defaults to false
  **includeShipping** | [**boolean**] | Indicates whether to apply a discount for shipping. | (optional) defaults to false
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
 ### Return type
@@ -534,6 +534,8 @@ const apiInstance = new CartApi(configuration);
 const request: CartApiCartCouponCountRequest = {
     // Store Id (optional)
   storeId: "1",
+    // Defines category\'s visibility status (optional)
+  avail: false,
     // Filter entity by date_start (greater or equal) (optional)
   dateStartFrom: "2016-12-29 16:44:30",
     // Filter entity by date_start (less or equal) (optional)
@@ -542,8 +544,6 @@ const request: CartApiCartCouponCountRequest = {
   dateEndFrom: "2016-12-29 16:44:30",
     // Filter entity by date_end (less or equal) (optional)
   dateEndTo: "2016-12-29 16:44:30",
-    // Defines category\'s visibility status (optional)
-  avail: false,
 };
 
 const data = await apiInstance.cartCouponCount(request);
@@ -556,11 +556,11 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
  **dateStartFrom** | [**string**] | Filter entity by date_start (greater or equal) | (optional) defaults to undefined
  **dateStartTo** | [**string**] | Filter entity by date_start (less or equal) | (optional) defaults to undefined
  **dateEndFrom** | [**string**] | Filter entity by date_end (greater or equal) | (optional) defaults to undefined
  **dateEndTo** | [**string**] | Filter entity by date_end (less or equal) | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
 
 
 ### Return type
@@ -656,16 +656,20 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartCouponListRequest = {
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Filter coupons by ids (optional)
   couponsIds: "1,2,3",
     // Filter coupons by store id (optional)
   storeId: "1",
+    // Language id (optional)
+  langId: "3",
+    // Filter coupons by avail status (optional)
+  avail: false,
     // Filter entity by date_start (greater or equal) (optional)
   dateStartFrom: "2016-12-29 16:44:30",
     // Filter entity by date_start (less or equal) (optional)
@@ -674,14 +678,10 @@ const request: CartApiCartCouponListRequest = {
   dateEndFrom: "2016-12-29 16:44:30",
     // Filter entity by date_end (less or equal) (optional)
   dateEndTo: "2016-12-29 16:44:30",
-    // Filter coupons by avail status (optional)
-  avail: false,
-    // Language id (optional)
-  langId: "3",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,code,type,amount",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{pagination,result{coupon_count,coupon{id,code,name,conditions,actions{scope,amount,conditions{id,value,sub-conditions}},date_start,avail}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,code,type,amount",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "usage_history,type",
 };
@@ -695,19 +695,19 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **couponsIds** | [**string**] | Filter coupons by ids | (optional) defaults to undefined
  **storeId** | [**string**] | Filter coupons by store id | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Filter coupons by avail status | (optional) defaults to undefined
  **dateStartFrom** | [**string**] | Filter entity by date_start (greater or equal) | (optional) defaults to undefined
  **dateStartTo** | [**string**] | Filter entity by date_start (less or equal) | (optional) defaults to undefined
  **dateEndFrom** | [**string**] | Filter entity by date_end (greater or equal) | (optional) defaults to undefined
  **dateEndTo** | [**string**] | Filter entity by date_end (less or equal) | (optional) defaults to undefined
- **avail** | [**boolean**] | Filter coupons by avail status | (optional) defaults to undefined
- **langId** | [**string**] | Language id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,code,name,description'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,code,name,description'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -1195,18 +1195,18 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartGiftcardListRequest = {
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Store Id (optional)
   storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{pagination,result{gift_card{id,code,amount,status}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
 };
@@ -1220,12 +1220,12 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,code,name'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,code,name'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -1266,14 +1266,14 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartInfoRequest = {
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "name,url",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "name,url",
     // Store Id (optional)
   storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{name,url,stores_info{store_id,name,currency{id,iso3},store_owner_info}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "name,url",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "name,url",
 };
 
 const data = await apiInstance.cartInfo(request);
@@ -1285,10 +1285,10 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'store_name,store_url,db_prefix'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'store_name,store_url,db_prefix'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -1376,6 +1376,10 @@ const apiInstance = new CartApi(configuration);
 const request: CartApiCartMetaDataListRequest = {
     // Entity Id
   entityId: "1",
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Entity (optional)
   entity: "order",
     // Store Id (optional)
@@ -1384,14 +1388,10 @@ const request: CartApiCartMetaDataListRequest = {
   langId: "3",
     // Key (optional)
   key: "subtotal",
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result{items{key,value}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
 };
@@ -1406,14 +1406,14 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **entityId** | [**string**] | Entity Id | defaults to undefined
+ **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **entity** | [**string**] | Entity | (optional) defaults to 'product'
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **key** | [**string**] | Key | (optional) defaults to undefined
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'key,value'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'key,value'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -1636,12 +1636,12 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartPluginListRequest = {
-    // Store Id (optional)
-  storeId: "1",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Store Id (optional)
+  storeId: "1",
 };
 
 const data = await apiInstance.cartPluginList(request);
@@ -1653,9 +1653,9 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
 ### Return type
@@ -1825,12 +1825,16 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartScriptListRequest = {
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Retrieves only scripts with specific ids (optional)
+  scriptIds: "34023324,34024032",
+    // Store Id (optional)
+  storeId: "1",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -1839,14 +1843,10 @@ const request: CartApiCartScriptListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Retrieves only scripts with specific ids (optional)
-  scriptIds: "34023324,34024032",
-    // Store Id (optional)
-  storeId: "1",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{pagination,result{total_count,scripts{id,name,src,created_time{value}}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
 };
@@ -1860,17 +1860,17 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **scriptIds** | [**string**] | Retrieves only scripts with specific ids | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **scriptIds** | [**string**] | Retrieves only scripts with specific ids | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -1911,16 +1911,16 @@ const configuration = createConfiguration();
 const apiInstance = new CartApi(configuration);
 
 const request: CartApiCartShippingZonesListRequest = {
-    // Store Id (optional)
-  storeId: "1",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
+    // Store Id (optional)
+  storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result{id,name,enabled,countries,shipping_methods{name,rates}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
 };
@@ -1934,11 +1934,11 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,enabled'
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,enabled'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 

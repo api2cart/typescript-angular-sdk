@@ -45,32 +45,32 @@ const configuration = createConfiguration();
 const apiInstance = new OrderApi(configuration);
 
 const request: OrderApiOrderAbandonedListRequest = {
+    // This parameter sets the number from which you want to get entities (optional)
+  start: 0,
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Retrieves orders specified by customer id (optional)
   customerId: "5",
     // Retrieves orders specified by customer email (optional)
   customerEmail: "jubari@hannsgroup.com",
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Filter empty emails (optional)
-  skipEmptyEmail: true,
     // Store Id (optional)
   storeId: "1",
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // This parameter sets the number from which you want to get entities (optional)
-  start: 0,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "force_all",
+    // Retrieve entities from their creation date (optional)
+  createdFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their creation date (optional)
+  createdTo: "2100-08-29 13:45:52",
+    // Retrieve entities from their modification date (optional)
+  modifiedFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their modification date (optional)
+  modifiedTo: "2100-08-29 13:45:52",
+    // Filter empty emails (optional)
+  skipEmptyEmail: true,
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{return_code,pagination,result{order{id,customer{email},created_at,totals{total},order_products}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "force_all",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "customer",
 };
@@ -84,19 +84,19 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
+ **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **customerId** | [**string**] | Retrieves orders specified by customer id | (optional) defaults to undefined
  **customerEmail** | [**string**] | Retrieves orders specified by customer email | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **skipEmptyEmail** | [**boolean**] | Filter empty emails | (optional) defaults to false
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'customer,totals,items'
+ **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
+ **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
+ **skipEmptyEmail** | [**boolean**] | Filter empty emails | (optional) defaults to false
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'customer,totals,items'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -144,66 +144,67 @@ const request: OrderApiOrderAddRequest = {
     storeId: "1",
     channelId: "1",
     orderStatus: "Completed",
-    sendNotifications: true,
-    sendAdminNotifications: true,
+    fulfillmentStatus: "fulfilled",
+    financialStatus: "paid",
     customerEmail: "jubari@hannsgroup.com",
-    billFirstName: "Adam",
-    billLastName: "Smith",
-    billAddress1: "Green str. 35",
-    billCity: "Chicago",
-    billPostcode: "12345",
-    billState: "IL",
-    billCountry: "US",
-    shippFirstName: "John",
-    shippLastName: "Smith",
-    shippAddress1: "Green str. 35",
-    shippCity: "Chicago",
-    shippPostcode: "24545",
-    shippState: "IL",
-    shippCountry: "US",
-    totalPrice: 23.56,
-    date: "2012-09-25 19:40:00",
-    orderPaymentMethod: "PayPal",
-    transactionId: "d41d8cd98f00b204e9800998ecf8427e",
-    orderShippingMethod: "UPS Ground",
-    currency: "USD",
-    billAddress2: "Red str, 2",
-    billCompany: "Apple",
-    billPhone: "8 800 5659 6896",
-    billFax: "545 45878",
-    comment: "This coole order",
-    adminComment: "Test admin comment",
-    adminPrivateComment: "Test admin private comment",
     customerFirstName: "John",
     customerLastName: "Smith",
     customerPhone: "88008547457",
     customerCountry: "US",
     customerBirthday: "1990-12-03",
     customerFax: "5656598",
+    orderPaymentMethod: "PayPal",
+    transactionId: "d41d8cd98f00b204e9800998ecf8427e",
+    currency: "USD",
+    date: "2012-09-25 19:40:00",
+    dateModified: "2014-05-05 05:05:00",
+    dateFinished: "2014-06-05 05:05:00",
+    billFirstName: "Adam",
+    billLastName: "Smith",
+    billAddress1: "Green str. 35",
+    billAddress2: "Red str, 2",
+    billCity: "Chicago",
+    billPostcode: "12345",
+    billState: "IL",
+    billCountry: "US",
+    billCompany: "Apple",
+    billPhone: "8 800 5659 6896",
+    billFax: "545 45878",
+    shippFirstName: "John",
+    shippLastName: "Smith",
+    shippAddress1: "Green str. 35",
     shippAddress2: "Green str. 35",
+    shippCity: "Chicago",
+    shippPostcode: "24545",
+    shippState: "IL",
+    shippCountry: "US",
     shippCompany: "Apple",
     shippPhone: "880086544564",
     shippFax: "556868",
-    dateModified: "2014-05-05 05:05:00",
-    dateFinished: "2014-06-05 05:05:00",
     subtotalPrice: 563.23,
     taxPrice: 5.5,
+    totalPrice: 23.56,
+    totalPaid: 23.56,
+    totalWeight: 23,
     pricesIncTax: true,
     shippingPrice: 5.5,
     shippingTax: 5.5,
-    carrierId: "USPS",
-    warehouseId: "1",
     discount: 5.5,
     couponDiscount: 5.5,
+    giftCertificateDiscount: 5.5,
+    orderShippingMethod: "UPS Ground",
+    carrierId: "USPS",
+    warehouseId: "1",
     coupons: [
       "coupons_example",
     ],
-    giftCertificateDiscount: 5.5,
-    fulfillmentStatus: "fulfilled",
-    financialStatus: "paid",
-    totalPaid: 23.56,
-    externalSource: "POS",
     tags: "tag1,tag2",
+    comment: "This coole order",
+    adminComment: "Test admin comment",
+    adminPrivateComment: "Test admin private comment",
+    sendNotifications: true,
+    sendAdminNotifications: true,
+    externalSource: "POS",
     inventoryBehaviour: "decrement_ignoring_policy",
     createInvoice: true,
     noteAttributes: [
@@ -212,7 +213,6 @@ const request: OrderApiOrderAddRequest = {
         value: "value_example",
       },
     ],
-    totalWeight: 23,
     clearCache: false,
     origin: "newsletter",
     orderItem: [
@@ -225,11 +225,11 @@ const request: OrderApiOrderAddRequest = {
         orderItemWeight: 5, where {x} - 1,2,3,... etc,
         orderItemVariantId: "52",
         orderItemTax: 5.5,
+        orderItemPriceIncludesTax: false,
         orderItemParent: 2,
         orderItemParentOptionName: "Internal Memory Storage",
         orderItemAllowRefundItemsSeparately: true,
         orderItemAllowShipItemsSeparately: true,
-        orderItemPriceIncludesTax: false,
         orderItemOption: [
           {
             orderItemOptionName: "Color",
@@ -297,8 +297,14 @@ const configuration = createConfiguration();
 const apiInstance = new OrderApi(configuration);
 
 const request: OrderApiOrderCountRequest = {
+    // Counts orders specified by order ids (optional)
+  orderIds: "24,25",
+    // Counts orders specified by ids (optional)
+  ids: "24,25",
     // Counts orders quantity specified by customer id (optional)
   customerId: "5",
+    // Counts orders quantity specified by store id (optional)
+  storeId: "1",
     // Counts orders quantity specified by customer email (optional)
   customerEmail: "jubari@hannsgroup.com",
     // Counts orders quantity specified by order status (optional)
@@ -307,20 +313,6 @@ const request: OrderApiOrderCountRequest = {
   orderStatusIds: [
     "order_status_ids_example",
   ],
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Counts orders quantity specified by store id (optional)
-  storeId: "1",
-    // Counts orders specified by ids (optional)
-  ids: "24,25",
-    // Counts orders specified by order ids (optional)
-  orderIds: "24,25",
     // Counts orders quantity specified by order status (optional)
   ebayOrderStatus: "Active",
     // Counts orders quantity specified by financial status (optional)
@@ -341,6 +333,14 @@ const request: OrderApiOrderCountRequest = {
   tags: "tag1,tag2",
     // Retrieves order with ship node type (optional)
   shipNodeType: "SellerFulfilled",
+    // Retrieve entities from their creation date (optional)
+  createdFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their creation date (optional)
+  createdTo: "2100-08-29 13:45:52",
+    // Retrieve entities from their modification date (optional)
+  modifiedFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their modification date (optional)
+  modifiedTo: "2100-08-29 13:45:52",
 };
 
 const data = await apiInstance.orderCount(request);
@@ -352,17 +352,13 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **orderIds** | [**string**] | Counts orders specified by order ids | (optional) defaults to undefined
+ **ids** | [**string**] | Counts orders specified by ids | (optional) defaults to undefined
  **customerId** | [**string**] | Counts orders quantity specified by customer id | (optional) defaults to undefined
+ **storeId** | [**string**] | Counts orders quantity specified by store id | (optional) defaults to undefined
  **customerEmail** | [**string**] | Counts orders quantity specified by customer email | (optional) defaults to undefined
  **orderStatus** | [**string**] | Counts orders quantity specified by order status | (optional) defaults to undefined
  **orderStatusIds** | **Array&lt;string&gt;** | Retrieves orders specified by order statuses | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **storeId** | [**string**] | Counts orders quantity specified by store id | (optional) defaults to undefined
- **ids** | [**string**] | Counts orders specified by ids | (optional) defaults to undefined
- **orderIds** | [**string**] | Counts orders specified by order ids | (optional) defaults to undefined
  **ebayOrderStatus** | [**string**] | Counts orders quantity specified by order status | (optional) defaults to undefined
  **financialStatus** | [**string**] | Counts orders quantity specified by financial status | (optional) defaults to undefined
  **financialStatusIds** | **Array&lt;string&gt;** | Retrieves orders count specified by financial status ids | (optional) defaults to undefined
@@ -372,6 +368,10 @@ Name | Type | Description  | Notes
  **deliveryMethod** | [**string**] | Retrieves order with delivery method | (optional) defaults to undefined
  **tags** | [**string**] | Order tags | (optional) defaults to undefined
  **shipNodeType** | [**string**] | Retrieves order with ship node type | (optional) defaults to undefined
+ **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
+ **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
 
 
 ### Return type
@@ -457,20 +457,18 @@ const configuration = createConfiguration();
 const apiInstance = new OrderApi(configuration);
 
 const request: OrderApiOrderFindRequest = {
+    // This parameter sets the number from which you want to get entities (optional)
+  start: 0,
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
     // Retrieves orders specified by customer id (optional)
   customerId: "5",
     // Retrieves orders specified by customer email (optional)
   customerEmail: "jubari@hannsgroup.com",
     // Retrieves orders specified by order status (optional)
   orderStatus: "Completed",
-    // This parameter sets the number from which you want to get entities (optional)
-  start: 0,
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "order_id,totals,status",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "order_id,totals,status",
+    // Retrieves orders specified by financial status (optional)
+  financialStatus: "paid",
     // Retrieve entities to their creation date (optional)
   createdTo: "2100-08-29 13:45:52",
     // Retrieve entities from their creation date (optional)
@@ -479,8 +477,10 @@ const request: OrderApiOrderFindRequest = {
   modifiedTo: "2100-08-29 13:45:52",
     // Retrieve entities from their modification date (optional)
   modifiedFrom: "2010-07-29 13:45:52",
-    // Retrieves orders specified by financial status (optional)
-  financialStatus: "paid",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "order_id,totals,status",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "order_id,totals,status",
 };
 
 const data = await apiInstance.orderFind(request);
@@ -492,18 +492,18 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
+ **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **customerId** | [**string**] | Retrieves orders specified by customer id | (optional) defaults to undefined
  **customerEmail** | [**string**] | Retrieves orders specified by customer email | (optional) defaults to undefined
  **orderStatus** | [**string**] | Retrieves orders specified by order status | (optional) defaults to undefined
- **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'order_id,customer,totals,address,items,bundles,status'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **financialStatus** | [**string**] | Retrieves orders specified by financial status | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **financialStatus** | [**string**] | Retrieves orders specified by financial status | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'order_id,customer,totals,address,items,bundles,status'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -596,18 +596,18 @@ const configuration = createConfiguration();
 const apiInstance = new OrderApi(configuration);
 
 const request: OrderApiOrderInfoRequest = {
-    // Retrieves order’s info specified by order id (optional)
-  orderId: "25",
     // Retrieves order info specified by id (optional)
   id: "10",
+    // Retrieves order’s info specified by order id (optional)
+  orderId: "25",
+    // Defines store id where the order should be found (optional)
+  storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "order_id,totals,status",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result{order_id,customer,totals,address,items,bundles,status}}",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "order_id,totals,status",
-    // Defines store id where the order should be found (optional)
-  storeId: "1",
     // If the value is \'true\' and order exist in our cache, we will return order.info response from cache (optional)
   enableCache: true,
     // Use the latest platform API version (optional)
@@ -623,12 +623,12 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderId** | [**string**] | Retrieves order’s info specified by order id | (optional) defaults to undefined
  **id** | [**string**] | Retrieves order info specified by id | (optional) defaults to undefined
+ **orderId** | [**string**] | Retrieves order’s info specified by order id | (optional) defaults to undefined
+ **storeId** | [**string**] | Defines store id where the order should be found | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'order_id,customer,totals,address,items,bundles,status'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **storeId** | [**string**] | Defines store id where the order should be found | (optional) defaults to undefined
  **enableCache** | [**boolean**] | If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache | (optional) defaults to false
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
@@ -670,10 +670,28 @@ const configuration = createConfiguration();
 const apiInstance = new OrderApi(configuration);
 
 const request: OrderApiOrderListRequest = {
+    // This parameter sets the number from which you want to get entities (optional)
+  start: 0,
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
+    // Used to retrieve orders via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Retrieves orders specified by ids (optional)
+  ids: "24,25",
+    // Retrieves orders specified by order ids (optional)
+  orderIds: "24,25",
+    // Retrieve entities starting from the specified id. (optional)
+  sinceId: "56",
+    // Store Id (optional)
+  storeId: "1",
     // Retrieves orders specified by customer id (optional)
   customerId: "5",
     // Retrieves orders specified by customer email (optional)
   customerEmail: "jubari@hannsgroup.com",
+    // Retrieves order’s info specified by basket id. (optional)
+  basketId: "1",
+    // Currency Id (optional)
+  currencyId: "usd",
     // Filter orders by customer\'s phone number (optional)
   phone: "56686868654",
     // Retrieves orders specified by order status (optional)
@@ -682,12 +700,42 @@ const request: OrderApiOrderListRequest = {
   orderStatusIds: [
     "order_status_ids_example",
   ],
-    // This parameter sets the number from which you want to get entities (optional)
-  start: 0,
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // Used to retrieve orders via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
+    // Retrieves orders specified by order status (optional)
+  ebayOrderStatus: "Active",
+    // Retrieves orders specified by financial status (optional)
+  financialStatus: "paid",
+    // Retrieves orders specified by financial status ids (optional)
+  financialStatusIds: [
+    "financial_status_ids_example",
+  ],
+    // Create order with fulfillment status (optional)
+  fulfillmentStatus: "fulfilled",
+    // Retrieves orders specified by return status (optional)
+  returnStatus: "RETURNED",
+    // Retrieves order with a fulfillment channel (optional)
+  fulfillmentChannel: "local",
+    // Retrieve entities according to shipping method (optional)
+  shippingMethod: "flatrate_flatrate",
+    // Skipped orders by ids (optional)
+  skipOrderIds: "24,25",
+    // Filter deleted orders (optional)
+  isDeleted: true,
+    // Retrieve entities according to shipping country (optional)
+  shippingCountryIso3: "DEU",
+    // Retrieves order with delivery method (optional)
+  deliveryMethod: "local",
+    // Retrieves order with ship node type (optional)
+  shipNodeType: "SellerFulfilled",
+    // Retrieve entities to their creation date (optional)
+  createdTo: "2100-08-29 13:45:52",
+    // Retrieve entities from their creation date (optional)
+  createdFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their modification date (optional)
+  modifiedTo: "2100-08-29 13:45:52",
+    // Retrieve entities from their modification date (optional)
+  modifiedFrom: "2010-07-29 13:45:52",
+    // Order tags (optional)
+  tags: "tag1,tag2",
     // Set field to sort by (optional)
   sortBy: "modified_at",
     // Set sorting direction (optional)
@@ -698,56 +746,8 @@ const request: OrderApiOrderListRequest = {
   responseFields: "{return_code,pagination,result{order{order_id,customer,totals,address,items,bundles,status}}}",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "order_id,totals,status",
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Store Id (optional)
-  storeId: "1",
-    // Retrieves orders specified by ids (optional)
-  ids: "24,25",
-    // Retrieves orders specified by order ids (optional)
-  orderIds: "24,25",
-    // Retrieves orders specified by order status (optional)
-  ebayOrderStatus: "Active",
-    // Retrieves order’s info specified by basket id. (optional)
-  basketId: "1",
-    // Retrieves orders specified by financial status (optional)
-  financialStatus: "paid",
-    // Retrieves orders specified by financial status ids (optional)
-  financialStatusIds: [
-    "financial_status_ids_example",
-  ],
-    // Create order with fulfillment status (optional)
-  fulfillmentStatus: "fulfilled",
-    // Retrieves order with a fulfillment channel (optional)
-  fulfillmentChannel: "local",
-    // Retrieve entities according to shipping method (optional)
-  shippingMethod: "flatrate_flatrate",
-    // Skipped orders by ids (optional)
-  skipOrderIds: "24,25",
-    // Retrieve entities starting from the specified id. (optional)
-  sinceId: "56",
-    // Filter deleted orders (optional)
-  isDeleted: true,
-    // Retrieve entities according to shipping country (optional)
-  shippingCountryIso3: "DEU",
     // If the value is \'true\', we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) (optional)
   enableCache: true,
-    // Retrieves order with delivery method (optional)
-  deliveryMethod: "local",
-    // Order tags (optional)
-  tags: "tag1,tag2",
-    // Retrieves order with ship node type (optional)
-  shipNodeType: "SellerFulfilled",
-    // Currency Id (optional)
-  currencyId: "usd",
-    // Retrieves orders specified by return status (optional)
-  returnStatus: "RETURNED",
     // Use the latest platform API version (optional)
   useLatestApiVersion: true,
 };
@@ -761,43 +761,43 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerId** | [**string**] | Retrieves orders specified by customer id | (optional) defaults to undefined
- **customerEmail** | [**string**] | Retrieves orders specified by customer email | (optional) defaults to undefined
- **phone** | [**string**] | Filter orders by customer\&#39;s phone number | (optional) defaults to undefined
- **orderStatus** | [**string**] | Retrieves orders specified by order status | (optional) defaults to undefined
- **orderStatusIds** | **Array&lt;string&gt;** | Retrieves orders specified by order statuses | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **ids** | [**string**] | Retrieves orders specified by ids | (optional) defaults to undefined
+ **orderIds** | [**string**] | Retrieves orders specified by order ids | (optional) defaults to undefined
+ **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **customerId** | [**string**] | Retrieves orders specified by customer id | (optional) defaults to undefined
+ **customerEmail** | [**string**] | Retrieves orders specified by customer email | (optional) defaults to undefined
+ **basketId** | [**string**] | Retrieves order’s info specified by basket id. | (optional) defaults to undefined
+ **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
+ **phone** | [**string**] | Filter orders by customer\&#39;s phone number | (optional) defaults to undefined
+ **orderStatus** | [**string**] | Retrieves orders specified by order status | (optional) defaults to undefined
+ **orderStatusIds** | **Array&lt;string&gt;** | Retrieves orders specified by order statuses | (optional) defaults to undefined
+ **ebayOrderStatus** | [**string**] | Retrieves orders specified by order status | (optional) defaults to undefined
+ **financialStatus** | [**string**] | Retrieves orders specified by financial status | (optional) defaults to undefined
+ **financialStatusIds** | **Array&lt;string&gt;** | Retrieves orders specified by financial status ids | (optional) defaults to undefined
+ **fulfillmentStatus** | [**string**] | Create order with fulfillment status | (optional) defaults to undefined
+ **returnStatus** | [**string**] | Retrieves orders specified by return status | (optional) defaults to undefined
+ **fulfillmentChannel** | [**string**] | Retrieves order with a fulfillment channel | (optional) defaults to undefined
+ **shippingMethod** | [**string**] | Retrieve entities according to shipping method | (optional) defaults to undefined
+ **skipOrderIds** | [**string**] | Skipped orders by ids | (optional) defaults to undefined
+ **isDeleted** | [**boolean**] | Filter deleted orders | (optional) defaults to undefined
+ **shippingCountryIso3** | [**string**] | Retrieve entities according to shipping country | (optional) defaults to undefined
+ **deliveryMethod** | [**string**] | Retrieves order with delivery method | (optional) defaults to undefined
+ **shipNodeType** | [**string**] | Retrieves order with ship node type | (optional) defaults to undefined
+ **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
+ **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
+ **tags** | [**string**] | Order tags | (optional) defaults to undefined
  **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'order_id'
  **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'order_id,customer,totals,address,items,bundles,status'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **ids** | [**string**] | Retrieves orders specified by ids | (optional) defaults to undefined
- **orderIds** | [**string**] | Retrieves orders specified by order ids | (optional) defaults to undefined
- **ebayOrderStatus** | [**string**] | Retrieves orders specified by order status | (optional) defaults to undefined
- **basketId** | [**string**] | Retrieves order’s info specified by basket id. | (optional) defaults to undefined
- **financialStatus** | [**string**] | Retrieves orders specified by financial status | (optional) defaults to undefined
- **financialStatusIds** | **Array&lt;string&gt;** | Retrieves orders specified by financial status ids | (optional) defaults to undefined
- **fulfillmentStatus** | [**string**] | Create order with fulfillment status | (optional) defaults to undefined
- **fulfillmentChannel** | [**string**] | Retrieves order with a fulfillment channel | (optional) defaults to undefined
- **shippingMethod** | [**string**] | Retrieve entities according to shipping method | (optional) defaults to undefined
- **skipOrderIds** | [**string**] | Skipped orders by ids | (optional) defaults to undefined
- **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
- **isDeleted** | [**boolean**] | Filter deleted orders | (optional) defaults to undefined
- **shippingCountryIso3** | [**string**] | Retrieve entities according to shipping country | (optional) defaults to undefined
  **enableCache** | [**boolean**] | If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add) | (optional) defaults to false
- **deliveryMethod** | [**string**] | Retrieves order with delivery method | (optional) defaults to undefined
- **tags** | [**string**] | Order tags | (optional) defaults to undefined
- **shipNodeType** | [**string**] | Retrieves order with ship node type | (optional) defaults to undefined
- **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
- **returnStatus** | [**string**] | Retrieves orders specified by return status | (optional) defaults to undefined
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
@@ -840,10 +840,10 @@ const apiInstance = new OrderApi(configuration);
 const request: OrderApiOrderPreestimateShippingListRequest = {
   
   orderPreestimateShippingList: {
-    storeId: "1",
     warehouseId: "1",
-    customerEmail: "jubari@hannsgroup.com",
     customerId: "5",
+    customerEmail: "jubari@hannsgroup.com",
+    storeId: "1",
     shippAddress1: "Green str. 35",
     shippCity: "Chicago",
     shippPostcode: "24545",
@@ -1202,8 +1202,8 @@ const request: OrderApiOrderShipmentAddRequest = {
   
   orderShipmentAdd: {
     orderId: "25",
-    storeId: "1",
     warehouseId: "1",
+    storeId: "1",
     shipmentProvider: "UPS",
     shippingMethod: "flatrate_flatrate",
     items: [
@@ -1212,17 +1212,17 @@ const request: OrderApiOrderShipmentAddRequest = {
         quantity: 3.14,
       },
     ],
-    sendNotifications: true,
     trackingNumbers: [
       {
         carrierId: "carrierId_example",
         trackingNumber: "trackingNumber_example",
       },
     ],
-    adjustStock: true,
-    enableCache: true,
     trackingLink: "http://example.com?someParam=value",
     isShipped: true,
+    sendNotifications: true,
+    adjustStock: true,
+    enableCache: true,
     checkProcessStatus: false,
     useLatestApiVersion: true,
   },
@@ -1415,14 +1415,14 @@ const request: OrderApiOrderShipmentInfoRequest = {
   orderId: "25",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
     // Store Id (optional)
   storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
 };
 
 const data = await apiInstance.orderShipmentInfo(request);
@@ -1437,10 +1437,10 @@ Name | Type | Description  | Notes
  **id** | [**string**] | Entity id | defaults to undefined
  **orderId** | [**string**] | Defines the order id | defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,order_id,items,tracking_numbers'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,order_id,items,tracking_numbers'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -1482,18 +1482,14 @@ const apiInstance = new OrderApi(configuration);
 const request: OrderApiOrderShipmentListRequest = {
     // Retrieves shipments specified by order id
   orderId: "25",
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{status_code,pagination,result{shipment{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Store Id (optional)
+  storeId: "1",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -1502,8 +1498,12 @@ const request: OrderApiOrderShipmentListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Store Id (optional)
-  storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{status_code,pagination,result{shipment{id,order_id,shipment_provider,tracking_numbers{tracking_number},items{product_id,quantity}}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
 };
 
 const data = await apiInstance.orderShipmentList(request);
@@ -1516,17 +1516,17 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderId** | [**string**] | Retrieves shipments specified by order id | defaults to undefined
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,order_id,items,tracking_numbers'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,order_id,items,tracking_numbers'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -1568,10 +1568,10 @@ const apiInstance = new OrderApi(configuration);
 const request: OrderApiOrderShipmentTrackingAddRequest = {
   
   orderShipmentTrackingAdd: {
-    storeId: "1",
     orderId: "25",
     shipmentId: "200000002",
     carrierId: "USPS",
+    storeId: "1",
     trackingProvider: "Custom tracker",
     trackingNumber: "1А6745",
     trackingLink: "http://example.com?someParam=value",
@@ -1630,20 +1630,20 @@ const apiInstance = new OrderApi(configuration);
 const request: OrderApiOrderShipmentUpdateRequest = {
   
   orderShipmentUpdate: {
-    storeId: "1",
     shipmentId: "200000002",
     orderId: "25",
+    storeId: "1",
+    shipmentProvider: "UPS",
     trackingNumbers: [
       {
         carrierId: "carrierId_example",
         trackingNumber: "trackingNumber_example",
       },
     ],
-    replace: false,
-    isShipped: true,
     trackingLink: "http://example.com?someParam=value",
+    isShipped: true,
     deliveredAt: "2024-08-25T23:56:12+00:00",
-    shipmentProvider: "UPS",
+    replace: false,
   },
 };
 
@@ -1759,6 +1759,8 @@ const request: OrderApiOrderTransactionListRequest = {
   orderIds: "24,25",
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Store Id (optional)
   storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
@@ -1767,8 +1769,6 @@ const request: OrderApiOrderTransactionListRequest = {
   responseFields: "{return_code,pagination,result{transactions_count,transactions{id,transaction_id,status,description,settlement_amount,gateway,card_brand,card_last_four}}}",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
 };
 
 const data = await apiInstance.orderTransactionList(request);
@@ -1782,11 +1782,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orderIds** | [**string**] | Retrieves order transactions specified by order ids | defaults to undefined
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,order_id,amount,description'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
 
 
 ### Return type
@@ -1832,32 +1832,32 @@ const request: OrderApiOrderUpdateRequest = {
   storeId: "1",
     // Defines new order\'s status (optional)
   orderStatus: "Completed",
+    // Update order financial status to specified (optional)
+  financialStatus: "paid",
+    // Create order with fulfillment status (optional)
+  fulfillmentStatus: "fulfilled",
     // Defines the cancellation reason when the order will be canceled (optional)
   cancellationReason: "ORDER_UNPAID",
+    // Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to \'paid\' (optional)
+  orderPaymentMethod: "PayPal",
     // Specifies order comment (optional)
   comment: "This coole order",
     // Specifies admin\'s order comment (optional)
   adminComment: "Test admin comment",
     // Specifies private admin\'s order comment (optional)
   adminPrivateComment: "Test admin private comment",
+    // Specifies admin\'s order invoice comment (optional)
+  invoiceAdminComment: "Test admin comment",
     // Specifies order\'s  modification date (optional)
   dateModified: "2014-05-05 05:05:00",
     // Specifies order\'s  finished date (optional)
   dateFinished: "2014-06-05 05:05:00",
-    // Update order financial status to specified (optional)
-  financialStatus: "paid",
-    // Create order with fulfillment status (optional)
-  fulfillmentStatus: "fulfilled",
-    // Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to \'paid\' (optional)
-  orderPaymentMethod: "PayPal",
     // Send notifications to customer after order was created (optional)
   sendNotifications: true,
-    // The source of the order (optional)
-  origin: "newsletter",
     // Determines whether an invoice should be created if it has not already been created (optional)
   createInvoice: true,
-    // Specifies admin\'s order invoice comment (optional)
-  invoiceAdminComment: "Test admin comment",
+    // The source of the order (optional)
+  origin: "newsletter",
 };
 
 const data = await apiInstance.orderUpdate(request);
@@ -1872,19 +1872,19 @@ Name | Type | Description  | Notes
  **orderId** | [**string**] | Defines the orders specified by order id | defaults to undefined
  **storeId** | [**string**] | Defines store id where the order should be found | (optional) defaults to undefined
  **orderStatus** | [**string**] | Defines new order\&#39;s status | (optional) defaults to undefined
+ **financialStatus** | [**string**] | Update order financial status to specified | (optional) defaults to undefined
+ **fulfillmentStatus** | [**string**] | Create order with fulfillment status | (optional) defaults to undefined
  **cancellationReason** | [**string**] | Defines the cancellation reason when the order will be canceled | (optional) defaults to undefined
+ **orderPaymentMethod** | [**string**] | Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39; | (optional) defaults to undefined
  **comment** | [**string**] | Specifies order comment | (optional) defaults to undefined
  **adminComment** | [**string**] | Specifies admin\&#39;s order comment | (optional) defaults to undefined
  **adminPrivateComment** | [**string**] | Specifies private admin\&#39;s order comment | (optional) defaults to undefined
+ **invoiceAdminComment** | [**string**] | Specifies admin\&#39;s order invoice comment | (optional) defaults to undefined
  **dateModified** | [**string**] | Specifies order\&#39;s  modification date | (optional) defaults to undefined
  **dateFinished** | [**string**] | Specifies order\&#39;s  finished date | (optional) defaults to undefined
- **financialStatus** | [**string**] | Update order financial status to specified | (optional) defaults to undefined
- **fulfillmentStatus** | [**string**] | Create order with fulfillment status | (optional) defaults to undefined
- **orderPaymentMethod** | [**string**] | Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39; | (optional) defaults to undefined
  **sendNotifications** | [**boolean**] | Send notifications to customer after order was created | (optional) defaults to false
- **origin** | [**string**] | The source of the order | (optional) defaults to undefined
  **createInvoice** | [**boolean**] | Determines whether an invoice should be created if it has not already been created | (optional) defaults to undefined
- **invoiceAdminComment** | [**string**] | Specifies admin\&#39;s order invoice comment | (optional) defaults to undefined
+ **origin** | [**string**] | The source of the order | (optional) defaults to undefined
 
 
 ### Return type

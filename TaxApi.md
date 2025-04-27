@@ -31,9 +31,9 @@ const request: TaxApiTaxClassInfoRequest = {
     // Language id (optional)
   langId: "3",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "tax_class_id,tax",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result{id,name,tax,tax_rates{id,countries{id,name,states},cities,address,zip_codes{is_range,range,fields}}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "tax_class_id,tax",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "tax_class_id,tax",
 };
@@ -50,8 +50,8 @@ Name | Type | Description  | Notes
  **taxClassId** | [**string**] | Retrieves taxes specified by class id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'tax_class_id,name,avail'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'tax_class_id,name,avail'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -92,6 +92,16 @@ const configuration = createConfiguration();
 const apiInstance = new TaxApi(configuration);
 
 const request: TaxApiTaxClassListRequest = {
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Store Id (optional)
+  storeId: "1",
+    // Entity search that is specified by some value (optional)
+  findValue: "tax",
+    // Tax class search that is specified by field (optional)
+  findWhere: "name",
     // Retrieve entities to their creation date (optional)
   createdTo: "2100-08-29 13:45:52",
     // Retrieve entities from their creation date (optional)
@@ -100,16 +110,6 @@ const request: TaxApiTaxClassListRequest = {
   modifiedTo: "2100-08-29 13:45:52",
     // Retrieve entities from their modification date (optional)
   modifiedFrom: "2010-07-29 13:45:52",
-    // Entity search that is specified by some value (optional)
-  findValue: "tax",
-    // Tax class search that is specified by field (optional)
-  findWhere: "name",
-    // Store Id (optional)
-  storeId: "1",
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{result}",
 };
@@ -123,15 +123,15 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
+ **findWhere** | [**string**] | Tax class search that is specified by field | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
- **findWhere** | [**string**] | Tax class search that is specified by field | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to '{return_code,return_message,pagination,result}'
 
 

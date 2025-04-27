@@ -143,11 +143,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param storeId Store Id
      * @param langId Language id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async customerAttributeList(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerAttributeList(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'customerId' is not null or undefined
@@ -196,6 +196,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -203,11 +208,6 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 
@@ -234,20 +234,20 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get number of customers from store.
      * customer.count
+     * @param ids Counts customers specified by ids
+     * @param sinceId Retrieve entities starting from the specified id.
+     * @param customerListId The numeric ID of the customer list in Demandware.
      * @param groupId Customer group_id
+     * @param storeId Counts customer specified by store id
+     * @param avail Defines category\&#39;s visibility status
+     * @param findValue Entity search that is specified by some value
+     * @param findWhere Counts customers that are searched specified by field
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
-     * @param storeId Counts customer specified by store id
-     * @param customerListId The numeric ID of the customer list in Demandware.
-     * @param avail Defines category\&#39;s visibility status
-     * @param findValue Entity search that is specified by some value
-     * @param findWhere Counts customers that are searched specified by field
-     * @param ids Counts customers specified by ids
-     * @param sinceId Retrieve entities starting from the specified id.
      */
-    public async customerCount(groupId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, ids?: string, sinceId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -270,8 +270,43 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
+        if (sinceId !== undefined) {
+            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
+        }
+
+        // Query Params
+        if (customerListId !== undefined) {
+            requestContext.setQueryParam("customer_list_id", ObjectSerializer.serialize(customerListId, "string", ""));
+        }
+
+        // Query Params
         if (groupId !== undefined) {
             requestContext.setQueryParam("group_id", ObjectSerializer.serialize(groupId, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (avail !== undefined) {
+            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (findValue !== undefined) {
+            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
+        }
+
+        // Query Params
+        if (findWhere !== undefined) {
+            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
         }
 
         // Query Params
@@ -292,41 +327,6 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (modifiedTo !== undefined) {
             requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (customerListId !== undefined) {
-            requestContext.setQueryParam("customer_list_id", ObjectSerializer.serialize(customerListId, "string", ""));
-        }
-
-        // Query Params
-        if (avail !== undefined) {
-            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
-        }
-
-        // Query Params
-        if (findValue !== undefined) {
-            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
-        }
-
-        // Query Params
-        if (findWhere !== undefined) {
-            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
-        }
-
-        // Query Params
-        if (ids !== undefined) {
-            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
-        }
-
-        // Query Params
-        if (sinceId !== undefined) {
-            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
         }
 
 
@@ -529,18 +529,18 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get list of customers groups.
      * customer.group.list
-     * @param disableCache Disable cache for current request
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param groupIds Groups that will be assigned to a customer
      * @param storeId Store Id
      * @param langId Language id
-     * @param groupIds Groups that will be assigned to a customer
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param disableCache Disable cache for current request
      */
-    public async customerGroupList(disableCache?: boolean, pageCursor?: string, start?: number, count?: number, storeId?: string, langId?: string, groupIds?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerGroupList(start?: number, count?: number, pageCursor?: string, groupIds?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, disableCache?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -561,8 +561,13 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (disableCache !== undefined) {
-            requestContext.setQueryParam("disable_cache", ObjectSerializer.serialize(disableCache, "boolean", ""));
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        }
+
+        // Query Params
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
         }
 
         // Query Params
@@ -571,13 +576,8 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
-        }
-
-        // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        if (groupIds !== undefined) {
+            requestContext.setQueryParam("group_ids", ObjectSerializer.serialize(groupIds, "string", ""));
         }
 
         // Query Params
@@ -591,8 +591,8 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (groupIds !== undefined) {
-            requestContext.setQueryParam("group_ids", ObjectSerializer.serialize(groupIds, "string", ""));
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
@@ -606,8 +606,8 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        if (disableCache !== undefined) {
+            requestContext.setQueryParam("disable_cache", ObjectSerializer.serialize(disableCache, "boolean", ""));
         }
 
 
@@ -635,12 +635,12 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * Get customers\' details from store.
      * customer.info
      * @param id Retrieves customer\&#39;s info specified by customer id
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param storeId Retrieves customer info specified by store id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async customerInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -666,8 +666,8 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -676,13 +676,13 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -709,28 +709,28 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get list of customers from store.
      * customer.list
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param ids Retrieves customers specified by ids
+     * @param sinceId Retrieve entities starting from the specified id.
+     * @param customerListId The numeric ID of the customer list in Demandware.
+     * @param groupId Customer group_id
+     * @param storeId Retrieves customers specified by store id
+     * @param avail Defines category\&#39;s visibility status
+     * @param findValue Entity search that is specified by some value
+     * @param findWhere Customer search that is specified by field
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param groupId Customer group_id
-     * @param storeId Retrieves customers specified by store id
-     * @param customerListId The numeric ID of the customer list in Demandware.
-     * @param avail Defines category\&#39;s visibility status
-     * @param findValue Entity search that is specified by some value
-     * @param findWhere Customer search that is specified by field
      * @param sortBy Set field to sort by
      * @param sortDirection Set sorting direction
-     * @param ids Retrieves customers specified by ids
-     * @param sinceId Retrieve entities starting from the specified id.
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async customerList(pageCursor?: string, start?: number, count?: number, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, responseFields?: string, exclude?: string, groupId?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, sortBy?: string, sortDirection?: string, ids?: string, sinceId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -761,11 +761,6 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
-        }
-
-        // Query Params
         if (start !== undefined) {
             requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
@@ -773,6 +768,51 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (count !== undefined) {
             requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
+        if (sinceId !== undefined) {
+            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
+        }
+
+        // Query Params
+        if (customerListId !== undefined) {
+            requestContext.setQueryParam("customer_list_id", ObjectSerializer.serialize(customerListId, "string", ""));
+        }
+
+        // Query Params
+        if (groupId !== undefined) {
+            requestContext.setQueryParam("group_id", ObjectSerializer.serialize(groupId, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (avail !== undefined) {
+            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (findValue !== undefined) {
+            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
+        }
+
+        // Query Params
+        if (findWhere !== undefined) {
+            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
         }
 
         // Query Params
@@ -796,51 +836,6 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (groupId !== undefined) {
-            requestContext.setQueryParam("group_id", ObjectSerializer.serialize(groupId, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (customerListId !== undefined) {
-            requestContext.setQueryParam("customer_list_id", ObjectSerializer.serialize(customerListId, "string", ""));
-        }
-
-        // Query Params
-        if (avail !== undefined) {
-            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
-        }
-
-        // Query Params
-        if (findValue !== undefined) {
-            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
-        }
-
-        // Query Params
-        if (findWhere !== undefined) {
-            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
-        }
-
-        // Query Params
         if (sortBy !== undefined) {
             requestContext.setQueryParam("sort_by", ObjectSerializer.serialize(sortBy, "string", ""));
         }
@@ -851,13 +846,18 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (ids !== undefined) {
-            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
-        if (sinceId !== undefined) {
-            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -938,14 +938,14 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * Get a Wish List of customer from the store.
      * customer.wishlist.list
      * @param customerId Retrieves orders specified by customer id
-     * @param id Entity id
-     * @param storeId Store Id
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param id Entity id
+     * @param storeId Store Id
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async customerWishlistList(customerId: string, id?: string, storeId?: string, start?: number, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerWishlistList(customerId: string, start?: number, count?: number, pageCursor?: string, id?: string, storeId?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'customerId' is not null or undefined
@@ -968,21 +968,6 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (customerId !== undefined) {
-            requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
-        }
-
-        // Query Params
-        if (id !== undefined) {
-            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
         if (start !== undefined) {
             requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
@@ -995,6 +980,21 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (pageCursor !== undefined) {
             requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
+        if (customerId !== undefined) {
+            requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
+        }
+
+        // Query Params
+        if (id !== undefined) {
+            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params

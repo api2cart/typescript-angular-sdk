@@ -307,6 +307,10 @@ export class AccountCartAdd {
     */
     'shoplineAppSecret'?: string;
     /**
+    * Shopline Shared Secret
+    */
+    'shoplineSharedSecret'?: string;
+    /**
     * Access token authorizing the app to access resources on behalf of a user
     */
     'shopifyAccessToken'?: string;
@@ -1047,6 +1051,12 @@ export class AccountCartAdd {
         {
             "name": "shoplineAppSecret",
             "baseName": "shopline_app_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shoplineSharedSecret",
+            "baseName": "shopline_shared_secret",
             "type": "string",
             "format": ""
         },

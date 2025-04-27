@@ -453,19 +453,19 @@ export interface AccountApiAccountCartAddRequest {
 
 export interface AccountApiAccountCartListRequest {
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;force_all&#39;
-     * @type string
-     * @memberof AccountApiaccountCartList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * A web address of a store
      * Defaults to: undefined
      * @type string
      * @memberof AccountApiaccountCartList
      */
-    exclude?: string
+    storeUrl?: string
+    /**
+     * Find store by store key
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountCartList
+     */
+    storeKey?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -481,19 +481,19 @@ export interface AccountApiAccountCartListRequest {
      */
     requestToDate?: string
     /**
-     * A web address of a store
-     * Defaults to: undefined
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;force_all&#39;
      * @type string
      * @memberof AccountApiaccountCartList
      */
-    storeUrl?: string
+    params?: string
     /**
-     * Find store by store key
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof AccountApiaccountCartList
      */
-    storeKey?: string
+    exclude?: string
 }
 
 export interface AccountApiAccountConfigUpdateRequest {
@@ -910,6 +910,13 @@ export interface AccountApiAccountConfigUpdateRequest {
      * @memberof AccountApiaccountConfigUpdate
      */
     shoplineAppSecret?: string
+    /**
+     * Shopline Shared Secret
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    shoplineSharedSecret?: string
     /**
      * Access token authorizing the app to access resources on behalf of a user
      * Defaults to: undefined
@@ -1488,19 +1495,19 @@ export interface AccountApiAccountConfigUpdateRequest {
 
 export interface AccountApiAccountFailedWebhooksRequest {
     /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof AccountApiaccountFailedWebhooks
-     */
-    count?: number
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
      * @memberof AccountApiaccountFailedWebhooks
      */
     start?: number
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof AccountApiaccountFailedWebhooks
+     */
+    count?: number
     /**
      * List of сomma-separated webhook ids
      * Defaults to: undefined
@@ -1544,7 +1551,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountCartListWithHttpInfo(param: AccountApiAccountCartListRequest = {}, options?: Configuration): Promise<HttpInfo<AccountCartList200Response>> {
-        return this.api.accountCartListWithHttpInfo(param.params, param.exclude, param.requestFromDate, param.requestToDate, param.storeUrl, param.storeKey,  options).toPromise();
+        return this.api.accountCartListWithHttpInfo(param.storeUrl, param.storeKey, param.requestFromDate, param.requestToDate, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -1553,7 +1560,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountCartList(param: AccountApiAccountCartListRequest = {}, options?: Configuration): Promise<AccountCartList200Response> {
-        return this.api.accountCartList(param.params, param.exclude, param.requestFromDate, param.requestToDate, param.storeUrl, param.storeKey,  options).toPromise();
+        return this.api.accountCartList(param.storeUrl, param.storeKey, param.requestFromDate, param.requestToDate, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -1562,7 +1569,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdateWithHttpInfo(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken,  options).toPromise();
+        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken,  options).toPromise();
     }
 
     /**
@@ -1571,7 +1578,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdate(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken,  options).toPromise();
+        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken,  options).toPromise();
     }
 
     /**
@@ -1580,7 +1587,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountFailedWebhooksWithHttpInfo(param: AccountApiAccountFailedWebhooksRequest = {}, options?: Configuration): Promise<HttpInfo<AccountFailedWebhooks200Response>> {
-        return this.api.accountFailedWebhooksWithHttpInfo(param.count, param.start, param.ids,  options).toPromise();
+        return this.api.accountFailedWebhooksWithHttpInfo(param.start, param.count, param.ids,  options).toPromise();
     }
 
     /**
@@ -1589,7 +1596,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountFailedWebhooks(param: AccountApiAccountFailedWebhooksRequest = {}, options?: Configuration): Promise<AccountFailedWebhooks200Response> {
-        return this.api.accountFailedWebhooks(param.count, param.start, param.ids,  options).toPromise();
+        return this.api.accountFailedWebhooks(param.start, param.count, param.ids,  options).toPromise();
     }
 
     /**
@@ -1830,6 +1837,13 @@ export interface AttributeApiAttributeAttributesetListRequest {
     count?: number
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeAttributesetList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,name&#39;
      * @type string
      * @memberof AttributeApiattributeAttributesetList
@@ -1842,13 +1856,6 @@ export interface AttributeApiAttributeAttributesetListRequest {
      * @memberof AttributeApiattributeAttributesetList
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeAttributesetList
-     */
-    responseFields?: string
 }
 
 export interface AttributeApiAttributeCountRequest {
@@ -1936,12 +1943,26 @@ export interface AttributeApiAttributeGroupListRequest {
      */
     count?: number
     /**
+     * Attribute set id
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeGroupList
+     */
+    attributeSetId?: string
+    /**
      * Language id
      * Defaults to: undefined
      * @type string
      * @memberof AttributeApiattributeGroupList
      */
     langId?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeGroupList
+     */
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,name&#39;
@@ -1956,20 +1977,6 @@ export interface AttributeApiAttributeGroupListRequest {
      * @memberof AttributeApiattributeGroupList
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeGroupList
-     */
-    responseFields?: string
-    /**
-     * Attribute set id
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeGroupList
-     */
-    attributeSetId?: string
 }
 
 export interface AttributeApiAttributeInfoRequest {
@@ -2003,6 +2010,13 @@ export interface AttributeApiAttributeInfoRequest {
     langId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;force_all&#39;
      * @type string
      * @memberof AttributeApiattributeInfo
@@ -2015,13 +2029,6 @@ export interface AttributeApiAttributeInfoRequest {
      * @memberof AttributeApiattributeInfo
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeInfo
-     */
-    responseFields?: string
 }
 
 export interface AttributeApiAttributeListRequest {
@@ -2039,13 +2046,6 @@ export interface AttributeApiAttributeListRequest {
      * @memberof AttributeApiattributeList
      */
     count?: number
-    /**
-     * Defines attribute\&#39;s type
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeList
-     */
-    type?: string
     /**
      * Filter attributes by ids
      * Defaults to: undefined
@@ -2075,26 +2075,12 @@ export interface AttributeApiAttributeListRequest {
      */
     langId?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,code,type&#39;
-     * @type string
-     * @memberof AttributeApiattributeList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defines attribute\&#39;s type
      * Defaults to: undefined
      * @type string
      * @memberof AttributeApiattributeList
      */
-    exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof AttributeApiattributeList
-     */
-    responseFields?: string
+    type?: string
     /**
      * Filter items by visibility status
      * Defaults to: undefined
@@ -2116,6 +2102,27 @@ export interface AttributeApiAttributeListRequest {
      * @memberof AttributeApiattributeList
      */
     system?: boolean
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,code,type&#39;
+     * @type string
+     * @memberof AttributeApiattributeList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeList
+     */
+    exclude?: string
 }
 
 export interface AttributeApiAttributeTypeListRequest {
@@ -2374,7 +2381,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAttributesetListWithHttpInfo(param: AttributeApiAttributeAttributesetListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseAttributeAttributesetList>> {
-        return this.api.attributeAttributesetListWithHttpInfo(param.start, param.count, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.attributeAttributesetListWithHttpInfo(param.start, param.count, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2383,7 +2390,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAttributesetList(param: AttributeApiAttributeAttributesetListRequest = {}, options?: Configuration): Promise<ModelResponseAttributeAttributesetList> {
-        return this.api.attributeAttributesetList(param.start, param.count, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.attributeAttributesetList(param.start, param.count, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2428,7 +2435,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeGroupListWithHttpInfo(param: AttributeApiAttributeGroupListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseAttributeGroupList>> {
-        return this.api.attributeGroupListWithHttpInfo(param.start, param.count, param.langId, param.params, param.exclude, param.responseFields, param.attributeSetId,  options).toPromise();
+        return this.api.attributeGroupListWithHttpInfo(param.start, param.count, param.attributeSetId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2437,7 +2444,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeGroupList(param: AttributeApiAttributeGroupListRequest = {}, options?: Configuration): Promise<ModelResponseAttributeGroupList> {
-        return this.api.attributeGroupList(param.start, param.count, param.langId, param.params, param.exclude, param.responseFields, param.attributeSetId,  options).toPromise();
+        return this.api.attributeGroupList(param.start, param.count, param.attributeSetId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2446,7 +2453,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeInfoWithHttpInfo(param: AttributeApiAttributeInfoRequest, options?: Configuration): Promise<HttpInfo<AttributeInfo200Response>> {
-        return this.api.attributeInfoWithHttpInfo(param.id, param.attributeSetId, param.storeId, param.langId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.attributeInfoWithHttpInfo(param.id, param.attributeSetId, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2455,7 +2462,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeInfo(param: AttributeApiAttributeInfoRequest, options?: Configuration): Promise<AttributeInfo200Response> {
-        return this.api.attributeInfo(param.id, param.attributeSetId, param.storeId, param.langId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.attributeInfo(param.id, param.attributeSetId, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2464,7 +2471,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeListWithHttpInfo(param: AttributeApiAttributeListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseAttributeList>> {
-        return this.api.attributeListWithHttpInfo(param.start, param.count, param.type, param.attributeIds, param.attributeSetId, param.storeId, param.langId, param.params, param.exclude, param.responseFields, param.visible, param.required, param.system,  options).toPromise();
+        return this.api.attributeListWithHttpInfo(param.start, param.count, param.attributeIds, param.attributeSetId, param.storeId, param.langId, param.type, param.visible, param.required, param.system, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2473,7 +2480,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeList(param: AttributeApiAttributeListRequest = {}, options?: Configuration): Promise<ModelResponseAttributeList> {
-        return this.api.attributeList(param.start, param.count, param.type, param.attributeIds, param.attributeSetId, param.storeId, param.langId, param.params, param.exclude, param.responseFields, param.visible, param.required, param.system,  options).toPromise();
+        return this.api.attributeList(param.start, param.count, param.attributeIds, param.attributeSetId, param.storeId, param.langId, param.type, param.visible, param.required, param.system, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2624,6 +2631,13 @@ export interface BasketApiBasketInfoRequest {
     storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof BasketApibasketInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;force_all&#39;
      * @type string
      * @memberof BasketApibasketInfo
@@ -2636,13 +2650,6 @@ export interface BasketApiBasketInfoRequest {
      * @memberof BasketApibasketInfo
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof BasketApibasketInfo
-     */
-    responseFields?: string
 }
 
 export interface BasketApiBasketItemAddRequest {
@@ -2719,13 +2726,6 @@ export interface BasketApiBasketLiveShippingServiceDeleteRequest {
 
 export interface BasketApiBasketLiveShippingServiceListRequest {
     /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof BasketApibasketLiveShippingServiceList
-     */
-    storeId?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -2739,6 +2739,13 @@ export interface BasketApiBasketLiveShippingServiceListRequest {
      * @memberof BasketApibasketLiveShippingServiceList
      */
     count?: number
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof BasketApibasketLiveShippingServiceList
+     */
+    storeId?: string
 }
 
 export class ObjectBasketApi {
@@ -2754,7 +2761,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketInfoWithHttpInfo(param: BasketApiBasketInfoRequest, options?: Configuration): Promise<HttpInfo<BasketInfo200Response>> {
-        return this.api.basketInfoWithHttpInfo(param.id, param.storeId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.basketInfoWithHttpInfo(param.id, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2763,7 +2770,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketInfo(param: BasketApiBasketInfoRequest, options?: Configuration): Promise<BasketInfo200Response> {
-        return this.api.basketInfo(param.id, param.storeId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.basketInfo(param.id, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -2826,7 +2833,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketLiveShippingServiceListWithHttpInfo(param: BasketApiBasketLiveShippingServiceListRequest = {}, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceList200Response>> {
-        return this.api.basketLiveShippingServiceListWithHttpInfo(param.storeId, param.start, param.count,  options).toPromise();
+        return this.api.basketLiveShippingServiceListWithHttpInfo(param.start, param.count, param.storeId,  options).toPromise();
     }
 
     /**
@@ -2835,7 +2842,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketLiveShippingServiceList(param: BasketApiBasketLiveShippingServiceListRequest = {}, options?: Configuration): Promise<BasketLiveShippingServiceList200Response> {
-        return this.api.basketLiveShippingServiceList(param.storeId, param.start, param.count,  options).toPromise();
+        return this.api.basketLiveShippingServiceList(param.start, param.count, param.storeId,  options).toPromise();
     }
 
 }
@@ -2858,6 +2865,13 @@ export interface BatchApiBatchJobListRequest {
      * @memberof BatchApibatchJobList
      */
     pageCursor?: string
+    /**
+     * Filter batch jobs by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof BatchApibatchJobList
+     */
+    ids?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -2886,13 +2900,6 @@ export interface BatchApiBatchJobListRequest {
      * @memberof BatchApibatchJobList
      */
     processedTo?: string
-    /**
-     * Filter batch jobs by ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof BatchApibatchJobList
-     */
-    ids?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;{return_code,return_message,pagination,result}&#39;
@@ -2925,7 +2932,7 @@ export class ObjectBatchApi {
      * @param param the request object
      */
     public batchJobListWithHttpInfo(param: BatchApiBatchJobListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseBatchJobList>> {
-        return this.api.batchJobListWithHttpInfo(param.count, param.pageCursor, param.createdFrom, param.createdTo, param.processedFrom, param.processedTo, param.ids, param.responseFields,  options).toPromise();
+        return this.api.batchJobListWithHttpInfo(param.count, param.pageCursor, param.ids, param.createdFrom, param.createdTo, param.processedFrom, param.processedTo, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -2934,7 +2941,7 @@ export class ObjectBatchApi {
      * @param param the request object
      */
     public batchJobList(param: BatchApiBatchJobListRequest = {}, options?: Configuration): Promise<ModelResponseBatchJobList> {
-        return this.api.batchJobList(param.count, param.pageCursor, param.createdFrom, param.createdTo, param.processedFrom, param.processedTo, param.ids, param.responseFields,  options).toPromise();
+        return this.api.batchJobList(param.count, param.pageCursor, param.ids, param.createdFrom, param.createdTo, param.processedFrom, param.processedTo, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -3050,13 +3057,6 @@ export interface CartApiCartCatalogPriceRulesCountRequest {
 
 export interface CartApiCartCatalogPriceRulesListRequest {
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartCatalogPriceRulesList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -3071,6 +3071,13 @@ export interface CartApiCartCatalogPriceRulesListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCatalogPriceRulesList
+     */
+    pageCursor?: string
+    /**
      * Retrieves  catalog_price_rules by ids
      * Defaults to: undefined
      * @type string
@@ -3079,18 +3086,18 @@ export interface CartApiCartCatalogPriceRulesListRequest {
     ids?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description&#39;
-     * @type string
-     * @memberof CartApicartCatalogPriceRulesList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartCatalogPriceRulesList
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,description&#39;
+     * @type string
+     * @memberof CartApicartCatalogPriceRulesList
+     */
+    params?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -3182,13 +3189,6 @@ export interface CartApiCartCouponConditionAddRequest {
      */
     value: string
     /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartCouponConditionAdd
-     */
-    storeId?: string
-    /**
      * Defines condition operator
      * Defaults to: &#39;coupon_prerequisite&#39;
      * @type string
@@ -3209,6 +3209,13 @@ export interface CartApiCartCouponConditionAddRequest {
      * @memberof CartApicartCouponConditionAdd
      */
     includeShipping?: boolean
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCouponConditionAdd
+     */
+    storeId?: string
 }
 
 export interface CartApiCartCouponCountRequest {
@@ -3219,6 +3226,13 @@ export interface CartApiCartCouponCountRequest {
      * @memberof CartApicartCouponCount
      */
     storeId?: string
+    /**
+     * Defines category\&#39;s visibility status
+     * Defaults to: true
+     * @type boolean
+     * @memberof CartApicartCouponCount
+     */
+    avail?: boolean
     /**
      * Filter entity by date_start (greater or equal)
      * Defaults to: undefined
@@ -3247,13 +3261,6 @@ export interface CartApiCartCouponCountRequest {
      * @memberof CartApicartCouponCount
      */
     dateEndTo?: string
-    /**
-     * Defines category\&#39;s visibility status
-     * Defaults to: true
-     * @type boolean
-     * @memberof CartApicartCouponCount
-     */
-    avail?: boolean
 }
 
 export interface CartApiCartCouponDeleteRequest {
@@ -3275,13 +3282,6 @@ export interface CartApiCartCouponDeleteRequest {
 
 export interface CartApiCartCouponListRequest {
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartCouponList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -3296,6 +3296,13 @@ export interface CartApiCartCouponListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCouponList
+     */
+    pageCursor?: string
+    /**
      * Filter coupons by ids
      * Defaults to: undefined
      * @type string
@@ -3309,6 +3316,20 @@ export interface CartApiCartCouponListRequest {
      * @memberof CartApicartCouponList
      */
     storeId?: string
+    /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCouponList
+     */
+    langId?: string
+    /**
+     * Filter coupons by avail status
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof CartApicartCouponList
+     */
+    avail?: boolean
     /**
      * Filter entity by date_start (greater or equal)
      * Defaults to: undefined
@@ -3338,19 +3359,12 @@ export interface CartApiCartCouponListRequest {
      */
     dateEndTo?: string
     /**
-     * Filter coupons by avail status
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof CartApicartCouponList
-     */
-    avail?: boolean
-    /**
-     * Language id
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartCouponList
      */
-    langId?: string
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,code,name,description&#39;
@@ -3358,13 +3372,6 @@ export interface CartApiCartCouponListRequest {
      * @memberof CartApicartCouponList
      */
     params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartCouponList
-     */
-    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -3470,13 +3477,6 @@ export interface CartApiCartGiftcardDeleteRequest {
 
 export interface CartApiCartGiftcardListRequest {
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartGiftcardList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -3491,6 +3491,13 @@ export interface CartApiCartGiftcardListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartGiftcardList
+     */
+    pageCursor?: string
+    /**
      * Store Id
      * Defaults to: undefined
      * @type string
@@ -3499,18 +3506,18 @@ export interface CartApiCartGiftcardListRequest {
     storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,code,name&#39;
-     * @type string
-     * @memberof CartApicartGiftcardList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartGiftcardList
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,code,name&#39;
+     * @type string
+     * @memberof CartApicartGiftcardList
+     */
+    params?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -3522,12 +3529,12 @@ export interface CartApiCartGiftcardListRequest {
 
 export interface CartApiCartInfoRequest {
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;store_name,store_url,db_prefix&#39;
+     * Store Id
+     * Defaults to: undefined
      * @type string
      * @memberof CartApicartInfo
      */
-    params?: string
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -3536,19 +3543,19 @@ export interface CartApiCartInfoRequest {
      */
     responseFields?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;store_name,store_url,db_prefix&#39;
+     * @type string
+     * @memberof CartApicartInfo
+     */
+    params?: string
+    /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartInfo
      */
     exclude?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartInfo
-     */
-    storeId?: string
 }
 
 export interface CartApiCartListRequest {
@@ -3562,6 +3569,20 @@ export interface CartApiCartMetaDataListRequest {
      * @memberof CartApicartMetaDataList
      */
     entityId: string
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof CartApicartMetaDataList
+     */
+    count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartMetaDataList
+     */
+    pageCursor?: string
     /**
      * Entity
      * Defaults to: &#39;product&#39;
@@ -3591,19 +3612,12 @@ export interface CartApiCartMetaDataListRequest {
      */
     key?: string
     /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof CartApicartMetaDataList
-     */
-    count?: number
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartMetaDataList
      */
-    pageCursor?: string
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;key,value&#39;
@@ -3611,13 +3625,6 @@ export interface CartApiCartMetaDataListRequest {
      * @memberof CartApicartMetaDataList
      */
     params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartMetaDataList
-     */
-    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -3722,13 +3729,6 @@ export interface CartApiCartMethodsRequest {
 
 export interface CartApiCartPluginListRequest {
     /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartPluginList
-     */
-    storeId?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -3742,6 +3742,13 @@ export interface CartApiCartPluginListRequest {
      * @memberof CartApicartPluginList
      */
     count?: number
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartPluginList
+     */
+    storeId?: string
 }
 
 export interface CartApiCartScriptAddRequest {
@@ -3822,13 +3829,6 @@ export interface CartApiCartScriptDeleteRequest {
 
 export interface CartApiCartScriptListRequest {
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartScriptList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -3842,6 +3842,27 @@ export interface CartApiCartScriptListRequest {
      * @memberof CartApicartScriptList
      */
     count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartScriptList
+     */
+    pageCursor?: string
+    /**
+     * Retrieves only scripts with specific ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartScriptList
+     */
+    scriptIds?: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartScriptList
+     */
+    storeId?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -3871,19 +3892,12 @@ export interface CartApiCartScriptListRequest {
      */
     modifiedTo?: string
     /**
-     * Retrieves only scripts with specific ids
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CartApicartScriptList
      */
-    scriptIds?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartScriptList
-     */
-    storeId?: string
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,name,description&#39;
@@ -3891,13 +3905,6 @@ export interface CartApiCartScriptListRequest {
      * @memberof CartApicartScriptList
      */
     params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartScriptList
-     */
-    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -3908,13 +3915,6 @@ export interface CartApiCartScriptListRequest {
 }
 
 export interface CartApiCartShippingZonesListRequest {
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartShippingZonesList
-     */
-    storeId?: string
     /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
@@ -3930,12 +3930,12 @@ export interface CartApiCartShippingZonesListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,enabled&#39;
+     * Store Id
+     * Defaults to: undefined
      * @type string
      * @memberof CartApicartShippingZonesList
      */
-    params?: string
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -3943,6 +3943,13 @@ export interface CartApiCartShippingZonesListRequest {
      * @memberof CartApicartShippingZonesList
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,enabled&#39;
+     * @type string
+     * @memberof CartApicartShippingZonesList
+     */
+    params?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -4011,7 +4018,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCatalogPriceRulesListWithHttpInfo(param: CartApiCartCatalogPriceRulesListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartCatalogPriceRulesList>> {
-        return this.api.cartCatalogPriceRulesListWithHttpInfo(param.pageCursor, param.start, param.count, param.ids, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartCatalogPriceRulesListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4020,7 +4027,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCatalogPriceRulesList(param: CartApiCartCatalogPriceRulesListRequest = {}, options?: Configuration): Promise<ModelResponseCartCatalogPriceRulesList> {
-        return this.api.cartCatalogPriceRulesList(param.pageCursor, param.start, param.count, param.ids, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartCatalogPriceRulesList(param.start, param.count, param.pageCursor, param.ids, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4101,7 +4108,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponConditionAddWithHttpInfo(param: CartApiCartCouponConditionAddRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
-        return this.api.cartCouponConditionAddWithHttpInfo(param.couponId, param.entity, param.key, param.operator, param.value, param.storeId, param.target, param.includeTax, param.includeShipping,  options).toPromise();
+        return this.api.cartCouponConditionAddWithHttpInfo(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId,  options).toPromise();
     }
 
     /**
@@ -4110,7 +4117,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponConditionAdd(param: CartApiCartCouponConditionAddRequest, options?: Configuration): Promise<BasketLiveShippingServiceDelete200Response> {
-        return this.api.cartCouponConditionAdd(param.couponId, param.entity, param.key, param.operator, param.value, param.storeId, param.target, param.includeTax, param.includeShipping,  options).toPromise();
+        return this.api.cartCouponConditionAdd(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId,  options).toPromise();
     }
 
     /**
@@ -4119,7 +4126,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponCountWithHttpInfo(param: CartApiCartCouponCountRequest = {}, options?: Configuration): Promise<HttpInfo<CartCouponCount200Response>> {
-        return this.api.cartCouponCountWithHttpInfo(param.storeId, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.avail,  options).toPromise();
+        return this.api.cartCouponCountWithHttpInfo(param.storeId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo,  options).toPromise();
     }
 
     /**
@@ -4128,7 +4135,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponCount(param: CartApiCartCouponCountRequest = {}, options?: Configuration): Promise<CartCouponCount200Response> {
-        return this.api.cartCouponCount(param.storeId, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.avail,  options).toPromise();
+        return this.api.cartCouponCount(param.storeId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo,  options).toPromise();
     }
 
     /**
@@ -4155,7 +4162,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponListWithHttpInfo(param: CartApiCartCouponListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartCouponList>> {
-        return this.api.cartCouponListWithHttpInfo(param.pageCursor, param.start, param.count, param.couponsIds, param.storeId, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.avail, param.langId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartCouponListWithHttpInfo(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4164,7 +4171,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponList(param: CartApiCartCouponListRequest = {}, options?: Configuration): Promise<ModelResponseCartCouponList> {
-        return this.api.cartCouponList(param.pageCursor, param.start, param.count, param.couponsIds, param.storeId, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.avail, param.langId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartCouponList(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4281,7 +4288,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartGiftcardListWithHttpInfo(param: CartApiCartGiftcardListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartGiftCardList>> {
-        return this.api.cartGiftcardListWithHttpInfo(param.pageCursor, param.start, param.count, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartGiftcardListWithHttpInfo(param.start, param.count, param.pageCursor, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4290,7 +4297,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartGiftcardList(param: CartApiCartGiftcardListRequest = {}, options?: Configuration): Promise<ModelResponseCartGiftCardList> {
-        return this.api.cartGiftcardList(param.pageCursor, param.start, param.count, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartGiftcardList(param.start, param.count, param.pageCursor, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4299,7 +4306,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartInfoWithHttpInfo(param: CartApiCartInfoRequest = {}, options?: Configuration): Promise<HttpInfo<CartInfo200Response>> {
-        return this.api.cartInfoWithHttpInfo(param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.cartInfoWithHttpInfo(param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4308,7 +4315,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartInfo(param: CartApiCartInfoRequest = {}, options?: Configuration): Promise<CartInfo200Response> {
-        return this.api.cartInfo(param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.cartInfo(param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4335,7 +4342,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartMetaDataListWithHttpInfo(param: CartApiCartMetaDataListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseCartMetaDataList>> {
-        return this.api.cartMetaDataListWithHttpInfo(param.entityId, param.entity, param.storeId, param.langId, param.key, param.count, param.pageCursor, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartMetaDataListWithHttpInfo(param.entityId, param.count, param.pageCursor, param.entity, param.storeId, param.langId, param.key, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4344,7 +4351,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartMetaDataList(param: CartApiCartMetaDataListRequest, options?: Configuration): Promise<ModelResponseCartMetaDataList> {
-        return this.api.cartMetaDataList(param.entityId, param.entity, param.storeId, param.langId, param.key, param.count, param.pageCursor, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartMetaDataList(param.entityId, param.count, param.pageCursor, param.entity, param.storeId, param.langId, param.key, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4407,7 +4414,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartPluginListWithHttpInfo(param: CartApiCartPluginListRequest = {}, options?: Configuration): Promise<HttpInfo<CartPluginList200Response>> {
-        return this.api.cartPluginListWithHttpInfo(param.storeId, param.start, param.count,  options).toPromise();
+        return this.api.cartPluginListWithHttpInfo(param.start, param.count, param.storeId,  options).toPromise();
     }
 
     /**
@@ -4416,7 +4423,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartPluginList(param: CartApiCartPluginListRequest = {}, options?: Configuration): Promise<CartPluginList200Response> {
-        return this.api.cartPluginList(param.storeId, param.start, param.count,  options).toPromise();
+        return this.api.cartPluginList(param.start, param.count, param.storeId,  options).toPromise();
     }
 
     /**
@@ -4461,7 +4468,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartScriptListWithHttpInfo(param: CartApiCartScriptListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartScriptList>> {
-        return this.api.cartScriptListWithHttpInfo(param.pageCursor, param.start, param.count, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.scriptIds, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartScriptListWithHttpInfo(param.start, param.count, param.pageCursor, param.scriptIds, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4470,7 +4477,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartScriptList(param: CartApiCartScriptListRequest = {}, options?: Configuration): Promise<ModelResponseCartScriptList> {
-        return this.api.cartScriptList(param.pageCursor, param.start, param.count, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.scriptIds, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartScriptList(param.start, param.count, param.pageCursor, param.scriptIds, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4479,7 +4486,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartShippingZonesListWithHttpInfo(param: CartApiCartShippingZonesListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartShippingZonesList>> {
-        return this.api.cartShippingZonesListWithHttpInfo(param.storeId, param.start, param.count, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartShippingZonesListWithHttpInfo(param.start, param.count, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4488,7 +4495,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartShippingZonesList(param: CartApiCartShippingZonesListRequest = {}, options?: Configuration): Promise<ModelResponseCartShippingZonesList> {
-        return this.api.cartShippingZonesList(param.storeId, param.start, param.count, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.cartShippingZonesList(param.start, param.count, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4523,6 +4530,20 @@ export interface CategoryApiCategoryAddRequest {
      */
     name: string
     /**
+     * Defines category\&#39;s description
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    description?: string
+    /**
+     * Defines short description
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    shortDescription?: string
+    /**
      * Adds categories specified by parent id
      * Defaults to: undefined
      * @type string
@@ -4530,40 +4551,12 @@ export interface CategoryApiCategoryAddRequest {
      */
     parentId?: string
     /**
-     * Create category in the stores that is specified by comma-separated stores\&#39; id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryAdd
-     */
-    storesIds?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryAdd
-     */
-    storeId?: string
-    /**
-     * Language id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryAdd
-     */
-    langId?: string
-    /**
      * Defines category\&#39;s visibility status
      * Defaults to: true
      * @type boolean
      * @memberof CategoryApicategoryAdd
      */
     avail?: boolean
-    /**
-     * Sort number in the list
-     * Defaults to: 0
-     * @type number
-     * @memberof CategoryApicategoryAdd
-     */
-    sortOrder?: number
     /**
      * Entity\&#39;s date creation
      * Defaults to: undefined
@@ -4579,19 +4572,12 @@ export interface CategoryApiCategoryAddRequest {
      */
     modifiedTime?: string
     /**
-     * Defines category\&#39;s description
-     * Defaults to: undefined
-     * @type string
+     * Sort number in the list
+     * Defaults to: 0
+     * @type number
      * @memberof CategoryApicategoryAdd
      */
-    description?: string
-    /**
-     * Defines short description
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryAdd
-     */
-    shortDescription?: string
+    sortOrder?: number
     /**
      * Defines unique meta title for each entity
      * Defaults to: undefined
@@ -4620,6 +4606,27 @@ export interface CategoryApiCategoryAddRequest {
      * @memberof CategoryApicategoryAdd
      */
     seoUrl?: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    storeId?: string
+    /**
+     * Create category in the stores that is specified by comma-separated stores\&#39; id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    storesIds?: string
+    /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    langId?: string
 }
 
 export interface CategoryApiCategoryAddBatchRequest {
@@ -4633,19 +4640,19 @@ export interface CategoryApiCategoryAddBatchRequest {
 
 export interface CategoryApiCategoryAssignRequest {
     /**
-     * Defines category assign to the product, specified by product id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryAssign
-     */
-    productId: string
-    /**
      * Defines category assign, specified by category id
      * Defaults to: undefined
      * @type string
      * @memberof CategoryApicategoryAssign
      */
     categoryId: string
+    /**
+     * Defines category assign to the product, specified by product id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAssign
+     */
+    productId: string
     /**
      * Store Id
      * Defaults to: undefined
@@ -4678,6 +4685,13 @@ export interface CategoryApiCategoryCountRequest {
      */
     langId?: string
     /**
+     * Defines category\&#39;s visibility status
+     * Defaults to: true
+     * @type boolean
+     * @memberof CategoryApicategoryCount
+     */
+    avail?: boolean
+    /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
      * @type string
@@ -4705,13 +4719,6 @@ export interface CategoryApiCategoryCountRequest {
      * @memberof CategoryApicategoryCount
      */
     modifiedTo?: string
-    /**
-     * Defines category\&#39;s visibility status
-     * Defaults to: true
-     * @type boolean
-     * @memberof CategoryApicategoryCount
-     */
-    avail?: boolean
     /**
      * A categorization for the product
      * Defaults to: undefined
@@ -4834,6 +4841,13 @@ export interface CategoryApiCategoryImageAddRequest {
      */
     type: 'base' | 'thumbnail'
     /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryImageAdd
+     */
+    storeId?: string
+    /**
      * Defines alternative text that has to be attached to the picture
      * Defaults to: undefined
      * @type string
@@ -4854,13 +4868,6 @@ export interface CategoryApiCategoryImageAddRequest {
      * @memberof CategoryApicategoryImageAdd
      */
     position?: number
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryImageAdd
-     */
-    storeId?: string
 }
 
 export interface CategoryApiCategoryImageDeleteRequest {
@@ -4896,27 +4903,6 @@ export interface CategoryApiCategoryInfoRequest {
      */
     id: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,parent_id,name,description&#39;
-     * @type string
-     * @memberof CategoryApicategoryInfo
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryInfo
-     */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryInfo
-     */
-    exclude?: string
-    /**
      * Retrieves category info  specified by store id
      * Defaults to: undefined
      * @type string
@@ -4937,6 +4923,27 @@ export interface CategoryApiCategoryInfoRequest {
      * @memberof CategoryApicategoryInfo
      */
     schemaType?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,parent_id,name,description&#39;
+     * @type string
+     * @memberof CategoryApicategoryInfo
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryInfo
+     */
+    exclude?: string
     /**
      * Report request id
      * Defaults to: undefined
@@ -4976,34 +4983,6 @@ export interface CategoryApiCategoryListRequest {
      */
     pageCursor?: string
     /**
-     * Retrieves categories specified by parent id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryList
-     */
-    parentId?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,parent_id,name,description&#39;
-     * @type string
-     * @memberof CategoryApicategoryList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryList
-     */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryList
-     */
-    exclude?: string
-    /**
      * Retrieves categories specified by store id
      * Defaults to: undefined
      * @type string
@@ -5017,6 +4996,27 @@ export interface CategoryApiCategoryListRequest {
      * @memberof CategoryApicategoryList
      */
     langId?: string
+    /**
+     * Retrieves categories specified by parent id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryList
+     */
+    parentId?: string
+    /**
+     * Defines category\&#39;s visibility status
+     * Defaults to: true
+     * @type boolean
+     * @memberof CategoryApicategoryList
+     */
+    avail?: boolean
+    /**
+     * A categorization for the product
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryList
+     */
+    productType?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -5046,20 +5046,6 @@ export interface CategoryApiCategoryListRequest {
      */
     modifiedTo?: string
     /**
-     * Defines category\&#39;s visibility status
-     * Defaults to: true
-     * @type boolean
-     * @memberof CategoryApicategoryList
-     */
-    avail?: boolean
-    /**
-     * A categorization for the product
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryList
-     */
-    productType?: string
-    /**
      * Entity search that is specified by some value
      * Defaults to: undefined
      * @type string
@@ -5073,6 +5059,27 @@ export interface CategoryApiCategoryListRequest {
      * @memberof CategoryApicategoryList
      */
     findWhere?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,parent_id,name,description&#39;
+     * @type string
+     * @memberof CategoryApicategoryList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryList
+     */
+    exclude?: string
     /**
      * Report request id
      * Defaults to: undefined
@@ -5136,19 +5143,26 @@ export interface CategoryApiCategoryUpdateRequest {
      */
     name?: string
     /**
+     * Defines new category\&#39;s description
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUpdate
+     */
+    description?: string
+    /**
+     * Defines short description
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUpdate
+     */
+    shortDescription?: string
+    /**
      * Defines new parent category id
      * Defaults to: undefined
      * @type string
      * @memberof CategoryApicategoryUpdate
      */
     parentId?: string
-    /**
-     * Update category in the stores that is specified by comma-separated stores\&#39; id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryUpdate
-     */
-    storesIds?: string
     /**
      * Defines category\&#39;s visibility status
      * Defaults to: undefined
@@ -5170,20 +5184,6 @@ export interface CategoryApiCategoryUpdateRequest {
      * @memberof CategoryApicategoryUpdate
      */
     modifiedTime?: string
-    /**
-     * Defines new category\&#39;s description
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryUpdate
-     */
-    description?: string
-    /**
-     * Defines short description
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryUpdate
-     */
-    shortDescription?: string
     /**
      * Defines unique meta title for each entity
      * Defaults to: undefined
@@ -5213,19 +5213,26 @@ export interface CategoryApiCategoryUpdateRequest {
      */
     seoUrl?: string
     /**
-     * Language id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CategoryApicategoryUpdate
-     */
-    langId?: string
-    /**
      * Store Id
      * Defaults to: undefined
      * @type string
      * @memberof CategoryApicategoryUpdate
      */
     storeId?: string
+    /**
+     * Update category in the stores that is specified by comma-separated stores\&#39; id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUpdate
+     */
+    storesIds?: string
+    /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUpdate
+     */
+    langId?: string
 }
 
 export class ObjectCategoryApi {
@@ -5241,7 +5248,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAddWithHttpInfo(param: CategoryApiCategoryAddRequest, options?: Configuration): Promise<HttpInfo<CategoryAdd200Response>> {
-        return this.api.categoryAddWithHttpInfo(param.name, param.parentId, param.storesIds, param.storeId, param.langId, param.avail, param.sortOrder, param.createdTime, param.modifiedTime, param.description, param.shortDescription, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl,  options).toPromise();
+        return this.api.categoryAddWithHttpInfo(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
     }
 
     /**
@@ -5250,7 +5257,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAdd(param: CategoryApiCategoryAddRequest, options?: Configuration): Promise<CategoryAdd200Response> {
-        return this.api.categoryAdd(param.name, param.parentId, param.storesIds, param.storeId, param.langId, param.avail, param.sortOrder, param.createdTime, param.modifiedTime, param.description, param.shortDescription, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl,  options).toPromise();
+        return this.api.categoryAdd(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
     }
 
     /**
@@ -5277,7 +5284,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAssignWithHttpInfo(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<HttpInfo<CartConfigUpdate200Response>> {
-        return this.api.categoryAssignWithHttpInfo(param.productId, param.categoryId, param.storeId,  options).toPromise();
+        return this.api.categoryAssignWithHttpInfo(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -5286,7 +5293,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAssign(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<CartConfigUpdate200Response> {
-        return this.api.categoryAssign(param.productId, param.categoryId, param.storeId,  options).toPromise();
+        return this.api.categoryAssign(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -5295,7 +5302,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryCountWithHttpInfo(param: CategoryApiCategoryCountRequest = {}, options?: Configuration): Promise<HttpInfo<CategoryCount200Response>> {
-        return this.api.categoryCountWithHttpInfo(param.parentId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.avail, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryCountWithHttpInfo(param.parentId, param.storeId, param.langId, param.avail, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -5304,7 +5311,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryCount(param: CategoryApiCategoryCountRequest = {}, options?: Configuration): Promise<CategoryCount200Response> {
-        return this.api.categoryCount(param.parentId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.avail, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryCount(param.parentId, param.storeId, param.langId, param.avail, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -5349,7 +5356,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAddWithHttpInfo(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<HttpInfo<CategoryImageAdd200Response>> {
-        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.label, param.mime, param.position, param.storeId,  options).toPromise();
+        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position,  options).toPromise();
     }
 
     /**
@@ -5358,7 +5365,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAdd(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<CategoryImageAdd200Response> {
-        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.label, param.mime, param.position, param.storeId,  options).toPromise();
+        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position,  options).toPromise();
     }
 
     /**
@@ -5385,7 +5392,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryInfoWithHttpInfo(param: CategoryApiCategoryInfoRequest, options?: Configuration): Promise<HttpInfo<CategoryInfo200Response>> {
-        return this.api.categoryInfoWithHttpInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.schemaType, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryInfoWithHttpInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -5394,7 +5401,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryInfo(param: CategoryApiCategoryInfoRequest, options?: Configuration): Promise<CategoryInfo200Response> {
-        return this.api.categoryInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.schemaType, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -5403,7 +5410,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryListWithHttpInfo(param: CategoryApiCategoryListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCategoryList>> {
-        return this.api.categoryListWithHttpInfo(param.start, param.count, param.pageCursor, param.parentId, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.avail, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
+        return this.api.categoryListWithHttpInfo(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
     }
 
     /**
@@ -5412,7 +5419,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryList(param: CategoryApiCategoryListRequest = {}, options?: Configuration): Promise<ModelResponseCategoryList> {
-        return this.api.categoryList(param.start, param.count, param.pageCursor, param.parentId, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.avail, param.productType, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
+        return this.api.categoryList(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
     }
 
     /**
@@ -5439,7 +5446,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUpdateWithHttpInfo(param: CategoryApiCategoryUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.categoryUpdateWithHttpInfo(param.id, param.name, param.parentId, param.storesIds, param.avail, param.sortOrder, param.modifiedTime, param.description, param.shortDescription, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.langId, param.storeId,  options).toPromise();
+        return this.api.categoryUpdateWithHttpInfo(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
     }
 
     /**
@@ -5448,7 +5455,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUpdate(param: CategoryApiCategoryUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.categoryUpdate(param.id, param.name, param.parentId, param.storesIds, param.avail, param.sortOrder, param.modifiedTime, param.description, param.shortDescription, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.langId, param.storeId,  options).toPromise();
+        return this.api.categoryUpdate(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
     }
 
 }
@@ -5512,6 +5519,13 @@ export interface CustomerApiCustomerAttributeListRequest {
     langId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerAttributeList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;force_all&#39;
      * @type string
      * @memberof CustomerApicustomerAttributeList
@@ -5524,16 +5538,30 @@ export interface CustomerApiCustomerAttributeListRequest {
      * @memberof CustomerApicustomerAttributeList
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerAttributeList
-     */
-    responseFields?: string
 }
 
 export interface CustomerApiCustomerCountRequest {
+    /**
+     * Counts customers specified by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    ids?: string
+    /**
+     * Retrieve entities starting from the specified id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    sinceId?: string
+    /**
+     * The numeric ID of the customer list in Demandware.
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    customerListId?: string
     /**
      * Customer group_id
      * Defaults to: undefined
@@ -5541,6 +5569,34 @@ export interface CustomerApiCustomerCountRequest {
      * @memberof CustomerApicustomerCount
      */
     groupId?: string
+    /**
+     * Counts customer specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    storeId?: string
+    /**
+     * Defines category\&#39;s visibility status
+     * Defaults to: true
+     * @type boolean
+     * @memberof CustomerApicustomerCount
+     */
+    avail?: boolean
+    /**
+     * Entity search that is specified by some value
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    findValue?: string
+    /**
+     * Counts customers that are searched specified by field
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerCount
+     */
+    findWhere?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -5569,55 +5625,6 @@ export interface CustomerApiCustomerCountRequest {
      * @memberof CustomerApicustomerCount
      */
     modifiedTo?: string
-    /**
-     * Counts customer specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    storeId?: string
-    /**
-     * The numeric ID of the customer list in Demandware.
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    customerListId?: string
-    /**
-     * Defines category\&#39;s visibility status
-     * Defaults to: true
-     * @type boolean
-     * @memberof CustomerApicustomerCount
-     */
-    avail?: boolean
-    /**
-     * Entity search that is specified by some value
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    findValue?: string
-    /**
-     * Counts customers that are searched specified by field
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    findWhere?: string
-    /**
-     * Counts customers specified by ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    ids?: string
-    /**
-     * Retrieve entities starting from the specified id.
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerCount
-     */
-    sinceId?: string
 }
 
 export interface CustomerApiCustomerDeleteRequest {
@@ -5687,20 +5694,6 @@ export interface CustomerApiCustomerGroupAddRequest {
 
 export interface CustomerApiCustomerGroupListRequest {
     /**
-     * Disable cache for current request
-     * Defaults to: false
-     * @type boolean
-     * @memberof CustomerApicustomerGroupList
-     */
-    disableCache?: boolean
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerGroupList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -5714,6 +5707,20 @@ export interface CustomerApiCustomerGroupListRequest {
      * @memberof CustomerApicustomerGroupList
      */
     count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerGroupList
+     */
+    pageCursor?: string
+    /**
+     * Groups that will be assigned to a customer
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerGroupList
+     */
+    groupIds?: string
     /**
      * Store Id
      * Defaults to: undefined
@@ -5729,12 +5736,12 @@ export interface CustomerApiCustomerGroupListRequest {
      */
     langId?: string
     /**
-     * Groups that will be assigned to a customer
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CustomerApicustomerGroupList
      */
-    groupIds?: string
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,name,additional_fields&#39;
@@ -5750,12 +5757,12 @@ export interface CustomerApiCustomerGroupListRequest {
      */
     exclude?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
+     * Disable cache for current request
+     * Defaults to: false
+     * @type boolean
      * @memberof CustomerApicustomerGroupList
      */
-    responseFields?: string
+    disableCache?: boolean
 }
 
 export interface CustomerApiCustomerInfoRequest {
@@ -5767,12 +5774,12 @@ export interface CustomerApiCustomerInfoRequest {
      */
     id: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,email,first_name,last_name&#39;
+     * Retrieves customer info specified by store id
+     * Defaults to: undefined
      * @type string
      * @memberof CustomerApicustomerInfo
      */
-    params?: string
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -5781,29 +5788,22 @@ export interface CustomerApiCustomerInfoRequest {
      */
     responseFields?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,email,first_name,last_name&#39;
+     * @type string
+     * @memberof CustomerApicustomerInfo
+     */
+    params?: string
+    /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof CustomerApicustomerInfo
      */
     exclude?: string
-    /**
-     * Retrieves customer info specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerInfo
-     */
-    storeId?: string
 }
 
 export interface CustomerApiCustomerListRequest {
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    pageCursor?: string
     /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
@@ -5818,6 +5818,69 @@ export interface CustomerApiCustomerListRequest {
      * @memberof CustomerApicustomerList
      */
     count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    pageCursor?: string
+    /**
+     * Retrieves customers specified by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    ids?: string
+    /**
+     * Retrieve entities starting from the specified id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    sinceId?: string
+    /**
+     * The numeric ID of the customer list in Demandware.
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    customerListId?: string
+    /**
+     * Customer group_id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    groupId?: string
+    /**
+     * Retrieves customers specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    storeId?: string
+    /**
+     * Defines category\&#39;s visibility status
+     * Defaults to: true
+     * @type boolean
+     * @memberof CustomerApicustomerList
+     */
+    avail?: boolean
+    /**
+     * Entity search that is specified by some value
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    findValue?: string
+    /**
+     * Customer search that is specified by field
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    findWhere?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -5847,69 +5910,6 @@ export interface CustomerApiCustomerListRequest {
      */
     modifiedTo?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,email,first_name,last_name&#39;
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    exclude?: string
-    /**
-     * Customer group_id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    groupId?: string
-    /**
-     * Retrieves customers specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    storeId?: string
-    /**
-     * The numeric ID of the customer list in Demandware.
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    customerListId?: string
-    /**
-     * Defines category\&#39;s visibility status
-     * Defaults to: true
-     * @type boolean
-     * @memberof CustomerApicustomerList
-     */
-    avail?: boolean
-    /**
-     * Entity search that is specified by some value
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    findValue?: string
-    /**
-     * Customer search that is specified by field
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerList
-     */
-    findWhere?: string
-    /**
      * Set field to sort by
      * Defaults to: &#39;created_time&#39;
      * @type string
@@ -5924,19 +5924,26 @@ export interface CustomerApiCustomerListRequest {
      */
     sortDirection?: string
     /**
-     * Retrieves customers specified by ids
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof CustomerApicustomerList
      */
-    ids?: string
+    responseFields?: string
     /**
-     * Retrieve entities starting from the specified id.
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,email,first_name,last_name&#39;
+     * @type string
+     * @memberof CustomerApicustomerList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof CustomerApicustomerList
      */
-    sinceId?: string
+    exclude?: string
 }
 
 export interface CustomerApiCustomerUpdateRequest {
@@ -5956,20 +5963,6 @@ export interface CustomerApiCustomerWishlistListRequest {
      * @memberof CustomerApicustomerWishlistList
      */
     customerId: string
-    /**
-     * Entity id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerWishlistList
-     */
-    id?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof CustomerApicustomerWishlistList
-     */
-    storeId?: string
     /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
@@ -5991,6 +5984,20 @@ export interface CustomerApiCustomerWishlistListRequest {
      * @memberof CustomerApicustomerWishlistList
      */
     pageCursor?: string
+    /**
+     * Entity id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerWishlistList
+     */
+    id?: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerWishlistList
+     */
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;{return_code,return_message,pagination,result}&#39;
@@ -6049,7 +6056,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerAttributeListWithHttpInfo(param: CustomerApiCustomerAttributeListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerAttributeList>> {
-        return this.api.customerAttributeListWithHttpInfo(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.customerAttributeListWithHttpInfo(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6058,7 +6065,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerAttributeList(param: CustomerApiCustomerAttributeListRequest, options?: Configuration): Promise<ModelResponseCustomerAttributeList> {
-        return this.api.customerAttributeList(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.customerAttributeList(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6067,7 +6074,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerCountWithHttpInfo(param: CustomerApiCustomerCountRequest = {}, options?: Configuration): Promise<HttpInfo<CustomerCount200Response>> {
-        return this.api.customerCountWithHttpInfo(param.groupId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.storeId, param.customerListId, param.avail, param.findValue, param.findWhere, param.ids, param.sinceId,  options).toPromise();
+        return this.api.customerCountWithHttpInfo(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -6076,7 +6083,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerCount(param: CustomerApiCustomerCountRequest = {}, options?: Configuration): Promise<CustomerCount200Response> {
-        return this.api.customerCount(param.groupId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.storeId, param.customerListId, param.avail, param.findValue, param.findWhere, param.ids, param.sinceId,  options).toPromise();
+        return this.api.customerCount(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -6139,7 +6146,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerGroupListWithHttpInfo(param: CustomerApiCustomerGroupListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerGroupList>> {
-        return this.api.customerGroupListWithHttpInfo(param.disableCache, param.pageCursor, param.start, param.count, param.storeId, param.langId, param.groupIds, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.customerGroupListWithHttpInfo(param.start, param.count, param.pageCursor, param.groupIds, param.storeId, param.langId, param.responseFields, param.params, param.exclude, param.disableCache,  options).toPromise();
     }
 
     /**
@@ -6148,7 +6155,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerGroupList(param: CustomerApiCustomerGroupListRequest = {}, options?: Configuration): Promise<ModelResponseCustomerGroupList> {
-        return this.api.customerGroupList(param.disableCache, param.pageCursor, param.start, param.count, param.storeId, param.langId, param.groupIds, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.customerGroupList(param.start, param.count, param.pageCursor, param.groupIds, param.storeId, param.langId, param.responseFields, param.params, param.exclude, param.disableCache,  options).toPromise();
     }
 
     /**
@@ -6157,7 +6164,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerInfoWithHttpInfo(param: CustomerApiCustomerInfoRequest, options?: Configuration): Promise<HttpInfo<CustomerInfo200Response>> {
-        return this.api.customerInfoWithHttpInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.customerInfoWithHttpInfo(param.id, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6166,7 +6173,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerInfo(param: CustomerApiCustomerInfoRequest, options?: Configuration): Promise<CustomerInfo200Response> {
-        return this.api.customerInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.customerInfo(param.id, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6175,7 +6182,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerListWithHttpInfo(param: CustomerApiCustomerListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerList>> {
-        return this.api.customerListWithHttpInfo(param.pageCursor, param.start, param.count, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.responseFields, param.exclude, param.groupId, param.storeId, param.customerListId, param.avail, param.findValue, param.findWhere, param.sortBy, param.sortDirection, param.ids, param.sinceId,  options).toPromise();
+        return this.api.customerListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6184,7 +6191,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerList(param: CustomerApiCustomerListRequest = {}, options?: Configuration): Promise<ModelResponseCustomerList> {
-        return this.api.customerList(param.pageCursor, param.start, param.count, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.responseFields, param.exclude, param.groupId, param.storeId, param.customerListId, param.avail, param.findValue, param.findWhere, param.sortBy, param.sortDirection, param.ids, param.sinceId,  options).toPromise();
+        return this.api.customerList(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6211,7 +6218,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerWishlistListWithHttpInfo(param: CustomerApiCustomerWishlistListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerWishlistList>> {
-        return this.api.customerWishlistListWithHttpInfo(param.customerId, param.id, param.storeId, param.start, param.count, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.customerWishlistListWithHttpInfo(param.customerId, param.start, param.count, param.pageCursor, param.id, param.storeId, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -6220,7 +6227,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerWishlistList(param: CustomerApiCustomerWishlistListRequest, options?: Configuration): Promise<ModelResponseCustomerWishlistList> {
-        return this.api.customerWishlistList(param.customerId, param.id, param.storeId, param.start, param.count, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.customerWishlistList(param.customerId, param.start, param.count, param.pageCursor, param.id, param.storeId, param.responseFields,  options).toPromise();
     }
 
 }
@@ -6229,13 +6236,6 @@ import { ObservableMarketplaceApi } from "./ObservableAPI";
 import { MarketplaceApiRequestFactory, MarketplaceApiResponseProcessor} from "../apis/MarketplaceApi";
 
 export interface MarketplaceApiMarketplaceProductFindRequest {
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof MarketplaceApimarketplaceProductFind
-     */
-    storeId?: string
     /**
      * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * Defaults to: 10
@@ -6251,6 +6251,13 @@ export interface MarketplaceApiMarketplaceProductFindRequest {
      */
     pageCursor?: string
     /**
+     * Defines search keyword
+     * Defaults to: undefined
+     * @type string
+     * @memberof MarketplaceApimarketplaceProductFind
+     */
+    keyword?: string
+    /**
      * Defines product add that is specified by comma-separated categories id
      * Defaults to: undefined
      * @type string
@@ -6258,12 +6265,12 @@ export interface MarketplaceApiMarketplaceProductFindRequest {
      */
     categoriesIds?: string
     /**
-     * Defines search keyword
+     * Store Id
      * Defaults to: undefined
      * @type string
      * @memberof MarketplaceApimarketplaceProductFind
      */
-    keyword?: string
+    storeId?: string
     /**
      * Amazon Standard Identification Number.
      * Defaults to: undefined
@@ -6308,6 +6315,13 @@ export interface MarketplaceApiMarketplaceProductFindRequest {
     isbn?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof MarketplaceApimarketplaceProductFind
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;force_all&#39;
      * @type string
      * @memberof MarketplaceApimarketplaceProductFind
@@ -6320,13 +6334,6 @@ export interface MarketplaceApiMarketplaceProductFindRequest {
      * @memberof MarketplaceApimarketplaceProductFind
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof MarketplaceApimarketplaceProductFind
-     */
-    responseFields?: string
 }
 
 export class ObjectMarketplaceApi {
@@ -6342,7 +6349,7 @@ export class ObjectMarketplaceApi {
      * @param param the request object
      */
     public marketplaceProductFindWithHttpInfo(param: MarketplaceApiMarketplaceProductFindRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseMarketplaceProductFind>> {
-        return this.api.marketplaceProductFindWithHttpInfo(param.storeId, param.count, param.pageCursor, param.categoriesIds, param.keyword, param.asin, param.ean, param.gtin, param.upc, param.mpn, param.isbn, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.marketplaceProductFindWithHttpInfo(param.count, param.pageCursor, param.keyword, param.categoriesIds, param.storeId, param.asin, param.ean, param.gtin, param.upc, param.mpn, param.isbn, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6351,7 +6358,7 @@ export class ObjectMarketplaceApi {
      * @param param the request object
      */
     public marketplaceProductFind(param: MarketplaceApiMarketplaceProductFindRequest = {}, options?: Configuration): Promise<ModelResponseMarketplaceProductFind> {
-        return this.api.marketplaceProductFind(param.storeId, param.count, param.pageCursor, param.categoriesIds, param.keyword, param.asin, param.ean, param.gtin, param.upc, param.mpn, param.isbn, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.marketplaceProductFind(param.count, param.pageCursor, param.keyword, param.categoriesIds, param.storeId, param.asin, param.ean, param.gtin, param.upc, param.mpn, param.isbn, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
 }
@@ -6360,6 +6367,27 @@ import { ObservableOrderApi } from "./ObservableAPI";
 import { OrderApiRequestFactory, OrderApiResponseProcessor} from "../apis/OrderApi";
 
 export interface OrderApiOrderAbandonedListRequest {
+    /**
+     * This parameter sets the number from which you want to get entities
+     * Defaults to: 0
+     * @type number
+     * @memberof OrderApiorderAbandonedList
+     */
+    start?: number
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof OrderApiorderAbandonedList
+     */
+    count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderAbandonedList
+     */
+    pageCursor?: string
     /**
      * Retrieves orders specified by customer id
      * Defaults to: undefined
@@ -6375,12 +6403,12 @@ export interface OrderApiOrderAbandonedListRequest {
      */
     customerEmail?: string
     /**
-     * Retrieve entities to their creation date
+     * Store Id
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderAbandonedList
      */
-    createdTo?: string
+    storeId?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -6389,12 +6417,12 @@ export interface OrderApiOrderAbandonedListRequest {
      */
     createdFrom?: string
     /**
-     * Retrieve entities to their modification date
+     * Retrieve entities to their creation date
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderAbandonedList
      */
-    modifiedTo?: string
+    createdTo?: string
     /**
      * Retrieve entities from their modification date
      * Defaults to: undefined
@@ -6403,6 +6431,13 @@ export interface OrderApiOrderAbandonedListRequest {
      */
     modifiedFrom?: string
     /**
+     * Retrieve entities to their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderAbandonedList
+     */
+    modifiedTo?: string
+    /**
      * Filter empty emails
      * Defaults to: false
      * @type boolean
@@ -6410,33 +6445,12 @@ export interface OrderApiOrderAbandonedListRequest {
      */
     skipEmptyEmail?: boolean
     /**
-     * Store Id
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderAbandonedList
      */
-    storeId?: string
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderAbandonedList
-     */
-    pageCursor?: string
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof OrderApiorderAbandonedList
-     */
-    count?: number
-    /**
-     * This parameter sets the number from which you want to get entities
-     * Defaults to: 0
-     * @type number
-     * @memberof OrderApiorderAbandonedList
-     */
-    start?: number
+    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;customer,totals,items&#39;
@@ -6444,13 +6458,6 @@ export interface OrderApiOrderAbandonedListRequest {
      * @memberof OrderApiorderAbandonedList
      */
     params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderAbandonedList
-     */
-    responseFields?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -6471,12 +6478,33 @@ export interface OrderApiOrderAddRequest {
 
 export interface OrderApiOrderCountRequest {
     /**
+     * Counts orders specified by order ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    orderIds?: string
+    /**
+     * Counts orders specified by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    ids?: string
+    /**
      * Counts orders quantity specified by customer id
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderCount
      */
     customerId?: string
+    /**
+     * Counts orders quantity specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    storeId?: string
     /**
      * Counts orders quantity specified by customer email
      * Defaults to: undefined
@@ -6498,55 +6526,6 @@ export interface OrderApiOrderCountRequest {
      * @memberof OrderApiorderCount
      */
     orderStatusIds?: Array<string>
-    /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    modifiedTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    modifiedFrom?: string
-    /**
-     * Counts orders quantity specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    storeId?: string
-    /**
-     * Counts orders specified by ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    ids?: string
-    /**
-     * Counts orders specified by order ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderCount
-     */
-    orderIds?: string
     /**
      * Counts orders quantity specified by order status
      * Defaults to: undefined
@@ -6610,12 +6589,54 @@ export interface OrderApiOrderCountRequest {
      * @memberof OrderApiorderCount
      */
     shipNodeType?: string
+    /**
+     * Retrieve entities from their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    createdFrom?: string
+    /**
+     * Retrieve entities to their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    createdTo?: string
+    /**
+     * Retrieve entities from their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    modifiedFrom?: string
+    /**
+     * Retrieve entities to their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderCount
+     */
+    modifiedTo?: string
 }
 
 export interface OrderApiOrderFinancialStatusListRequest {
 }
 
 export interface OrderApiOrderFindRequest {
+    /**
+     * This parameter sets the number from which you want to get entities
+     * Defaults to: 0
+     * @type number
+     * @memberof OrderApiorderFind
+     */
+    start?: number
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof OrderApiorderFind
+     */
+    count?: number
     /**
      * Retrieves orders specified by customer id
      * Defaults to: undefined
@@ -6638,33 +6659,12 @@ export interface OrderApiOrderFindRequest {
      */
     orderStatus?: string
     /**
-     * This parameter sets the number from which you want to get entities
-     * Defaults to: 0
-     * @type number
-     * @memberof OrderApiorderFind
-     */
-    start?: number
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof OrderApiorderFind
-     */
-    count?: number
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;order_id,customer,totals,address,items,bundles,status&#39;
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Retrieves orders specified by financial status
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderFind
      */
-    exclude?: string
+    financialStatus?: string
     /**
      * Retrieve entities to their creation date
      * Defaults to: undefined
@@ -6694,12 +6694,19 @@ export interface OrderApiOrderFindRequest {
      */
     modifiedFrom?: string
     /**
-     * Retrieves orders specified by financial status
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;order_id,customer,totals,address,items,bundles,status&#39;
+     * @type string
+     * @memberof OrderApiorderFind
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderFind
      */
-    financialStatus?: string
+    exclude?: string
 }
 
 export interface OrderApiOrderFulfillmentStatusListRequest {
@@ -6714,6 +6721,13 @@ export interface OrderApiOrderFulfillmentStatusListRequest {
 
 export interface OrderApiOrderInfoRequest {
     /**
+     * Retrieves order info specified by id
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderInfo
+     */
+    id?: string
+    /**
      * Retrieves order’s info specified by order id
      * Defaults to: undefined
      * @type string
@@ -6721,12 +6735,12 @@ export interface OrderApiOrderInfoRequest {
      */
     orderId?: string
     /**
-     * Retrieves order info specified by id
+     * Defines store id where the order should be found
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderInfo
      */
-    id?: string
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;order_id,customer,totals,address,items,bundles,status&#39;
@@ -6749,13 +6763,6 @@ export interface OrderApiOrderInfoRequest {
      */
     exclude?: string
     /**
-     * Defines store id where the order should be found
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderInfo
-     */
-    storeId?: string
-    /**
      * If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * Defaults to: false
      * @type boolean
@@ -6773,6 +6780,55 @@ export interface OrderApiOrderInfoRequest {
 
 export interface OrderApiOrderListRequest {
     /**
+     * This parameter sets the number from which you want to get entities
+     * Defaults to: 0
+     * @type number
+     * @memberof OrderApiorderList
+     */
+    start?: number
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof OrderApiorderList
+     */
+    count?: number
+    /**
+     * Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    pageCursor?: string
+    /**
+     * Retrieves orders specified by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    ids?: string
+    /**
+     * Retrieves orders specified by order ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    orderIds?: string
+    /**
+     * Retrieve entities starting from the specified id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    sinceId?: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    storeId?: string
+    /**
      * Retrieves orders specified by customer id
      * Defaults to: undefined
      * @type string
@@ -6786,6 +6842,20 @@ export interface OrderApiOrderListRequest {
      * @memberof OrderApiorderList
      */
     customerEmail?: string
+    /**
+     * Retrieves order’s info specified by basket id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    basketId?: string
+    /**
+     * Currency Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    currencyId?: string
     /**
      * Filter orders by customer\&#39;s phone number
      * Defaults to: undefined
@@ -6808,26 +6878,124 @@ export interface OrderApiOrderListRequest {
      */
     orderStatusIds?: Array<string>
     /**
-     * This parameter sets the number from which you want to get entities
-     * Defaults to: 0
-     * @type number
-     * @memberof OrderApiorderList
-     */
-    start?: number
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof OrderApiorderList
-     */
-    count?: number
-    /**
-     * Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Retrieves orders specified by order status
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderList
      */
-    pageCursor?: string
+    ebayOrderStatus?: string
+    /**
+     * Retrieves orders specified by financial status
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    financialStatus?: string
+    /**
+     * Retrieves orders specified by financial status ids
+     * Defaults to: undefined
+     * @type Array&lt;string&gt;
+     * @memberof OrderApiorderList
+     */
+    financialStatusIds?: Array<string>
+    /**
+     * Create order with fulfillment status
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    fulfillmentStatus?: string
+    /**
+     * Retrieves orders specified by return status
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    returnStatus?: string
+    /**
+     * Retrieves order with a fulfillment channel
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    fulfillmentChannel?: string
+    /**
+     * Retrieve entities according to shipping method
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    shippingMethod?: string
+    /**
+     * Skipped orders by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    skipOrderIds?: string
+    /**
+     * Filter deleted orders
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof OrderApiorderList
+     */
+    isDeleted?: boolean
+    /**
+     * Retrieve entities according to shipping country
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    shippingCountryIso3?: string
+    /**
+     * Retrieves order with delivery method
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    deliveryMethod?: string
+    /**
+     * Retrieves order with ship node type
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    shipNodeType?: string
+    /**
+     * Retrieve entities to their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    createdTo?: string
+    /**
+     * Retrieve entities from their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    createdFrom?: string
+    /**
+     * Retrieve entities to their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    modifiedTo?: string
+    /**
+     * Retrieve entities from their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    modifiedFrom?: string
+    /**
+     * Order tags
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderList
+     */
+    tags?: string
     /**
      * Set field to sort by
      * Defaults to: &#39;order_id&#39;
@@ -6864,173 +7032,12 @@ export interface OrderApiOrderListRequest {
      */
     exclude?: string
     /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    modifiedTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    modifiedFrom?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    storeId?: string
-    /**
-     * Retrieves orders specified by ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    ids?: string
-    /**
-     * Retrieves orders specified by order ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    orderIds?: string
-    /**
-     * Retrieves orders specified by order status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    ebayOrderStatus?: string
-    /**
-     * Retrieves order’s info specified by basket id.
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    basketId?: string
-    /**
-     * Retrieves orders specified by financial status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    financialStatus?: string
-    /**
-     * Retrieves orders specified by financial status ids
-     * Defaults to: undefined
-     * @type Array&lt;string&gt;
-     * @memberof OrderApiorderList
-     */
-    financialStatusIds?: Array<string>
-    /**
-     * Create order with fulfillment status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    fulfillmentStatus?: string
-    /**
-     * Retrieves order with a fulfillment channel
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    fulfillmentChannel?: string
-    /**
-     * Retrieve entities according to shipping method
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    shippingMethod?: string
-    /**
-     * Skipped orders by ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    skipOrderIds?: string
-    /**
-     * Retrieve entities starting from the specified id.
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    sinceId?: string
-    /**
-     * Filter deleted orders
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof OrderApiorderList
-     */
-    isDeleted?: boolean
-    /**
-     * Retrieve entities according to shipping country
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    shippingCountryIso3?: string
-    /**
      * If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
      * Defaults to: false
      * @type boolean
      * @memberof OrderApiorderList
      */
     enableCache?: boolean
-    /**
-     * Retrieves order with delivery method
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    deliveryMethod?: string
-    /**
-     * Order tags
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    tags?: string
-    /**
-     * Retrieves order with ship node type
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    shipNodeType?: string
-    /**
-     * Currency Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    currencyId?: string
-    /**
-     * Retrieves orders specified by return status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderList
-     */
-    returnStatus?: string
     /**
      * Use the latest platform API version
      * Defaults to: false
@@ -7165,12 +7172,12 @@ export interface OrderApiOrderShipmentInfoRequest {
      */
     start?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,order_id,items,tracking_numbers&#39;
+     * Store Id
+     * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderShipmentInfo
      */
-    params?: string
+    storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -7179,19 +7186,19 @@ export interface OrderApiOrderShipmentInfoRequest {
      */
     responseFields?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,order_id,items,tracking_numbers&#39;
+     * @type string
+     * @memberof OrderApiorderShipmentInfo
+     */
+    params?: string
+    /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderShipmentInfo
      */
     exclude?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderShipmentInfo
-     */
-    storeId?: string
 }
 
 export interface OrderApiOrderShipmentListRequest {
@@ -7202,13 +7209,6 @@ export interface OrderApiOrderShipmentListRequest {
      * @memberof OrderApiorderShipmentList
      */
     orderId: string
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderShipmentList
-     */
-    pageCursor?: string
     /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
@@ -7224,26 +7224,19 @@ export interface OrderApiOrderShipmentListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,order_id,items,tracking_numbers&#39;
-     * @type string
-     * @memberof OrderApiorderShipmentList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderShipmentList
      */
-    responseFields?: string
+    pageCursor?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Store Id
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderShipmentList
      */
-    exclude?: string
+    storeId?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -7273,12 +7266,26 @@ export interface OrderApiOrderShipmentListRequest {
      */
     modifiedTo?: string
     /**
-     * Store Id
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderShipmentList
      */
-    storeId?: string
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,order_id,items,tracking_numbers&#39;
+     * @type string
+     * @memberof OrderApiorderShipmentList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderShipmentList
+     */
+    exclude?: string
 }
 
 export interface OrderApiOrderShipmentTrackingAddRequest {
@@ -7339,6 +7346,13 @@ export interface OrderApiOrderTransactionListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderTransactionList
+     */
+    pageCursor?: string
+    /**
      * Store Id
      * Defaults to: undefined
      * @type string
@@ -7366,13 +7380,6 @@ export interface OrderApiOrderTransactionListRequest {
      * @memberof OrderApiorderTransactionList
      */
     exclude?: string
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderTransactionList
-     */
-    pageCursor?: string
 }
 
 export interface OrderApiOrderUpdateRequest {
@@ -7398,12 +7405,33 @@ export interface OrderApiOrderUpdateRequest {
      */
     orderStatus?: string
     /**
+     * Update order financial status to specified
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    financialStatus?: string
+    /**
+     * Create order with fulfillment status
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    fulfillmentStatus?: string
+    /**
      * Defines the cancellation reason when the order will be canceled
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderUpdate
      */
     cancellationReason?: string
+    /**
+     * Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    orderPaymentMethod?: string
     /**
      * Specifies order comment
      * Defaults to: undefined
@@ -7426,6 +7454,13 @@ export interface OrderApiOrderUpdateRequest {
      */
     adminPrivateComment?: string
     /**
+     * Specifies admin\&#39;s order invoice comment
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    invoiceAdminComment?: string
+    /**
      * Specifies order\&#39;s  modification date
      * Defaults to: undefined
      * @type string
@@ -7440,40 +7475,12 @@ export interface OrderApiOrderUpdateRequest {
      */
     dateFinished?: string
     /**
-     * Update order financial status to specified
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderUpdate
-     */
-    financialStatus?: string
-    /**
-     * Create order with fulfillment status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderUpdate
-     */
-    fulfillmentStatus?: string
-    /**
-     * Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderUpdate
-     */
-    orderPaymentMethod?: string
-    /**
      * Send notifications to customer after order was created
      * Defaults to: false
      * @type boolean
      * @memberof OrderApiorderUpdate
      */
     sendNotifications?: boolean
-    /**
-     * The source of the order
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderUpdate
-     */
-    origin?: string
     /**
      * Determines whether an invoice should be created if it has not already been created
      * Defaults to: undefined
@@ -7482,12 +7489,12 @@ export interface OrderApiOrderUpdateRequest {
      */
     createInvoice?: boolean
     /**
-     * Specifies admin\&#39;s order invoice comment
+     * The source of the order
      * Defaults to: undefined
      * @type string
      * @memberof OrderApiorderUpdate
      */
-    invoiceAdminComment?: string
+    origin?: string
 }
 
 export class ObjectOrderApi {
@@ -7503,7 +7510,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderAbandonedListWithHttpInfo(param: OrderApiOrderAbandonedListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseOrderAbandonedList>> {
-        return this.api.orderAbandonedListWithHttpInfo(param.customerId, param.customerEmail, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.skipEmptyEmail, param.storeId, param.pageCursor, param.count, param.start, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.orderAbandonedListWithHttpInfo(param.start, param.count, param.pageCursor, param.customerId, param.customerEmail, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.skipEmptyEmail, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7512,7 +7519,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderAbandonedList(param: OrderApiOrderAbandonedListRequest = {}, options?: Configuration): Promise<ModelResponseOrderAbandonedList> {
-        return this.api.orderAbandonedList(param.customerId, param.customerEmail, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.skipEmptyEmail, param.storeId, param.pageCursor, param.count, param.start, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.orderAbandonedList(param.start, param.count, param.pageCursor, param.customerId, param.customerEmail, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.skipEmptyEmail, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7539,7 +7546,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderCountWithHttpInfo(param: OrderApiOrderCountRequest = {}, options?: Configuration): Promise<HttpInfo<OrderCount200Response>> {
-        return this.api.orderCountWithHttpInfo(param.customerId, param.customerEmail, param.orderStatus, param.orderStatusIds, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.storeId, param.ids, param.orderIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentChannel, param.fulfillmentStatus, param.shippingMethod, param.deliveryMethod, param.tags, param.shipNodeType,  options).toPromise();
+        return this.api.orderCountWithHttpInfo(param.orderIds, param.ids, param.customerId, param.storeId, param.customerEmail, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentChannel, param.fulfillmentStatus, param.shippingMethod, param.deliveryMethod, param.tags, param.shipNodeType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -7548,7 +7555,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderCount(param: OrderApiOrderCountRequest = {}, options?: Configuration): Promise<OrderCount200Response> {
-        return this.api.orderCount(param.customerId, param.customerEmail, param.orderStatus, param.orderStatusIds, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.storeId, param.ids, param.orderIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentChannel, param.fulfillmentStatus, param.shippingMethod, param.deliveryMethod, param.tags, param.shipNodeType,  options).toPromise();
+        return this.api.orderCount(param.orderIds, param.ids, param.customerId, param.storeId, param.customerEmail, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentChannel, param.fulfillmentStatus, param.shippingMethod, param.deliveryMethod, param.tags, param.shipNodeType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -7575,7 +7582,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderFindWithHttpInfo(param: OrderApiOrderFindRequest = {}, options?: Configuration): Promise<HttpInfo<OrderFind200Response>> {
-        return this.api.orderFindWithHttpInfo(param.customerId, param.customerEmail, param.orderStatus, param.start, param.count, param.params, param.exclude, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.financialStatus,  options).toPromise();
+        return this.api.orderFindWithHttpInfo(param.start, param.count, param.customerId, param.customerEmail, param.orderStatus, param.financialStatus, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7584,7 +7591,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderFind(param: OrderApiOrderFindRequest = {}, options?: Configuration): Promise<OrderFind200Response> {
-        return this.api.orderFind(param.customerId, param.customerEmail, param.orderStatus, param.start, param.count, param.params, param.exclude, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.financialStatus,  options).toPromise();
+        return this.api.orderFind(param.start, param.count, param.customerId, param.customerEmail, param.orderStatus, param.financialStatus, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7611,7 +7618,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfoWithHttpInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<HttpInfo<OrderInfo200Response>> {
-        return this.api.orderInfoWithHttpInfo(param.orderId, param.id, param.params, param.responseFields, param.exclude, param.storeId, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -7620,7 +7627,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<OrderInfo200Response> {
-        return this.api.orderInfo(param.orderId, param.id, param.params, param.responseFields, param.exclude, param.storeId, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -7629,7 +7636,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderListWithHttpInfo(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseOrderList>> {
-        return this.api.orderListWithHttpInfo(param.customerId, param.customerEmail, param.phone, param.orderStatus, param.orderStatusIds, param.start, param.count, param.pageCursor, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.storeId, param.ids, param.orderIds, param.ebayOrderStatus, param.basketId, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.sinceId, param.isDeleted, param.shippingCountryIso3, param.enableCache, param.deliveryMethod, param.tags, param.shipNodeType, param.currencyId, param.returnStatus, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -7638,7 +7645,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderList(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<ModelResponseOrderList> {
-        return this.api.orderList(param.customerId, param.customerEmail, param.phone, param.orderStatus, param.orderStatusIds, param.start, param.count, param.pageCursor, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.storeId, param.ids, param.orderIds, param.ebayOrderStatus, param.basketId, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.sinceId, param.isDeleted, param.shippingCountryIso3, param.enableCache, param.deliveryMethod, param.tags, param.shipNodeType, param.currencyId, param.returnStatus, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderList(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -7791,7 +7798,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderShipmentInfoWithHttpInfo(param: OrderApiOrderShipmentInfoRequest, options?: Configuration): Promise<HttpInfo<OrderShipmentInfo200Response>> {
-        return this.api.orderShipmentInfoWithHttpInfo(param.id, param.orderId, param.start, param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.orderShipmentInfoWithHttpInfo(param.id, param.orderId, param.start, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7800,7 +7807,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderShipmentInfo(param: OrderApiOrderShipmentInfoRequest, options?: Configuration): Promise<OrderShipmentInfo200Response> {
-        return this.api.orderShipmentInfo(param.id, param.orderId, param.start, param.params, param.responseFields, param.exclude, param.storeId,  options).toPromise();
+        return this.api.orderShipmentInfo(param.id, param.orderId, param.start, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7809,7 +7816,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderShipmentListWithHttpInfo(param: OrderApiOrderShipmentListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseOrderShipmentList>> {
-        return this.api.orderShipmentListWithHttpInfo(param.orderId, param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.storeId,  options).toPromise();
+        return this.api.orderShipmentListWithHttpInfo(param.orderId, param.start, param.count, param.pageCursor, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7818,7 +7825,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderShipmentList(param: OrderApiOrderShipmentListRequest, options?: Configuration): Promise<ModelResponseOrderShipmentList> {
-        return this.api.orderShipmentList(param.orderId, param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.storeId,  options).toPromise();
+        return this.api.orderShipmentList(param.orderId, param.start, param.count, param.pageCursor, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7881,7 +7888,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderTransactionListWithHttpInfo(param: OrderApiOrderTransactionListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseOrderTransactionList>> {
-        return this.api.orderTransactionListWithHttpInfo(param.orderIds, param.count, param.storeId, param.params, param.responseFields, param.exclude, param.pageCursor,  options).toPromise();
+        return this.api.orderTransactionListWithHttpInfo(param.orderIds, param.count, param.pageCursor, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7890,7 +7897,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderTransactionList(param: OrderApiOrderTransactionListRequest, options?: Configuration): Promise<ModelResponseOrderTransactionList> {
-        return this.api.orderTransactionList(param.orderIds, param.count, param.storeId, param.params, param.responseFields, param.exclude, param.pageCursor,  options).toPromise();
+        return this.api.orderTransactionList(param.orderIds, param.count, param.pageCursor, param.storeId, param.params, param.responseFields, param.exclude,  options).toPromise();
     }
 
     /**
@@ -7899,7 +7906,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdateWithHttpInfo(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.cancellationReason, param.comment, param.adminComment, param.adminPrivateComment, param.dateModified, param.dateFinished, param.financialStatus, param.fulfillmentStatus, param.orderPaymentMethod, param.sendNotifications, param.origin, param.createInvoice, param.invoiceAdminComment,  options).toPromise();
+        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin,  options).toPromise();
     }
 
     /**
@@ -7908,7 +7915,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdate(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.cancellationReason, param.comment, param.adminComment, param.adminPrivateComment, param.dateModified, param.dateFinished, param.financialStatus, param.fulfillmentStatus, param.orderPaymentMethod, param.sendNotifications, param.origin, param.createInvoice, param.invoiceAdminComment,  options).toPromise();
+        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin,  options).toPromise();
     }
 
 }
@@ -7943,27 +7950,6 @@ export interface ProductApiProductAttributeListRequest {
      */
     productId: string
     /**
-     * Retrieves info for specified attribute_id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductAttributeList
-     */
-    attributeId?: string
-    /**
-     * Defines product\&#39;s variants specified by variant id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductAttributeList
-     */
-    variantId?: string
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductAttributeList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -7978,19 +7964,33 @@ export interface ProductApiProductAttributeListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeList
+     */
+    pageCursor?: string
+    /**
+     * Retrieves info for specified attribute_id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeList
+     */
+    attributeId?: string
+    /**
+     * Defines product\&#39;s variants specified by variant id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeList
+     */
+    variantId?: string
+    /**
      * Filter by attribute_group_id
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductAttributeList
      */
     attributeGroupId?: string
-    /**
-     * Retrieves attributes specified by set_name in Magento
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductAttributeList
-     */
-    setName?: string
     /**
      * Retrieves attributes specified by language id
      * Defaults to: undefined
@@ -8005,6 +8005,13 @@ export interface ProductApiProductAttributeListRequest {
      * @memberof ProductApiproductAttributeList
      */
     storeId?: string
+    /**
+     * Retrieves attributes specified by set_name in Magento
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeList
+     */
+    setName?: string
     /**
      * Set field to sort by
      * Defaults to: &#39;attribute_id&#39;
@@ -8021,18 +8028,18 @@ export interface ProductApiProductAttributeListRequest {
     sortDirection?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;attribute_id,name&#39;
-     * @type string
-     * @memberof ProductApiproductAttributeList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductAttributeList
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;attribute_id,name&#39;
+     * @type string
+     * @memberof ProductApiproductAttributeList
+     */
+    params?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -8169,13 +8176,6 @@ export interface ProductApiProductBrandListRequest {
      */
     pageCursor?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,short_description,active,url&#39;
-     * @type string
-     * @memberof ProductApiproductBrandList
-     */
-    params?: string
-    /**
      * Retrieves brands specified by brand ids
      * Defaults to: undefined
      * @type string
@@ -8183,19 +8183,19 @@ export interface ProductApiProductBrandListRequest {
      */
     brandIds?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductBrandList
-     */
-    exclude?: string
-    /**
      * Retrieves product brands specified by category id
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductBrandList
      */
     categoryId?: string
+    /**
+     * Retrieves brands specified by parent id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductBrandList
+     */
+    parentId?: string
     /**
      * Store Id
      * Defaults to: undefined
@@ -8210,6 +8210,20 @@ export interface ProductApiProductBrandListRequest {
      * @memberof ProductApiproductBrandList
      */
     langId?: string
+    /**
+     * Entity search that is specified by the comma-separated unique fields
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductBrandList
+     */
+    findWhere?: string
+    /**
+     * Entity search that is specified by some value
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductBrandList
+     */
+    findValue?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -8239,13 +8253,6 @@ export interface ProductApiProductBrandListRequest {
      */
     modifiedTo?: string
     /**
-     * Retrieves brands specified by parent id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductBrandList
-     */
-    parentId?: string
-    /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
@@ -8253,19 +8260,19 @@ export interface ProductApiProductBrandListRequest {
      */
     responseFields?: string
     /**
-     * Entity search that is specified by the comma-separated unique fields
-     * Defaults to: undefined
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,short_description,active,url&#39;
      * @type string
      * @memberof ProductApiproductBrandList
      */
-    findWhere?: string
+    params?: string
     /**
-     * Entity search that is specified by some value
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductBrandList
      */
-    findValue?: string
+    exclude?: string
 }
 
 export interface ProductApiProductChildItemFindRequest {
@@ -8315,27 +8322,6 @@ export interface ProductApiProductChildItemInfoRequest {
      */
     id: string
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;force_all&#39;
-     * @type string
-     * @memberof ProductApiproductChildItemInfo
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemInfo
-     */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemInfo
-     */
-    exclude?: string
-    /**
      * Store Id
      * Defaults to: undefined
      * @type string
@@ -8357,6 +8343,27 @@ export interface ProductApiProductChildItemInfoRequest {
      */
     currencyId?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;force_all&#39;
+     * @type string
+     * @memberof ProductApiproductChildItemInfo
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemInfo
+     */
+    exclude?: string
+    /**
      * Use the latest platform API version
      * Defaults to: false
      * @type boolean
@@ -8366,13 +8373,6 @@ export interface ProductApiProductChildItemInfoRequest {
 }
 
 export interface ProductApiProductChildItemListRequest {
-    /**
-     * Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    pageCursor?: string
     /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
@@ -8388,54 +8388,12 @@ export interface ProductApiProductChildItemListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;force_all&#39;
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductChildItemList
      */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    exclude?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    modifiedFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductChildItemList
-     */
-    modifiedTo?: string
+    pageCursor?: string
     /**
      * Filter by parent product id
      * Defaults to: undefined
@@ -8500,6 +8458,62 @@ export interface ProductApiProductChildItemListRequest {
      */
     findWhere?: string
     /**
+     * Retrieve entities from their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    createdFrom?: string
+    /**
+     * Retrieve entities to their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    createdTo?: string
+    /**
+     * Retrieve entities from their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    modifiedFrom?: string
+    /**
+     * Retrieve entities to their modification date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    modifiedTo?: string
+    /**
+     * Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
+     * Defaults to: false
+     * @type boolean
+     * @memberof ProductApiproductChildItemList
+     */
+    returnGlobal?: boolean
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;force_all&#39;
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductChildItemList
+     */
+    exclude?: string
+    /**
      * Report request id
      * Defaults to: undefined
      * @type string
@@ -8520,16 +8534,30 @@ export interface ProductApiProductChildItemListRequest {
      * @memberof ProductApiproductChildItemList
      */
     useLatestApiVersion?: boolean
-    /**
-     * Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
-     * Defaults to: false
-     * @type boolean
-     * @memberof ProductApiproductChildItemList
-     */
-    returnGlobal?: boolean
 }
 
 export interface ProductApiProductCountRequest {
+    /**
+     * Counts products specified by product ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    productIds?: string
+    /**
+     * Retrieve entities starting from the specified id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    sinceId?: string
+    /**
+     * Defines product add that is specified by comma-separated categories id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    categoriesIds?: string
     /**
      * Counts products specified by category id
      * Defaults to: undefined
@@ -8537,6 +8565,34 @@ export interface ProductApiProductCountRequest {
      * @memberof ProductApiproductCount
      */
     categoryId?: string
+    /**
+     * Counts products specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    storeId?: string
+    /**
+     * Counts products specified by language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    langId?: string
+    /**
+     * Specifies the set of visible/invisible products
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof ProductApiproductCount
+     */
+    availView?: boolean
+    /**
+     * Specifies the set of available/not available products for sale
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof ProductApiproductCount
+     */
+    availSale?: boolean
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -8565,62 +8621,6 @@ export interface ProductApiProductCountRequest {
      * @memberof ProductApiproductCount
      */
     modifiedTo?: string
-    /**
-     * Specifies the set of visible/invisible products
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof ProductApiproductCount
-     */
-    availView?: boolean
-    /**
-     * Specifies the set of available/not available products for sale
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof ProductApiproductCount
-     */
-    availSale?: boolean
-    /**
-     * Counts products specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCount
-     */
-    storeId?: string
-    /**
-     * Counts products specified by language id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCount
-     */
-    langId?: string
-    /**
-     * Counts products specified by product ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCount
-     */
-    productIds?: string
-    /**
-     * Retrieve entities starting from the specified id.
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCount
-     */
-    sinceId?: string
-    /**
-     * Report request id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCount
-     */
-    reportRequestId?: string
-    /**
-     * Disable report cache for current request
-     * Defaults to: false
-     * @type boolean
-     * @memberof ProductApiproductCount
-     */
-    disableReportCache?: boolean
     /**
      * Retrieves brands specified by brand name
      * Defaults to: undefined
@@ -8664,12 +8664,12 @@ export interface ProductApiProductCountRequest {
      */
     findWhere?: string
     /**
-     * Use the latest platform API version
-     * Defaults to: false
-     * @type boolean
+     * Report request id
+     * Defaults to: undefined
+     * @type string
      * @memberof ProductApiproductCount
      */
-    useLatestApiVersion?: boolean
+    reportRequestId?: string
     /**
      * Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
      * Defaults to: false
@@ -8678,12 +8678,19 @@ export interface ProductApiProductCountRequest {
      */
     returnGlobal?: boolean
     /**
-     * Defines product add that is specified by comma-separated categories id
-     * Defaults to: undefined
-     * @type string
+     * Disable report cache for current request
+     * Defaults to: false
+     * @type boolean
      * @memberof ProductApiproductCount
      */
-    categoriesIds?: string
+    disableReportCache?: boolean
+    /**
+     * Use the latest platform API version
+     * Defaults to: false
+     * @type boolean
+     * @memberof ProductApiproductCount
+     */
+    useLatestApiVersion?: boolean
 }
 
 export interface ProductApiProductCurrencyAddRequest {
@@ -8754,33 +8761,12 @@ export interface ProductApiProductCurrencyListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;name,iso3,default,avail&#39;
-     * @type string
-     * @memberof ProductApiproductCurrencyList
-     */
-    params?: string
-    /**
      * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductCurrencyList
      */
     pageCursor?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCurrencyList
-     */
-    exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductCurrencyList
-     */
-    responseFields?: string
     /**
      * Specifies the set of default/not default currencies
      * Defaults to: undefined
@@ -8795,6 +8781,27 @@ export interface ProductApiProductCurrencyListRequest {
      * @memberof ProductApiproductCurrencyList
      */
     avail?: boolean
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCurrencyList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;name,iso3,default,avail&#39;
+     * @type string
+     * @memberof ProductApiproductCurrencyList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCurrencyList
+     */
+    exclude?: string
 }
 
 export interface ProductApiProductDeleteRequest {
@@ -8927,6 +8934,20 @@ export interface ProductApiProductImageUpdateRequest {
      */
     variantIds?: string
     /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductImageUpdate
+     */
+    storeId?: string
+    /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductImageUpdate
+     */
+    langId?: string
+    /**
      * Defines image\&#39;s name
      * Defaults to: undefined
      * @type string
@@ -8955,20 +8976,6 @@ export interface ProductApiProductImageUpdateRequest {
      */
     position?: number
     /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductImageUpdate
-     */
-    storeId?: string
-    /**
-     * Language id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductImageUpdate
-     */
-    langId?: string
-    /**
      * Define is hide image
      * Defaults to: undefined
      * @type boolean
@@ -8985,27 +8992,6 @@ export interface ProductApiProductInfoRequest {
      * @memberof ProductApiproductInfo
      */
     id: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description,price,categories_ids&#39;
-     * @type string
-     * @memberof ProductApiproductInfo
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductInfo
-     */
-    responseFields?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductInfo
-     */
-    exclude?: string
     /**
      * Retrieves product info specified by store id
      * Defaults to: undefined
@@ -9027,6 +9013,27 @@ export interface ProductApiProductInfoRequest {
      * @memberof ProductApiproductInfo
      */
     currencyId?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,description,price,categories_ids&#39;
+     * @type string
+     * @memberof ProductApiproductInfo
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductInfo
+     */
+    exclude?: string
     /**
      * Report request id
      * Defaults to: undefined
@@ -9052,13 +9059,6 @@ export interface ProductApiProductInfoRequest {
 
 export interface ProductApiProductListRequest {
     /**
-     * Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -9073,26 +9073,33 @@ export interface ProductApiProductListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description,price,categories_ids&#39;
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductList
      */
-    responseFields?: string
+    pageCursor?: string
     /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Retrieves products specified by product ids
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductList
      */
-    exclude?: string
+    productIds?: string
+    /**
+     * Retrieve entities starting from the specified id.
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    sinceId?: string
+    /**
+     * Retrieves products specified by categories ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    categoriesIds?: string
     /**
      * Retrieves products specified by category id
      * Defaults to: undefined
@@ -9100,6 +9107,41 @@ export interface ProductApiProductListRequest {
      * @memberof ProductApiproductList
      */
     categoryId?: string
+    /**
+     * Retrieves products specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    storeId?: string
+    /**
+     * Retrieves products specified by language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    langId?: string
+    /**
+     * Currency Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    currencyId?: string
+    /**
+     * Specifies the set of visible/invisible products
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof ProductApiproductList
+     */
+    availView?: boolean
+    /**
+     * Specifies the set of available/not available products for sale
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof ProductApiproductList
+     */
+    availSale?: boolean
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -9129,96 +9171,12 @@ export interface ProductApiProductListRequest {
      */
     modifiedTo?: string
     /**
-     * Specifies the set of visible/invisible products
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof ProductApiproductList
-     */
-    availView?: boolean
-    /**
-     * Specifies the set of available/not available products for sale
-     * Defaults to: undefined
-     * @type boolean
-     * @memberof ProductApiproductList
-     */
-    availSale?: boolean
-    /**
-     * Retrieves products specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    storeId?: string
-    /**
-     * Retrieves products specified by language id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    langId?: string
-    /**
-     * Currency Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    currencyId?: string
-    /**
-     * Retrieves products specified by product ids
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    productIds?: string
-    /**
-     * Retrieve entities starting from the specified id.
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    sinceId?: string
-    /**
-     * Report request id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    reportRequestId?: string
-    /**
-     * Disable report cache for current request
-     * Defaults to: false
-     * @type boolean
-     * @memberof ProductApiproductList
-     */
-    disableReportCache?: boolean
-    /**
-     * Set field to sort by
-     * Defaults to: &#39;id&#39;
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    sortBy?: string
-    /**
-     * Set sorting direction
-     * Defaults to: &#39;asc&#39;
-     * @type string
-     * @memberof ProductApiproductList
-     */
-    sortDirection?: string
-    /**
      * Filter by product\&#39;s sku
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductList
      */
     sku?: string
-    /**
-     * Disable cache for current request
-     * Defaults to: false
-     * @type boolean
-     * @memberof ProductApiproductList
-     */
-    disableCache?: boolean
     /**
      * Retrieves brands specified by brand name
      * Defaults to: undefined
@@ -9262,13 +9220,6 @@ export interface ProductApiProductListRequest {
      */
     findWhere?: string
     /**
-     * Use the latest platform API version
-     * Defaults to: false
-     * @type boolean
-     * @memberof ProductApiproductList
-     */
-    useLatestApiVersion?: boolean
-    /**
      * Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
      * Defaults to: false
      * @type boolean
@@ -9276,12 +9227,68 @@ export interface ProductApiProductListRequest {
      */
     returnGlobal?: boolean
     /**
-     * Retrieves products specified by categories ids
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,description,price,categories_ids&#39;
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductList
      */
-    categoriesIds?: string
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    exclude?: string
+    /**
+     * Set field to sort by
+     * Defaults to: &#39;id&#39;
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    sortBy?: string
+    /**
+     * Set sorting direction
+     * Defaults to: &#39;asc&#39;
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    sortDirection?: string
+    /**
+     * Report request id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    reportRequestId?: string
+    /**
+     * Disable cache for current request
+     * Defaults to: false
+     * @type boolean
+     * @memberof ProductApiproductList
+     */
+    disableCache?: boolean
+    /**
+     * Disable report cache for current request
+     * Defaults to: false
+     * @type boolean
+     * @memberof ProductApiproductList
+     */
+    disableReportCache?: boolean
+    /**
+     * Use the latest platform API version
+     * Defaults to: false
+     * @type boolean
+     * @memberof ProductApiproductList
+     */
+    useLatestApiVersion?: boolean
 }
 
 export interface ProductApiProductManufacturerAddRequest {
@@ -9402,27 +9409,6 @@ export interface ProductApiProductOptionListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description&#39;
-     * @type string
-     * @memberof ProductApiproductOptionList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductOptionList
-     */
-    exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductOptionList
-     */
-    responseFields?: string
-    /**
      * Retrieves products\&#39; options specified by product id
      * Defaults to: undefined
      * @type string
@@ -9443,6 +9429,27 @@ export interface ProductApiProductOptionListRequest {
      * @memberof ProductApiproductOptionList
      */
     storeId?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,description&#39;
+     * @type string
+     * @memberof ProductApiproductOptionList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionList
+     */
+    exclude?: string
 }
 
 export interface ProductApiProductOptionValueAddRequest {
@@ -9669,19 +9676,19 @@ export interface ProductApiProductReviewListRequest {
      */
     start?: number
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductReviewList
-     */
-    pageCursor?: string
-    /**
      * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * Defaults to: 10
      * @type number
      * @memberof ProductApiproductReviewList
      */
     count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    pageCursor?: string
     /**
      * Retrieves reviews specified by ids
      * Defaults to: undefined
@@ -9705,6 +9712,13 @@ export interface ProductApiProductReviewListRequest {
     status?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time&#39;
      * @type string
      * @memberof ProductApiproductReviewList
@@ -9717,13 +9731,6 @@ export interface ProductApiProductReviewListRequest {
      * @memberof ProductApiproductReviewList
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductReviewList
-     */
-    responseFields?: string
 }
 
 export interface ProductApiProductStoreAssignRequest {
@@ -9797,6 +9804,20 @@ export interface ProductApiProductVariantCountRequest {
      */
     productId: string
     /**
+     * Counts products’ variants specified by category id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductVariantCount
+     */
+    categoryId?: string
+    /**
+     * Retrieves variants specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductVariantCount
+     */
+    storeId?: string
+    /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
      * @type string
@@ -9824,20 +9845,6 @@ export interface ProductApiProductVariantCountRequest {
      * @memberof ProductApiproductVariantCount
      */
     modifiedTo?: string
-    /**
-     * Counts products’ variants specified by category id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    categoryId?: string
-    /**
-     * Retrieves variants specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    storeId?: string
 }
 
 export interface ProductApiProductVariantDeleteRequest {
@@ -9922,6 +9929,13 @@ export interface ProductApiProductVariantInfoRequest {
      */
     id: string
     /**
+     * Retrieves variant info specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductVariantInfo
+     */
+    storeId?: string
+    /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,name,description,price&#39;
      * @type string
@@ -9935,13 +9949,6 @@ export interface ProductApiProductVariantInfoRequest {
      * @memberof ProductApiproductVariantInfo
      */
     exclude?: string
-    /**
-     * Retrieves variant info specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantInfo
-     */
-    storeId?: string
 }
 
 export interface ProductApiProductVariantListRequest {
@@ -9960,19 +9967,26 @@ export interface ProductApiProductVariantListRequest {
      */
     count?: number
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description,price&#39;
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Retrieves products\&#39; variants specified by product id
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductVariantList
      */
-    exclude?: string
+    productId?: string
+    /**
+     * Retrieves products’ variants specified by category id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductVariantList
+     */
+    categoryId?: string
+    /**
+     * Retrieves variants specified by store id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductVariantList
+     */
+    storeId?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -10002,26 +10016,19 @@ export interface ProductApiProductVariantListRequest {
      */
     modifiedTo?: string
     /**
-     * Retrieves products’ variants specified by category id
-     * Defaults to: undefined
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,name,description,price&#39;
      * @type string
      * @memberof ProductApiproductVariantList
      */
-    categoryId?: string
+    params?: string
     /**
-     * Retrieves products\&#39; variants specified by product id
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductVariantList
      */
-    productId?: string
-    /**
-     * Retrieves variants specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    storeId?: string
+    exclude?: string
 }
 
 export interface ProductApiProductVariantPriceAddRequest {
@@ -10140,7 +10147,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeListWithHttpInfo(param: ProductApiProductAttributeListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseProductAttributeList>> {
-        return this.api.productAttributeListWithHttpInfo(param.productId, param.attributeId, param.variantId, param.pageCursor, param.start, param.count, param.attributeGroupId, param.setName, param.langId, param.storeId, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.productAttributeListWithHttpInfo(param.productId, param.start, param.count, param.pageCursor, param.attributeId, param.variantId, param.attributeGroupId, param.langId, param.storeId, param.setName, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10149,7 +10156,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeList(param: ProductApiProductAttributeListRequest, options?: Configuration): Promise<ModelResponseProductAttributeList> {
-        return this.api.productAttributeList(param.productId, param.attributeId, param.variantId, param.pageCursor, param.start, param.count, param.attributeGroupId, param.setName, param.langId, param.storeId, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.productAttributeList(param.productId, param.start, param.count, param.pageCursor, param.attributeId, param.variantId, param.attributeGroupId, param.langId, param.storeId, param.setName, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10194,7 +10201,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productBrandListWithHttpInfo(param: ProductApiProductBrandListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductBrandList>> {
-        return this.api.productBrandListWithHttpInfo(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.categoryId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
+        return this.api.productBrandListWithHttpInfo(param.start, param.count, param.pageCursor, param.brandIds, param.categoryId, param.parentId, param.storeId, param.langId, param.findWhere, param.findValue, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10203,7 +10210,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productBrandList(param: ProductApiProductBrandListRequest = {}, options?: Configuration): Promise<ModelResponseProductBrandList> {
-        return this.api.productBrandList(param.start, param.count, param.pageCursor, param.params, param.brandIds, param.exclude, param.categoryId, param.storeId, param.langId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.parentId, param.responseFields, param.findWhere, param.findValue,  options).toPromise();
+        return this.api.productBrandList(param.start, param.count, param.pageCursor, param.brandIds, param.categoryId, param.parentId, param.storeId, param.langId, param.findWhere, param.findValue, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10230,7 +10237,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productChildItemInfoWithHttpInfo(param: ProductApiProductChildItemInfoRequest, options?: Configuration): Promise<HttpInfo<ProductChildItemInfo200Response>> {
-        return this.api.productChildItemInfoWithHttpInfo(param.productId, param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.currencyId, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productChildItemInfoWithHttpInfo(param.productId, param.id, param.storeId, param.langId, param.currencyId, param.responseFields, param.params, param.exclude, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10239,7 +10246,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productChildItemInfo(param: ProductApiProductChildItemInfoRequest, options?: Configuration): Promise<ProductChildItemInfo200Response> {
-        return this.api.productChildItemInfo(param.productId, param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.currencyId, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productChildItemInfo(param.productId, param.id, param.storeId, param.langId, param.currencyId, param.responseFields, param.params, param.exclude, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10248,7 +10255,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productChildItemListWithHttpInfo(param: ProductApiProductChildItemListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductChildItemList>> {
-        return this.api.productChildItemListWithHttpInfo(param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.productId, param.productIds, param.sku, param.storeId, param.langId, param.currencyId, param.availSale, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion, param.returnGlobal,  options).toPromise();
+        return this.api.productChildItemListWithHttpInfo(param.start, param.count, param.pageCursor, param.productId, param.productIds, param.sku, param.storeId, param.langId, param.currencyId, param.availSale, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.returnGlobal, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10257,7 +10264,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productChildItemList(param: ProductApiProductChildItemListRequest = {}, options?: Configuration): Promise<ModelResponseProductChildItemList> {
-        return this.api.productChildItemList(param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.productId, param.productIds, param.sku, param.storeId, param.langId, param.currencyId, param.availSale, param.findValue, param.findWhere, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion, param.returnGlobal,  options).toPromise();
+        return this.api.productChildItemList(param.start, param.count, param.pageCursor, param.productId, param.productIds, param.sku, param.storeId, param.langId, param.currencyId, param.availSale, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.returnGlobal, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10266,7 +10273,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCountWithHttpInfo(param: ProductApiProductCountRequest = {}, options?: Configuration): Promise<HttpInfo<ProductCount200Response>> {
-        return this.api.productCountWithHttpInfo(param.categoryId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.availView, param.availSale, param.storeId, param.langId, param.productIds, param.sinceId, param.reportRequestId, param.disableReportCache, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.useLatestApiVersion, param.returnGlobal, param.categoriesIds,  options).toPromise();
+        return this.api.productCountWithHttpInfo(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10275,7 +10282,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCount(param: ProductApiProductCountRequest = {}, options?: Configuration): Promise<ProductCount200Response> {
-        return this.api.productCount(param.categoryId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.availView, param.availSale, param.storeId, param.langId, param.productIds, param.sinceId, param.reportRequestId, param.disableReportCache, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.useLatestApiVersion, param.returnGlobal, param.categoriesIds,  options).toPromise();
+        return this.api.productCount(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10302,7 +10309,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCurrencyListWithHttpInfo(param: ProductApiProductCurrencyListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductCurrencyList>> {
-        return this.api.productCurrencyListWithHttpInfo(param.start, param.count, param.params, param.pageCursor, param.exclude, param.responseFields, param._default, param.avail,  options).toPromise();
+        return this.api.productCurrencyListWithHttpInfo(param.start, param.count, param.pageCursor, param._default, param.avail, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10311,7 +10318,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCurrencyList(param: ProductApiProductCurrencyListRequest = {}, options?: Configuration): Promise<ModelResponseProductCurrencyList> {
-        return this.api.productCurrencyList(param.start, param.count, param.params, param.pageCursor, param.exclude, param.responseFields, param._default, param.avail,  options).toPromise();
+        return this.api.productCurrencyList(param.start, param.count, param.pageCursor, param._default, param.avail, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10428,7 +10435,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productImageUpdateWithHttpInfo(param: ProductApiProductImageUpdateRequest, options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        return this.api.productImageUpdateWithHttpInfo(param.productId, param.id, param.variantIds, param.imageName, param.type, param.label, param.position, param.storeId, param.langId, param.hidden,  options).toPromise();
+        return this.api.productImageUpdateWithHttpInfo(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden,  options).toPromise();
     }
 
     /**
@@ -10437,7 +10444,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productImageUpdate(param: ProductApiProductImageUpdateRequest, options?: Configuration): Promise<ProductImageUpdate200Response> {
-        return this.api.productImageUpdate(param.productId, param.id, param.variantIds, param.imageName, param.type, param.label, param.position, param.storeId, param.langId, param.hidden,  options).toPromise();
+        return this.api.productImageUpdate(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden,  options).toPromise();
     }
 
     /**
@@ -10446,7 +10453,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productInfoWithHttpInfo(param: ProductApiProductInfoRequest, options?: Configuration): Promise<HttpInfo<ProductInfo200Response>> {
-        return this.api.productInfoWithHttpInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.currencyId, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productInfoWithHttpInfo(param.id, param.storeId, param.langId, param.currencyId, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10455,7 +10462,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productInfo(param: ProductApiProductInfoRequest, options?: Configuration): Promise<ProductInfo200Response> {
-        return this.api.productInfo(param.id, param.params, param.responseFields, param.exclude, param.storeId, param.langId, param.currencyId, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productInfo(param.id, param.storeId, param.langId, param.currencyId, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10464,7 +10471,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productListWithHttpInfo(param: ProductApiProductListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductList>> {
-        return this.api.productListWithHttpInfo(param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.categoryId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.availView, param.availSale, param.storeId, param.langId, param.currencyId, param.productIds, param.sinceId, param.reportRequestId, param.disableReportCache, param.sortBy, param.sortDirection, param.sku, param.disableCache, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.useLatestApiVersion, param.returnGlobal, param.categoriesIds,  options).toPromise();
+        return this.api.productListWithHttpInfo(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10473,7 +10480,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productList(param: ProductApiProductListRequest = {}, options?: Configuration): Promise<ModelResponseProductList> {
-        return this.api.productList(param.pageCursor, param.start, param.count, param.params, param.responseFields, param.exclude, param.categoryId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.availView, param.availSale, param.storeId, param.langId, param.currencyId, param.productIds, param.sinceId, param.reportRequestId, param.disableReportCache, param.sortBy, param.sortDirection, param.sku, param.disableCache, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.useLatestApiVersion, param.returnGlobal, param.categoriesIds,  options).toPromise();
+        return this.api.productList(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10554,7 +10561,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionListWithHttpInfo(param: ProductApiProductOptionListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductOptionList>> {
-        return this.api.productOptionListWithHttpInfo(param.start, param.count, param.params, param.exclude, param.responseFields, param.productId, param.langId, param.storeId,  options).toPromise();
+        return this.api.productOptionListWithHttpInfo(param.start, param.count, param.productId, param.langId, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10563,7 +10570,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionList(param: ProductApiProductOptionListRequest = {}, options?: Configuration): Promise<ModelResponseProductOptionList> {
-        return this.api.productOptionList(param.start, param.count, param.params, param.exclude, param.responseFields, param.productId, param.langId, param.storeId,  options).toPromise();
+        return this.api.productOptionList(param.start, param.count, param.productId, param.langId, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10698,7 +10705,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productReviewListWithHttpInfo(param: ProductApiProductReviewListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseProductReviewList>> {
-        return this.api.productReviewListWithHttpInfo(param.productId, param.start, param.pageCursor, param.count, param.ids, param.storeId, param.status, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.productReviewListWithHttpInfo(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.status, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10707,7 +10714,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productReviewList(param: ProductApiProductReviewListRequest, options?: Configuration): Promise<ModelResponseProductReviewList> {
-        return this.api.productReviewList(param.productId, param.start, param.pageCursor, param.count, param.ids, param.storeId, param.status, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.productReviewList(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.status, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10824,7 +10831,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantCountWithHttpInfo(param: ProductApiProductVariantCountRequest, options?: Configuration): Promise<HttpInfo<ProductVariantCount200Response>> {
-        return this.api.productVariantCountWithHttpInfo(param.productId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.categoryId, param.storeId,  options).toPromise();
+        return this.api.productVariantCountWithHttpInfo(param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -10833,7 +10840,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantCount(param: ProductApiProductVariantCountRequest, options?: Configuration): Promise<ProductVariantCount200Response> {
-        return this.api.productVariantCount(param.productId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.categoryId, param.storeId,  options).toPromise();
+        return this.api.productVariantCount(param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -10914,7 +10921,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantInfoWithHttpInfo(param: ProductApiProductVariantInfoRequest, options?: Configuration): Promise<HttpInfo<ProductInfo200Response>> {
-        return this.api.productVariantInfoWithHttpInfo(param.id, param.params, param.exclude, param.storeId,  options).toPromise();
+        return this.api.productVariantInfoWithHttpInfo(param.id, param.storeId, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10923,7 +10930,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantInfo(param: ProductApiProductVariantInfoRequest, options?: Configuration): Promise<ProductInfo200Response> {
-        return this.api.productVariantInfo(param.id, param.params, param.exclude, param.storeId,  options).toPromise();
+        return this.api.productVariantInfo(param.id, param.storeId, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10932,7 +10939,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantListWithHttpInfo(param: ProductApiProductVariantListRequest = {}, options?: Configuration): Promise<HttpInfo<ProductVariantList200Response>> {
-        return this.api.productVariantListWithHttpInfo(param.start, param.count, param.params, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.productVariantListWithHttpInfo(param.start, param.count, param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10941,7 +10948,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productVariantList(param: ProductApiProductVariantListRequest = {}, options?: Configuration): Promise<ProductVariantList200Response> {
-        return this.api.productVariantList(param.start, param.count, param.params, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.productVariantList(param.start, param.count, param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11146,6 +11153,13 @@ export interface ReturnApiReturnInfoRequest {
     storeId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ReturnApireturnInfo
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;id,order_products&#39;
      * @type string
      * @memberof ReturnApireturnInfo
@@ -11158,13 +11172,6 @@ export interface ReturnApiReturnInfoRequest {
      * @memberof ReturnApireturnInfo
      */
     exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ReturnApireturnInfo
-     */
-    responseFields?: string
 }
 
 export interface ReturnApiReturnListRequest {
@@ -11189,27 +11196,6 @@ export interface ReturnApiReturnListRequest {
      * @memberof ReturnApireturnList
      */
     pageCursor?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,order_products&#39;
-     * @type string
-     * @memberof ReturnApireturnList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ReturnApireturnList
-     */
-    exclude?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: undefined
-     * @type string
-     * @memberof ReturnApireturnList
-     */
-    responseFields?: string
     /**
      * Defines the order id
      * Defaults to: undefined
@@ -11280,6 +11266,27 @@ export interface ReturnApiReturnListRequest {
      * @memberof ReturnApireturnList
      */
     modifiedTo?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof ReturnApireturnList
+     */
+    responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,order_products&#39;
+     * @type string
+     * @memberof ReturnApireturnList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof ReturnApireturnList
+     */
+    exclude?: string
     /**
      * Report request id
      * Defaults to: undefined
@@ -11358,7 +11365,7 @@ export class ObjectReturnApi {
      * @param param the request object
      */
     public returnInfoWithHttpInfo(param: ReturnApiReturnInfoRequest, options?: Configuration): Promise<HttpInfo<ReturnInfo200Response>> {
-        return this.api.returnInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.returnInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11367,7 +11374,7 @@ export class ObjectReturnApi {
      * @param param the request object
      */
     public returnInfo(param: ReturnApiReturnInfoRequest, options?: Configuration): Promise<ReturnInfo200Response> {
-        return this.api.returnInfo(param.id, param.orderId, param.storeId, param.params, param.exclude, param.responseFields,  options).toPromise();
+        return this.api.returnInfo(param.id, param.orderId, param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11376,7 +11383,7 @@ export class ObjectReturnApi {
      * @param param the request object
      */
     public returnListWithHttpInfo(param: ReturnApiReturnListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseReturnList>> {
-        return this.api.returnListWithHttpInfo(param.start, param.count, param.pageCursor, param.params, param.exclude, param.responseFields, param.orderId, param.orderIds, param.customerId, param.storeId, param.status, param.returnType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.returnListWithHttpInfo(param.start, param.count, param.pageCursor, param.orderId, param.orderIds, param.customerId, param.storeId, param.status, param.returnType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -11385,7 +11392,7 @@ export class ObjectReturnApi {
      * @param param the request object
      */
     public returnList(param: ReturnApiReturnListRequest = {}, options?: Configuration): Promise<ModelResponseReturnList> {
-        return this.api.returnList(param.start, param.count, param.pageCursor, param.params, param.exclude, param.responseFields, param.orderId, param.orderIds, param.customerId, param.storeId, param.status, param.returnType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.returnList(param.start, param.count, param.pageCursor, param.orderId, param.orderIds, param.customerId, param.storeId, param.status, param.returnType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
     }
 
     /**
@@ -11445,6 +11452,13 @@ export interface SubscriberApiSubscriberListRequest {
      */
     count?: number
     /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof SubscriberApisubscriberList
+     */
+    pageCursor?: string
+    /**
      * Filter by subscription status
      * Defaults to: undefined
      * @type boolean
@@ -11465,20 +11479,6 @@ export interface SubscriberApiSubscriberListRequest {
      * @memberof SubscriberApisubscriberList
      */
     email?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;force_all&#39;
-     * @type string
-     * @memberof SubscriberApisubscriberList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof SubscriberApisubscriberList
-     */
-    exclude?: string
     /**
      * Retrieve entities from their creation date
      * Defaults to: undefined
@@ -11508,19 +11508,26 @@ export interface SubscriberApiSubscriberListRequest {
      */
     modifiedTo?: string
     /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof SubscriberApisubscriberList
-     */
-    pageCursor?: string
-    /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof SubscriberApisubscriberList
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;force_all&#39;
+     * @type string
+     * @memberof SubscriberApisubscriberList
+     */
+    params?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * Defaults to: undefined
+     * @type string
+     * @memberof SubscriberApisubscriberList
+     */
+    exclude?: string
 }
 
 export class ObjectSubscriberApi {
@@ -11536,7 +11543,7 @@ export class ObjectSubscriberApi {
      * @param param the request object
      */
     public subscriberListWithHttpInfo(param: SubscriberApiSubscriberListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseSubscriberList>> {
-        return this.api.subscriberListWithHttpInfo(param.start, param.count, param.subscribed, param.storeId, param.email, param.params, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.subscriberListWithHttpInfo(param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11545,7 +11552,7 @@ export class ObjectSubscriberApi {
      * @param param the request object
      */
     public subscriberList(param: SubscriberApiSubscriberListRequest = {}, options?: Configuration): Promise<ModelResponseSubscriberList> {
-        return this.api.subscriberList(param.start, param.count, param.subscribed, param.storeId, param.email, param.params, param.exclude, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.subscriberList(param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
 }
@@ -11577,18 +11584,18 @@ export interface TaxApiTaxClassInfoRequest {
     langId?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;tax_class_id,name,avail&#39;
-     * @type string
-     * @memberof TaxApitaxClassInfo
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
      * @type string
      * @memberof TaxApitaxClassInfo
      */
     responseFields?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;tax_class_id,name,avail&#39;
+     * @type string
+     * @memberof TaxApitaxClassInfo
+     */
+    params?: string
     /**
      * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * Defaults to: undefined
@@ -11599,6 +11606,41 @@ export interface TaxApiTaxClassInfoRequest {
 }
 
 export interface TaxApiTaxClassListRequest {
+    /**
+     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * Defaults to: 10
+     * @type number
+     * @memberof TaxApitaxClassList
+     */
+    count?: number
+    /**
+     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * Defaults to: undefined
+     * @type string
+     * @memberof TaxApitaxClassList
+     */
+    pageCursor?: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof TaxApitaxClassList
+     */
+    storeId?: string
+    /**
+     * Entity search that is specified by some value
+     * Defaults to: undefined
+     * @type string
+     * @memberof TaxApitaxClassList
+     */
+    findValue?: string
+    /**
+     * Tax class search that is specified by field
+     * Defaults to: undefined
+     * @type string
+     * @memberof TaxApitaxClassList
+     */
+    findWhere?: string
     /**
      * Retrieve entities to their creation date
      * Defaults to: undefined
@@ -11628,41 +11670,6 @@ export interface TaxApiTaxClassListRequest {
      */
     modifiedFrom?: string
     /**
-     * Entity search that is specified by some value
-     * Defaults to: undefined
-     * @type string
-     * @memberof TaxApitaxClassList
-     */
-    findValue?: string
-    /**
-     * Tax class search that is specified by field
-     * Defaults to: undefined
-     * @type string
-     * @memberof TaxApitaxClassList
-     */
-    findWhere?: string
-    /**
-     * Store Id
-     * Defaults to: undefined
-     * @type string
-     * @memberof TaxApitaxClassList
-     */
-    storeId?: string
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof TaxApitaxClassList
-     */
-    count?: number
-    /**
-     * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * Defaults to: undefined
-     * @type string
-     * @memberof TaxApitaxClassList
-     */
-    pageCursor?: string
-    /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: &#39;{return_code,return_message,pagination,result}&#39;
      * @type string
@@ -11684,7 +11691,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassInfoWithHttpInfo(param: TaxApiTaxClassInfoRequest, options?: Configuration): Promise<HttpInfo<ModelResponseTaxClassInfo>> {
-        return this.api.taxClassInfoWithHttpInfo(param.taxClassId, param.storeId, param.langId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.taxClassInfoWithHttpInfo(param.taxClassId, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11693,7 +11700,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassInfo(param: TaxApiTaxClassInfoRequest, options?: Configuration): Promise<ModelResponseTaxClassInfo> {
-        return this.api.taxClassInfo(param.taxClassId, param.storeId, param.langId, param.params, param.responseFields, param.exclude,  options).toPromise();
+        return this.api.taxClassInfo(param.taxClassId, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11702,7 +11709,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassListWithHttpInfo(param: TaxApiTaxClassListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseTaxClassList>> {
-        return this.api.taxClassListWithHttpInfo(param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.findValue, param.findWhere, param.storeId, param.count, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.taxClassListWithHttpInfo(param.count, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -11711,7 +11718,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassList(param: TaxApiTaxClassListRequest = {}, options?: Configuration): Promise<ModelResponseTaxClassList> {
-        return this.api.taxClassList(param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.findValue, param.findWhere, param.storeId, param.count, param.pageCursor, param.responseFields,  options).toPromise();
+        return this.api.taxClassList(param.count, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
     }
 
 }
@@ -11810,13 +11817,6 @@ export interface WebhookApiWebhookEventsRequest {
 
 export interface WebhookApiWebhookListRequest {
     /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,entity,action,callback&#39;
-     * @type string
-     * @memberof WebhookApiwebhookList
-     */
-    params?: string
-    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -11858,6 +11858,13 @@ export interface WebhookApiWebhookListRequest {
      * @memberof WebhookApiwebhookList
      */
     ids?: string
+    /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: &#39;id,entity,action,callback&#39;
+     * @type string
+     * @memberof WebhookApiwebhookList
+     */
+    params?: string
 }
 
 export interface WebhookApiWebhookUpdateRequest {
@@ -11983,7 +11990,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookListWithHttpInfo(param: WebhookApiWebhookListRequest = {}, options?: Configuration): Promise<HttpInfo<WebhookList200Response>> {
-        return this.api.webhookListWithHttpInfo(param.params, param.start, param.count, param.entity, param.action, param.active, param.ids,  options).toPromise();
+        return this.api.webhookListWithHttpInfo(param.start, param.count, param.entity, param.action, param.active, param.ids, param.params,  options).toPromise();
     }
 
     /**
@@ -11992,7 +11999,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookList(param: WebhookApiWebhookListRequest = {}, options?: Configuration): Promise<WebhookList200Response> {
-        return this.api.webhookList(param.params, param.start, param.count, param.entity, param.action, param.active, param.ids,  options).toPromise();
+        return this.api.webhookList(param.start, param.count, param.entity, param.action, param.active, param.ids, param.params,  options).toPromise();
     }
 
     /**

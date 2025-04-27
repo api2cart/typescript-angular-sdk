@@ -22,11 +22,11 @@ export class CustomerAdd {
     /**
     * Defines customer\'s first name
     */
-    'firstName': string;
+    'firstName'?: string;
     /**
     * Defines customer\'s last name
     */
-    'lastName': string;
+    'lastName'?: string;
     /**
     * Defines customer\'s unique password
     */
@@ -39,6 +39,10 @@ export class CustomerAdd {
     * Groups that will be assigned to a customer
     */
     'groupIds'?: string;
+    /**
+    * Defines customer\'s status
+    */
+    'status'?: string;
     /**
     * Entity\'s date creation
     */
@@ -60,10 +64,6 @@ export class CustomerAdd {
     */
     'birthDay'?: string;
     /**
-    * Defines customer\'s status
-    */
-    'status'?: string;
-    /**
     * Defines whether the newsletter subscription is available for the user
     */
     'newsLetterSubscription'?: boolean;
@@ -79,10 +79,6 @@ export class CustomerAdd {
     * Link to customer website
     */
     'website'?: string;
-    /**
-    * Store Id
-    */
-    'storeId'?: string;
     /**
     * Defines customer\'s fax
     */
@@ -103,6 +99,10 @@ export class CustomerAdd {
     * Specifies ISO code or name of country
     */
     'country'?: string;
+    /**
+    * Store Id
+    */
+    'storeId'?: string;
     'address'?: Array<CustomerAddAddressInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -147,6 +147,12 @@ export class CustomerAdd {
             "format": ""
         },
         {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "createdTime",
             "baseName": "created_time",
             "type": "string",
@@ -177,12 +183,6 @@ export class CustomerAdd {
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "newsLetterSubscription",
             "baseName": "news_letter_subscription",
             "type": "boolean",
@@ -203,12 +203,6 @@ export class CustomerAdd {
         {
             "name": "website",
             "baseName": "website",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "storeId",
-            "baseName": "store_id",
             "type": "string",
             "format": ""
         },
@@ -239,6 +233,12 @@ export class CustomerAdd {
         {
             "name": "country",
             "baseName": "country",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },

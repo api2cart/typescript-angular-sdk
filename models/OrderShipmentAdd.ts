@@ -20,13 +20,13 @@ export class OrderShipmentAdd {
     */
     'orderId'?: string;
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
     'warehouseId'?: string;
+    /**
+    * Store Id
+    */
+    'storeId'?: string;
     /**
     * Defines company name that provide tracking of shipment
     */
@@ -40,21 +40,9 @@ export class OrderShipmentAdd {
     */
     'items'?: Array<OrderShipmentAddItemsInner>;
     /**
-    * Send notifications to customer after shipment was created
-    */
-    'sendNotifications'?: boolean;
-    /**
     * Defines shipment\'s tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method
     */
     'trackingNumbers'?: Array<OrderShipmentAddTrackingNumbersInner>;
-    /**
-    * This parameter is used for adjust stock.
-    */
-    'adjustStock'?: boolean;
-    /**
-    * If the value is \'true\' and order exist in our cache, we will use order.info from cache to prepare shipment items.
-    */
-    'enableCache'?: boolean;
     /**
     * Defines custom tracking link
     */
@@ -63,6 +51,18 @@ export class OrderShipmentAdd {
     * Defines shipment\'s status
     */
     'isShipped'?: boolean;
+    /**
+    * Send notifications to customer after shipment was created
+    */
+    'sendNotifications'?: boolean;
+    /**
+    * This parameter is used for adjust stock.
+    */
+    'adjustStock'?: boolean;
+    /**
+    * If the value is \'true\' and order exist in our cache, we will use order.info from cache to prepare shipment items.
+    */
+    'enableCache'?: boolean;
     /**
     * Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
     */
@@ -84,14 +84,14 @@ export class OrderShipmentAdd {
             "format": ""
         },
         {
-            "name": "storeId",
-            "baseName": "store_id",
+            "name": "warehouseId",
+            "baseName": "warehouse_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "warehouseId",
-            "baseName": "warehouse_id",
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },
@@ -114,27 +114,9 @@ export class OrderShipmentAdd {
             "format": ""
         },
         {
-            "name": "sendNotifications",
-            "baseName": "send_notifications",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "trackingNumbers",
             "baseName": "tracking_numbers",
             "type": "Array<OrderShipmentAddTrackingNumbersInner>",
-            "format": ""
-        },
-        {
-            "name": "adjustStock",
-            "baseName": "adjust_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "enableCache",
-            "baseName": "enable_cache",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -146,6 +128,24 @@ export class OrderShipmentAdd {
         {
             "name": "isShipped",
             "baseName": "is_shipped",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sendNotifications",
+            "baseName": "send_notifications",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "adjustStock",
+            "baseName": "adjust_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "enableCache",
+            "baseName": "enable_cache",
             "type": "boolean",
             "format": ""
         },

@@ -274,11 +274,11 @@ const request: AttributeApiAttributeAttributesetListRequest = {
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,name",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result}",
 };
 
 const data = await apiInstance.attributeAttributesetList(request);
@@ -292,9 +292,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
 
 
 ### Return type
@@ -465,16 +465,16 @@ const request: AttributeApiAttributeGroupListRequest = {
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Attribute set id (optional)
+  attributeSetId: "4",
     // Language id (optional)
   langId: "3",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,name",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result}",
-    // Attribute set id (optional)
-  attributeSetId: "4",
 };
 
 const data = await apiInstance.attributeGroupList(request);
@@ -488,11 +488,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **attributeSetId** | [**string**] | Attribute set id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **attributeSetId** | [**string**] | Attribute set id | (optional) defaults to undefined
 
 
 ### Return type
@@ -541,11 +541,11 @@ const request: AttributeApiAttributeInfoRequest = {
     // Language id (optional)
   langId: "3",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "force_all",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result}",
 };
 
 const data = await apiInstance.attributeInfo(request);
@@ -561,9 +561,9 @@ Name | Type | Description  | Notes
  **attributeSetId** | [**string**] | Attribute set id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
 
 
 ### Return type
@@ -607,8 +607,6 @@ const request: AttributeApiAttributeListRequest = {
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Defines attribute\'s type (optional)
-  type: "text",
     // Filter attributes by ids (optional)
   attributeIds: "1,2,3",
     // Filter items by attribute set id (optional)
@@ -617,18 +615,20 @@ const request: AttributeApiAttributeListRequest = {
   storeId: "1",
     // Retrieves attributes on specified language id (optional)
   langId: "3",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,name",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,return_message,pagination,result}",
+    // Defines attribute\'s type (optional)
+  type: "text",
     // Filter items by visibility status (optional)
   visible: true,
     // Defines if the option is required (optional)
   required: true,
     // True if attribute is system (optional)
   system: false,
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,return_message,pagination,result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,name",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,name",
 };
 
 const data = await apiInstance.attributeList(request);
@@ -642,17 +642,17 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **type** | [**string**] | Defines attribute\&#39;s type | (optional) defaults to undefined
  **attributeIds** | [**string**] | Filter attributes by ids | (optional) defaults to undefined
  **attributeSetId** | [**string**] | Filter items by attribute set id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Retrieves attributes on specified language id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,code,type'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **type** | [**string**] | Defines attribute\&#39;s type | (optional) defaults to undefined
  **visible** | [**boolean**] | Filter items by visibility status | (optional) defaults to undefined
  **required** | [**boolean**] | Defines if the option is required | (optional) defaults to undefined
  **system** | [**boolean**] | True if attribute is system | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,code,type'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type

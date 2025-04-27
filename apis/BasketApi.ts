@@ -24,11 +24,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
      * basket.info
      * @param id Entity id
      * @param storeId Store Id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async basketInfo(id: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async basketInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -59,6 +59,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -66,11 +71,6 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 
@@ -205,11 +205,6 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
         if (name !== undefined) {
             requestContext.setQueryParam("name", ObjectSerializer.serialize(name, "string", ""));
         }
@@ -217,6 +212,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (callback !== undefined) {
             requestContext.setQueryParam("callback", ObjectSerializer.serialize(callback, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
 
@@ -290,11 +290,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Retrieve a list of live shipping rate services.
      * basket.live_shipping_service.list
-     * @param storeId Store Id
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param storeId Store Id
      */
-    public async basketLiveShippingServiceList(storeId?: string, start?: number, count?: number, _options?: Configuration): Promise<RequestContext> {
+    public async basketLiveShippingServiceList(start?: number, count?: number, storeId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -308,11 +308,6 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
         if (start !== undefined) {
             requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
@@ -320,6 +315,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (count !== undefined) {
             requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
 

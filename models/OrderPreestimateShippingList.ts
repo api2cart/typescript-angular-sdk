@@ -15,21 +15,21 @@ import { HttpFile } from '../http/http';
 
 export class OrderPreestimateShippingList {
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
     'warehouseId'?: string;
+    /**
+    * Retrieves orders specified by customer id
+    */
+    'customerId'?: string;
     /**
     * Retrieves orders specified by customer email
     */
     'customerEmail'?: string;
     /**
-    * Retrieves orders specified by customer id
+    * Store Id
     */
-    'customerId'?: string;
+    'storeId'?: string;
     /**
     * Specifies first shipping address
     */
@@ -66,14 +66,14 @@ export class OrderPreestimateShippingList {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "storeId",
-            "baseName": "store_id",
+            "name": "warehouseId",
+            "baseName": "warehouse_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "warehouseId",
-            "baseName": "warehouse_id",
+            "name": "customerId",
+            "baseName": "customer_id",
             "type": "string",
             "format": ""
         },
@@ -84,8 +84,8 @@ export class OrderPreestimateShippingList {
             "format": ""
         },
         {
-            "name": "customerId",
-            "baseName": "customer_id",
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },

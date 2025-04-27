@@ -48,6 +48,10 @@ export class OrderAddOrderItemInner {
     */
     'orderItemTax'?: number;
     /**
+    * Defines if item price includes tax
+    */
+    'orderItemPriceIncludesTax'?: boolean;
+    /**
     * Index of the parent grouped/bundle product
     */
     'orderItemParent'?: number;
@@ -63,10 +67,6 @@ export class OrderAddOrderItemInner {
     * Indicates whether subitems of the grouped/bundle product can be shipped separately
     */
     'orderItemAllowShipItemsSeparately'?: boolean;
-    /**
-    * Defines if item price includes tax
-    */
-    'orderItemPriceIncludesTax'?: boolean;
     'orderItemOption'?: Array<OrderAddOrderItemInnerOrderItemOptionInner>;
     'orderItemProperty'?: Array<OrderAddOrderItemInnerOrderItemPropertyInner>;
 
@@ -124,6 +124,12 @@ export class OrderAddOrderItemInner {
             "format": ""
         },
         {
+            "name": "orderItemPriceIncludesTax",
+            "baseName": "order_item_price_includes_tax",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "orderItemParent",
             "baseName": "order_item_parent",
             "type": "number",
@@ -144,12 +150,6 @@ export class OrderAddOrderItemInner {
         {
             "name": "orderItemAllowShipItemsSeparately",
             "baseName": "order_item_allow_ship_items_separately",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "orderItemPriceIncludesTax",
-            "baseName": "order_item_price_includes_tax",
             "type": "boolean",
             "format": ""
         },

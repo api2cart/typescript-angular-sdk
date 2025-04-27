@@ -492,15 +492,15 @@ export class ObservableAccountApi {
     /**
      * This method lets you get a list of online stores connected to your API2Cart account. You can get the number of API requests to each store if you specify a period using parameters (request_from_date, request_to_date). The total_calls field is displayed only if there are parameters (request_from_date, request_to_date).
      * account.cart.list
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [requestFromDate] Retrieve entities from their creation date
-     * @param [requestToDate] Retrieve entities to their creation date
      * @param [storeUrl] A web address of a store
      * @param [storeKey] Find store by store key
+     * @param [requestFromDate] Retrieve entities from their creation date
+     * @param [requestToDate] Retrieve entities to their creation date
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public accountCartListWithHttpInfo(params?: string, exclude?: string, requestFromDate?: string, requestToDate?: string, storeUrl?: string, storeKey?: string, _options?: Configuration): Observable<HttpInfo<AccountCartList200Response>> {
-        const requestContextPromise = this.requestFactory.accountCartList(params, exclude, requestFromDate, requestToDate, storeUrl, storeKey, _options);
+    public accountCartListWithHttpInfo(storeUrl?: string, storeKey?: string, requestFromDate?: string, requestToDate?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<AccountCartList200Response>> {
+        const requestContextPromise = this.requestFactory.accountCartList(storeUrl, storeKey, requestFromDate, requestToDate, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -521,15 +521,15 @@ export class ObservableAccountApi {
     /**
      * This method lets you get a list of online stores connected to your API2Cart account. You can get the number of API requests to each store if you specify a period using parameters (request_from_date, request_to_date). The total_calls field is displayed only if there are parameters (request_from_date, request_to_date).
      * account.cart.list
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [requestFromDate] Retrieve entities from their creation date
-     * @param [requestToDate] Retrieve entities to their creation date
      * @param [storeUrl] A web address of a store
      * @param [storeKey] Find store by store key
+     * @param [requestFromDate] Retrieve entities from their creation date
+     * @param [requestToDate] Retrieve entities to their creation date
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public accountCartList(params?: string, exclude?: string, requestFromDate?: string, requestToDate?: string, storeUrl?: string, storeKey?: string, _options?: Configuration): Observable<AccountCartList200Response> {
-        return this.accountCartListWithHttpInfo(params, exclude, requestFromDate, requestToDate, storeUrl, storeKey, _options).pipe(map((apiResponse: HttpInfo<AccountCartList200Response>) => apiResponse.data));
+    public accountCartList(storeUrl?: string, storeKey?: string, requestFromDate?: string, requestToDate?: string, params?: string, exclude?: string, _options?: Configuration): Observable<AccountCartList200Response> {
+        return this.accountCartListWithHttpInfo(storeUrl, storeKey, requestFromDate, requestToDate, params, exclude, _options).pipe(map((apiResponse: HttpInfo<AccountCartList200Response>) => apiResponse.data));
     }
 
     /**
@@ -594,6 +594,7 @@ export class ObservableAccountApi {
      * @param [shoplineAccessToken] Shopline APP Key
      * @param [shoplineAppKey] Shopline APP Key
      * @param [shoplineAppSecret] Shopline App Secret
+     * @param [shoplineSharedSecret] Shopline Shared Secret
      * @param [shopifyAccessToken] Access token authorizing the app to access resources on behalf of a user
      * @param [shopifyApiKey] Shopify API Key
      * @param [shopifyApiPassword] Shopify API Password
@@ -677,8 +678,8 @@ export class ObservableAccountApi {
      * @param [sallaRefreshToken] Salla Refresh Token
      * @param [sallaAccessToken] Salla Access Token
      */
-    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, _options);
+    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -758,6 +759,7 @@ export class ObservableAccountApi {
      * @param [shoplineAccessToken] Shopline APP Key
      * @param [shoplineAppKey] Shopline APP Key
      * @param [shoplineAppSecret] Shopline App Secret
+     * @param [shoplineSharedSecret] Shopline Shared Secret
      * @param [shopifyAccessToken] Access token authorizing the app to access resources on behalf of a user
      * @param [shopifyApiKey] Shopify API Key
      * @param [shopifyApiPassword] Shopify API Password
@@ -841,19 +843,19 @@ export class ObservableAccountApi {
      * @param [sallaRefreshToken] Salla Refresh Token
      * @param [sallaAccessToken] Salla Access Token
      */
-    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
      * If the callback of your service for some reason could not accept webhooks from API2Cart, then with the help of this method you can get a list of missed webhooks to perform synchronization again using entity_id. Please note that we keep such records for 24 hours.
      * account.failed_webhooks
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [ids] List of сomma-separated webhook ids
      */
-    public accountFailedWebhooksWithHttpInfo(count?: number, start?: number, ids?: string, _options?: Configuration): Observable<HttpInfo<AccountFailedWebhooks200Response>> {
-        const requestContextPromise = this.requestFactory.accountFailedWebhooks(count, start, ids, _options);
+    public accountFailedWebhooksWithHttpInfo(start?: number, count?: number, ids?: string, _options?: Configuration): Observable<HttpInfo<AccountFailedWebhooks200Response>> {
+        const requestContextPromise = this.requestFactory.accountFailedWebhooks(start, count, ids, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -874,12 +876,12 @@ export class ObservableAccountApi {
     /**
      * If the callback of your service for some reason could not accept webhooks from API2Cart, then with the help of this method you can get a list of missed webhooks to perform synchronization again using entity_id. Please note that we keep such records for 24 hours.
      * account.failed_webhooks
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [ids] List of сomma-separated webhook ids
      */
-    public accountFailedWebhooks(count?: number, start?: number, ids?: string, _options?: Configuration): Observable<AccountFailedWebhooks200Response> {
-        return this.accountFailedWebhooksWithHttpInfo(count, start, ids, _options).pipe(map((apiResponse: HttpInfo<AccountFailedWebhooks200Response>) => apiResponse.data));
+    public accountFailedWebhooks(start?: number, count?: number, ids?: string, _options?: Configuration): Observable<AccountFailedWebhooks200Response> {
+        return this.accountFailedWebhooksWithHttpInfo(start, count, ids, _options).pipe(map((apiResponse: HttpInfo<AccountFailedWebhooks200Response>) => apiResponse.data));
     }
 
     /**
@@ -1083,12 +1085,12 @@ export class ObservableAttributeApi {
      * attribute.attributeset.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public attributeAttributesetListWithHttpInfo(start?: number, count?: number, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeAttributesetList>> {
-        const requestContextPromise = this.requestFactory.attributeAttributesetList(start, count, params, exclude, responseFields, _options);
+    public attributeAttributesetListWithHttpInfo(start?: number, count?: number, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeAttributesetList>> {
+        const requestContextPromise = this.requestFactory.attributeAttributesetList(start, count, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1111,12 +1113,12 @@ export class ObservableAttributeApi {
      * attribute.attributeset.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public attributeAttributesetList(start?: number, count?: number, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseAttributeAttributesetList> {
-        return this.attributeAttributesetListWithHttpInfo(start, count, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeAttributesetList>) => apiResponse.data));
+    public attributeAttributesetList(start?: number, count?: number, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseAttributeAttributesetList> {
+        return this.attributeAttributesetListWithHttpInfo(start, count, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeAttributesetList>) => apiResponse.data));
     }
 
     /**
@@ -1204,14 +1206,14 @@ export class ObservableAttributeApi {
      * attribute.group.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [attributeSetId] Attribute set id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [attributeSetId] Attribute set id
      */
-    public attributeGroupListWithHttpInfo(start?: number, count?: number, langId?: string, params?: string, exclude?: string, responseFields?: string, attributeSetId?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeGroupList>> {
-        const requestContextPromise = this.requestFactory.attributeGroupList(start, count, langId, params, exclude, responseFields, attributeSetId, _options);
+    public attributeGroupListWithHttpInfo(start?: number, count?: number, attributeSetId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeGroupList>> {
+        const requestContextPromise = this.requestFactory.attributeGroupList(start, count, attributeSetId, langId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1234,14 +1236,14 @@ export class ObservableAttributeApi {
      * attribute.group.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [attributeSetId] Attribute set id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [attributeSetId] Attribute set id
      */
-    public attributeGroupList(start?: number, count?: number, langId?: string, params?: string, exclude?: string, responseFields?: string, attributeSetId?: string, _options?: Configuration): Observable<ModelResponseAttributeGroupList> {
-        return this.attributeGroupListWithHttpInfo(start, count, langId, params, exclude, responseFields, attributeSetId, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeGroupList>) => apiResponse.data));
+    public attributeGroupList(start?: number, count?: number, attributeSetId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseAttributeGroupList> {
+        return this.attributeGroupListWithHttpInfo(start, count, attributeSetId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeGroupList>) => apiResponse.data));
     }
 
     /**
@@ -1251,12 +1253,12 @@ export class ObservableAttributeApi {
      * @param [attributeSetId] Attribute set id
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public attributeInfoWithHttpInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<AttributeInfo200Response>> {
-        const requestContextPromise = this.requestFactory.attributeInfo(id, attributeSetId, storeId, langId, params, exclude, responseFields, _options);
+    public attributeInfoWithHttpInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<AttributeInfo200Response>> {
+        const requestContextPromise = this.requestFactory.attributeInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1281,12 +1283,12 @@ export class ObservableAttributeApi {
      * @param [attributeSetId] Attribute set id
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public attributeInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<AttributeInfo200Response> {
-        return this.attributeInfoWithHttpInfo(id, attributeSetId, storeId, langId, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<AttributeInfo200Response>) => apiResponse.data));
+    public attributeInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<AttributeInfo200Response> {
+        return this.attributeInfoWithHttpInfo(id, attributeSetId, storeId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<AttributeInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -1294,20 +1296,20 @@ export class ObservableAttributeApi {
      * attribute.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [type] Defines attribute\&#39;s type
      * @param [attributeIds] Filter attributes by ids
      * @param [attributeSetId] Filter items by attribute set id
      * @param [storeId] Store Id
      * @param [langId] Retrieves attributes on specified language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [type] Defines attribute\&#39;s type
      * @param [visible] Filter items by visibility status
      * @param [required] Defines if the option is required
      * @param [system] True if attribute is system
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public attributeListWithHttpInfo(start?: number, count?: number, type?: string, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, visible?: boolean, required?: boolean, system?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeList>> {
-        const requestContextPromise = this.requestFactory.attributeList(start, count, type, attributeIds, attributeSetId, storeId, langId, params, exclude, responseFields, visible, required, system, _options);
+    public attributeListWithHttpInfo(start?: number, count?: number, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, type?: string, visible?: boolean, required?: boolean, system?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseAttributeList>> {
+        const requestContextPromise = this.requestFactory.attributeList(start, count, attributeIds, attributeSetId, storeId, langId, type, visible, required, system, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1330,20 +1332,20 @@ export class ObservableAttributeApi {
      * attribute.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [type] Defines attribute\&#39;s type
      * @param [attributeIds] Filter attributes by ids
      * @param [attributeSetId] Filter items by attribute set id
      * @param [storeId] Store Id
      * @param [langId] Retrieves attributes on specified language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [type] Defines attribute\&#39;s type
      * @param [visible] Filter items by visibility status
      * @param [required] Defines if the option is required
      * @param [system] True if attribute is system
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public attributeList(start?: number, count?: number, type?: string, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, visible?: boolean, required?: boolean, system?: boolean, _options?: Configuration): Observable<ModelResponseAttributeList> {
-        return this.attributeListWithHttpInfo(start, count, type, attributeIds, attributeSetId, storeId, langId, params, exclude, responseFields, visible, required, system, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeList>) => apiResponse.data));
+    public attributeList(start?: number, count?: number, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, type?: string, visible?: boolean, required?: boolean, system?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseAttributeList> {
+        return this.attributeListWithHttpInfo(start, count, attributeIds, attributeSetId, storeId, langId, type, visible, required, system, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseAttributeList>) => apiResponse.data));
     }
 
     /**
@@ -1634,12 +1636,12 @@ export class ObservableBasketApi {
      * basket.info
      * @param id Entity id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public basketInfoWithHttpInfo(id: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<BasketInfo200Response>> {
-        const requestContextPromise = this.requestFactory.basketInfo(id, storeId, params, exclude, responseFields, _options);
+    public basketInfoWithHttpInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<BasketInfo200Response>> {
+        const requestContextPromise = this.requestFactory.basketInfo(id, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1662,12 +1664,12 @@ export class ObservableBasketApi {
      * basket.info
      * @param id Entity id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public basketInfo(id: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<BasketInfo200Response> {
-        return this.basketInfoWithHttpInfo(id, storeId, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<BasketInfo200Response>) => apiResponse.data));
+    public basketInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<BasketInfo200Response> {
+        return this.basketInfoWithHttpInfo(id, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<BasketInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -1784,12 +1786,12 @@ export class ObservableBasketApi {
     /**
      * Retrieve a list of live shipping rate services.
      * basket.live_shipping_service.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [storeId] Store Id
      */
-    public basketLiveShippingServiceListWithHttpInfo(storeId?: string, start?: number, count?: number, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceList200Response>> {
-        const requestContextPromise = this.requestFactory.basketLiveShippingServiceList(storeId, start, count, _options);
+    public basketLiveShippingServiceListWithHttpInfo(start?: number, count?: number, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceList200Response>> {
+        const requestContextPromise = this.requestFactory.basketLiveShippingServiceList(start, count, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1810,12 +1812,12 @@ export class ObservableBasketApi {
     /**
      * Retrieve a list of live shipping rate services.
      * basket.live_shipping_service.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [storeId] Store Id
      */
-    public basketLiveShippingServiceList(storeId?: string, start?: number, count?: number, _options?: Configuration): Observable<BasketLiveShippingServiceList200Response> {
-        return this.basketLiveShippingServiceListWithHttpInfo(storeId, start, count, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceList200Response>) => apiResponse.data));
+    public basketLiveShippingServiceList(start?: number, count?: number, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceList200Response> {
+        return this.basketLiveShippingServiceListWithHttpInfo(start, count, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceList200Response>) => apiResponse.data));
     }
 
 }
@@ -1841,15 +1843,15 @@ export class ObservableBatchApi {
      * batch.job.list
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Filter batch jobs by ids
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [processedFrom] Retrieve entities according to their processing datetime
      * @param [processedTo] Retrieve entities according to their processing datetime
-     * @param [ids] Filter batch jobs by ids
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public batchJobListWithHttpInfo(count?: number, pageCursor?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, ids?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseBatchJobList>> {
-        const requestContextPromise = this.requestFactory.batchJobList(count, pageCursor, createdFrom, createdTo, processedFrom, processedTo, ids, responseFields, _options);
+    public batchJobListWithHttpInfo(count?: number, pageCursor?: string, ids?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseBatchJobList>> {
+        const requestContextPromise = this.requestFactory.batchJobList(count, pageCursor, ids, createdFrom, createdTo, processedFrom, processedTo, responseFields, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1872,15 +1874,15 @@ export class ObservableBatchApi {
      * batch.job.list
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Filter batch jobs by ids
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [processedFrom] Retrieve entities according to their processing datetime
      * @param [processedTo] Retrieve entities according to their processing datetime
-     * @param [ids] Filter batch jobs by ids
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public batchJobList(count?: number, pageCursor?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, ids?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseBatchJobList> {
-        return this.batchJobListWithHttpInfo(count, pageCursor, createdFrom, createdTo, processedFrom, processedTo, ids, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseBatchJobList>) => apiResponse.data));
+    public batchJobList(count?: number, pageCursor?: string, ids?: string, createdFrom?: string, createdTo?: string, processedFrom?: string, processedTo?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseBatchJobList> {
+        return this.batchJobListWithHttpInfo(count, pageCursor, ids, createdFrom, createdTo, processedFrom, processedTo, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseBatchJobList>) => apiResponse.data));
     }
 
     /**
@@ -2112,16 +2114,16 @@ export class ObservableCartApi {
     /**
      * Get cart catalog price rules discounts.
      * cart.catalog_price_rules.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves  catalog_price_rules by ids
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartCatalogPriceRulesListWithHttpInfo(pageCursor?: string, start?: number, count?: number, ids?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartCatalogPriceRulesList>> {
-        const requestContextPromise = this.requestFactory.cartCatalogPriceRulesList(pageCursor, start, count, ids, params, responseFields, exclude, _options);
+    public cartCatalogPriceRulesListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartCatalogPriceRulesList>> {
+        const requestContextPromise = this.requestFactory.cartCatalogPriceRulesList(start, count, pageCursor, ids, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2142,16 +2144,16 @@ export class ObservableCartApi {
     /**
      * Get cart catalog price rules discounts.
      * cart.catalog_price_rules.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves  catalog_price_rules by ids
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartCatalogPriceRulesList(pageCursor?: string, start?: number, count?: number, ids?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartCatalogPriceRulesList> {
-        return this.cartCatalogPriceRulesListWithHttpInfo(pageCursor, start, count, ids, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartCatalogPriceRulesList>) => apiResponse.data));
+    public cartCatalogPriceRulesList(start?: number, count?: number, pageCursor?: string, ids?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartCatalogPriceRulesList> {
+        return this.cartCatalogPriceRulesListWithHttpInfo(start, count, pageCursor, ids, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartCatalogPriceRulesList>) => apiResponse.data));
     }
 
     /**
@@ -2296,13 +2298,13 @@ export class ObservableCartApi {
      * @param key Defines condition entity attribute key
      * @param operator Defines condition operator
      * @param value Defines condition value, can be comma separated according to the operator.
-     * @param [storeId] Store Id
      * @param [target] Defines condition operator
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
+     * @param [storeId] Store Id
      */
-    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, storeId?: string, target?: string, includeTax?: boolean, includeShipping?: boolean, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
-        const requestContextPromise = this.requestFactory.cartCouponConditionAdd(couponId, entity, key, operator, value, storeId, target, includeTax, includeShipping, _options);
+    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
+        const requestContextPromise = this.requestFactory.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2328,27 +2330,27 @@ export class ObservableCartApi {
      * @param key Defines condition entity attribute key
      * @param operator Defines condition operator
      * @param value Defines condition value, can be comma separated according to the operator.
-     * @param [storeId] Store Id
      * @param [target] Defines condition operator
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
+     * @param [storeId] Store Id
      */
-    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, storeId?: string, target?: string, includeTax?: boolean, includeShipping?: boolean, _options?: Configuration): Observable<BasketLiveShippingServiceDelete200Response> {
-        return this.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, storeId, target, includeTax, includeShipping, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceDelete200Response>) => apiResponse.data));
+    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceDelete200Response> {
+        return this.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceDelete200Response>) => apiResponse.data));
     }
 
     /**
      * This method allows you to get the number of coupons. On some platforms, you can filter the coupons by the date they were active.
      * cart.coupon.count
      * @param [storeId] Store Id
+     * @param [avail] Defines category\&#39;s visibility status
      * @param [dateStartFrom] Filter entity by date_start (greater or equal)
      * @param [dateStartTo] Filter entity by date_start (less or equal)
      * @param [dateEndFrom] Filter entity by date_end (greater or equal)
      * @param [dateEndTo] Filter entity by date_end (less or equal)
-     * @param [avail] Defines category\&#39;s visibility status
      */
-    public cartCouponCountWithHttpInfo(storeId?: string, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, avail?: boolean, _options?: Configuration): Observable<HttpInfo<CartCouponCount200Response>> {
-        const requestContextPromise = this.requestFactory.cartCouponCount(storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, _options);
+    public cartCouponCountWithHttpInfo(storeId?: string, avail?: boolean, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, _options?: Configuration): Observable<HttpInfo<CartCouponCount200Response>> {
+        const requestContextPromise = this.requestFactory.cartCouponCount(storeId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2370,14 +2372,14 @@ export class ObservableCartApi {
      * This method allows you to get the number of coupons. On some platforms, you can filter the coupons by the date they were active.
      * cart.coupon.count
      * @param [storeId] Store Id
+     * @param [avail] Defines category\&#39;s visibility status
      * @param [dateStartFrom] Filter entity by date_start (greater or equal)
      * @param [dateStartTo] Filter entity by date_start (less or equal)
      * @param [dateEndFrom] Filter entity by date_end (greater or equal)
      * @param [dateEndTo] Filter entity by date_end (less or equal)
-     * @param [avail] Defines category\&#39;s visibility status
      */
-    public cartCouponCount(storeId?: string, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, avail?: boolean, _options?: Configuration): Observable<CartCouponCount200Response> {
-        return this.cartCouponCountWithHttpInfo(storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, _options).pipe(map((apiResponse: HttpInfo<CartCouponCount200Response>) => apiResponse.data));
+    public cartCouponCount(storeId?: string, avail?: boolean, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, _options?: Configuration): Observable<CartCouponCount200Response> {
+        return this.cartCouponCountWithHttpInfo(storeId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, _options).pipe(map((apiResponse: HttpInfo<CartCouponCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -2418,23 +2420,23 @@ export class ObservableCartApi {
     /**
      * Get cart coupon discounts.
      * cart.coupon.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [couponsIds] Filter coupons by ids
      * @param [storeId] Filter coupons by store id
+     * @param [langId] Language id
+     * @param [avail] Filter coupons by avail status
      * @param [dateStartFrom] Filter entity by date_start (greater or equal)
      * @param [dateStartTo] Filter entity by date_start (less or equal)
      * @param [dateEndFrom] Filter entity by date_end (greater or equal)
      * @param [dateEndTo] Filter entity by date_end (less or equal)
-     * @param [avail] Filter coupons by avail status
-     * @param [langId] Language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartCouponListWithHttpInfo(pageCursor?: string, start?: number, count?: number, couponsIds?: string, storeId?: string, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, avail?: boolean, langId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartCouponList>> {
-        const requestContextPromise = this.requestFactory.cartCouponList(pageCursor, start, count, couponsIds, storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, langId, params, responseFields, exclude, _options);
+    public cartCouponListWithHttpInfo(start?: number, count?: number, pageCursor?: string, couponsIds?: string, storeId?: string, langId?: string, avail?: boolean, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartCouponList>> {
+        const requestContextPromise = this.requestFactory.cartCouponList(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2455,23 +2457,23 @@ export class ObservableCartApi {
     /**
      * Get cart coupon discounts.
      * cart.coupon.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [couponsIds] Filter coupons by ids
      * @param [storeId] Filter coupons by store id
+     * @param [langId] Language id
+     * @param [avail] Filter coupons by avail status
      * @param [dateStartFrom] Filter entity by date_start (greater or equal)
      * @param [dateStartTo] Filter entity by date_start (less or equal)
      * @param [dateEndFrom] Filter entity by date_end (greater or equal)
      * @param [dateEndTo] Filter entity by date_end (less or equal)
-     * @param [avail] Filter coupons by avail status
-     * @param [langId] Language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartCouponList(pageCursor?: string, start?: number, count?: number, couponsIds?: string, storeId?: string, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, avail?: boolean, langId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartCouponList> {
-        return this.cartCouponListWithHttpInfo(pageCursor, start, count, couponsIds, storeId, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, avail, langId, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartCouponList>) => apiResponse.data));
+    public cartCouponList(start?: number, count?: number, pageCursor?: string, couponsIds?: string, storeId?: string, langId?: string, avail?: boolean, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartCouponList> {
+        return this.cartCouponListWithHttpInfo(start, count, pageCursor, couponsIds, storeId, langId, avail, dateStartFrom, dateStartTo, dateEndFrom, dateEndTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartCouponList>) => apiResponse.data));
     }
 
     /**
@@ -2685,16 +2687,16 @@ export class ObservableCartApi {
     /**
      * Get gift cards list.
      * cart.giftcard.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartGiftcardListWithHttpInfo(pageCursor?: string, start?: number, count?: number, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartGiftCardList>> {
-        const requestContextPromise = this.requestFactory.cartGiftcardList(pageCursor, start, count, storeId, params, responseFields, exclude, _options);
+    public cartGiftcardListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartGiftCardList>> {
+        const requestContextPromise = this.requestFactory.cartGiftcardList(start, count, pageCursor, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2715,28 +2717,28 @@ export class ObservableCartApi {
     /**
      * Get gift cards list.
      * cart.giftcard.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartGiftcardList(pageCursor?: string, start?: number, count?: number, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartGiftCardList> {
-        return this.cartGiftcardListWithHttpInfo(pageCursor, start, count, storeId, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartGiftCardList>) => apiResponse.data));
+    public cartGiftcardList(start?: number, count?: number, pageCursor?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartGiftCardList> {
+        return this.cartGiftcardListWithHttpInfo(start, count, pageCursor, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartGiftCardList>) => apiResponse.data));
     }
 
     /**
      * This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
      * cart.info
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartInfoWithHttpInfo(params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartInfo200Response>> {
-        const requestContextPromise = this.requestFactory.cartInfo(params, responseFields, exclude, storeId, _options);
+    public cartInfoWithHttpInfo(storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<CartInfo200Response>> {
+        const requestContextPromise = this.requestFactory.cartInfo(storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2757,13 +2759,13 @@ export class ObservableCartApi {
     /**
      * This method allows you to get various information about the store, including a list of stores (in the case of a multistore configuration), a list of supported languages, currencies, carriers, warehouses, and many other information. This information contains data that is relatively stable and rarely changes, so API2Cart can cache certain data to reduce the load on the store and speed up the execution of the request. We also recommend that you cache the response of this method on your side to save requests. If you need to clear the cache for a specific store, then use the cart.validate method.
      * cart.info
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartInfo(params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<CartInfo200Response> {
-        return this.cartInfoWithHttpInfo(params, responseFields, exclude, storeId, _options).pipe(map((apiResponse: HttpInfo<CartInfo200Response>) => apiResponse.data));
+    public cartInfo(storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<CartInfo200Response> {
+        return this.cartInfoWithHttpInfo(storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<CartInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -2801,18 +2803,18 @@ export class ObservableCartApi {
      * Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
      * cart.meta_data.list
      * @param entityId Entity Id
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [key] Key
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartMetaDataListWithHttpInfo(entityId: string, entity?: string, storeId?: string, langId?: string, key?: string, count?: number, pageCursor?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartMetaDataList>> {
-        const requestContextPromise = this.requestFactory.cartMetaDataList(entityId, entity, storeId, langId, key, count, pageCursor, params, responseFields, exclude, _options);
+    public cartMetaDataListWithHttpInfo(entityId: string, count?: number, pageCursor?: string, entity?: string, storeId?: string, langId?: string, key?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartMetaDataList>> {
+        const requestContextPromise = this.requestFactory.cartMetaDataList(entityId, count, pageCursor, entity, storeId, langId, key, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2834,18 +2836,18 @@ export class ObservableCartApi {
      * Using this method, you can get a list of metadata for various entities (products, options, customers, orders). Usually this is data created by third-party plugins.
      * cart.meta_data.list
      * @param entityId Entity Id
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [key] Key
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartMetaDataList(entityId: string, entity?: string, storeId?: string, langId?: string, key?: string, count?: number, pageCursor?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartMetaDataList> {
-        return this.cartMetaDataListWithHttpInfo(entityId, entity, storeId, langId, key, count, pageCursor, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartMetaDataList>) => apiResponse.data));
+    public cartMetaDataList(entityId: string, count?: number, pageCursor?: string, entity?: string, storeId?: string, langId?: string, key?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartMetaDataList> {
+        return this.cartMetaDataListWithHttpInfo(entityId, count, pageCursor, entity, storeId, langId, key, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartMetaDataList>) => apiResponse.data));
     }
 
     /**
@@ -2968,12 +2970,12 @@ export class ObservableCartApi {
     /**
      * Get a list of third-party plugins installed on the store.
      * cart.plugin.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [storeId] Store Id
      */
-    public cartPluginListWithHttpInfo(storeId?: string, start?: number, count?: number, _options?: Configuration): Observable<HttpInfo<CartPluginList200Response>> {
-        const requestContextPromise = this.requestFactory.cartPluginList(storeId, start, count, _options);
+    public cartPluginListWithHttpInfo(start?: number, count?: number, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartPluginList200Response>> {
+        const requestContextPromise = this.requestFactory.cartPluginList(start, count, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2994,12 +2996,12 @@ export class ObservableCartApi {
     /**
      * Get a list of third-party plugins installed on the store.
      * cart.plugin.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [storeId] Store Id
      */
-    public cartPluginList(storeId?: string, start?: number, count?: number, _options?: Configuration): Observable<CartPluginList200Response> {
-        return this.cartPluginListWithHttpInfo(storeId, start, count, _options).pipe(map((apiResponse: HttpInfo<CartPluginList200Response>) => apiResponse.data));
+    public cartPluginList(start?: number, count?: number, storeId?: string, _options?: Configuration): Observable<CartPluginList200Response> {
+        return this.cartPluginListWithHttpInfo(start, count, storeId, _options).pipe(map((apiResponse: HttpInfo<CartPluginList200Response>) => apiResponse.data));
     }
 
     /**
@@ -3087,21 +3089,21 @@ export class ObservableCartApi {
     /**
      * Get scripts installed to the storefront
      * cart.script.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [scriptIds] Retrieves only scripts with specific ids
+     * @param [storeId] Store Id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [scriptIds] Retrieves only scripts with specific ids
-     * @param [storeId] Store Id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartScriptListWithHttpInfo(pageCursor?: string, start?: number, count?: number, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, scriptIds?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartScriptList>> {
-        const requestContextPromise = this.requestFactory.cartScriptList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, scriptIds, storeId, params, responseFields, exclude, _options);
+    public cartScriptListWithHttpInfo(start?: number, count?: number, pageCursor?: string, scriptIds?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartScriptList>> {
+        const requestContextPromise = this.requestFactory.cartScriptList(start, count, pageCursor, scriptIds, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3122,35 +3124,35 @@ export class ObservableCartApi {
     /**
      * Get scripts installed to the storefront
      * cart.script.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [scriptIds] Retrieves only scripts with specific ids
+     * @param [storeId] Store Id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [scriptIds] Retrieves only scripts with specific ids
-     * @param [storeId] Store Id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartScriptList(pageCursor?: string, start?: number, count?: number, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, scriptIds?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartScriptList> {
-        return this.cartScriptListWithHttpInfo(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, scriptIds, storeId, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartScriptList>) => apiResponse.data));
+    public cartScriptList(start?: number, count?: number, pageCursor?: string, scriptIds?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartScriptList> {
+        return this.cartScriptListWithHttpInfo(start, count, pageCursor, scriptIds, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartScriptList>) => apiResponse.data));
     }
 
     /**
      * Get list of shipping zones
      * cart.shipping_zones.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [storeId] Store Id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartShippingZonesListWithHttpInfo(storeId?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartShippingZonesList>> {
-        const requestContextPromise = this.requestFactory.cartShippingZonesList(storeId, start, count, params, responseFields, exclude, _options);
+    public cartShippingZonesListWithHttpInfo(start?: number, count?: number, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCartShippingZonesList>> {
+        const requestContextPromise = this.requestFactory.cartShippingZonesList(start, count, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3171,15 +3173,15 @@ export class ObservableCartApi {
     /**
      * Get list of shipping zones
      * cart.shipping_zones.list
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [storeId] Store Id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public cartShippingZonesList(storeId?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartShippingZonesList> {
-        return this.cartShippingZonesListWithHttpInfo(storeId, start, count, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartShippingZonesList>) => apiResponse.data));
+    public cartShippingZonesList(start?: number, count?: number, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartShippingZonesList> {
+        return this.cartShippingZonesListWithHttpInfo(start, count, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartShippingZonesList>) => apiResponse.data));
     }
 
     /**
@@ -3237,23 +3239,23 @@ export class ObservableCategoryApi {
      * Add new category in store
      * category.add
      * @param name Defines category\&#39;s name that has to be added
-     * @param [parentId] Adds categories specified by parent id
-     * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
-     * @param [storeId] Store Id
-     * @param [langId] Language id
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [sortOrder] Sort number in the list
-     * @param [createdTime] Entity\&#39;s date creation
-     * @param [modifiedTime] Entity\&#39;s date modification
      * @param [description] Defines category\&#39;s description
      * @param [shortDescription] Defines short description
+     * @param [parentId] Adds categories specified by parent id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [createdTime] Entity\&#39;s date creation
+     * @param [modifiedTime] Entity\&#39;s date modification
+     * @param [sortOrder] Sort number in the list
      * @param [metaTitle] Defines unique meta title for each entity
      * @param [metaDescription] Defines unique meta description of a entity
      * @param [metaKeywords] Defines unique meta keywords for each entity
      * @param [seoUrl] Defines unique category\&#39;s URL for SEO
+     * @param [storeId] Store Id
+     * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
+     * @param [langId] Language id
      */
-    public categoryAddWithHttpInfo(name: string, parentId?: string, storesIds?: string, storeId?: string, langId?: string, avail?: boolean, sortOrder?: number, createdTime?: string, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, _options?: Configuration): Observable<HttpInfo<CategoryAdd200Response>> {
-        const requestContextPromise = this.requestFactory.categoryAdd(name, parentId, storesIds, storeId, langId, avail, sortOrder, createdTime, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, _options);
+    public categoryAddWithHttpInfo(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAdd200Response>> {
+        const requestContextPromise = this.requestFactory.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3275,23 +3277,23 @@ export class ObservableCategoryApi {
      * Add new category in store
      * category.add
      * @param name Defines category\&#39;s name that has to be added
-     * @param [parentId] Adds categories specified by parent id
-     * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
-     * @param [storeId] Store Id
-     * @param [langId] Language id
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [sortOrder] Sort number in the list
-     * @param [createdTime] Entity\&#39;s date creation
-     * @param [modifiedTime] Entity\&#39;s date modification
      * @param [description] Defines category\&#39;s description
      * @param [shortDescription] Defines short description
+     * @param [parentId] Adds categories specified by parent id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [createdTime] Entity\&#39;s date creation
+     * @param [modifiedTime] Entity\&#39;s date modification
+     * @param [sortOrder] Sort number in the list
      * @param [metaTitle] Defines unique meta title for each entity
      * @param [metaDescription] Defines unique meta description of a entity
      * @param [metaKeywords] Defines unique meta keywords for each entity
      * @param [seoUrl] Defines unique category\&#39;s URL for SEO
+     * @param [storeId] Store Id
+     * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
+     * @param [langId] Language id
      */
-    public categoryAdd(name: string, parentId?: string, storesIds?: string, storeId?: string, langId?: string, avail?: boolean, sortOrder?: number, createdTime?: string, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, _options?: Configuration): Observable<CategoryAdd200Response> {
-        return this.categoryAddWithHttpInfo(name, parentId, storesIds, storeId, langId, avail, sortOrder, createdTime, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, _options).pipe(map((apiResponse: HttpInfo<CategoryAdd200Response>) => apiResponse.data));
+    public categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<CategoryAdd200Response> {
+        return this.categoryAddWithHttpInfo(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options).pipe(map((apiResponse: HttpInfo<CategoryAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3330,12 +3332,12 @@ export class ObservableCategoryApi {
     /**
      * Assign category to product
      * category.assign
-     * @param productId Defines category assign to the product, specified by product id
      * @param categoryId Defines category assign, specified by category id
+     * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryAssignWithHttpInfo(productId: string, categoryId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.categoryAssign(productId, categoryId, storeId, _options);
+    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.categoryAssign(categoryId, productId, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3356,12 +3358,12 @@ export class ObservableCategoryApi {
     /**
      * Assign category to product
      * category.assign
-     * @param productId Defines category assign to the product, specified by product id
      * @param categoryId Defines category assign, specified by category id
+     * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryAssign(productId: string, categoryId: string, storeId?: string, _options?: Configuration): Observable<CartConfigUpdate200Response> {
-        return this.categoryAssignWithHttpInfo(productId, categoryId, storeId, _options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
+    public categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CartConfigUpdate200Response> {
+        return this.categoryAssignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -3370,19 +3372,19 @@ export class ObservableCategoryApi {
      * @param [parentId] Counts categories specified by parent id
      * @param [storeId] Counts category specified by store id
      * @param [langId] Counts category specified by language id
+     * @param [avail] Defines category\&#39;s visibility status
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [avail] Defines category\&#39;s visibility status
      * @param [productType] A categorization for the product
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts categories that are searched specified by field
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public categoryCountWithHttpInfo(parentId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryCount200Response>> {
-        const requestContextPromise = this.requestFactory.categoryCount(parentId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, _options);
+    public categoryCountWithHttpInfo(parentId?: string, storeId?: string, langId?: string, avail?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryCount200Response>> {
+        const requestContextPromise = this.requestFactory.categoryCount(parentId, storeId, langId, avail, createdFrom, createdTo, modifiedFrom, modifiedTo, productType, findValue, findWhere, reportRequestId, disableReportCache, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3406,19 +3408,19 @@ export class ObservableCategoryApi {
      * @param [parentId] Counts categories specified by parent id
      * @param [storeId] Counts category specified by store id
      * @param [langId] Counts category specified by language id
+     * @param [avail] Defines category\&#39;s visibility status
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [avail] Defines category\&#39;s visibility status
      * @param [productType] A categorization for the product
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts categories that are searched specified by field
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public categoryCount(parentId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<CategoryCount200Response> {
-        return this.categoryCountWithHttpInfo(parentId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<CategoryCount200Response>) => apiResponse.data));
+    public categoryCount(parentId?: string, storeId?: string, langId?: string, avail?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<CategoryCount200Response> {
+        return this.categoryCountWithHttpInfo(parentId, storeId, langId, avail, createdFrom, createdTo, modifiedFrom, modifiedTo, productType, findValue, findWhere, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<CategoryCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -3504,13 +3506,13 @@ export class ObservableCategoryApi {
      * @param imageName Defines image\&#39;s name
      * @param url Defines URL of the image that has to be added
      * @param type Defines image\&#39;s types that are specified by comma-separated list
+     * @param [storeId] Store Id
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
-     * @param [storeId] Store Id
      */
-    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', label?: string, mime?: string, position?: number, storeId?: string, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
-        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, label, mime, position, storeId, _options);
+    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
+        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3535,13 +3537,13 @@ export class ObservableCategoryApi {
      * @param imageName Defines image\&#39;s name
      * @param url Defines URL of the image that has to be added
      * @param type Defines image\&#39;s types that are specified by comma-separated list
+     * @param [storeId] Store Id
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
-     * @param [storeId] Store Id
      */
-    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', label?: string, mime?: string, position?: number, storeId?: string, _options?: Configuration): Observable<CategoryImageAdd200Response> {
-        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, label, mime, position, storeId, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
+    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Observable<CategoryImageAdd200Response> {
+        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3585,17 +3587,17 @@ export class ObservableCategoryApi {
      * Get category info about category ID*** or specify other category ID.
      * category.info
      * @param id Retrieves category\&#39;s info specified by category id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves category info  specified by store id
      * @param [langId] Retrieves category info  specified by language id
      * @param [schemaType] The name of the requirements set for the provided schema.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public categoryInfoWithHttpInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, schemaType?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryInfo200Response>> {
-        const requestContextPromise = this.requestFactory.categoryInfo(id, params, responseFields, exclude, storeId, langId, schemaType, reportRequestId, disableReportCache, _options);
+    public categoryInfoWithHttpInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryInfo200Response>> {
+        const requestContextPromise = this.requestFactory.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3617,17 +3619,17 @@ export class ObservableCategoryApi {
      * Get category info about category ID*** or specify other category ID.
      * category.info
      * @param id Retrieves category\&#39;s info specified by category id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves category info  specified by store id
      * @param [langId] Retrieves category info  specified by language id
      * @param [schemaType] The name of the requirements set for the provided schema.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public categoryInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, schemaType?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<CategoryInfo200Response> {
-        return this.categoryInfoWithHttpInfo(id, params, responseFields, exclude, storeId, langId, schemaType, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<CategoryInfo200Response>) => apiResponse.data));
+    public categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<CategoryInfo200Response> {
+        return this.categoryInfoWithHttpInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<CategoryInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -3636,26 +3638,26 @@ export class ObservableCategoryApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [parentId] Retrieves categories specified by parent id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves categories specified by store id
      * @param [langId] Retrieves categorys specified by language id
+     * @param [parentId] Retrieves categories specified by parent id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [productType] A categorization for the product
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [productType] A categorization for the product
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Category search that is specified by field
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
      */
-    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, parentId?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseCategoryList>> {
-        const requestContextPromise = this.requestFactory.categoryList(start, count, pageCursor, parentId, params, responseFields, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, disableCache, _options);
+    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseCategoryList>> {
+        const requestContextPromise = this.requestFactory.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3679,26 +3681,26 @@ export class ObservableCategoryApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [parentId] Retrieves categories specified by parent id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves categories specified by store id
      * @param [langId] Retrieves categorys specified by language id
+     * @param [parentId] Retrieves categories specified by parent id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [productType] A categorization for the product
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [productType] A categorization for the product
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Category search that is specified by field
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
      */
-    public categoryList(start?: number, count?: number, pageCursor?: string, parentId?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<ModelResponseCategoryList> {
-        return this.categoryListWithHttpInfo(start, count, pageCursor, parentId, params, responseFields, exclude, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, avail, productType, findValue, findWhere, reportRequestId, disableReportCache, disableCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCategoryList>) => apiResponse.data));
+    public categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<ModelResponseCategoryList> {
+        return this.categoryListWithHttpInfo(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCategoryList>) => apiResponse.data));
     }
 
     /**
@@ -3743,22 +3745,22 @@ export class ObservableCategoryApi {
      * category.update
      * @param id Defines category update specified by category id
      * @param [name] Defines new category’s name
+     * @param [description] Defines new category\&#39;s description
+     * @param [shortDescription] Defines short description
      * @param [parentId] Defines new parent category id
-     * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [avail] Defines category\&#39;s visibility status
      * @param [sortOrder] Sort number in the list
      * @param [modifiedTime] Entity\&#39;s date modification
-     * @param [description] Defines new category\&#39;s description
-     * @param [shortDescription] Defines short description
      * @param [metaTitle] Defines unique meta title for each entity
      * @param [metaDescription] Defines unique meta description of a entity
      * @param [metaKeywords] Defines unique meta keywords for each entity
      * @param [seoUrl] Defines unique category\&#39;s URL for SEO
-     * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
+     * @param [langId] Language id
      */
-    public categoryUpdateWithHttpInfo(id: string, name?: string, parentId?: string, storesIds?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, langId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.categoryUpdate(id, name, parentId, storesIds, avail, sortOrder, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, langId, storeId, _options);
+    public categoryUpdateWithHttpInfo(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3781,22 +3783,22 @@ export class ObservableCategoryApi {
      * category.update
      * @param id Defines category update specified by category id
      * @param [name] Defines new category’s name
+     * @param [description] Defines new category\&#39;s description
+     * @param [shortDescription] Defines short description
      * @param [parentId] Defines new parent category id
-     * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [avail] Defines category\&#39;s visibility status
      * @param [sortOrder] Sort number in the list
      * @param [modifiedTime] Entity\&#39;s date modification
-     * @param [description] Defines new category\&#39;s description
-     * @param [shortDescription] Defines short description
      * @param [metaTitle] Defines unique meta title for each entity
      * @param [metaDescription] Defines unique meta description of a entity
      * @param [metaKeywords] Defines unique meta keywords for each entity
      * @param [seoUrl] Defines unique category\&#39;s URL for SEO
-     * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
+     * @param [langId] Language id
      */
-    public categoryUpdate(id: string, name?: string, parentId?: string, storesIds?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, langId?: string, storeId?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.categoryUpdateWithHttpInfo(id, name, parentId, storesIds, avail, sortOrder, modifiedTime, description, shortDescription, metaTitle, metaDescription, metaKeywords, seoUrl, langId, storeId, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.categoryUpdateWithHttpInfo(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
 }
@@ -3891,12 +3893,12 @@ export class ObservableCustomerApi {
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public customerAttributeListWithHttpInfo(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerAttributeList>> {
-        const requestContextPromise = this.requestFactory.customerAttributeList(customerId, count, pageCursor, storeId, langId, params, exclude, responseFields, _options);
+    public customerAttributeListWithHttpInfo(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerAttributeList>> {
+        const requestContextPromise = this.requestFactory.customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3922,32 +3924,32 @@ export class ObservableCustomerApi {
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public customerAttributeList(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseCustomerAttributeList> {
-        return this.customerAttributeListWithHttpInfo(customerId, count, pageCursor, storeId, langId, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerAttributeList>) => apiResponse.data));
+    public customerAttributeList(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerAttributeList> {
+        return this.customerAttributeListWithHttpInfo(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerAttributeList>) => apiResponse.data));
     }
 
     /**
      * Get number of customers from store.
      * customer.count
+     * @param [ids] Counts customers specified by ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [customerListId] The numeric ID of the customer list in Demandware.
      * @param [groupId] Customer group_id
+     * @param [storeId] Counts customer specified by store id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [storeId] Counts customer specified by store id
-     * @param [customerListId] The numeric ID of the customer list in Demandware.
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Counts customers that are searched specified by field
-     * @param [ids] Counts customers specified by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
      */
-    public customerCountWithHttpInfo(groupId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, ids?: string, sinceId?: string, _options?: Configuration): Observable<HttpInfo<CustomerCount200Response>> {
-        const requestContextPromise = this.requestFactory.customerCount(groupId, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, customerListId, avail, findValue, findWhere, ids, sinceId, _options);
+    public customerCountWithHttpInfo(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<CustomerCount200Response>> {
+        const requestContextPromise = this.requestFactory.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3968,21 +3970,21 @@ export class ObservableCustomerApi {
     /**
      * Get number of customers from store.
      * customer.count
+     * @param [ids] Counts customers specified by ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [customerListId] The numeric ID of the customer list in Demandware.
      * @param [groupId] Customer group_id
+     * @param [storeId] Counts customer specified by store id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [storeId] Counts customer specified by store id
-     * @param [customerListId] The numeric ID of the customer list in Demandware.
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Counts customers that are searched specified by field
-     * @param [ids] Counts customers specified by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
      */
-    public customerCount(groupId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, ids?: string, sinceId?: string, _options?: Configuration): Observable<CustomerCount200Response> {
-        return this.customerCountWithHttpInfo(groupId, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, customerListId, avail, findValue, findWhere, ids, sinceId, _options).pipe(map((apiResponse: HttpInfo<CustomerCount200Response>) => apiResponse.data));
+    public customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<CustomerCount200Response> {
+        return this.customerCountWithHttpInfo(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<CustomerCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -4097,19 +4099,19 @@ export class ObservableCustomerApi {
     /**
      * Get list of customers groups.
      * customer.group.list
-     * @param [disableCache] Disable cache for current request
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [groupIds] Groups that will be assigned to a customer
      * @param [storeId] Store Id
      * @param [langId] Language id
-     * @param [groupIds] Groups that will be assigned to a customer
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [disableCache] Disable cache for current request
      */
-    public customerGroupListWithHttpInfo(disableCache?: boolean, pageCursor?: string, start?: number, count?: number, storeId?: string, langId?: string, groupIds?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerGroupList>> {
-        const requestContextPromise = this.requestFactory.customerGroupList(disableCache, pageCursor, start, count, storeId, langId, groupIds, params, exclude, responseFields, _options);
+    public customerGroupListWithHttpInfo(start?: number, count?: number, pageCursor?: string, groupIds?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, disableCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerGroupList>> {
+        const requestContextPromise = this.requestFactory.customerGroupList(start, count, pageCursor, groupIds, storeId, langId, responseFields, params, exclude, disableCache, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4130,32 +4132,32 @@ export class ObservableCustomerApi {
     /**
      * Get list of customers groups.
      * customer.group.list
-     * @param [disableCache] Disable cache for current request
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [groupIds] Groups that will be assigned to a customer
      * @param [storeId] Store Id
      * @param [langId] Language id
-     * @param [groupIds] Groups that will be assigned to a customer
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [disableCache] Disable cache for current request
      */
-    public customerGroupList(disableCache?: boolean, pageCursor?: string, start?: number, count?: number, storeId?: string, langId?: string, groupIds?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseCustomerGroupList> {
-        return this.customerGroupListWithHttpInfo(disableCache, pageCursor, start, count, storeId, langId, groupIds, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerGroupList>) => apiResponse.data));
+    public customerGroupList(start?: number, count?: number, pageCursor?: string, groupIds?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, disableCache?: boolean, _options?: Configuration): Observable<ModelResponseCustomerGroupList> {
+        return this.customerGroupListWithHttpInfo(start, count, pageCursor, groupIds, storeId, langId, responseFields, params, exclude, disableCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerGroupList>) => apiResponse.data));
     }
 
     /**
      * Get customers\' details from store.
      * customer.info
      * @param id Retrieves customer\&#39;s info specified by customer id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves customer info specified by store id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerInfoWithHttpInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CustomerInfo200Response>> {
-        const requestContextPromise = this.requestFactory.customerInfo(id, params, responseFields, exclude, storeId, _options);
+    public customerInfoWithHttpInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<CustomerInfo200Response>> {
+        const requestContextPromise = this.requestFactory.customerInfo(id, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4177,41 +4179,41 @@ export class ObservableCustomerApi {
      * Get customers\' details from store.
      * customer.info
      * @param id Retrieves customer\&#39;s info specified by customer id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves customer info specified by store id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<CustomerInfo200Response> {
-        return this.customerInfoWithHttpInfo(id, params, responseFields, exclude, storeId, _options).pipe(map((apiResponse: HttpInfo<CustomerInfo200Response>) => apiResponse.data));
+    public customerInfo(id: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<CustomerInfo200Response> {
+        return this.customerInfoWithHttpInfo(id, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<CustomerInfo200Response>) => apiResponse.data));
     }
 
     /**
      * Get list of customers from store.
      * customer.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Retrieves customers specified by ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [customerListId] The numeric ID of the customer list in Demandware.
+     * @param [groupId] Customer group_id
+     * @param [storeId] Retrieves customers specified by store id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [groupId] Customer group_id
-     * @param [storeId] Retrieves customers specified by store id
-     * @param [customerListId] The numeric ID of the customer list in Demandware.
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Customer search that is specified by field
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
-     * @param [ids] Retrieves customers specified by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerListWithHttpInfo(pageCursor?: string, start?: number, count?: number, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, responseFields?: string, exclude?: string, groupId?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, sortBy?: string, sortDirection?: string, ids?: string, sinceId?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerList>> {
-        const requestContextPromise = this.requestFactory.customerList(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, params, responseFields, exclude, groupId, storeId, customerListId, avail, findValue, findWhere, sortBy, sortDirection, ids, sinceId, _options);
+    public customerListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerList>> {
+        const requestContextPromise = this.requestFactory.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4232,29 +4234,29 @@ export class ObservableCustomerApi {
     /**
      * Get list of customers from store.
      * customer.list
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Retrieves customers specified by ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [customerListId] The numeric ID of the customer list in Demandware.
+     * @param [groupId] Customer group_id
+     * @param [storeId] Retrieves customers specified by store id
+     * @param [avail] Defines category\&#39;s visibility status
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [groupId] Customer group_id
-     * @param [storeId] Retrieves customers specified by store id
-     * @param [customerListId] The numeric ID of the customer list in Demandware.
-     * @param [avail] Defines category\&#39;s visibility status
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Customer search that is specified by field
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
-     * @param [ids] Retrieves customers specified by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerList(pageCursor?: string, start?: number, count?: number, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, responseFields?: string, exclude?: string, groupId?: string, storeId?: string, customerListId?: string, avail?: boolean, findValue?: string, findWhere?: string, sortBy?: string, sortDirection?: string, ids?: string, sinceId?: string, _options?: Configuration): Observable<ModelResponseCustomerList> {
-        return this.customerListWithHttpInfo(pageCursor, start, count, createdFrom, createdTo, modifiedFrom, modifiedTo, params, responseFields, exclude, groupId, storeId, customerListId, avail, findValue, findWhere, sortBy, sortDirection, ids, sinceId, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerList>) => apiResponse.data));
+    public customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerList> {
+        return this.customerListWithHttpInfo(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerList>) => apiResponse.data));
     }
 
     /**
@@ -4294,15 +4296,15 @@ export class ObservableCustomerApi {
      * Get a Wish List of customer from the store.
      * customer.wishlist.list
      * @param customerId Retrieves orders specified by customer id
-     * @param [id] Entity id
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [id] Entity id
+     * @param [storeId] Store Id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public customerWishlistListWithHttpInfo(customerId: string, id?: string, storeId?: string, start?: number, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerWishlistList>> {
-        const requestContextPromise = this.requestFactory.customerWishlistList(customerId, id, storeId, start, count, pageCursor, responseFields, _options);
+    public customerWishlistListWithHttpInfo(customerId: string, start?: number, count?: number, pageCursor?: string, id?: string, storeId?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerWishlistList>> {
+        const requestContextPromise = this.requestFactory.customerWishlistList(customerId, start, count, pageCursor, id, storeId, responseFields, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4324,15 +4326,15 @@ export class ObservableCustomerApi {
      * Get a Wish List of customer from the store.
      * customer.wishlist.list
      * @param customerId Retrieves orders specified by customer id
-     * @param [id] Entity id
-     * @param [storeId] Store Id
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [id] Entity id
+     * @param [storeId] Store Id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public customerWishlistList(customerId: string, id?: string, storeId?: string, start?: number, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseCustomerWishlistList> {
-        return this.customerWishlistListWithHttpInfo(customerId, id, storeId, start, count, pageCursor, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerWishlistList>) => apiResponse.data));
+    public customerWishlistList(customerId: string, start?: number, count?: number, pageCursor?: string, id?: string, storeId?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseCustomerWishlistList> {
+        return this.customerWishlistListWithHttpInfo(customerId, start, count, pageCursor, id, storeId, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerWishlistList>) => apiResponse.data));
     }
 
 }
@@ -4356,23 +4358,23 @@ export class ObservableMarketplaceApi {
     /**
      * Search product in global catalog.
      * marketplace.product.find
-     * @param [storeId] Store Id
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
      * @param [keyword] Defines search keyword
+     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
+     * @param [storeId] Store Id
      * @param [asin] Amazon Standard Identification Number.
      * @param [ean] European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
      * @param [gtin] Global Trade Item Number. An GTIN is an identifier for trade items.
      * @param [upc] Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
      * @param [mpn] Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
      * @param [isbn] International Standard Book Number. An ISBN is a unique identifier for books.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public marketplaceProductFindWithHttpInfo(storeId?: string, count?: number, pageCursor?: string, categoriesIds?: string, keyword?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseMarketplaceProductFind>> {
-        const requestContextPromise = this.requestFactory.marketplaceProductFind(storeId, count, pageCursor, categoriesIds, keyword, asin, ean, gtin, upc, mpn, isbn, params, exclude, responseFields, _options);
+    public marketplaceProductFindWithHttpInfo(count?: number, pageCursor?: string, keyword?: string, categoriesIds?: string, storeId?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseMarketplaceProductFind>> {
+        const requestContextPromise = this.requestFactory.marketplaceProductFind(count, pageCursor, keyword, categoriesIds, storeId, asin, ean, gtin, upc, mpn, isbn, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4393,23 +4395,23 @@ export class ObservableMarketplaceApi {
     /**
      * Search product in global catalog.
      * marketplace.product.find
-     * @param [storeId] Store Id
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
      * @param [keyword] Defines search keyword
+     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
+     * @param [storeId] Store Id
      * @param [asin] Amazon Standard Identification Number.
      * @param [ean] European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
      * @param [gtin] Global Trade Item Number. An GTIN is an identifier for trade items.
      * @param [upc] Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
      * @param [mpn] Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
      * @param [isbn] International Standard Book Number. An ISBN is a unique identifier for books.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public marketplaceProductFind(storeId?: string, count?: number, pageCursor?: string, categoriesIds?: string, keyword?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseMarketplaceProductFind> {
-        return this.marketplaceProductFindWithHttpInfo(storeId, count, pageCursor, categoriesIds, keyword, asin, ean, gtin, upc, mpn, isbn, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseMarketplaceProductFind>) => apiResponse.data));
+    public marketplaceProductFind(count?: number, pageCursor?: string, keyword?: string, categoriesIds?: string, storeId?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseMarketplaceProductFind> {
+        return this.marketplaceProductFindWithHttpInfo(count, pageCursor, keyword, categoriesIds, storeId, asin, ean, gtin, upc, mpn, isbn, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseMarketplaceProductFind>) => apiResponse.data));
     }
 
 }
@@ -4433,23 +4435,23 @@ export class ObservableOrderApi {
     /**
      * Get list of orders that were left by customers before completing the order.
      * order.abandoned.list
+     * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [customerId] Retrieves orders specified by customer id
      * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [skipEmptyEmail] Filter empty emails
      * @param [storeId] Store Id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [skipEmptyEmail] Filter empty emails
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderAbandonedListWithHttpInfo(customerId?: string, customerEmail?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, skipEmptyEmail?: boolean, storeId?: string, pageCursor?: string, count?: number, start?: number, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderAbandonedList>> {
-        const requestContextPromise = this.requestFactory.orderAbandonedList(customerId, customerEmail, createdTo, createdFrom, modifiedTo, modifiedFrom, skipEmptyEmail, storeId, pageCursor, count, start, params, responseFields, exclude, _options);
+    public orderAbandonedListWithHttpInfo(start?: number, count?: number, pageCursor?: string, customerId?: string, customerEmail?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, skipEmptyEmail?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderAbandonedList>> {
+        const requestContextPromise = this.requestFactory.orderAbandonedList(start, count, pageCursor, customerId, customerEmail, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, skipEmptyEmail, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4470,23 +4472,23 @@ export class ObservableOrderApi {
     /**
      * Get list of orders that were left by customers before completing the order.
      * order.abandoned.list
+     * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [customerId] Retrieves orders specified by customer id
      * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [skipEmptyEmail] Filter empty emails
      * @param [storeId] Store Id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [skipEmptyEmail] Filter empty emails
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderAbandonedList(customerId?: string, customerEmail?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, skipEmptyEmail?: boolean, storeId?: string, pageCursor?: string, count?: number, start?: number, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseOrderAbandonedList> {
-        return this.orderAbandonedListWithHttpInfo(customerId, customerEmail, createdTo, createdFrom, modifiedTo, modifiedFrom, skipEmptyEmail, storeId, pageCursor, count, start, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderAbandonedList>) => apiResponse.data));
+    public orderAbandonedList(start?: number, count?: number, pageCursor?: string, customerId?: string, customerEmail?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, skipEmptyEmail?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseOrderAbandonedList> {
+        return this.orderAbandonedListWithHttpInfo(start, count, pageCursor, customerId, customerEmail, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, skipEmptyEmail, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderAbandonedList>) => apiResponse.data));
     }
 
     /**
@@ -4525,17 +4527,13 @@ export class ObservableOrderApi {
     /**
      * Count orders in store
      * order.count
+     * @param [orderIds] Counts orders specified by order ids
+     * @param [ids] Counts orders specified by ids
      * @param [customerId] Counts orders quantity specified by customer id
+     * @param [storeId] Counts orders quantity specified by store id
      * @param [customerEmail] Counts orders quantity specified by customer email
      * @param [orderStatus] Counts orders quantity specified by order status
      * @param [orderStatusIds] Retrieves orders specified by order statuses
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [storeId] Counts orders quantity specified by store id
-     * @param [ids] Counts orders specified by ids
-     * @param [orderIds] Counts orders specified by order ids
      * @param [ebayOrderStatus] Counts orders quantity specified by order status
      * @param [financialStatus] Counts orders quantity specified by financial status
      * @param [financialStatusIds] Retrieves orders count specified by financial status ids
@@ -4545,9 +4543,13 @@ export class ObservableOrderApi {
      * @param [deliveryMethod] Retrieves order with delivery method
      * @param [tags] Order tags
      * @param [shipNodeType] Retrieves order with ship node type
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public orderCountWithHttpInfo(customerId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, _options?: Configuration): Observable<HttpInfo<OrderCount200Response>> {
-        const requestContextPromise = this.requestFactory.orderCount(customerId, customerEmail, orderStatus, orderStatusIds, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, _options);
+    public orderCountWithHttpInfo(orderIds?: string, ids?: string, customerId?: string, storeId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<OrderCount200Response>> {
+        const requestContextPromise = this.requestFactory.orderCount(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4568,17 +4570,13 @@ export class ObservableOrderApi {
     /**
      * Count orders in store
      * order.count
+     * @param [orderIds] Counts orders specified by order ids
+     * @param [ids] Counts orders specified by ids
      * @param [customerId] Counts orders quantity specified by customer id
+     * @param [storeId] Counts orders quantity specified by store id
      * @param [customerEmail] Counts orders quantity specified by customer email
      * @param [orderStatus] Counts orders quantity specified by order status
      * @param [orderStatusIds] Retrieves orders specified by order statuses
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [storeId] Counts orders quantity specified by store id
-     * @param [ids] Counts orders specified by ids
-     * @param [orderIds] Counts orders specified by order ids
      * @param [ebayOrderStatus] Counts orders quantity specified by order status
      * @param [financialStatus] Counts orders quantity specified by financial status
      * @param [financialStatusIds] Retrieves orders count specified by financial status ids
@@ -4588,9 +4586,13 @@ export class ObservableOrderApi {
      * @param [deliveryMethod] Retrieves order with delivery method
      * @param [tags] Order tags
      * @param [shipNodeType] Retrieves order with ship node type
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public orderCount(customerId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, _options?: Configuration): Observable<OrderCount200Response> {
-        return this.orderCountWithHttpInfo(customerId, customerEmail, orderStatus, orderStatusIds, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, _options).pipe(map((apiResponse: HttpInfo<OrderCount200Response>) => apiResponse.data));
+    public orderCount(orderIds?: string, ids?: string, customerId?: string, storeId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<OrderCount200Response> {
+        return this.orderCountWithHttpInfo(orderIds, ids, customerId, storeId, customerEmail, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentChannel, fulfillmentStatus, shippingMethod, deliveryMethod, tags, shipNodeType, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<OrderCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -4627,21 +4629,21 @@ export class ObservableOrderApi {
     /**
      * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
      * order.find
+     * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [customerId] Retrieves orders specified by customer id
      * @param [customerEmail] Retrieves orders specified by customer email
      * @param [orderStatus] Retrieves orders specified by order status
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [financialStatus] Retrieves orders specified by financial status
      * @param [createdTo] Retrieve entities to their creation date
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [modifiedTo] Retrieve entities to their modification date
      * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [financialStatus] Retrieves orders specified by financial status
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderFindWithHttpInfo(customerId?: string, customerEmail?: string, orderStatus?: string, start?: number, count?: number, params?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, financialStatus?: string, _options?: Configuration): Observable<HttpInfo<OrderFind200Response>> {
-        const requestContextPromise = this.requestFactory.orderFind(customerId, customerEmail, orderStatus, start, count, params, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, financialStatus, _options);
+    public orderFindWithHttpInfo(start?: number, count?: number, customerId?: string, customerEmail?: string, orderStatus?: string, financialStatus?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<OrderFind200Response>> {
+        const requestContextPromise = this.requestFactory.orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4662,21 +4664,21 @@ export class ObservableOrderApi {
     /**
      * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
      * order.find
+     * @param [start] This parameter sets the number from which you want to get entities
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [customerId] Retrieves orders specified by customer id
      * @param [customerEmail] Retrieves orders specified by customer email
      * @param [orderStatus] Retrieves orders specified by order status
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [financialStatus] Retrieves orders specified by financial status
      * @param [createdTo] Retrieve entities to their creation date
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [modifiedTo] Retrieve entities to their modification date
      * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [financialStatus] Retrieves orders specified by financial status
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderFind(customerId?: string, customerEmail?: string, orderStatus?: string, start?: number, count?: number, params?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, financialStatus?: string, _options?: Configuration): Observable<OrderFind200Response> {
-        return this.orderFindWithHttpInfo(customerId, customerEmail, orderStatus, start, count, params, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, financialStatus, _options).pipe(map((apiResponse: HttpInfo<OrderFind200Response>) => apiResponse.data));
+    public orderFind(start?: number, count?: number, customerId?: string, customerEmail?: string, orderStatus?: string, financialStatus?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, params?: string, exclude?: string, _options?: Configuration): Observable<OrderFind200Response> {
+        return this.orderFindWithHttpInfo(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude, _options).pipe(map((apiResponse: HttpInfo<OrderFind200Response>) => apiResponse.data));
     }
 
     /**
@@ -4715,17 +4717,17 @@ export class ObservableOrderApi {
     /**
      * Info about a specific order by ID
      * order.info
-     * @param [orderId] Retrieves order’s info specified by order id
      * @param [id] Retrieves order info specified by id
+     * @param [orderId] Retrieves order’s info specified by order id
+     * @param [storeId] Defines store id where the order should be found
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [storeId] Defines store id where the order should be found
      * @param [enableCache] If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public orderInfoWithHttpInfo(orderId?: string, id?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<OrderInfo200Response>> {
-        const requestContextPromise = this.requestFactory.orderInfo(orderId, id, params, responseFields, exclude, storeId, enableCache, useLatestApiVersion, _options);
+    public orderInfoWithHttpInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<OrderInfo200Response>> {
+        const requestContextPromise = this.requestFactory.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4746,63 +4748,63 @@ export class ObservableOrderApi {
     /**
      * Info about a specific order by ID
      * order.info
-     * @param [orderId] Retrieves order’s info specified by order id
      * @param [id] Retrieves order info specified by id
+     * @param [orderId] Retrieves order’s info specified by order id
+     * @param [storeId] Defines store id where the order should be found
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [storeId] Defines store id where the order should be found
      * @param [enableCache] If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public orderInfo(orderId?: string, id?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<OrderInfo200Response> {
-        return this.orderInfoWithHttpInfo(orderId, id, params, responseFields, exclude, storeId, enableCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<OrderInfo200Response>) => apiResponse.data));
+    public orderInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<OrderInfo200Response> {
+        return this.orderInfoWithHttpInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<OrderInfo200Response>) => apiResponse.data));
     }
 
     /**
      * Get list of orders from store.
      * order.list
-     * @param [customerId] Retrieves orders specified by customer id
-     * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [phone] Filter orders by customer\&#39;s phone number
-     * @param [orderStatus] Retrieves orders specified by order status
-     * @param [orderStatusIds] Retrieves orders specified by order statuses
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Retrieves orders specified by ids
+     * @param [orderIds] Retrieves orders specified by order ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [storeId] Store Id
+     * @param [customerId] Retrieves orders specified by customer id
+     * @param [customerEmail] Retrieves orders specified by customer email
+     * @param [basketId] Retrieves order’s info specified by basket id.
+     * @param [currencyId] Currency Id
+     * @param [phone] Filter orders by customer\&#39;s phone number
+     * @param [orderStatus] Retrieves orders specified by order status
+     * @param [orderStatusIds] Retrieves orders specified by order statuses
+     * @param [ebayOrderStatus] Retrieves orders specified by order status
+     * @param [financialStatus] Retrieves orders specified by financial status
+     * @param [financialStatusIds] Retrieves orders specified by financial status ids
+     * @param [fulfillmentStatus] Create order with fulfillment status
+     * @param [returnStatus] Retrieves orders specified by return status
+     * @param [fulfillmentChannel] Retrieves order with a fulfillment channel
+     * @param [shippingMethod] Retrieve entities according to shipping method
+     * @param [skipOrderIds] Skipped orders by ids
+     * @param [isDeleted] Filter deleted orders
+     * @param [shippingCountryIso3] Retrieve entities according to shipping country
+     * @param [deliveryMethod] Retrieves order with delivery method
+     * @param [shipNodeType] Retrieves order with ship node type
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [tags] Order tags
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [storeId] Store Id
-     * @param [ids] Retrieves orders specified by ids
-     * @param [orderIds] Retrieves orders specified by order ids
-     * @param [ebayOrderStatus] Retrieves orders specified by order status
-     * @param [basketId] Retrieves order’s info specified by basket id.
-     * @param [financialStatus] Retrieves orders specified by financial status
-     * @param [financialStatusIds] Retrieves orders specified by financial status ids
-     * @param [fulfillmentStatus] Create order with fulfillment status
-     * @param [fulfillmentChannel] Retrieves order with a fulfillment channel
-     * @param [shippingMethod] Retrieve entities according to shipping method
-     * @param [skipOrderIds] Skipped orders by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [isDeleted] Filter deleted orders
-     * @param [shippingCountryIso3] Retrieve entities according to shipping country
      * @param [enableCache] If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-     * @param [deliveryMethod] Retrieves order with delivery method
-     * @param [tags] Order tags
-     * @param [shipNodeType] Retrieves order with ship node type
-     * @param [currencyId] Currency Id
-     * @param [returnStatus] Retrieves orders specified by return status
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public orderListWithHttpInfo(customerId?: string, customerEmail?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, start?: number, count?: number, pageCursor?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, basketId?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, sinceId?: string, isDeleted?: boolean, shippingCountryIso3?: string, enableCache?: boolean, deliveryMethod?: string, tags?: string, shipNodeType?: string, currencyId?: string, returnStatus?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderList>> {
-        const requestContextPromise = this.requestFactory.orderList(customerId, customerEmail, phone, orderStatus, orderStatusIds, start, count, pageCursor, sortBy, sortDirection, params, responseFields, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, basketId, financialStatus, financialStatusIds, fulfillmentStatus, fulfillmentChannel, shippingMethod, skipOrderIds, sinceId, isDeleted, shippingCountryIso3, enableCache, deliveryMethod, tags, shipNodeType, currencyId, returnStatus, useLatestApiVersion, _options);
+    public orderListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderList>> {
+        const requestContextPromise = this.requestFactory.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4823,47 +4825,47 @@ export class ObservableOrderApi {
     /**
      * Get list of orders from store.
      * order.list
-     * @param [customerId] Retrieves orders specified by customer id
-     * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [phone] Filter orders by customer\&#39;s phone number
-     * @param [orderStatus] Retrieves orders specified by order status
-     * @param [orderStatusIds] Retrieves orders specified by order statuses
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [ids] Retrieves orders specified by ids
+     * @param [orderIds] Retrieves orders specified by order ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [storeId] Store Id
+     * @param [customerId] Retrieves orders specified by customer id
+     * @param [customerEmail] Retrieves orders specified by customer email
+     * @param [basketId] Retrieves order’s info specified by basket id.
+     * @param [currencyId] Currency Id
+     * @param [phone] Filter orders by customer\&#39;s phone number
+     * @param [orderStatus] Retrieves orders specified by order status
+     * @param [orderStatusIds] Retrieves orders specified by order statuses
+     * @param [ebayOrderStatus] Retrieves orders specified by order status
+     * @param [financialStatus] Retrieves orders specified by financial status
+     * @param [financialStatusIds] Retrieves orders specified by financial status ids
+     * @param [fulfillmentStatus] Create order with fulfillment status
+     * @param [returnStatus] Retrieves orders specified by return status
+     * @param [fulfillmentChannel] Retrieves order with a fulfillment channel
+     * @param [shippingMethod] Retrieve entities according to shipping method
+     * @param [skipOrderIds] Skipped orders by ids
+     * @param [isDeleted] Filter deleted orders
+     * @param [shippingCountryIso3] Retrieve entities according to shipping country
+     * @param [deliveryMethod] Retrieves order with delivery method
+     * @param [shipNodeType] Retrieves order with ship node type
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [tags] Order tags
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [storeId] Store Id
-     * @param [ids] Retrieves orders specified by ids
-     * @param [orderIds] Retrieves orders specified by order ids
-     * @param [ebayOrderStatus] Retrieves orders specified by order status
-     * @param [basketId] Retrieves order’s info specified by basket id.
-     * @param [financialStatus] Retrieves orders specified by financial status
-     * @param [financialStatusIds] Retrieves orders specified by financial status ids
-     * @param [fulfillmentStatus] Create order with fulfillment status
-     * @param [fulfillmentChannel] Retrieves order with a fulfillment channel
-     * @param [shippingMethod] Retrieve entities according to shipping method
-     * @param [skipOrderIds] Skipped orders by ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [isDeleted] Filter deleted orders
-     * @param [shippingCountryIso3] Retrieve entities according to shipping country
      * @param [enableCache] If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-     * @param [deliveryMethod] Retrieves order with delivery method
-     * @param [tags] Order tags
-     * @param [shipNodeType] Retrieves order with ship node type
-     * @param [currencyId] Currency Id
-     * @param [returnStatus] Retrieves orders specified by return status
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public orderList(customerId?: string, customerEmail?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, start?: number, count?: number, pageCursor?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, basketId?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, sinceId?: string, isDeleted?: boolean, shippingCountryIso3?: string, enableCache?: boolean, deliveryMethod?: string, tags?: string, shipNodeType?: string, currencyId?: string, returnStatus?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ModelResponseOrderList> {
-        return this.orderListWithHttpInfo(customerId, customerEmail, phone, orderStatus, orderStatusIds, start, count, pageCursor, sortBy, sortDirection, params, responseFields, exclude, createdTo, createdFrom, modifiedTo, modifiedFrom, storeId, ids, orderIds, ebayOrderStatus, basketId, financialStatus, financialStatusIds, fulfillmentStatus, fulfillmentChannel, shippingMethod, skipOrderIds, sinceId, isDeleted, shippingCountryIso3, enableCache, deliveryMethod, tags, shipNodeType, currencyId, returnStatus, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderList>) => apiResponse.data));
+    public orderList(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ModelResponseOrderList> {
+        return this.orderListWithHttpInfo(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderList>) => apiResponse.data));
     }
 
     /**
@@ -5144,13 +5146,13 @@ export class ObservableOrderApi {
      * @param id Entity id
      * @param orderId Defines the order id
      * @param [start] This parameter sets the number from which you want to get entities
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderShipmentInfoWithHttpInfo(id: string, orderId: string, start?: number, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<OrderShipmentInfo200Response>> {
-        const requestContextPromise = this.requestFactory.orderShipmentInfo(id, orderId, start, params, responseFields, exclude, storeId, _options);
+    public orderShipmentInfoWithHttpInfo(id: string, orderId: string, start?: number, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<OrderShipmentInfo200Response>> {
+        const requestContextPromise = this.requestFactory.orderShipmentInfo(id, orderId, start, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5174,33 +5176,33 @@ export class ObservableOrderApi {
      * @param id Entity id
      * @param orderId Defines the order id
      * @param [start] This parameter sets the number from which you want to get entities
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderShipmentInfo(id: string, orderId: string, start?: number, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<OrderShipmentInfo200Response> {
-        return this.orderShipmentInfoWithHttpInfo(id, orderId, start, params, responseFields, exclude, storeId, _options).pipe(map((apiResponse: HttpInfo<OrderShipmentInfo200Response>) => apiResponse.data));
+    public orderShipmentInfo(id: string, orderId: string, start?: number, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<OrderShipmentInfo200Response> {
+        return this.orderShipmentInfoWithHttpInfo(id, orderId, start, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<OrderShipmentInfo200Response>) => apiResponse.data));
     }
 
     /**
      * Get list of shipments by orders.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [storeId] Store Id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderShipmentListWithHttpInfo(orderId: string, pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderShipmentList>> {
-        const requestContextPromise = this.requestFactory.orderShipmentList(orderId, pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, _options);
+    public orderShipmentListWithHttpInfo(orderId: string, start?: number, count?: number, pageCursor?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderShipmentList>> {
+        const requestContextPromise = this.requestFactory.orderShipmentList(orderId, start, count, pageCursor, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5222,20 +5224,20 @@ export class ObservableOrderApi {
      * Get list of shipments by orders.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [storeId] Store Id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public orderShipmentList(orderId: string, pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, _options?: Configuration): Observable<ModelResponseOrderShipmentList> {
-        return this.orderShipmentListWithHttpInfo(orderId, pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, storeId, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderShipmentList>) => apiResponse.data));
+    public orderShipmentList(orderId: string, start?: number, count?: number, pageCursor?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseOrderShipmentList> {
+        return this.orderShipmentListWithHttpInfo(orderId, start, count, pageCursor, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderShipmentList>) => apiResponse.data));
     }
 
     /**
@@ -5346,14 +5348,14 @@ export class ObservableOrderApi {
      * order.transaction.list
      * @param orderIds Retrieves order transactions specified by order ids
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      */
-    public orderTransactionListWithHttpInfo(orderIds: string, count?: number, storeId?: string, params?: string, responseFields?: string, exclude?: string, pageCursor?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderTransactionList>> {
-        const requestContextPromise = this.requestFactory.orderTransactionList(orderIds, count, storeId, params, responseFields, exclude, pageCursor, _options);
+    public orderTransactionListWithHttpInfo(orderIds: string, count?: number, pageCursor?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderTransactionList>> {
+        const requestContextPromise = this.requestFactory.orderTransactionList(orderIds, count, pageCursor, storeId, params, responseFields, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5376,14 +5378,14 @@ export class ObservableOrderApi {
      * order.transaction.list
      * @param orderIds Retrieves order transactions specified by order ids
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      */
-    public orderTransactionList(orderIds: string, count?: number, storeId?: string, params?: string, responseFields?: string, exclude?: string, pageCursor?: string, _options?: Configuration): Observable<ModelResponseOrderTransactionList> {
-        return this.orderTransactionListWithHttpInfo(orderIds, count, storeId, params, responseFields, exclude, pageCursor, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderTransactionList>) => apiResponse.data));
+    public orderTransactionList(orderIds: string, count?: number, pageCursor?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseOrderTransactionList> {
+        return this.orderTransactionListWithHttpInfo(orderIds, count, pageCursor, storeId, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderTransactionList>) => apiResponse.data));
     }
 
     /**
@@ -5392,22 +5394,22 @@ export class ObservableOrderApi {
      * @param orderId Defines the orders specified by order id
      * @param [storeId] Defines store id where the order should be found
      * @param [orderStatus] Defines new order\&#39;s status
+     * @param [financialStatus] Update order financial status to specified
+     * @param [fulfillmentStatus] Create order with fulfillment status
      * @param [cancellationReason] Defines the cancellation reason when the order will be canceled
+     * @param [orderPaymentMethod] Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param [comment] Specifies order comment
      * @param [adminComment] Specifies admin\&#39;s order comment
      * @param [adminPrivateComment] Specifies private admin\&#39;s order comment
+     * @param [invoiceAdminComment] Specifies admin\&#39;s order invoice comment
      * @param [dateModified] Specifies order\&#39;s  modification date
      * @param [dateFinished] Specifies order\&#39;s  finished date
-     * @param [financialStatus] Update order financial status to specified
-     * @param [fulfillmentStatus] Create order with fulfillment status
-     * @param [orderPaymentMethod] Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param [sendNotifications] Send notifications to customer after order was created
-     * @param [origin] The source of the order
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
-     * @param [invoiceAdminComment] Specifies admin\&#39;s order invoice comment
+     * @param [origin] The source of the order
      */
-    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, cancellationReason?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, dateModified?: string, dateFinished?: string, financialStatus?: string, fulfillmentStatus?: string, orderPaymentMethod?: string, sendNotifications?: boolean, origin?: string, createInvoice?: boolean, invoiceAdminComment?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.orderUpdate(orderId, storeId, orderStatus, cancellationReason, comment, adminComment, adminPrivateComment, dateModified, dateFinished, financialStatus, fulfillmentStatus, orderPaymentMethod, sendNotifications, origin, createInvoice, invoiceAdminComment, _options);
+    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5431,22 +5433,22 @@ export class ObservableOrderApi {
      * @param orderId Defines the orders specified by order id
      * @param [storeId] Defines store id where the order should be found
      * @param [orderStatus] Defines new order\&#39;s status
+     * @param [financialStatus] Update order financial status to specified
+     * @param [fulfillmentStatus] Create order with fulfillment status
      * @param [cancellationReason] Defines the cancellation reason when the order will be canceled
+     * @param [orderPaymentMethod] Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param [comment] Specifies order comment
      * @param [adminComment] Specifies admin\&#39;s order comment
      * @param [adminPrivateComment] Specifies private admin\&#39;s order comment
+     * @param [invoiceAdminComment] Specifies admin\&#39;s order invoice comment
      * @param [dateModified] Specifies order\&#39;s  modification date
      * @param [dateFinished] Specifies order\&#39;s  finished date
-     * @param [financialStatus] Update order financial status to specified
-     * @param [fulfillmentStatus] Create order with fulfillment status
-     * @param [orderPaymentMethod] Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param [sendNotifications] Send notifications to customer after order was created
-     * @param [origin] The source of the order
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
-     * @param [invoiceAdminComment] Specifies admin\&#39;s order invoice comment
+     * @param [origin] The source of the order
      */
-    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, cancellationReason?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, dateModified?: string, dateFinished?: string, financialStatus?: string, fulfillmentStatus?: string, orderPaymentMethod?: string, sendNotifications?: boolean, origin?: string, createInvoice?: boolean, invoiceAdminComment?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, cancellationReason, comment, adminComment, adminPrivateComment, dateModified, dateFinished, financialStatus, fulfillmentStatus, orderPaymentMethod, sendNotifications, origin, createInvoice, invoiceAdminComment, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
 }
@@ -5537,23 +5539,23 @@ export class ObservableProductApi {
      * Get list of attributes and values.
      * product.attribute.list
      * @param productId Retrieves attributes specified by product id
-     * @param [attributeId] Retrieves info for specified attribute_id
-     * @param [variantId] Defines product\&#39;s variants specified by variant id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [attributeId] Retrieves info for specified attribute_id
+     * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [attributeGroupId] Filter by attribute_group_id
-     * @param [setName] Retrieves attributes specified by set_name in Magento
      * @param [langId] Retrieves attributes specified by language id
      * @param [storeId] Retrieves attributes specified by store id
+     * @param [setName] Retrieves attributes specified by set_name in Magento
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productAttributeListWithHttpInfo(productId: string, attributeId?: string, variantId?: string, pageCursor?: string, start?: number, count?: number, attributeGroupId?: string, setName?: string, langId?: string, storeId?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductAttributeList>> {
-        const requestContextPromise = this.requestFactory.productAttributeList(productId, attributeId, variantId, pageCursor, start, count, attributeGroupId, setName, langId, storeId, sortBy, sortDirection, params, responseFields, exclude, _options);
+    public productAttributeListWithHttpInfo(productId: string, start?: number, count?: number, pageCursor?: string, attributeId?: string, variantId?: string, attributeGroupId?: string, langId?: string, storeId?: string, setName?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductAttributeList>> {
+        const requestContextPromise = this.requestFactory.productAttributeList(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5575,23 +5577,23 @@ export class ObservableProductApi {
      * Get list of attributes and values.
      * product.attribute.list
      * @param productId Retrieves attributes specified by product id
-     * @param [attributeId] Retrieves info for specified attribute_id
-     * @param [variantId] Defines product\&#39;s variants specified by variant id
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [attributeId] Retrieves info for specified attribute_id
+     * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [attributeGroupId] Filter by attribute_group_id
-     * @param [setName] Retrieves attributes specified by set_name in Magento
      * @param [langId] Retrieves attributes specified by language id
      * @param [storeId] Retrieves attributes specified by store id
+     * @param [setName] Retrieves attributes specified by set_name in Magento
      * @param [sortBy] Set field to sort by
      * @param [sortDirection] Set sorting direction
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productAttributeList(productId: string, attributeId?: string, variantId?: string, pageCursor?: string, start?: number, count?: number, attributeGroupId?: string, setName?: string, langId?: string, storeId?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductAttributeList> {
-        return this.productAttributeListWithHttpInfo(productId, attributeId, variantId, pageCursor, start, count, attributeGroupId, setName, langId, storeId, sortBy, sortDirection, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductAttributeList>) => apiResponse.data));
+    public productAttributeList(productId: string, start?: number, count?: number, pageCursor?: string, attributeId?: string, variantId?: string, attributeGroupId?: string, langId?: string, storeId?: string, setName?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductAttributeList> {
+        return this.productAttributeListWithHttpInfo(productId, start, count, pageCursor, attributeId, variantId, attributeGroupId, langId, storeId, setName, sortBy, sortDirection, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductAttributeList>) => apiResponse.data));
     }
 
     /**
@@ -5690,23 +5692,23 @@ export class ObservableProductApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [brandIds] Retrieves brands specified by brand ids
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [categoryId] Retrieves product brands specified by category id
+     * @param [parentId] Retrieves brands specified by parent id
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [findWhere] Entity search that is specified by the comma-separated unique fields
+     * @param [findValue] Entity search that is specified by some value
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [parentId] Retrieves brands specified by parent id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [findWhere] Entity search that is specified by the comma-separated unique fields
-     * @param [findValue] Entity search that is specified by some value
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productBrandListWithHttpInfo(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, categoryId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductBrandList>> {
-        const requestContextPromise = this.requestFactory.productBrandList(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options);
+    public productBrandListWithHttpInfo(start?: number, count?: number, pageCursor?: string, brandIds?: string, categoryId?: string, parentId?: string, storeId?: string, langId?: string, findWhere?: string, findValue?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductBrandList>> {
+        const requestContextPromise = this.requestFactory.productBrandList(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5730,23 +5732,23 @@ export class ObservableProductApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [brandIds] Retrieves brands specified by brand ids
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [categoryId] Retrieves product brands specified by category id
+     * @param [parentId] Retrieves brands specified by parent id
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [findWhere] Entity search that is specified by the comma-separated unique fields
+     * @param [findValue] Entity search that is specified by some value
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [parentId] Retrieves brands specified by parent id
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [findWhere] Entity search that is specified by the comma-separated unique fields
-     * @param [findValue] Entity search that is specified by some value
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productBrandList(start?: number, count?: number, pageCursor?: string, params?: string, brandIds?: string, exclude?: string, categoryId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, parentId?: string, responseFields?: string, findWhere?: string, findValue?: string, _options?: Configuration): Observable<ModelResponseProductBrandList> {
-        return this.productBrandListWithHttpInfo(start, count, pageCursor, params, brandIds, exclude, categoryId, storeId, langId, createdFrom, createdTo, modifiedFrom, modifiedTo, parentId, responseFields, findWhere, findValue, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductBrandList>) => apiResponse.data));
+    public productBrandList(start?: number, count?: number, pageCursor?: string, brandIds?: string, categoryId?: string, parentId?: string, storeId?: string, langId?: string, findWhere?: string, findValue?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductBrandList> {
+        return this.productBrandListWithHttpInfo(start, count, pageCursor, brandIds, categoryId, parentId, storeId, langId, findWhere, findValue, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductBrandList>) => apiResponse.data));
     }
 
     /**
@@ -5793,16 +5795,16 @@ export class ObservableProductApi {
      * product.child_item.info
      * @param productId Filter by parent product id
      * @param id Entity id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [currencyId] Currency Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productChildItemInfoWithHttpInfo(productId: string, id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, currencyId?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ProductChildItemInfo200Response>> {
-        const requestContextPromise = this.requestFactory.productChildItemInfo(productId, id, params, responseFields, exclude, storeId, langId, currencyId, useLatestApiVersion, _options);
+    public productChildItemInfoWithHttpInfo(productId: string, id: string, storeId?: string, langId?: string, currencyId?: string, responseFields?: string, params?: string, exclude?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ProductChildItemInfo200Response>> {
+        const requestContextPromise = this.requestFactory.productChildItemInfo(productId, id, storeId, langId, currencyId, responseFields, params, exclude, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5825,31 +5827,24 @@ export class ObservableProductApi {
      * product.child_item.info
      * @param productId Filter by parent product id
      * @param id Entity id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Store Id
      * @param [langId] Language id
      * @param [currencyId] Currency Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productChildItemInfo(productId: string, id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, currencyId?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ProductChildItemInfo200Response> {
-        return this.productChildItemInfoWithHttpInfo(productId, id, params, responseFields, exclude, storeId, langId, currencyId, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ProductChildItemInfo200Response>) => apiResponse.data));
+    public productChildItemInfo(productId: string, id: string, storeId?: string, langId?: string, currencyId?: string, responseFields?: string, params?: string, exclude?: string, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ProductChildItemInfo200Response> {
+        return this.productChildItemInfoWithHttpInfo(productId, id, storeId, langId, currencyId, responseFields, params, exclude, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ProductChildItemInfo200Response>) => apiResponse.data));
     }
 
     /**
      * Get a list of a product\'s child items, such as variants or bundle components. The total_count field in the response indicates the total number of items in the context of the current filter.
      * product.child_item.list
-     * @param [pageCursor] Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [pageCursor] Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [productId] Filter by parent product id
      * @param [productIds] Filter by parent product ids
      * @param [sku] Filter by products variant\&#39;s sku
@@ -5859,13 +5854,20 @@ export class ObservableProductApi {
      * @param [availSale] Specifies the set of available/not available products for sale
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Child products search that is specified by field
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
-     * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
      */
-    public productChildItemListWithHttpInfo(pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, productId?: string, productIds?: string, sku?: string, storeId?: string, langId?: string, currencyId?: string, availSale?: boolean, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, returnGlobal?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseProductChildItemList>> {
-        const requestContextPromise = this.requestFactory.productChildItemList(pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, reportRequestId, disableReportCache, useLatestApiVersion, returnGlobal, _options);
+    public productChildItemListWithHttpInfo(start?: number, count?: number, pageCursor?: string, productId?: string, productIds?: string, sku?: string, storeId?: string, langId?: string, currencyId?: string, availSale?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, returnGlobal?: boolean, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseProductChildItemList>> {
+        const requestContextPromise = this.requestFactory.productChildItemList(start, count, pageCursor, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, returnGlobal, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5886,16 +5888,9 @@ export class ObservableProductApi {
     /**
      * Get a list of a product\'s child items, such as variants or bundle components. The total_count field in the response indicates the total number of items in the context of the current filter.
      * product.child_item.list
-     * @param [pageCursor] Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [pageCursor] Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [productId] Filter by parent product id
      * @param [productIds] Filter by parent product ids
      * @param [sku] Filter by products variant\&#39;s sku
@@ -5905,43 +5900,50 @@ export class ObservableProductApi {
      * @param [availSale] Specifies the set of available/not available products for sale
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Child products search that is specified by field
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [modifiedFrom] Retrieve entities from their modification date
+     * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
-     * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
      */
-    public productChildItemList(pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, productId?: string, productIds?: string, sku?: string, storeId?: string, langId?: string, currencyId?: string, availSale?: boolean, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, returnGlobal?: boolean, _options?: Configuration): Observable<ModelResponseProductChildItemList> {
-        return this.productChildItemListWithHttpInfo(pageCursor, start, count, params, responseFields, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, reportRequestId, disableReportCache, useLatestApiVersion, returnGlobal, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductChildItemList>) => apiResponse.data));
+    public productChildItemList(start?: number, count?: number, pageCursor?: string, productId?: string, productIds?: string, sku?: string, storeId?: string, langId?: string, currencyId?: string, availSale?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, returnGlobal?: boolean, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ModelResponseProductChildItemList> {
+        return this.productChildItemListWithHttpInfo(start, count, pageCursor, productId, productIds, sku, storeId, langId, currencyId, availSale, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, returnGlobal, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductChildItemList>) => apiResponse.data));
     }
 
     /**
      * Count products in store.
      * product.count
+     * @param [productIds] Counts products specified by product ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
      * @param [categoryId] Counts products specified by category id
+     * @param [storeId] Counts products specified by store id
+     * @param [langId] Counts products specified by language id
+     * @param [availView] Specifies the set of visible/invisible products
+     * @param [availSale] Specifies the set of available/not available products for sale
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [availView] Specifies the set of visible/invisible products
-     * @param [availSale] Specifies the set of available/not available products for sale
-     * @param [storeId] Counts products specified by store id
-     * @param [langId] Counts products specified by language id
-     * @param [productIds] Counts products specified by product ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [reportRequestId] Report request id
-     * @param [disableReportCache] Disable report cache for current request
      * @param [brandName] Retrieves brands specified by brand name
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts products that are searched specified by field
-     * @param [useLatestApiVersion] Use the latest platform API version
+     * @param [reportRequestId] Report request id
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
-     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
+     * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productCountWithHttpInfo(categoryId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, availView?: boolean, availSale?: boolean, storeId?: string, langId?: string, productIds?: string, sinceId?: string, reportRequestId?: string, disableReportCache?: boolean, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, useLatestApiVersion?: boolean, returnGlobal?: boolean, categoriesIds?: string, _options?: Configuration): Observable<HttpInfo<ProductCount200Response>> {
-        const requestContextPromise = this.requestFactory.productCount(categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, productIds, sinceId, reportRequestId, disableReportCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds, _options);
+    public productCountWithHttpInfo(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ProductCount200Response>> {
+        const requestContextPromise = this.requestFactory.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5962,31 +5964,31 @@ export class ObservableProductApi {
     /**
      * Count products in store.
      * product.count
+     * @param [productIds] Counts products specified by product ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
      * @param [categoryId] Counts products specified by category id
+     * @param [storeId] Counts products specified by store id
+     * @param [langId] Counts products specified by language id
+     * @param [availView] Specifies the set of visible/invisible products
+     * @param [availSale] Specifies the set of available/not available products for sale
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [availView] Specifies the set of visible/invisible products
-     * @param [availSale] Specifies the set of available/not available products for sale
-     * @param [storeId] Counts products specified by store id
-     * @param [langId] Counts products specified by language id
-     * @param [productIds] Counts products specified by product ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [reportRequestId] Report request id
-     * @param [disableReportCache] Disable report cache for current request
      * @param [brandName] Retrieves brands specified by brand name
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts products that are searched specified by field
-     * @param [useLatestApiVersion] Use the latest platform API version
+     * @param [reportRequestId] Report request id
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
-     * @param [categoriesIds] Defines product add that is specified by comma-separated categories id
+     * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productCount(categoryId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, availView?: boolean, availSale?: boolean, storeId?: string, langId?: string, productIds?: string, sinceId?: string, reportRequestId?: string, disableReportCache?: boolean, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, useLatestApiVersion?: boolean, returnGlobal?: boolean, categoriesIds?: string, _options?: Configuration): Observable<ProductCount200Response> {
-        return this.productCountWithHttpInfo(categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, productIds, sinceId, reportRequestId, disableReportCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds, _options).pipe(map((apiResponse: HttpInfo<ProductCount200Response>) => apiResponse.data));
+    public productCount(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ProductCount200Response> {
+        return this.productCountWithHttpInfo(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ProductCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -6039,15 +6041,15 @@ export class ObservableProductApi {
      * product.currency.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [_default] Specifies the set of default/not default currencies
      * @param [avail] Specifies the set of available/not available currencies
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productCurrencyListWithHttpInfo(start?: number, count?: number, params?: string, pageCursor?: string, exclude?: string, responseFields?: string, _default?: boolean, avail?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseProductCurrencyList>> {
-        const requestContextPromise = this.requestFactory.productCurrencyList(start, count, params, pageCursor, exclude, responseFields, _default, avail, _options);
+    public productCurrencyListWithHttpInfo(start?: number, count?: number, pageCursor?: string, _default?: boolean, avail?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductCurrencyList>> {
+        const requestContextPromise = this.requestFactory.productCurrencyList(start, count, pageCursor, _default, avail, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6070,15 +6072,15 @@ export class ObservableProductApi {
      * product.currency.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [_default] Specifies the set of default/not default currencies
      * @param [avail] Specifies the set of available/not available currencies
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productCurrencyList(start?: number, count?: number, params?: string, pageCursor?: string, exclude?: string, responseFields?: string, _default?: boolean, avail?: boolean, _options?: Configuration): Observable<ModelResponseProductCurrencyList> {
-        return this.productCurrencyListWithHttpInfo(start, count, params, pageCursor, exclude, responseFields, _default, avail, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductCurrencyList>) => apiResponse.data));
+    public productCurrencyList(start?: number, count?: number, pageCursor?: string, _default?: boolean, avail?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductCurrencyList> {
+        return this.productCurrencyListWithHttpInfo(start, count, pageCursor, _default, avail, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductCurrencyList>) => apiResponse.data));
     }
 
     /**
@@ -6299,16 +6301,16 @@ export class ObservableProductApi {
      * @param productId Defines product id where the image should be updated
      * @param id Defines image update specified by image id
      * @param [variantIds] Defines product\&#39;s variants ids
+     * @param [storeId] Store Id
+     * @param [langId] Language id
      * @param [imageName] Defines image\&#39;s name
      * @param [type] Defines image\&#39;s types that are specified by comma-separated list
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
-     * @param [storeId] Store Id
-     * @param [langId] Language id
      * @param [hidden] Define is hide image
      */
-    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, imageName?: string, type?: string, label?: string, position?: number, storeId?: string, langId?: string, hidden?: boolean, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.productImageUpdate(productId, id, variantIds, imageName, type, label, position, storeId, langId, hidden, _options);
+    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6332,34 +6334,34 @@ export class ObservableProductApi {
      * @param productId Defines product id where the image should be updated
      * @param id Defines image update specified by image id
      * @param [variantIds] Defines product\&#39;s variants ids
+     * @param [storeId] Store Id
+     * @param [langId] Language id
      * @param [imageName] Defines image\&#39;s name
      * @param [type] Defines image\&#39;s types that are specified by comma-separated list
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
-     * @param [storeId] Store Id
-     * @param [langId] Language id
      * @param [hidden] Define is hide image
      */
-    public productImageUpdate(productId: string, id: string, variantIds?: string, imageName?: string, type?: string, label?: string, position?: number, storeId?: string, langId?: string, hidden?: boolean, _options?: Configuration): Observable<ProductImageUpdate200Response> {
-        return this.productImageUpdateWithHttpInfo(productId, id, variantIds, imageName, type, label, position, storeId, langId, hidden, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
+    public productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Observable<ProductImageUpdate200Response> {
+        return this.productImageUpdateWithHttpInfo(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
     }
 
     /**
      * Get information about a specific product by its ID. In the case of a multistore configuration, use the store_id filter to get a response in the context of a specific store.
      * product.info
      * @param id Retrieves product\&#39;s info specified by product id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves product info specified by store id
      * @param [langId] Retrieves product info specified by language id
      * @param [currencyId] Currency Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productInfoWithHttpInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, currencyId?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ProductInfo200Response>> {
-        const requestContextPromise = this.requestFactory.productInfo(id, params, responseFields, exclude, storeId, langId, currencyId, reportRequestId, disableReportCache, useLatestApiVersion, _options);
+    public productInfoWithHttpInfo(id: string, storeId?: string, langId?: string, currencyId?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ProductInfo200Response>> {
+        const requestContextPromise = this.requestFactory.productInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6381,59 +6383,59 @@ export class ObservableProductApi {
      * Get information about a specific product by its ID. In the case of a multistore configuration, use the store_id filter to get a response in the context of a specific store.
      * product.info
      * @param id Retrieves product\&#39;s info specified by product id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [storeId] Retrieves product info specified by store id
      * @param [langId] Retrieves product info specified by language id
      * @param [currencyId] Currency Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, currencyId?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ProductInfo200Response> {
-        return this.productInfoWithHttpInfo(id, params, responseFields, exclude, storeId, langId, currencyId, reportRequestId, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ProductInfo200Response>) => apiResponse.data));
+    public productInfo(id: string, storeId?: string, langId?: string, currencyId?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ProductInfo200Response> {
+        return this.productInfoWithHttpInfo(id, storeId, langId, currencyId, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ProductInfo200Response>) => apiResponse.data));
     }
 
     /**
      * Get list of products from your store. Returns 10 products by default.
      * product.list
-     * @param [pageCursor] Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [pageCursor] Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [productIds] Retrieves products specified by product ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [categoriesIds] Retrieves products specified by categories ids
      * @param [categoryId] Retrieves products specified by category id
+     * @param [storeId] Retrieves products specified by store id
+     * @param [langId] Retrieves products specified by language id
+     * @param [currencyId] Currency Id
+     * @param [availView] Specifies the set of visible/invisible products
+     * @param [availSale] Specifies the set of available/not available products for sale
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [availView] Specifies the set of visible/invisible products
-     * @param [availSale] Specifies the set of available/not available products for sale
-     * @param [storeId] Retrieves products specified by store id
-     * @param [langId] Retrieves products specified by language id
-     * @param [currencyId] Currency Id
-     * @param [productIds] Retrieves products specified by product ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [reportRequestId] Report request id
-     * @param [disableReportCache] Disable report cache for current request
-     * @param [sortBy] Set field to sort by
-     * @param [sortDirection] Set sorting direction
      * @param [sku] Filter by product\&#39;s sku
-     * @param [disableCache] Disable cache for current request
      * @param [brandName] Retrieves brands specified by brand name
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Product search that is specified by field
-     * @param [useLatestApiVersion] Use the latest platform API version
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
-     * @param [categoriesIds] Retrieves products specified by categories ids
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [sortBy] Set field to sort by
+     * @param [sortDirection] Set sorting direction
+     * @param [reportRequestId] Report request id
+     * @param [disableCache] Disable cache for current request
+     * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productListWithHttpInfo(pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, categoryId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, availView?: boolean, availSale?: boolean, storeId?: string, langId?: string, currencyId?: string, productIds?: string, sinceId?: string, reportRequestId?: string, disableReportCache?: boolean, sortBy?: string, sortDirection?: string, sku?: string, disableCache?: boolean, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, useLatestApiVersion?: boolean, returnGlobal?: boolean, categoriesIds?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductList>> {
-        const requestContextPromise = this.requestFactory.productList(pageCursor, start, count, params, responseFields, exclude, categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, currencyId, productIds, sinceId, reportRequestId, disableReportCache, sortBy, sortDirection, sku, disableCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds, _options);
+    public productListWithHttpInfo(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseProductList>> {
+        const requestContextPromise = this.requestFactory.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6454,42 +6456,42 @@ export class ObservableProductApi {
     /**
      * Get list of products from your store. Returns 10 products by default.
      * product.list
-     * @param [pageCursor] Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [pageCursor] Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [productIds] Retrieves products specified by product ids
+     * @param [sinceId] Retrieve entities starting from the specified id.
+     * @param [categoriesIds] Retrieves products specified by categories ids
      * @param [categoryId] Retrieves products specified by category id
+     * @param [storeId] Retrieves products specified by store id
+     * @param [langId] Retrieves products specified by language id
+     * @param [currencyId] Currency Id
+     * @param [availView] Specifies the set of visible/invisible products
+     * @param [availSale] Specifies the set of available/not available products for sale
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [availView] Specifies the set of visible/invisible products
-     * @param [availSale] Specifies the set of available/not available products for sale
-     * @param [storeId] Retrieves products specified by store id
-     * @param [langId] Retrieves products specified by language id
-     * @param [currencyId] Currency Id
-     * @param [productIds] Retrieves products specified by product ids
-     * @param [sinceId] Retrieve entities starting from the specified id.
-     * @param [reportRequestId] Report request id
-     * @param [disableReportCache] Disable report cache for current request
-     * @param [sortBy] Set field to sort by
-     * @param [sortDirection] Set sorting direction
      * @param [sku] Filter by product\&#39;s sku
-     * @param [disableCache] Disable cache for current request
      * @param [brandName] Retrieves brands specified by brand name
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Product search that is specified by field
-     * @param [useLatestApiVersion] Use the latest platform API version
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
-     * @param [categoriesIds] Retrieves products specified by categories ids
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [sortBy] Set field to sort by
+     * @param [sortDirection] Set sorting direction
+     * @param [reportRequestId] Report request id
+     * @param [disableCache] Disable cache for current request
+     * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productList(pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, categoryId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, availView?: boolean, availSale?: boolean, storeId?: string, langId?: string, currencyId?: string, productIds?: string, sinceId?: string, reportRequestId?: string, disableReportCache?: boolean, sortBy?: string, sortDirection?: string, sku?: string, disableCache?: boolean, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, useLatestApiVersion?: boolean, returnGlobal?: boolean, categoriesIds?: string, _options?: Configuration): Observable<ModelResponseProductList> {
-        return this.productListWithHttpInfo(pageCursor, start, count, params, responseFields, exclude, categoryId, createdFrom, createdTo, modifiedFrom, modifiedTo, availView, availSale, storeId, langId, currencyId, productIds, sinceId, reportRequestId, disableReportCache, sortBy, sortDirection, sku, disableCache, brandName, productAttributes, status, type, findValue, findWhere, useLatestApiVersion, returnGlobal, categoriesIds, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductList>) => apiResponse.data));
+    public productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ModelResponseProductList> {
+        return this.productListWithHttpInfo(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductList>) => apiResponse.data));
     }
 
     /**
@@ -6647,15 +6649,15 @@ export class ObservableProductApi {
      * product.option.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [productId] Retrieves products\&#39; options specified by product id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productOptionListWithHttpInfo(start?: number, count?: number, params?: string, exclude?: string, responseFields?: string, productId?: string, langId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductOptionList>> {
-        const requestContextPromise = this.requestFactory.productOptionList(start, count, params, exclude, responseFields, productId, langId, storeId, _options);
+    public productOptionListWithHttpInfo(start?: number, count?: number, productId?: string, langId?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductOptionList>> {
+        const requestContextPromise = this.requestFactory.productOptionList(start, count, productId, langId, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6678,15 +6680,15 @@ export class ObservableProductApi {
      * product.option.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [productId] Retrieves products\&#39; options specified by product id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productOptionList(start?: number, count?: number, params?: string, exclude?: string, responseFields?: string, productId?: string, langId?: string, storeId?: string, _options?: Configuration): Observable<ModelResponseProductOptionList> {
-        return this.productOptionListWithHttpInfo(start, count, params, exclude, responseFields, productId, langId, storeId, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductOptionList>) => apiResponse.data));
+    public productOptionList(start?: number, count?: number, productId?: string, langId?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductOptionList> {
+        return this.productOptionListWithHttpInfo(start, count, productId, langId, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductOptionList>) => apiResponse.data));
     }
 
     /**
@@ -6965,17 +6967,17 @@ export class ObservableProductApi {
      * product.review.list
      * @param productId Product id
      * @param [start] This parameter sets the number from which you want to get entities
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves reviews specified by ids
      * @param [storeId] Store Id
      * @param [status] Defines status
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public productReviewListWithHttpInfo(productId: string, start?: number, pageCursor?: string, count?: number, ids?: string, storeId?: string, status?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductReviewList>> {
-        const requestContextPromise = this.requestFactory.productReviewList(productId, start, pageCursor, count, ids, storeId, status, params, exclude, responseFields, _options);
+    public productReviewListWithHttpInfo(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, status?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductReviewList>> {
+        const requestContextPromise = this.requestFactory.productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6998,17 +7000,17 @@ export class ObservableProductApi {
      * product.review.list
      * @param productId Product id
      * @param [start] This parameter sets the number from which you want to get entities
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves reviews specified by ids
      * @param [storeId] Store Id
      * @param [status] Defines status
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public productReviewList(productId: string, start?: number, pageCursor?: string, count?: number, ids?: string, storeId?: string, status?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseProductReviewList> {
-        return this.productReviewListWithHttpInfo(productId, start, pageCursor, count, ids, storeId, status, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductReviewList>) => apiResponse.data));
+    public productReviewList(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, status?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductReviewList> {
+        return this.productReviewListWithHttpInfo(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductReviewList>) => apiResponse.data));
     }
 
     /**
@@ -7215,15 +7217,15 @@ export class ObservableProductApi {
      * Get count variants.
      * product.variant.count
      * @param productId Retrieves products\&#39; variants specified by product id
+     * @param [categoryId] Counts products’ variants specified by category id
+     * @param [storeId] Retrieves variants specified by store id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [categoryId] Counts products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
      */
-    public productVariantCountWithHttpInfo(productId: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, categoryId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantCount200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantCount(productId, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, storeId, _options);
+    public productVariantCountWithHttpInfo(productId: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantCount200Response>> {
+        const requestContextPromise = this.requestFactory.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7245,15 +7247,15 @@ export class ObservableProductApi {
      * Get count variants.
      * product.variant.count
      * @param productId Retrieves products\&#39; variants specified by product id
+     * @param [categoryId] Counts products’ variants specified by category id
+     * @param [storeId] Retrieves variants specified by store id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [categoryId] Counts products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
      */
-    public productVariantCount(productId: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, categoryId?: string, storeId?: string, _options?: Configuration): Observable<ProductVariantCount200Response> {
-        return this.productVariantCountWithHttpInfo(productId, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, storeId, _options).pipe(map((apiResponse: HttpInfo<ProductVariantCount200Response>) => apiResponse.data));
+    public productVariantCount(productId: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<ProductVariantCount200Response> {
+        return this.productVariantCountWithHttpInfo(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<ProductVariantCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -7402,12 +7404,12 @@ export class ObservableProductApi {
      * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
      * product.variant.info
      * @param id Retrieves variant\&#39;s info specified by variant id
+     * @param [storeId] Retrieves variant info specified by store id
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [storeId] Retrieves variant info specified by store id
      */
-    public productVariantInfoWithHttpInfo(id: string, params?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ProductInfo200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantInfo(id, params, exclude, storeId, _options);
+    public productVariantInfoWithHttpInfo(id: string, storeId?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ProductInfo200Response>> {
+        const requestContextPromise = this.requestFactory.productVariantInfo(id, storeId, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7429,12 +7431,12 @@ export class ObservableProductApi {
      * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
      * product.variant.info
      * @param id Retrieves variant\&#39;s info specified by variant id
+     * @param [storeId] Retrieves variant info specified by store id
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [storeId] Retrieves variant info specified by store id
      */
-    public productVariantInfo(id: string, params?: string, exclude?: string, storeId?: string, _options?: Configuration): Observable<ProductInfo200Response> {
-        return this.productVariantInfoWithHttpInfo(id, params, exclude, storeId, _options).pipe(map((apiResponse: HttpInfo<ProductInfo200Response>) => apiResponse.data));
+    public productVariantInfo(id: string, storeId?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ProductInfo200Response> {
+        return this.productVariantInfoWithHttpInfo(id, storeId, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ProductInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -7442,18 +7444,18 @@ export class ObservableProductApi {
      * product.variant.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [productId] Retrieves products\&#39; variants specified by product id
+     * @param [categoryId] Retrieves products’ variants specified by category id
+     * @param [storeId] Retrieves variants specified by store id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [categoryId] Retrieves products’ variants specified by category id
-     * @param [productId] Retrieves products\&#39; variants specified by product id
-     * @param [storeId] Retrieves variants specified by store id
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productVariantListWithHttpInfo(start?: number, count?: number, params?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, categoryId?: string, productId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantList200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantList(start, count, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, productId, storeId, _options);
+    public productVariantListWithHttpInfo(start?: number, count?: number, productId?: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantList200Response>> {
+        const requestContextPromise = this.requestFactory.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7476,18 +7478,18 @@ export class ObservableProductApi {
      * product.variant.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param [productId] Retrieves products\&#39; variants specified by product id
+     * @param [categoryId] Retrieves products’ variants specified by category id
+     * @param [storeId] Retrieves variants specified by store id
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [categoryId] Retrieves products’ variants specified by category id
-     * @param [productId] Retrieves products\&#39; variants specified by product id
-     * @param [storeId] Retrieves variants specified by store id
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productVariantList(start?: number, count?: number, params?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, categoryId?: string, productId?: string, storeId?: string, _options?: Configuration): Observable<ProductVariantList200Response> {
-        return this.productVariantListWithHttpInfo(start, count, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<ProductVariantList200Response>) => apiResponse.data));
+    public productVariantList(start?: number, count?: number, productId?: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ProductVariantList200Response> {
+        return this.productVariantListWithHttpInfo(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ProductVariantList200Response>) => apiResponse.data));
     }
 
     /**
@@ -7769,12 +7771,12 @@ export class ObservableReturnApi {
      * @param id Entity id
      * @param [orderId] Defines the order id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public returnInfoWithHttpInfo(id: string, orderId?: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ReturnInfo200Response>> {
-        const requestContextPromise = this.requestFactory.returnInfo(id, orderId, storeId, params, exclude, responseFields, _options);
+    public returnInfoWithHttpInfo(id: string, orderId?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ReturnInfo200Response>> {
+        const requestContextPromise = this.requestFactory.returnInfo(id, orderId, storeId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7798,12 +7800,12 @@ export class ObservableReturnApi {
      * @param id Entity id
      * @param [orderId] Defines the order id
      * @param [storeId] Store Id
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public returnInfo(id: string, orderId?: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Observable<ReturnInfo200Response> {
-        return this.returnInfoWithHttpInfo(id, orderId, storeId, params, exclude, responseFields, _options).pipe(map((apiResponse: HttpInfo<ReturnInfo200Response>) => apiResponse.data));
+    public returnInfo(id: string, orderId?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ReturnInfo200Response> {
+        return this.returnInfoWithHttpInfo(id, orderId, storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ReturnInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -7812,9 +7814,6 @@ export class ObservableReturnApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [orderId] Defines the order id
      * @param [orderIds] Retrieves return requests specified by order ids
      * @param [customerId] Retrieves return requests specified by customer id
@@ -7825,11 +7824,14 @@ export class ObservableReturnApi {
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public returnListWithHttpInfo(start?: number, count?: number, pageCursor?: string, params?: string, exclude?: string, responseFields?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseReturnList>> {
-        const requestContextPromise = this.requestFactory.returnList(start, count, pageCursor, params, exclude, responseFields, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, reportRequestId, disableReportCache, _options);
+    public returnListWithHttpInfo(start?: number, count?: number, pageCursor?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseReturnList>> {
+        const requestContextPromise = this.requestFactory.returnList(start, count, pageCursor, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, reportRequestId, disableReportCache, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7853,9 +7855,6 @@ export class ObservableReturnApi {
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [orderId] Defines the order id
      * @param [orderIds] Retrieves return requests specified by order ids
      * @param [customerId] Retrieves return requests specified by customer id
@@ -7866,11 +7865,14 @@ export class ObservableReturnApi {
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
+     * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      */
-    public returnList(start?: number, count?: number, pageCursor?: string, params?: string, exclude?: string, responseFields?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<ModelResponseReturnList> {
-        return this.returnListWithHttpInfo(start, count, pageCursor, params, exclude, responseFields, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseReturnList>) => apiResponse.data));
+    public returnList(start?: number, count?: number, pageCursor?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<ModelResponseReturnList> {
+        return this.returnListWithHttpInfo(start, count, pageCursor, orderId, orderIds, customerId, storeId, status, returnType, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseReturnList>) => apiResponse.data));
     }
 
     /**
@@ -7960,20 +7962,20 @@ export class ObservableSubscriberApi {
      * subscriber.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [subscribed] Filter by subscription status
      * @param [storeId] Store Id
      * @param [email] Filter subscribers by email
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public subscriberListWithHttpInfo(start?: number, count?: number, subscribed?: boolean, storeId?: string, email?: string, params?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseSubscriberList>> {
-        const requestContextPromise = this.requestFactory.subscriberList(start, count, subscribed, storeId, email, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, pageCursor, responseFields, _options);
+    public subscriberListWithHttpInfo(start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseSubscriberList>> {
+        const requestContextPromise = this.requestFactory.subscriberList(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7996,20 +7998,20 @@ export class ObservableSubscriberApi {
      * subscriber.list
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [subscribed] Filter by subscription status
      * @param [storeId] Store Id
      * @param [email] Filter subscribers by email
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [createdTo] Retrieve entities to their creation date
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public subscriberList(start?: number, count?: number, subscribed?: boolean, storeId?: string, email?: string, params?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseSubscriberList> {
-        return this.subscriberListWithHttpInfo(start, count, subscribed, storeId, email, params, exclude, createdFrom, createdTo, modifiedFrom, modifiedTo, pageCursor, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseSubscriberList>) => apiResponse.data));
+    public subscriberList(start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseSubscriberList> {
+        return this.subscriberListWithHttpInfo(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseSubscriberList>) => apiResponse.data));
     }
 
 }
@@ -8036,12 +8038,12 @@ export class ObservableTaxApi {
      * @param taxClassId Retrieves taxes specified by class id
      * @param [storeId] Store Id
      * @param [langId] Language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public taxClassInfoWithHttpInfo(taxClassId: string, storeId?: string, langId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassInfo>> {
-        const requestContextPromise = this.requestFactory.taxClassInfo(taxClassId, storeId, langId, params, responseFields, exclude, _options);
+    public taxClassInfoWithHttpInfo(taxClassId: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassInfo>> {
+        const requestContextPromise = this.requestFactory.taxClassInfo(taxClassId, storeId, langId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8065,30 +8067,30 @@ export class ObservableTaxApi {
      * @param taxClassId Retrieves taxes specified by class id
      * @param [storeId] Store Id
      * @param [langId] Language id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public taxClassInfo(taxClassId: string, storeId?: string, langId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseTaxClassInfo> {
-        return this.taxClassInfoWithHttpInfo(taxClassId, storeId, langId, params, responseFields, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassInfo>) => apiResponse.data));
+    public taxClassInfo(taxClassId: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseTaxClassInfo> {
+        return this.taxClassInfoWithHttpInfo(taxClassId, storeId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassInfo>) => apiResponse.data));
     }
 
     /**
      * Get list of tax classes from your store.
      * tax.class.list
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [storeId] Store Id
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Tax class search that is specified by field
      * @param [createdTo] Retrieve entities to their creation date
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [modifiedTo] Retrieve entities to their modification date
      * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Tax class search that is specified by field
-     * @param [storeId] Store Id
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public taxClassListWithHttpInfo(createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, findValue?: string, findWhere?: string, storeId?: string, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassList>> {
-        const requestContextPromise = this.requestFactory.taxClassList(createdTo, createdFrom, modifiedTo, modifiedFrom, findValue, findWhere, storeId, count, pageCursor, responseFields, _options);
+    public taxClassListWithHttpInfo(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassList>> {
+        const requestContextPromise = this.requestFactory.taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8109,19 +8111,19 @@ export class ObservableTaxApi {
     /**
      * Get list of tax classes from your store.
      * tax.class.list
+     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param [storeId] Store Id
+     * @param [findValue] Entity search that is specified by some value
+     * @param [findWhere] Tax class search that is specified by field
      * @param [createdTo] Retrieve entities to their creation date
      * @param [createdFrom] Retrieve entities from their creation date
      * @param [modifiedTo] Retrieve entities to their modification date
      * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [findValue] Entity search that is specified by some value
-     * @param [findWhere] Tax class search that is specified by field
-     * @param [storeId] Store Id
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public taxClassList(createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, findValue?: string, findWhere?: string, storeId?: string, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseTaxClassList> {
-        return this.taxClassListWithHttpInfo(createdTo, createdFrom, modifiedTo, modifiedFrom, findValue, findWhere, storeId, count, pageCursor, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassList>) => apiResponse.data));
+    public taxClassList(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseTaxClassList> {
+        return this.taxClassListWithHttpInfo(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassList>) => apiResponse.data));
     }
 
 }
@@ -8291,16 +8293,16 @@ export class ObservableWebhookApi {
     /**
      * List registered webhook on the store.
      * webhook.list
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [entity] The entity you want to filter webhooks by (e.g. order or product)
      * @param [action] The action you want to filter webhooks by (e.g. add, update, or delete)
      * @param [active] The webhook status you want to filter webhooks by
      * @param [ids] List of сomma-separated webhook ids
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public webhookListWithHttpInfo(params?: string, start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, _options?: Configuration): Observable<HttpInfo<WebhookList200Response>> {
-        const requestContextPromise = this.requestFactory.webhookList(params, start, count, entity, action, active, ids, _options);
+    public webhookListWithHttpInfo(start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, params?: string, _options?: Configuration): Observable<HttpInfo<WebhookList200Response>> {
+        const requestContextPromise = this.requestFactory.webhookList(start, count, entity, action, active, ids, params, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8321,16 +8323,16 @@ export class ObservableWebhookApi {
     /**
      * List registered webhook on the store.
      * webhook.list
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [entity] The entity you want to filter webhooks by (e.g. order or product)
      * @param [action] The action you want to filter webhooks by (e.g. add, update, or delete)
      * @param [active] The webhook status you want to filter webhooks by
      * @param [ids] List of сomma-separated webhook ids
+     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public webhookList(params?: string, start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, _options?: Configuration): Observable<WebhookList200Response> {
-        return this.webhookListWithHttpInfo(params, start, count, entity, action, active, ids, _options).pipe(map((apiResponse: HttpInfo<WebhookList200Response>) => apiResponse.data));
+    public webhookList(start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, params?: string, _options?: Configuration): Observable<WebhookList200Response> {
+        return this.webhookListWithHttpInfo(start, count, entity, action, active, ids, params, _options).pipe(map((apiResponse: HttpInfo<WebhookList200Response>) => apiResponse.data));
     }
 
     /**

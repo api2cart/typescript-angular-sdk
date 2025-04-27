@@ -78,16 +78,30 @@ const request: ProductApiProductAddRequest = {
   productAdd: {
     name: "Bag",
     model: "bag_01",
-    sku: "bag_01",
     description: "Product description",
     price: 99.9,
+    sku: "bag_01",
+    shortDescription: "Short description. This is very short description",
+    type: "configurable",
+    status: "disabled",
+    visible: "search",
+    categoryId: "6",
+    categoriesIds: "23,56",
+    productClass: "Shirts",
+    productType: "BICYCLE",
+    isVirtual: false,
+    downloadable: true,
+    isSupply: false,
+    availableForView: false,
+    availableForSale: false,
+    storeId: "1",
+    storesIds: "1,2",
+    langId: "3",
     oldPrice: 99.9,
     specialPrice: 56.9,
+    wholesalePrice: 56.12,
     costPrice: 65.9,
     fixedCostShippingPrice: 5.5,
-    spriceCreate: "2018-08-25 23:56:12",
-    spriceModified: "2018-12-05 13:46:20",
-    spriceExpire: "2018-08-25 23:56:12",
     tierPrices: [
       {
         quantity: 3.14,
@@ -100,85 +114,80 @@ const request: ProductApiProductAddRequest = {
         price: 3.14,
       },
     ],
-    availableForView: false,
-    availableForSale: false,
+    buyitnowPrice: 65.9,
+    reservePrice: 65.9,
+    quantity: 6,
+    inStock: true,
+    manageStock: false,
+    warehouseId: "1",
+    backorderStatus: "true",
+    minOrderQuantity: 1,
+    maxOrderQuantity: 1,
     weight: 23.69,
+    weightUnit: "lb",
     width: 56.12,
     height: 56.12,
     length: 56.12,
-    weightUnit: "lb",
     dimensionsUnit: "cm",
-    shortDescription: "Short description. This is very short description",
-    warehouseId: "1",
-    backorderStatus: "true",
-    quantity: 6,
-    downloadable: true,
-    wholesalePrice: 56.12,
-    createdAt: "2014-08-09 13:13:13",
-    manufacturer: "Samsung",
-    manufacturerId: "1",
-    categoriesIds: "23,56",
-    relatedProductsIds: "4,5",
-    upSellProductsIds: "4,5",
-    crossSellProductsIds: "4,5",
-    taxClassId: "9",
-    type: "configurable",
-    metaTitle: "category,test",
-    metaKeywords: "category,test",
-    metaDescription: "category,test",
-    url: "/product_slug",
-    langId: "3",
-    storesIds: "1,2",
-    categoryId: "6",
-    viewedCount: 9,
-    orderedCount: 15,
-    attributeSetName: "Shoes",
-    attributeName: "Color,Manufacturer",
-    shippingTemplateId: 40256592690,
-    productionPartnerIds: "4,5",
-    condition: "Like New",
-    listingDuration: "Days_3",
-    listingType: "Auction",
-    paymentMethods: [
-      "payment_methods[0]=CashOnPickup&payment_methods[1]=PayPal",
-    ],
-    returnAccepted: true,
-    shippingDetails: [
-      {
-        shippingType: "shippingType_example",
-        shippingService: "shippingService_example",
-        shippingCost: 3.14,
-      },
-    ],
-    paypalEmail: "paypall@mail.com",
-    sellerProfiles: {
-      shippingProfileId: "shippingProfileId_example",
-      paymentProfileId: "paymentProfileId_example",
-      returnProfileId: "returnProfileId_example",
-    },
-    packageDetails: {
-      measureUnit: "measureUnit_example",
-      weighUnit: "weighUnit_example",
-      packageDepth: 3.14,
-      packageLength: 3.14,
-      packageWidth: 3.14,
-      weightMajor: 3.14,
-      weightMinor: 3.14,
-      shippingPackage: "shippingPackage_example",
-    },
-    bestOffer: {
-      minimumOfferPrice: 3.14,
-      autoAcceptPrice: 3.14,
-    },
-    salesTax: {
-      taxPercent: 3.14,
-      taxState: "taxState_example",
-      shippingIncInTax: true,
-    },
     barcode: "9770317847001",
     upc: "9770317847001",
     ean: "5901234123457",
     isbn: "9783161484100",
+    gtin: "12345678912345",
+    mpn: "9770317847001",
+    asin: "97703178470",
+    productReference: "5901234123457",
+    harmonizedSystemCode: "123456",
+    countryOfOrigin: "123456",
+    manufacturer: "Samsung",
+    manufacturerId: "1",
+    manufacturerInfo: {
+      name: "name_example",
+      address: "address_example",
+      phone: "phone_example",
+      email: "email_example",
+    },
+    brandName: "Abidas",
+    imageUrl: "https://docs.api2cart.com/img/logo.png",
+    imageName: "abibas.png",
+    additionalImageUrls: [
+      "additionalImageUrls_example",
+    ],
+    files: [
+      {
+        name: "name_example",
+        url: "url_example",
+      },
+    ],
+    sizeChart: {
+      id: "id_example",
+      url: "url_example",
+    },
+    relatedProductsIds: "4,5",
+    upSellProductsIds: "4,5",
+    crossSellProductsIds: "4,5",
+    attributeSetName: "Shoes",
+    attributeName: "Color,Manufacturer",
+    searchKeywords: "key1,key2,key3",
+    tags: "tag1,tag2",
+    materials: [
+      "materials[0]=Aluminum&materials[1]=Brass",
+    ],
+    certifications: [
+      {
+        id: "id_example",
+        images: [
+          {
+            url: "url_example",
+          },
+        ],
+        files: [
+          {
+            url: "url_example",
+          },
+        ],
+      },
+    ],
     specifics: [
       {
         name: "name_example",
@@ -226,15 +235,55 @@ const request: ProductApiProductAddRequest = {
         },
       },
     ],
-    imageUrl: "https://docs.api2cart.com/img/logo.png",
-    imageName: "abibas.png",
-    additionalImageUrls: [
-      "additionalImageUrls_example",
-    ],
-    reservePrice: 65.9,
-    buyitnowPrice: 65.9,
+    availFrom: "avail_from=2029-10-25T15:54:37-0500",
+    spriceCreate: "2018-08-25 23:56:12",
+    spriceModified: "2018-12-05 13:46:20",
+    spriceExpire: "2018-08-25 23:56:12",
+    createdAt: "2014-08-09 13:13:13",
+    autoRenew: false,
+    whenMade: "2020_2025",
+    metaTitle: "category,test",
+    metaKeywords: "category,test",
+    metaDescription: "category,test",
+    url: "/product_slug",
+    seoUrl: "some seo url",
+    taxClassId: "9",
+    taxable: false,
+    salesTax: {
+      taxPercent: 3.14,
+      taxState: "taxState_example",
+      shippingIncInTax: true,
+    },
+    condition: "Like New",
     conditionDescription: "Almost perfect condition, a few scratches",
-    auctionConfidentialityLevel: "public",
+    allowDisplayCondition: false,
+    paymentMethods: [
+      "payment_methods[0]=CashOnPickup&payment_methods[1]=PayPal",
+    ],
+    paypalEmail: "paypall@mail.com",
+    shippingTemplateId: 40256592690,
+    shippingDetails: [
+      {
+        shippingType: "shippingType_example",
+        shippingService: "shippingService_example",
+        shippingCost: 3.14,
+      },
+    ],
+    isFreeShipping: true,
+    deliveryCode: "24uurs-23",
+    deliveryType: "PARCEL",
+    deliveryTime: 1,
+    deliveryOptionIds: "6956548250505111111,6956548250505111112",
+    packageDetails: {
+      measureUnit: "measureUnit_example",
+      weighUnit: "weighUnit_example",
+      packageDepth: 3.14,
+      packageLength: 3.14,
+      packageWidth: 3.14,
+      weightMajor: 3.14,
+      weightMinor: 3.14,
+      shippingPackage: "shippingPackage_example",
+    },
     logisticInfo: [
       {
         logisticId: 3.14,
@@ -243,73 +292,24 @@ const request: ProductApiProductAddRequest = {
         sizeId: 3.14,
       },
     ],
-    availFrom: "avail_from=2029-10-25T15:54:37-0500",
-    tags: "tag1,tag2",
-    clearCache: false,
-    asin: "97703178470",
-    gtin: "12345678912345",
-    mpn: "9770317847001",
-    taxable: false,
-    visible: "search",
-    status: "disabled",
-    seoUrl: "some seo url",
-    productClass: "Shirts",
-    productType: "BICYCLE",
+    listingDuration: "Days_3",
+    listingType: "Auction",
+    returnAccepted: true,
+    sellerProfiles: {
+      shippingProfileId: "shippingProfileId_example",
+      paymentProfileId: "paymentProfileId_example",
+      returnProfileId: "returnProfileId_example",
+    },
+    auctionConfidentialityLevel: "public",
+    bestOffer: {
+      minimumOfferPrice: 3.14,
+      autoAcceptPrice: 3.14,
+    },
+    productionPartnerIds: "4,5",
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
-    manageStock: false,
-    harmonizedSystemCode: "123456",
-    countryOfOrigin: "123456",
-    files: [
-      {
-        name: "name_example",
-        url: "url_example",
-      },
-    ],
-    searchKeywords: "key1,key2,key3",
-    storeId: "1",
-    brandName: "Abidas",
-    isVirtual: false,
-    isFreeShipping: true,
-    inStock: true,
-    deliveryCode: "24uurs-23",
-    productReference: "5901234123457",
-    deliveryType: "PARCEL",
-    deliveryTime: 1,
-    sizeChart: {
-      id: "id_example",
-      url: "url_example",
-    },
-    certifications: [
-      {
-        id: "id_example",
-        images: [
-          {
-            url: "url_example",
-          },
-        ],
-        files: [
-          {
-            url: "url_example",
-          },
-        ],
-      },
-    ],
-    deliveryOptionIds: "6956548250505111111,6956548250505111112",
-    manufacturerInfo: {
-      name: "name_example",
-      address: "address_example",
-      phone: "phone_example",
-      email: "email_example",
-    },
-    whenMade: "2020_2025",
-    isSupply: false,
-    materials: [
-      "materials[0]=Aluminum&materials[1]=Brass",
-    ],
-    autoRenew: false,
-    allowDisplayCondition: false,
-    minOrderQuantity: 1,
-    maxOrderQuantity: 1,
+    clearCache: false,
+    viewedCount: 9,
+    orderedCount: 15,
   },
 };
 
@@ -525,32 +525,32 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductAttributeListRequest = {
     // Retrieves attributes specified by product id
   productId: "10",
-    // Retrieves info for specified attribute_id (optional)
-  attributeId: "156",
-    // Defines product\'s variants specified by variant id (optional)
-  variantId: "45",
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Retrieves info for specified attribute_id (optional)
+  attributeId: "156",
+    // Defines product\'s variants specified by variant id (optional)
+  variantId: "45",
     // Filter by attribute_group_id (optional)
   attributeGroupId: "202",
-    // Retrieves attributes specified by set_name in Magento (optional)
-  setName: "Shoes",
     // Retrieves attributes specified by language id (optional)
   langId: "3",
     // Retrieves attributes specified by store id (optional)
   storeId: "1",
+    // Retrieves attributes specified by set_name in Magento (optional)
+  setName: "Shoes",
     // Set field to sort by (optional)
   sortBy: "value",
     // Set sorting direction (optional)
   sortDirection: "asc",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "attribute_id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{pagination,result{attribute}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "attribute_id,name",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "attribute_id,name",
 };
@@ -565,19 +565,19 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] | Retrieves attributes specified by product id | defaults to undefined
- **attributeId** | [**string**] | Retrieves info for specified attribute_id | (optional) defaults to undefined
- **variantId** | [**string**] | Defines product\&#39;s variants specified by variant id | (optional) defaults to undefined
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **attributeId** | [**string**] | Retrieves info for specified attribute_id | (optional) defaults to undefined
+ **variantId** | [**string**] | Defines product\&#39;s variants specified by variant id | (optional) defaults to undefined
  **attributeGroupId** | [**string**] | Filter by attribute_group_id | (optional) defaults to undefined
- **setName** | [**string**] | Retrieves attributes specified by set_name in Magento | (optional) defaults to undefined
  **langId** | [**string**] | Retrieves attributes specified by language id | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves attributes specified by store id | (optional) defaults to undefined
+ **setName** | [**string**] | Retrieves attributes specified by set_name in Magento | (optional) defaults to undefined
  **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'attribute_id'
  **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'attribute_id,name'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'attribute_id,name'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
@@ -766,18 +766,20 @@ const request: ProductApiProductBrandListRequest = {
   count: 20,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
     // Retrieves brands specified by brand ids (optional)
   brandIds: "4,5",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
     // Retrieves product brands specified by category id (optional)
   categoryId: "6",
+    // Retrieves brands specified by parent id (optional)
+  parentId: "6",
     // Store Id (optional)
   storeId: "1",
     // Language id (optional)
   langId: "3",
+    // Entity search that is specified by the comma-separated unique fields (optional)
+  findWhere: "name",
+    // Entity search that is specified by some value (optional)
+  findValue: "Phone",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -786,14 +788,12 @@ const request: ProductApiProductBrandListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Retrieves brands specified by parent id (optional)
-  parentId: "6",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{return_code,return_message,pagination,result}",
-    // Entity search that is specified by the comma-separated unique fields (optional)
-  findWhere: "name",
-    // Entity search that is specified by some value (optional)
-  findValue: "Phone",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
 };
 
 const data = await apiInstance.productBrandList(request);
@@ -808,20 +808,20 @@ Name | Type | Description  | Notes
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,short_description,active,url'
  **brandIds** | [**string**] | Retrieves brands specified by brand ids | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **categoryId** | [**string**] | Retrieves product brands specified by category id | (optional) defaults to undefined
+ **parentId** | [**string**] | Retrieves brands specified by parent id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **findWhere** | [**string**] | Entity search that is specified by the comma-separated unique fields | (optional) defaults to undefined
+ **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **parentId** | [**string**] | Retrieves brands specified by parent id | (optional) defaults to undefined
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **findWhere** | [**string**] | Entity search that is specified by the comma-separated unique fields | (optional) defaults to undefined
- **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,short_description,active,url'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -927,18 +927,18 @@ const request: ProductApiProductChildItemInfoRequest = {
   productId: "10",
     // Entity id
   id: "10",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{id,parent_id,sku,upc,images,combination}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
     // Store Id (optional)
   storeId: "1",
     // Language id (optional)
   langId: "3",
     // Currency Id (optional)
   currencyId: "usd",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{id,parent_id,sku,upc,images,combination}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
     // Use the latest platform API version (optional)
   useLatestApiVersion: true,
 };
@@ -954,12 +954,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] | Filter by parent product id | defaults to undefined
  **id** | [**string**] | Entity id | defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
@@ -1000,26 +1000,12 @@ const configuration = createConfiguration();
 const apiInstance = new ProductApi(configuration);
 
 const request: ProductApiProductChildItemListRequest = {
-    // Used to retrieve products child items via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{children{id,parent_id,sku,upc,images,combination}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
+    // Used to retrieve products child items via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Filter by parent product id (optional)
   productId: "10",
     // Filter by parent product ids (optional)
@@ -1038,14 +1024,28 @@ const request: ProductApiProductChildItemListRequest = {
   findValue: "bundled-item-123-",
     // Child products search that is specified by field (optional)
   findWhere: "sku",
+    // Retrieve entities from their creation date (optional)
+  createdFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their creation date (optional)
+  createdTo: "2100-08-29 13:45:52",
+    // Retrieve entities from their modification date (optional)
+  modifiedFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their modification date (optional)
+  modifiedTo: "2100-08-29 13:45:52",
+    // Determines the type of products to be returned. If set to \'true\', only global products will be returned; if set to \'false\', only local products will be returned. (optional)
+  returnGlobal: false,
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{children{id,parent_id,sku,upc,images,combination}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
     // Report request id (optional)
   reportRequestId: "105245017661",
     // Disable report cache for current request (optional)
   disableReportCache: false,
     // Use the latest platform API version (optional)
   useLatestApiVersion: true,
-    // Determines the type of products to be returned. If set to \'true\', only global products will be returned; if set to \'false\', only local products will be returned. (optional)
-  returnGlobal: false,
 };
 
 const data = await apiInstance.productChildItemList(request);
@@ -1057,16 +1057,9 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
+ **pageCursor** | [**string**] | Used to retrieve products child items via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **productId** | [**string**] | Filter by parent product id | (optional) defaults to undefined
  **productIds** | [**string**] | Filter by parent product ids | (optional) defaults to undefined
  **sku** | [**string**] | Filter by products variant\&#39;s sku | (optional) defaults to undefined
@@ -1076,10 +1069,17 @@ Name | Type | Description  | Notes
  **availSale** | [**boolean**] | Specifies the set of available/not available products for sale | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Child products search that is specified by field | (optional) defaults to undefined
+ **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
+ **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
+ **returnGlobal** | [**boolean**] | Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned. | (optional) defaults to false
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
- **returnGlobal** | [**boolean**] | Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned. | (optional) defaults to false
 
 
 ### Return type
@@ -1119,8 +1119,22 @@ const configuration = createConfiguration();
 const apiInstance = new ProductApi(configuration);
 
 const request: ProductApiProductCountRequest = {
+    // Counts products specified by product ids (optional)
+  productIds: "4,5",
+    // Retrieve entities starting from the specified id. (optional)
+  sinceId: "56",
+    // Defines product add that is specified by comma-separated categories id (optional)
+  categoriesIds: "23,56",
     // Counts products specified by category id (optional)
   categoryId: "6",
+    // Counts products specified by store id (optional)
+  storeId: "1",
+    // Counts products specified by language id (optional)
+  langId: "3",
+    // Specifies the set of visible/invisible products (optional)
+  availView: true,
+    // Specifies the set of available/not available products for sale (optional)
+  availSale: false,
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -1129,22 +1143,6 @@ const request: ProductApiProductCountRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Specifies the set of visible/invisible products (optional)
-  availView: true,
-    // Specifies the set of available/not available products for sale (optional)
-  availSale: false,
-    // Counts products specified by store id (optional)
-  storeId: "1",
-    // Counts products specified by language id (optional)
-  langId: "3",
-    // Counts products specified by product ids (optional)
-  productIds: "4,5",
-    // Retrieve entities starting from the specified id. (optional)
-  sinceId: "56",
-    // Report request id (optional)
-  reportRequestId: "105245017661",
-    // Disable report cache for current request (optional)
-  disableReportCache: false,
     // Retrieves brands specified by brand name (optional)
   brandName: "Abidas",
     // Defines product attributes (optional)
@@ -1159,12 +1157,14 @@ const request: ProductApiProductCountRequest = {
   findValue: "Phone",
     // Counts products that are searched specified by field (optional)
   findWhere: "name",
-    // Use the latest platform API version (optional)
-  useLatestApiVersion: true,
+    // Report request id (optional)
+  reportRequestId: "105245017661",
     // Determines the type of products to be returned. If set to \'true\', only global products will be returned; if set to \'false\', only local products will be returned. (optional)
   returnGlobal: false,
-    // Defines product add that is specified by comma-separated categories id (optional)
-  categoriesIds: "23,56",
+    // Disable report cache for current request (optional)
+  disableReportCache: false,
+    // Use the latest platform API version (optional)
+  useLatestApiVersion: true,
 };
 
 const data = await apiInstance.productCount(request);
@@ -1176,28 +1176,28 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **productIds** | [**string**] | Counts products specified by product ids | (optional) defaults to undefined
+ **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **categoriesIds** | [**string**] | Defines product add that is specified by comma-separated categories id | (optional) defaults to undefined
  **categoryId** | [**string**] | Counts products specified by category id | (optional) defaults to undefined
+ **storeId** | [**string**] | Counts products specified by store id | (optional) defaults to undefined
+ **langId** | [**string**] | Counts products specified by language id | (optional) defaults to undefined
+ **availView** | [**boolean**] | Specifies the set of visible/invisible products | (optional) defaults to undefined
+ **availSale** | [**boolean**] | Specifies the set of available/not available products for sale | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **availView** | [**boolean**] | Specifies the set of visible/invisible products | (optional) defaults to undefined
- **availSale** | [**boolean**] | Specifies the set of available/not available products for sale | (optional) defaults to undefined
- **storeId** | [**string**] | Counts products specified by store id | (optional) defaults to undefined
- **langId** | [**string**] | Counts products specified by language id | (optional) defaults to undefined
- **productIds** | [**string**] | Counts products specified by product ids | (optional) defaults to undefined
- **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
- **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
- **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **brandName** | [**string**] | Retrieves brands specified by brand name | (optional) defaults to undefined
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Counts products that are searched specified by field | (optional) defaults to undefined
- **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
+ **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **returnGlobal** | [**boolean**] | Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned. | (optional) defaults to false
- **categoriesIds** | [**string**] | Defines product add that is specified by comma-separated categories id | (optional) defaults to undefined
+ **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
+ **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
 ### Return type
@@ -1312,18 +1312,18 @@ const request: ProductApiProductCurrencyListRequest = {
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "name,iso3,default,avail",
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "name,iso3,default,avail",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_message,pagination,result{currency}}",
     // Specifies the set of default/not default currencies (optional)
   _default: true,
     // Specifies the set of available/not available currencies (optional)
   avail: false,
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_message,pagination,result{currency}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "name,iso3,default,avail",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "name,iso3,default,avail",
 };
 
 const data = await apiInstance.productCurrencyList(request);
@@ -1337,12 +1337,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'name,iso3,default,avail'
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **_default** | [**boolean**] | Specifies the set of default/not default currencies | (optional) defaults to undefined
  **avail** | [**boolean**] | Specifies the set of available/not available currencies | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'name,iso3,default,avail'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -1614,19 +1614,19 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductImageAddRequest = {
   
   productImageAdd: {
-    productId: "10",
-    imageName: "bag-gray.png",
     type: "base,small",
-    url: "http://docs.api2cart.com/img/logo.png",
-    label: "This cool image",
-    mime: "image/jpeg",
-    position: 5,
-    content: "/9j/4AAQSkZ...gD/2Q==",
+    imageName: "bag-gray.png",
+    productId: "10",
     productVariantId: "45",
     variantIds: "1,2,3,4,5",
     optionValueIds: "1,2,3,4,5",
     storeId: "1",
     langId: "3",
+    url: "http://docs.api2cart.com/img/logo.png",
+    content: "/9j/4AAQSkZ...gD/2Q==",
+    label: "This cool image",
+    mime: "image/jpeg",
+    position: 5,
     useLatestApiVersion: true,
   },
 };
@@ -1745,6 +1745,10 @@ const request: ProductApiProductImageUpdateRequest = {
   id: "10",
     // Defines product\'s variants ids (optional)
   variantIds: "1,2,3,4,5",
+    // Store Id (optional)
+  storeId: "1",
+    // Language id (optional)
+  langId: "3",
     // Defines image\'s name (optional)
   imageName: "data/product/main/product_69_bag-gray.png",
     // Defines image\'s types that are specified by comma-separated list (optional)
@@ -1753,10 +1757,6 @@ const request: ProductApiProductImageUpdateRequest = {
   label: "This cool image",
     // Defines image’s position in the list (optional)
   position: 5,
-    // Store Id (optional)
-  storeId: "1",
-    // Language id (optional)
-  langId: "3",
     // Define is hide image (optional)
   hidden: true,
 };
@@ -1773,12 +1773,12 @@ Name | Type | Description  | Notes
  **productId** | [**string**] | Defines product id where the image should be updated | defaults to undefined
  **id** | [**string**] | Defines image update specified by image id | defaults to undefined
  **variantIds** | [**string**] | Defines product\&#39;s variants ids | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
  **imageName** | [**string**] | Defines image\&#39;s name | (optional) defaults to undefined
  **type** | [**string**] | Defines image\&#39;s types that are specified by comma-separated list | (optional) defaults to 'additional'
  **label** | [**string**] | Defines alternative text that has to be attached to the picture | (optional) defaults to undefined
  **position** | [**number**] | Defines image’s position in the list | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **langId** | [**string**] | Language id | (optional) defaults to undefined
  **hidden** | [**boolean**] | Define is hide image | (optional) defaults to undefined
 
 
@@ -1821,18 +1821,18 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductInfoRequest = {
     // Retrieves product\'s info specified by product id
   id: "10",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{id,name,price,images}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
     // Retrieves product info specified by store id (optional)
   storeId: "1",
     // Retrieves product info specified by language id (optional)
   langId: "3",
     // Currency Id (optional)
   currencyId: "usd",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{id,name,price,images}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
     // Report request id (optional)
   reportRequestId: "105245017661",
     // Disable report cache for current request (optional)
@@ -1851,12 +1851,12 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Retrieves product\&#39;s info specified by product id | defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price,categories_ids'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves product info specified by store id | (optional) defaults to undefined
  **langId** | [**string**] | Retrieves product info specified by language id | (optional) defaults to undefined
  **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price,categories_ids'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
@@ -1899,20 +1899,30 @@ const configuration = createConfiguration();
 const apiInstance = new ProductApi(configuration);
 
 const request: ProductApiProductListRequest = {
-    // Used to retrieve products via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,pagination,result{product{id,name,price,images}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
+    // Used to retrieve products via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Retrieves products specified by product ids (optional)
+  productIds: "4,5",
+    // Retrieve entities starting from the specified id. (optional)
+  sinceId: "56",
+    // Retrieves products specified by categories ids (optional)
+  categoriesIds: "23,56",
     // Retrieves products specified by category id (optional)
   categoryId: "6",
+    // Retrieves products specified by store id (optional)
+  storeId: "1",
+    // Retrieves products specified by language id (optional)
+  langId: "3",
+    // Currency Id (optional)
+  currencyId: "usd",
+    // Specifies the set of visible/invisible products (optional)
+  availView: true,
+    // Specifies the set of available/not available products for sale (optional)
+  availSale: false,
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -1921,32 +1931,8 @@ const request: ProductApiProductListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Specifies the set of visible/invisible products (optional)
-  availView: true,
-    // Specifies the set of available/not available products for sale (optional)
-  availSale: false,
-    // Retrieves products specified by store id (optional)
-  storeId: "1",
-    // Retrieves products specified by language id (optional)
-  langId: "3",
-    // Currency Id (optional)
-  currencyId: "usd",
-    // Retrieves products specified by product ids (optional)
-  productIds: "4,5",
-    // Retrieve entities starting from the specified id. (optional)
-  sinceId: "56",
-    // Report request id (optional)
-  reportRequestId: "105245017661",
-    // Disable report cache for current request (optional)
-  disableReportCache: false,
-    // Set field to sort by (optional)
-  sortBy: "value_id",
-    // Set sorting direction (optional)
-  sortDirection: "asc",
     // Filter by product\'s sku (optional)
   sku: "bag_01",
-    // Disable cache for current request (optional)
-  disableCache: false,
     // Retrieves brands specified by brand name (optional)
   brandName: "Abidas",
     // Defines product attributes (optional)
@@ -1961,12 +1947,26 @@ const request: ProductApiProductListRequest = {
   findValue: "Phone",
     // Product search that is specified by field (optional)
   findWhere: "name",
-    // Use the latest platform API version (optional)
-  useLatestApiVersion: true,
     // Determines the type of products to be returned. If set to \'true\', only global products will be returned; if set to \'false\', only local products will be returned. (optional)
   returnGlobal: false,
-    // Retrieves products specified by categories ids (optional)
-  categoriesIds: "23,56",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,pagination,result{product{id,name,price,images}}}",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
+    // Set field to sort by (optional)
+  sortBy: "value_id",
+    // Set sorting direction (optional)
+  sortDirection: "asc",
+    // Report request id (optional)
+  reportRequestId: "105245017661",
+    // Disable cache for current request (optional)
+  disableCache: false,
+    // Disable report cache for current request (optional)
+  disableReportCache: false,
+    // Use the latest platform API version (optional)
+  useLatestApiVersion: true,
 };
 
 const data = await apiInstance.productList(request);
@@ -1978,39 +1978,39 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price,categories_ids'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **pageCursor** | [**string**] | Used to retrieve products via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **productIds** | [**string**] | Retrieves products specified by product ids | (optional) defaults to undefined
+ **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **categoriesIds** | [**string**] | Retrieves products specified by categories ids | (optional) defaults to undefined
  **categoryId** | [**string**] | Retrieves products specified by category id | (optional) defaults to undefined
+ **storeId** | [**string**] | Retrieves products specified by store id | (optional) defaults to undefined
+ **langId** | [**string**] | Retrieves products specified by language id | (optional) defaults to undefined
+ **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
+ **availView** | [**boolean**] | Specifies the set of visible/invisible products | (optional) defaults to undefined
+ **availSale** | [**boolean**] | Specifies the set of available/not available products for sale | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **availView** | [**boolean**] | Specifies the set of visible/invisible products | (optional) defaults to undefined
- **availSale** | [**boolean**] | Specifies the set of available/not available products for sale | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves products specified by store id | (optional) defaults to undefined
- **langId** | [**string**] | Retrieves products specified by language id | (optional) defaults to undefined
- **currencyId** | [**string**] | Currency Id | (optional) defaults to undefined
- **productIds** | [**string**] | Retrieves products specified by product ids | (optional) defaults to undefined
- **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
- **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
- **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
- **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'id'
- **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
  **sku** | [**string**] | Filter by product\&#39;s sku | (optional) defaults to undefined
- **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
  **brandName** | [**string**] | Retrieves brands specified by brand name | (optional) defaults to undefined
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Product search that is specified by field | (optional) defaults to undefined
- **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
  **returnGlobal** | [**boolean**] | Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned. | (optional) defaults to false
- **categoriesIds** | [**string**] | Retrieves products specified by categories ids | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price,categories_ids'
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'id'
+ **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
+ **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
+ **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
+ **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
+ **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
 ### Return type
@@ -2311,18 +2311,18 @@ const request: ProductApiProductOptionListRequest = {
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,name,sort_order",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,name,sort_order",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,return_message,pagination,result}",
     // Retrieves products\' options specified by product id (optional)
   productId: "10",
     // Language id (optional)
   langId: "3",
     // Store Id (optional)
   storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,return_message,pagination,result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,name,sort_order",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,name,sort_order",
 };
 
 const data = await apiInstance.productOptionList(request);
@@ -2336,12 +2336,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **productId** | [**string**] | Retrieves products\&#39; options specified by product id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -2834,10 +2834,10 @@ const request: ProductApiProductReviewListRequest = {
   productId: "10",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
     // Retrieves reviews specified by ids (optional)
   ids: "24,25",
     // Store Id (optional)
@@ -2845,11 +2845,11 @@ const request: ProductApiProductReviewListRequest = {
     // Defines status (optional)
   status: "disabled",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,return_message,pagination,result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,return_message,pagination,result}",
 };
 
 const data = await apiInstance.productReviewList(request);
@@ -2863,14 +2863,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] | Product id | defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **ids** | [**string**] | Retrieves reviews specified by ids | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **status** | [**string**] | Defines status | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
 
 
 ### Return type
@@ -3033,73 +3033,74 @@ const request: ProductApiProductUpdateRequest = {
   productUpdate: {
     id: "10",
     model: "bag_01",
-    oldPrice: 99.9,
+    sku: "bag_01",
+    name: "Pancil",
+    description: "New product description",
+    shortDescription: "Short description. This is very short description",
     price: 99.9,
+    oldPrice: 99.9,
     specialPrice: 56.9,
     spriceCreate: "2018-08-25 23:56:12",
     spriceExpire: "2018-08-25 23:56:12",
     costPrice: 65.9,
     fixedCostShippingPrice: 5.5,
     retailPrice: 6.9,
-    quantity: 6,
+    tierPrices: [
+      {
+        quantity: 3.14,
+        price: 3.14,
+      },
+    ],
+    reservePrice: 65.9,
+    buyitnowPrice: 65.9,
+    taxable: false,
+    taxClassId: "9",
+    type: "simple",
+    status: "disabled",
+    condition: "Like New",
+    visible: "search",
+    inStock: true,
+    avail: false,
+    availFrom: "avail_from=2029-10-25T15:54:37-0500",
+    productClass: "Shirts",
     availableForView: false,
-    weight: 23.69,
-    weightUnit: "lb",
-    dimensionsUnit: "cm",
-    increaseQuantity: 4,
-    reduceQuantity: 4,
-    warehouseId: "1",
+    storesIds: "1,2",
+    storeId: "1",
+    langId: "3",
+    quantity: 6,
     reserveQuantity: 1,
     manageStock: false,
     backorderStatus: "true",
-    name: "Pancil",
-    sku: "bag_01",
-    visible: "search",
+    increaseQuantity: 4,
+    reduceQuantity: 4,
+    warehouseId: "1",
+    weight: 23.69,
+    weightUnit: "lb",
+    height: 56.12,
+    length: 56.12,
+    width: 56.12,
+    dimensionsUnit: "cm",
+    isVirtual: false,
+    isFreeShipping: true,
+    gtin: "12345678912345",
+    upc: "9770317847001",
+    mpn: "9770317847001",
+    ean: "5901234123457",
+    isbn: "9783161484100",
+    barcode: "9770317847001",
     manufacturer: "Samsung",
     manufacturerId: "1",
     categoriesIds: "23,56",
     relatedProductsIds: "4,5",
     upSellProductsIds: "4,5",
     crossSellProductsIds: "4,5",
-    description: "New product description",
-    shortDescription: "Short description. This is very short description",
     metaTitle: "category,test",
     metaKeywords: "category,test",
     metaDescription: "category,test",
-    storeId: "1",
-    langId: "3",
-    inStock: true,
-    status: "disabled",
     seoUrl: "some seo url",
-    reportRequestId: "105245017661",
-    disableReportCache: false,
-    reindex: false,
-    tags: "tag1,tag2",
-    clearCache: false,
-    gtin: "12345678912345",
-    upc: "9770317847001",
-    mpn: "9770317847001",
-    ean: "5901234123457",
-    isbn: "9783161484100",
-    taxable: false,
-    productClass: "Shirts",
-    height: 56.12,
-    length: 56.12,
-    width: 56.12,
-    harmonizedSystemCode: "123456",
-    countryOfOrigin: "123456",
     searchKeywords: "key1,key2,key3",
-    barcode: "9770317847001",
-    isVirtual: false,
-    isFreeShipping: true,
-    reservePrice: 65.9,
-    buyitnowPrice: 65.9,
-    availFrom: "avail_from=2029-10-25T15:54:37-0500",
-    taxClassId: "9",
-    type: "simple",
-    avail: false,
+    tags: "tag1,tag2",
     deliveryCode: "24uurs-23",
-    checkProcessStatus: false,
     packageDetails: {
       measureUnit: "measureUnit_example",
       weighUnit: "weighUnit_example",
@@ -3110,14 +3111,8 @@ const request: ProductApiProductUpdateRequest = {
       weightMinor: 3.14,
       shippingPackage: "shippingPackage_example",
     },
-    storesIds: "1,2",
-    manufacturerInfo: {
-      name: "name_example",
-      address: "address_example",
-      phone: "phone_example",
-      email: "email_example",
-    },
-    productionPartnerIds: "4,5",
+    countryOfOrigin: "123456",
+    harmonizedSystemCode: "123456",
     shippingTemplateId: 40256592690,
     whenMade: "2020_2025",
     isSupply: false,
@@ -3127,6 +3122,18 @@ const request: ProductApiProductUpdateRequest = {
     ],
     autoRenew: false,
     onSale: false,
+    productionPartnerIds: "4,5",
+    manufacturerInfo: {
+      name: "name_example",
+      address: "address_example",
+      phone: "phone_example",
+      email: "email_example",
+    },
+    reportRequestId: "105245017661",
+    disableReportCache: false,
+    reindex: false,
+    clearCache: false,
+    checkProcessStatus: false,
   },
 };
 
@@ -3335,15 +3342,6 @@ const request: ProductApiProductVariantAddRequest = {
   
   productVariantAdd: {
     productId: "10",
-    name: "Bag Green XXL",
-    model: "bag_01",
-    sku: "bag_01",
-    barcode: "9770317847001",
-    gtin: "12345678912345",
-    price: 99.9,
-    oldPrice: 99.9,
-    costPrice: 65.9,
-    fixedCostShippingPrice: 5.5,
     attributes: [
       {
         attributeName: "attributeName_example",
@@ -3351,52 +3349,61 @@ const request: ProductApiProductVariantAddRequest = {
         attributePrice: 3.14,
       },
     ],
+    name: "Bag Green XXL",
+    model: "bag_01",
     description: "Product variant",
+    shortDescription: "Short description. This is very short description",
+    availableForView: false,
+    availableForSale: false,
+    isVirtual: false,
+    isDefault: true,
+    storeId: "1",
+    storesIds: "1,2",
+    langId: "3",
+    price: 99.9,
+    oldPrice: 99.9,
+    costPrice: 65.9,
     specialPrice: 56.9,
     spriceCreate: "2018-08-25 23:56:12",
     spriceModified: "2018-12-05 13:46:20",
     spriceExpire: "2018-08-25 23:56:12",
-    availableForView: false,
-    availableForSale: false,
-    weight: 23.69,
-    width: 56.12,
-    height: 56.12,
-    length: 56.12,
-    weightUnit: "lb",
-    shortDescription: "Short description. This is very short description",
-    warehouseId: "1",
-    quantity: 6,
-    createdAt: "2014-08-09 13:13:13",
-    manufacturer: "Samsung",
-    taxClassId: "9",
-    metaTitle: "category,test",
-    metaKeywords: "category,test",
-    metaDescription: "category,test",
-    url: "/product_variant_slug",
-    storeId: "1",
-    langId: "3",
-    clearCache: false,
-    taxable: false,
-    harmonizedSystemCode: "123456",
-    countryOfOrigin: "123456",
-    manageStock: false,
-    upc: "9770317847001",
-    mpn: "9770317847001",
-    ean: "5901234123457",
-    isbn: "9783161484100",
-    storesIds: "1,2",
-    isDefault: true,
-    isFreeShipping: true,
-    marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
-    inStock: true,
-    backorderStatus: "true",
     tierPrices: [
       {
         quantity: 3.14,
         price: 3.14,
       },
     ],
-    isVirtual: false,
+    quantity: 6,
+    warehouseId: "1",
+    inStock: true,
+    backorderStatus: "true",
+    manageStock: false,
+    weight: 23.69,
+    width: 56.12,
+    height: 56.12,
+    length: 56.12,
+    weightUnit: "lb",
+    sku: "bag_01",
+    barcode: "9770317847001",
+    gtin: "12345678912345",
+    upc: "9770317847001",
+    ean: "5901234123457",
+    mpn: "9770317847001",
+    isbn: "9783161484100",
+    manufacturer: "Samsung",
+    createdAt: "2014-08-09 13:13:13",
+    metaTitle: "category,test",
+    metaKeywords: "category,test",
+    metaDescription: "category,test",
+    url: "/product_variant_slug",
+    taxClassId: "9",
+    taxable: false,
+    fixedCostShippingPrice: 5.5,
+    isFreeShipping: true,
+    countryOfOrigin: "123456",
+    harmonizedSystemCode: "123456",
+    marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
+    clearCache: false,
   },
 };
 
@@ -3598,6 +3605,10 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductVariantCountRequest = {
     // Retrieves products\' variants specified by product id
   productId: "10",
+    // Counts products’ variants specified by category id (optional)
+  categoryId: "6",
+    // Retrieves variants specified by store id (optional)
+  storeId: "1",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -3606,10 +3617,6 @@ const request: ProductApiProductVariantCountRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Counts products’ variants specified by category id (optional)
-  categoryId: "6",
-    // Retrieves variants specified by store id (optional)
-  storeId: "1",
 };
 
 const data = await apiInstance.productVariantCount(request);
@@ -3622,12 +3629,12 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] | Retrieves products\&#39; variants specified by product id | defaults to undefined
+ **categoryId** | [**string**] | Counts products’ variants specified by category id | (optional) defaults to undefined
+ **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **categoryId** | [**string**] | Counts products’ variants specified by category id | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
 
 
 ### Return type
@@ -3793,6 +3800,7 @@ const request: ProductApiProductVariantImageAddRequest = {
   productVariantImageAdd: {
     productId: "10",
     productVariantId: "45",
+    storeId: "1",
     imageName: "abibas.png",
     type: "base",
     url: "http://docs.api2cart.com/img/logo.png",
@@ -3800,7 +3808,6 @@ const request: ProductApiProductVariantImageAddRequest = {
     label: "This cool image",
     mime: "image/jpeg",
     position: 5,
-    storeId: "1",
     optionId: "5",
   },
 };
@@ -3918,12 +3925,12 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductVariantInfoRequest = {
     // Retrieves variant\'s info specified by variant id
   id: "10",
+    // Retrieves variant info specified by store id (optional)
+  storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Retrieves variant info specified by store id (optional)
-  storeId: "1",
 };
 
 const data = await apiInstance.productVariantInfo(request);
@@ -3936,9 +3943,9 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Retrieves variant\&#39;s info specified by variant id | defaults to undefined
+ **storeId** | [**string**] | Retrieves variant info specified by store id | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves variant info specified by store id | (optional) defaults to undefined
 
 
 ### Return type
@@ -3982,10 +3989,12 @@ const request: ProductApiProductVariantListRequest = {
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
+    // Retrieves products\' variants specified by product id (optional)
+  productId: "10",
+    // Retrieves products’ variants specified by category id (optional)
+  categoryId: "6",
+    // Retrieves variants specified by store id (optional)
+  storeId: "1",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -3994,12 +4003,10 @@ const request: ProductApiProductVariantListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Retrieves products’ variants specified by category id (optional)
-  categoryId: "6",
-    // Retrieves products\' variants specified by product id (optional)
-  productId: "10",
-    // Retrieves variants specified by store id (optional)
-  storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,model,price,images",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "false",
 };
 
 const data = await apiInstance.productVariantList(request);
@@ -4013,15 +4020,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
+ **productId** | [**string**] | Retrieves products\&#39; variants specified by product id | (optional) defaults to undefined
+ **categoryId** | [**string**] | Retrieves products’ variants specified by category id | (optional) defaults to undefined
+ **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **categoryId** | [**string**] | Retrieves products’ variants specified by category id | (optional) defaults to undefined
- **productId** | [**string**] | Retrieves products\&#39; variants specified by product id | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -4251,9 +4258,33 @@ const apiInstance = new ProductApi(configuration);
 const request: ProductApiProductVariantUpdateRequest = {
   
   productVariantUpdate: {
-    storeId: "1",
     id: "10",
     productId: "10",
+    storeId: "1",
+    langId: "3",
+    options: [
+      {
+        optionName: "optionName_example",
+        optionValue: "optionValue_example",
+      },
+    ],
+    name: "Bag Green L",
+    description: "Product variant",
+    shortDescription: "Short description. This is very short description",
+    model: "bag_01",
+    sku: "bag_01",
+    visible: "catalog",
+    status: "disabled",
+    backorderStatus: "true",
+    availableForSale: false,
+    avail: false,
+    isDefault: true,
+    isFreeShipping: true,
+    taxable: false,
+    taxClassId: "9",
+    isVirtual: false,
+    manageStock: false,
+    inStock: true,
     warehouseId: "1",
     reserveQuantity: 1,
     quantity: 6,
@@ -4267,48 +4298,24 @@ const request: ProductApiProductVariantUpdateRequest = {
     fixedCostShippingPrice: 5.5,
     spriceCreate: "2018-08-25 23:56:12",
     spriceExpire: "2018-08-25 23:56:12",
-    manageStock: false,
-    inStock: true,
-    name: "Bag Green L",
-    description: "Product variant",
-    sku: "bag_01",
-    metaTitle: "category,test",
-    metaDescription: "category,test",
-    metaKeywords: "category,test",
-    shortDescription: "Short description. This is very short description",
-    visible: "catalog",
-    status: "disabled",
-    backorderStatus: "true",
     weight: 23.69,
     barcode: "9770317847001",
-    reindex: false,
-    taxable: false,
-    options: [
-      {
-        optionName: "optionName_example",
-        optionValue: "optionValue_example",
-      },
-    ],
-    harmonizedSystemCode: "123456",
-    countryOfOrigin: "123456",
     width: 56.12,
     weightUnit: "lb",
     height: 56.12,
     length: 56.12,
     gtin: "12345678912345",
-    clearCache: false,
-    langId: "3",
-    model: "bag_01",
-    availableForSale: false,
     upc: "9770317847001",
     mpn: "9770317847001",
     ean: "5901234123457",
     isbn: "9783161484100",
-    avail: false,
-    isDefault: true,
-    isFreeShipping: true,
-    taxClassId: "9",
-    isVirtual: false,
+    harmonizedSystemCode: "123456",
+    countryOfOrigin: "123456",
+    metaTitle: "category,test",
+    metaDescription: "category,test",
+    metaKeywords: "category,test",
+    reindex: false,
+    clearCache: false,
   },
 };
 

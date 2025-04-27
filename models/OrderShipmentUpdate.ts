@@ -15,10 +15,6 @@ import { HttpFile } from '../http/http';
 
 export class OrderShipmentUpdate {
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * Shipment id indicates the number of delivery
     */
     'shipmentId': string;
@@ -27,41 +23,39 @@ export class OrderShipmentUpdate {
     */
     'orderId'?: string;
     /**
+    * Store Id
+    */
+    'storeId'?: string;
+    /**
+    * Defines company name that provide tracking of shipment
+    */
+    'shipmentProvider'?: string;
+    /**
     * Defines shipment\'s tracking numbers that have to be added</br> How set tracking numbers to appropriate carrier:<ul><li>tracking_numbers[]=a2c.demo1,a2c.demo2 - set default carrier</li><li>tracking_numbers[<b>carrier_id</b>]=a2c.demo - set appropriate carrier</li></ul>To get the list of carriers IDs that are available in your store, use the <a href = \"https://api2cart.com/docs/#/cart/CartInfo\">cart.info</a > method
     */
     'trackingNumbers'?: Array<OrderShipmentAddTrackingNumbersInner>;
-    /**
-    * Allows rewrite tracking numbers
-    */
-    'replace'?: boolean;
-    /**
-    * Defines shipment\'s status
-    */
-    'isShipped'?: boolean;
     /**
     * Defines custom tracking link
     */
     'trackingLink'?: string;
     /**
+    * Defines shipment\'s status
+    */
+    'isShipped'?: boolean;
+    /**
     * Defines the date of delivery
     */
     'deliveredAt'?: string;
     /**
-    * Defines company name that provide tracking of shipment
+    * Allows rewrite tracking numbers
     */
-    'shipmentProvider'?: string;
+    'replace'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "shipmentId",
             "baseName": "shipment_id",
@@ -75,21 +69,21 @@ export class OrderShipmentUpdate {
             "format": ""
         },
         {
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shipmentProvider",
+            "baseName": "shipment_provider",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "trackingNumbers",
             "baseName": "tracking_numbers",
             "type": "Array<OrderShipmentAddTrackingNumbersInner>",
-            "format": ""
-        },
-        {
-            "name": "replace",
-            "baseName": "replace",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isShipped",
-            "baseName": "is_shipped",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -99,15 +93,21 @@ export class OrderShipmentUpdate {
             "format": ""
         },
         {
+            "name": "isShipped",
+            "baseName": "is_shipped",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "deliveredAt",
             "baseName": "delivered_at",
             "type": "string",
             "format": ""
         },
         {
-            "name": "shipmentProvider",
-            "baseName": "shipment_provider",
-            "type": "string",
+            "name": "replace",
+            "baseName": "replace",
+            "type": "boolean",
             "format": ""
         }    ];
 

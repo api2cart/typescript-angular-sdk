@@ -14,37 +14,17 @@ import { HttpFile } from '../http/http';
 
 export class ProductImageAdd {
     /**
-    * Defines product id where the image should be added
+    * Defines image\'s types that are specified by comma-separated list
     */
-    'productId'?: string;
+    'type': ProductImageAddTypeEnum;
     /**
     * Defines image\'s name
     */
     'imageName': string;
     /**
-    * Defines image\'s types that are specified by comma-separated list
+    * Defines product id where the image should be added
     */
-    'type': ProductImageAddTypeEnum;
-    /**
-    * Defines URL of the image that has to be added
-    */
-    'url'?: string;
-    /**
-    * Defines alternative text that has to be attached to the picture
-    */
-    'label'?: string;
-    /**
-    * Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
-    */
-    'mime'?: string;
-    /**
-    * Defines image’s position in the list
-    */
-    'position'?: number;
-    /**
-    * Content(body) encoded in base64 of image file
-    */
-    'content'?: string;
+    'productId'?: string;
     /**
     * Defines product\'s variants specified by variant id
     */
@@ -66,6 +46,26 @@ export class ProductImageAdd {
     */
     'langId'?: string;
     /**
+    * Defines URL of the image that has to be added
+    */
+    'url'?: string;
+    /**
+    * Content(body) encoded in base64 of image file
+    */
+    'content'?: string;
+    /**
+    * Defines alternative text that has to be attached to the picture
+    */
+    'label'?: string;
+    /**
+    * Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
+    */
+    'mime'?: string;
+    /**
+    * Defines image’s position in the list
+    */
+    'position'?: number;
+    /**
     * Use the latest platform API version
     */
     'useLatestApiVersion'?: boolean;
@@ -76,9 +76,9 @@ export class ProductImageAdd {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "productId",
-            "baseName": "product_id",
-            "type": "string",
+            "name": "type",
+            "baseName": "type",
+            "type": "ProductImageAddTypeEnum",
             "format": ""
         },
         {
@@ -88,38 +88,8 @@ export class ProductImageAdd {
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "ProductImageAddTypeEnum",
-            "format": ""
-        },
-        {
-            "name": "url",
-            "baseName": "url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "label",
-            "baseName": "label",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "mime",
-            "baseName": "mime",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "position",
-            "baseName": "position",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "content",
-            "baseName": "content",
+            "name": "productId",
+            "baseName": "product_id",
             "type": "string",
             "format": ""
         },
@@ -151,6 +121,36 @@ export class ProductImageAdd {
             "name": "langId",
             "baseName": "lang_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "url",
+            "baseName": "url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "content",
+            "baseName": "content",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "label",
+            "baseName": "label",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "mime",
+            "baseName": "mime",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "position",
+            "baseName": "position",
+            "type": "number",
             "format": ""
         },
         {

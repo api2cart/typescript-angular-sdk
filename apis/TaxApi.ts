@@ -22,11 +22,11 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
      * @param taxClassId Retrieves taxes specified by class id
      * @param storeId Store Id
      * @param langId Language id
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async taxClassInfo(taxClassId: string, storeId?: string, langId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async taxClassInfo(taxClassId: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'taxClassId' is not null or undefined
@@ -63,13 +63,13 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
 
         // Query Params
@@ -101,18 +101,18 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get list of tax classes from your store.
      * tax.class.list
+     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param storeId Store Id
+     * @param findValue Entity search that is specified by some value
+     * @param findWhere Tax class search that is specified by field
      * @param createdTo Retrieve entities to their creation date
      * @param createdFrom Retrieve entities from their creation date
      * @param modifiedTo Retrieve entities to their modification date
      * @param modifiedFrom Retrieve entities from their modification date
-     * @param findValue Entity search that is specified by some value
-     * @param findWhere Tax class search that is specified by field
-     * @param storeId Store Id
-     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async taxClassList(createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, findValue?: string, findWhere?: string, storeId?: string, count?: number, pageCursor?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async taxClassList(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -133,6 +133,31 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (findValue !== undefined) {
+            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
+        }
+
+        // Query Params
+        if (findWhere !== undefined) {
+            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
+        }
+
+        // Query Params
         if (createdTo !== undefined) {
             requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
         }
@@ -150,31 +175,6 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (modifiedFrom !== undefined) {
             requestContext.setQueryParam("modified_from", ObjectSerializer.serialize(modifiedFrom, "string", ""));
-        }
-
-        // Query Params
-        if (findValue !== undefined) {
-            requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
-        }
-
-        // Query Params
-        if (findWhere !== undefined) {
-            requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
-        }
-
-        // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
         }
 
         // Query Params

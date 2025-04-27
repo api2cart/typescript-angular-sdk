@@ -18,22 +18,22 @@ export class MarketplaceApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Search product in global catalog.
      * marketplace.product.find
-     * @param storeId Store Id
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param categoriesIds Defines product add that is specified by comma-separated categories id
      * @param keyword Defines search keyword
+     * @param categoriesIds Defines product add that is specified by comma-separated categories id
+     * @param storeId Store Id
      * @param asin Amazon Standard Identification Number.
      * @param ean European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
      * @param gtin Global Trade Item Number. An GTIN is an identifier for trade items.
      * @param upc Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
      * @param mpn Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
      * @param isbn International Standard Book Number. An ISBN is a unique identifier for books.
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async marketplaceProductFind(storeId?: string, count?: number, pageCursor?: string, categoriesIds?: string, keyword?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async marketplaceProductFind(count?: number, pageCursor?: string, keyword?: string, categoriesIds?: string, storeId?: string, asin?: string, ean?: string, gtin?: string, upc?: string, mpn?: string, isbn?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -58,11 +58,6 @@ export class MarketplaceApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
         if (count !== undefined) {
             requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
         }
@@ -73,13 +68,18 @@ export class MarketplaceApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (keyword !== undefined) {
+            requestContext.setQueryParam("keyword", ObjectSerializer.serialize(keyword, "string", ""));
+        }
+
+        // Query Params
         if (categoriesIds !== undefined) {
             requestContext.setQueryParam("categories_ids", ObjectSerializer.serialize(categoriesIds, "string", ""));
         }
 
         // Query Params
-        if (keyword !== undefined) {
-            requestContext.setQueryParam("keyword", ObjectSerializer.serialize(keyword, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -113,6 +113,11 @@ export class MarketplaceApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -120,11 +125,6 @@ export class MarketplaceApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 

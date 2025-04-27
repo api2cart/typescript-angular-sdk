@@ -255,15 +255,15 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * List registered webhook on the store.
      * webhook.list
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param entity The entity you want to filter webhooks by (e.g. order or product)
      * @param action The action you want to filter webhooks by (e.g. add, update, or delete)
      * @param active The webhook status you want to filter webhooks by
      * @param ids List of сomma-separated webhook ids
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async webhookList(params?: string, start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, _options?: Configuration): Promise<RequestContext> {
+    public async webhookList(start?: number, count?: number, entity?: string, action?: string, active?: boolean, ids?: string, params?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -279,11 +279,6 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
 
         // Query Params
         if (start !== undefined) {
@@ -313,6 +308,11 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (ids !== undefined) {
             requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
 
 

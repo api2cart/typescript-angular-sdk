@@ -42,12 +42,12 @@ const request: CustomerApiCustomerAddRequest = {
     password: "fd5gfd5g75fd",
     group: "Register",
     groupIds: "1,2,3",
+    status: "disabled",
     createdTime: "2014-01-30 15:58:41",
     modifiedTime: "2014-07-30 15:58:41",
     login: "makaka",
     lastLogin: "2013-02-26 15:00:00",
     birthDay: "2013-02-26 15:00:00",
-    status: "disabled",
     newsLetterSubscription: true,
     consents: [
       {
@@ -58,12 +58,12 @@ const request: CustomerApiCustomerAddRequest = {
     ],
     gender: "male",
     website: "http://api2cart.com",
-    storeId: "1",
     fax: "54545787",
     company: "Apple",
     phone: "56686868654",
     note: "Customer note",
     country: "US",
+    storeId: "1",
     address: [
       {
         addressBookType: "billing",
@@ -228,11 +228,11 @@ const request: CustomerApiCustomerAttributeListRequest = {
     // Language id (optional)
   langId: "3",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,return_message,pagination,result}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,return_message,pagination,result}",
 };
 
 const data = await apiInstance.customerAttributeList(request);
@@ -249,9 +249,9 @@ Name | Type | Description  | Notes
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
 
 
 ### Return type
@@ -291,8 +291,22 @@ const configuration = createConfiguration();
 const apiInstance = new CustomerApi(configuration);
 
 const request: CustomerApiCustomerCountRequest = {
+    // Counts customers specified by ids (optional)
+  ids: "24,25",
+    // Retrieve entities starting from the specified id. (optional)
+  sinceId: "56",
+    // The numeric ID of the customer list in Demandware. (optional)
+  customerListId: "exampleListId",
     // Customer group_id (optional)
   groupId: "3",
+    // Counts customer specified by store id (optional)
+  storeId: "1",
+    // Defines category\'s visibility status (optional)
+  avail: false,
+    // Entity search that is specified by some value (optional)
+  findValue: "mail@gmail.com",
+    // Counts customers that are searched specified by field (optional)
+  findWhere: "email",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -301,20 +315,6 @@ const request: CustomerApiCustomerCountRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Counts customer specified by store id (optional)
-  storeId: "1",
-    // The numeric ID of the customer list in Demandware. (optional)
-  customerListId: "exampleListId",
-    // Defines category\'s visibility status (optional)
-  avail: false,
-    // Entity search that is specified by some value (optional)
-  findValue: "mail@gmail.com",
-    // Counts customers that are searched specified by field (optional)
-  findWhere: "email",
-    // Counts customers specified by ids (optional)
-  ids: "24,25",
-    // Retrieve entities starting from the specified id. (optional)
-  sinceId: "56",
 };
 
 const data = await apiInstance.customerCount(request);
@@ -326,18 +326,18 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | [**string**] | Counts customers specified by ids | (optional) defaults to undefined
+ **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **customerListId** | [**string**] | The numeric ID of the customer list in Demandware. | (optional) defaults to undefined
  **groupId** | [**string**] | Customer group_id | (optional) defaults to undefined
+ **storeId** | [**string**] | Counts customer specified by store id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
+ **findWhere** | [**string**] | Counts customers that are searched specified by field | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **storeId** | [**string**] | Counts customer specified by store id | (optional) defaults to undefined
- **customerListId** | [**string**] | The numeric ID of the customer list in Demandware. | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
- **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
- **findWhere** | [**string**] | Counts customers that are searched specified by field | (optional) defaults to undefined
- **ids** | [**string**] | Counts customers specified by ids | (optional) defaults to undefined
- **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
 
 
 ### Return type
@@ -551,26 +551,26 @@ const configuration = createConfiguration();
 const apiInstance = new CustomerApi(configuration);
 
 const request: CustomerApiCustomerGroupListRequest = {
-    // Disable cache for current request (optional)
-  disableCache: false,
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Groups that will be assigned to a customer (optional)
+  groupIds: "1,2,3",
     // Store Id (optional)
   storeId: "1",
     // Language id (optional)
   langId: "3",
-    // Groups that will be assigned to a customer (optional)
-  groupIds: "1,2,3",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{return_code,return_message,pagination,result}",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "id,model,price,images",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
   exclude: "false",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{return_code,return_message,pagination,result}",
+    // Disable cache for current request (optional)
+  disableCache: false,
 };
 
 const data = await apiInstance.customerGroupList(request);
@@ -582,16 +582,16 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **groupIds** | [**string**] | Groups that will be assigned to a customer | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
- **groupIds** | [**string**] | Groups that will be assigned to a customer | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,additional_fields'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
 
 
 ### Return type
@@ -633,14 +633,14 @@ const apiInstance = new CustomerApi(configuration);
 const request: CustomerApiCustomerInfoRequest = {
     // Retrieves customer\'s info specified by customer id
   id: "10",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,email",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{id,parent_id,sku,upc,images,combination}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,email",
     // Retrieves customer info specified by store id (optional)
   storeId: "1",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{id,parent_id,sku,upc,images,combination}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,email",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,email",
 };
 
 const data = await apiInstance.customerInfo(request);
@@ -653,10 +653,10 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Retrieves customer\&#39;s info specified by customer id | defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,email,first_name,last_name'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves customer info specified by store id | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,email,first_name,last_name'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -696,12 +696,28 @@ const configuration = createConfiguration();
 const apiInstance = new CustomerApi(configuration);
 
 const request: CustomerApiCustomerListRequest = {
-    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
-  pageCursor: "",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
+  pageCursor: "",
+    // Retrieves customers specified by ids (optional)
+  ids: "24,25",
+    // Retrieve entities starting from the specified id. (optional)
+  sinceId: "56",
+    // The numeric ID of the customer list in Demandware. (optional)
+  customerListId: "exampleListId",
+    // Customer group_id (optional)
+  groupId: "3",
+    // Retrieves customers specified by store id (optional)
+  storeId: "1",
+    // Defines category\'s visibility status (optional)
+  avail: false,
+    // Entity search that is specified by some value (optional)
+  findValue: "mail@gmail.com",
+    // Customer search that is specified by field (optional)
+  findWhere: "email",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -710,32 +726,16 @@ const request: CustomerApiCustomerListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,email",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{customer}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,email",
-    // Customer group_id (optional)
-  groupId: "3",
-    // Retrieves customers specified by store id (optional)
-  storeId: "1",
-    // The numeric ID of the customer list in Demandware. (optional)
-  customerListId: "exampleListId",
-    // Defines category\'s visibility status (optional)
-  avail: false,
-    // Entity search that is specified by some value (optional)
-  findValue: "mail@gmail.com",
-    // Customer search that is specified by field (optional)
-  findWhere: "email",
     // Set field to sort by (optional)
   sortBy: "value_id",
     // Set sorting direction (optional)
   sortDirection: "asc",
-    // Retrieves customers specified by ids (optional)
-  ids: "24,25",
-    // Retrieve entities starting from the specified id. (optional)
-  sinceId: "56",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{customer}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,email",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,email",
 };
 
 const data = await apiInstance.customerList(request);
@@ -747,26 +747,26 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **ids** | [**string**] | Retrieves customers specified by ids | (optional) defaults to undefined
+ **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **customerListId** | [**string**] | The numeric ID of the customer list in Demandware. | (optional) defaults to undefined
+ **groupId** | [**string**] | Customer group_id | (optional) defaults to undefined
+ **storeId** | [**string**] | Retrieves customers specified by store id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
+ **findWhere** | [**string**] | Customer search that is specified by field | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,email,first_name,last_name'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **groupId** | [**string**] | Customer group_id | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves customers specified by store id | (optional) defaults to undefined
- **customerListId** | [**string**] | The numeric ID of the customer list in Demandware. | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
- **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
- **findWhere** | [**string**] | Customer search that is specified by field | (optional) defaults to undefined
  **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'created_time'
  **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
- **ids** | [**string**] | Retrieves customers specified by ids | (optional) defaults to undefined
- **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,email,first_name,last_name'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -827,9 +827,9 @@ const request: CustomerApiCustomerUpdateRequest = {
     ],
     tags: "tag1,tag2",
     gender: "male",
-    storeId: "1",
     note: "Customer note",
     status: "disabled",
+    storeId: "1",
     address: [
       {
         addressBookId: "7805807034473",
@@ -907,16 +907,16 @@ const apiInstance = new CustomerApi(configuration);
 const request: CustomerApiCustomerWishlistListRequest = {
     // Retrieves orders specified by customer id
   customerId: "5",
-    // Entity id (optional)
-  id: "10",
-    // Store Id (optional)
-  storeId: "1",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
+    // Entity id (optional)
+  id: "10",
+    // Store Id (optional)
+  storeId: "1",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{return_code,return_message,pagination,result}",
 };
@@ -931,11 +931,11 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | [**string**] | Retrieves orders specified by customer id | defaults to undefined
- **id** | [**string**] | Entity id | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
+ **id** | [**string**] | Entity id | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to '{return_code,return_message,pagination,result}'
 
 

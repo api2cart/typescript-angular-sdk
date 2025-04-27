@@ -173,11 +173,11 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
      * @param id Entity id
      * @param orderId Defines the order id
      * @param storeId Store Id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async returnInfo(id: string, orderId?: string, storeId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async returnInfo(id: string, orderId?: string, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -214,6 +214,11 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -221,11 +226,6 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 
@@ -255,9 +255,6 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param orderId Defines the order id
      * @param orderIds Retrieves return requests specified by order ids
      * @param customerId Retrieves return requests specified by customer id
@@ -268,10 +265,13 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
      */
-    public async returnList(start?: number, count?: number, pageCursor?: string, params?: string, exclude?: string, responseFields?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async returnList(start?: number, count?: number, pageCursor?: string, orderId?: string, orderIds?: string, customerId?: string, storeId?: string, status?: string, returnType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -312,21 +312,6 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (pageCursor !== undefined) {
             requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
-        }
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
@@ -377,6 +362,21 @@ export class ReturnApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (modifiedTo !== undefined) {
             requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
         // Query Params

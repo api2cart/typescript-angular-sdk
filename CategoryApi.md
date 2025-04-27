@@ -36,26 +36,20 @@ const apiInstance = new CategoryApi(configuration);
 const request: CategoryApiCategoryAddRequest = {
     // Defines category\'s name that has to be added
   name: "Shoes",
-    // Adds categories specified by parent id (optional)
-  parentId: "6",
-    // Create category in the stores that is specified by comma-separated stores\' id (optional)
-  storesIds: "1,2",
-    // Store Id (optional)
-  storeId: "1",
-    // Language id (optional)
-  langId: "3",
-    // Defines category\'s visibility status (optional)
-  avail: false,
-    // Sort number in the list (optional)
-  sortOrder: 2,
-    // Entity\'s date creation (optional)
-  createdTime: "2014-01-30 15:58:41",
-    // Entity\'s date modification (optional)
-  modifiedTime: "2014-07-30 15:58:41",
     // Defines category\'s description (optional)
   description: "Test category",
     // Defines short description (optional)
   shortDescription: "Short description. This is very short description",
+    // Adds categories specified by parent id (optional)
+  parentId: "6",
+    // Defines category\'s visibility status (optional)
+  avail: false,
+    // Entity\'s date creation (optional)
+  createdTime: "2014-01-30 15:58:41",
+    // Entity\'s date modification (optional)
+  modifiedTime: "2014-07-30 15:58:41",
+    // Sort number in the list (optional)
+  sortOrder: 2,
     // Defines unique meta title for each entity (optional)
   metaTitle: "category,test",
     // Defines unique meta description of a entity (optional)
@@ -64,6 +58,12 @@ const request: CategoryApiCategoryAddRequest = {
   metaKeywords: "category,test",
     // Defines unique category\'s URL for SEO (optional)
   seoUrl: "category,test",
+    // Store Id (optional)
+  storeId: "1",
+    // Create category in the stores that is specified by comma-separated stores\' id (optional)
+  storesIds: "1,2",
+    // Language id (optional)
+  langId: "3",
 };
 
 const data = await apiInstance.categoryAdd(request);
@@ -76,20 +76,20 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | [**string**] | Defines category\&#39;s name that has to be added | defaults to undefined
- **parentId** | [**string**] | Adds categories specified by parent id | (optional) defaults to undefined
- **storesIds** | [**string**] | Create category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
- **langId** | [**string**] | Language id | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
- **sortOrder** | [**number**] | Sort number in the list | (optional) defaults to 0
- **createdTime** | [**string**] | Entity\&#39;s date creation | (optional) defaults to undefined
- **modifiedTime** | [**string**] | Entity\&#39;s date modification | (optional) defaults to undefined
  **description** | [**string**] | Defines category\&#39;s description | (optional) defaults to undefined
  **shortDescription** | [**string**] | Defines short description | (optional) defaults to undefined
+ **parentId** | [**string**] | Adds categories specified by parent id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **createdTime** | [**string**] | Entity\&#39;s date creation | (optional) defaults to undefined
+ **modifiedTime** | [**string**] | Entity\&#39;s date modification | (optional) defaults to undefined
+ **sortOrder** | [**number**] | Sort number in the list | (optional) defaults to 0
  **metaTitle** | [**string**] | Defines unique meta title for each entity | (optional) defaults to undefined
  **metaDescription** | [**string**] | Defines unique meta description of a entity | (optional) defaults to undefined
  **metaKeywords** | [**string**] | Defines unique meta keywords for each entity | (optional) defaults to undefined
  **seoUrl** | [**string**] | Defines unique category\&#39;s URL for SEO | (optional) defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **storesIds** | [**string**] | Create category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
 
 
 ### Return type
@@ -210,10 +210,10 @@ const configuration = createConfiguration();
 const apiInstance = new CategoryApi(configuration);
 
 const request: CategoryApiCategoryAssignRequest = {
-    // Defines category assign to the product, specified by product id
-  productId: "10",
     // Defines category assign, specified by category id
   categoryId: "6",
+    // Defines category assign to the product, specified by product id
+  productId: "10",
     // Store Id (optional)
   storeId: "1",
 };
@@ -227,8 +227,8 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **productId** | [**string**] | Defines category assign to the product, specified by product id | defaults to undefined
  **categoryId** | [**string**] | Defines category assign, specified by category id | defaults to undefined
+ **productId** | [**string**] | Defines category assign to the product, specified by product id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
@@ -275,6 +275,8 @@ const request: CategoryApiCategoryCountRequest = {
   storeId: "1",
     // Counts category specified by language id (optional)
   langId: "3",
+    // Defines category\'s visibility status (optional)
+  avail: false,
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -283,8 +285,6 @@ const request: CategoryApiCategoryCountRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Defines category\'s visibility status (optional)
-  avail: false,
     // A categorization for the product (optional)
   productType: "BICYCLE",
     // Entity search that is specified by some value (optional)
@@ -309,11 +309,11 @@ Name | Type | Description  | Notes
  **parentId** | [**string**] | Counts categories specified by parent id | (optional) defaults to undefined
  **storeId** | [**string**] | Counts category specified by store id | (optional) defaults to undefined
  **langId** | [**string**] | Counts category specified by language id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
  **productType** | [**string**] | A categorization for the product | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Counts categories that are searched specified by field | (optional) defaults to undefined
@@ -487,14 +487,14 @@ const request: CategoryApiCategoryImageAddRequest = {
   url: "http://docs.api2cart.com/img/logo.png",
     // Defines image\'s types that are specified by comma-separated list
   type: "base",
+    // Store Id (optional)
+  storeId: "1",
     // Defines alternative text that has to be attached to the picture (optional)
   label: "This cool image",
     // Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. (optional)
   mime: "image/jpeg",
     // Defines image’s position in the list (optional)
   position: 5,
-    // Store Id (optional)
-  storeId: "1",
 };
 
 const data = await apiInstance.categoryImageAdd(request);
@@ -510,10 +510,10 @@ Name | Type | Description  | Notes
  **imageName** | [**string**] | Defines image\&#39;s name | defaults to undefined
  **url** | [**string**] | Defines URL of the image that has to be added | defaults to undefined
  **type** | [**&#39;base&#39; | &#39;thumbnail&#39;**]**Array<&#39;base&#39; &#124; &#39;thumbnail&#39;>** | Defines image\&#39;s types that are specified by comma-separated list | defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **label** | [**string**] | Defines alternative text that has to be attached to the picture | (optional) defaults to undefined
  **mime** | [**string**] | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | (optional) defaults to undefined
  **position** | [**number**] | Defines image’s position in the list | (optional) defaults to 0
- **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
 ### Return type
@@ -614,18 +614,18 @@ const apiInstance = new CategoryApi(configuration);
 const request: CategoryApiCategoryInfoRequest = {
     // Retrieves category\'s info specified by category id
   id: "10",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,parent_id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{id,name,parent_id,modified_at{value},images}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,parent_id,name",
     // Retrieves category info  specified by store id (optional)
   storeId: "1",
     // Retrieves category info  specified by language id (optional)
   langId: "3",
     // The name of the requirements set for the provided schema. (optional)
   schemaType: "LISTING",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{id,name,parent_id,modified_at{value},images}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,parent_id,name",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,parent_id,name",
     // Report request id (optional)
   reportRequestId: "105245017661",
     // Disable report cache for current request (optional)
@@ -642,12 +642,12 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Retrieves category\&#39;s info specified by category id | defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,parent_id,name,description'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves category info  specified by store id | (optional) defaults to undefined
  **langId** | [**string**] | Retrieves category info  specified by language id | (optional) defaults to undefined
  **schemaType** | [**string**] | The name of the requirements set for the provided schema. | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,parent_id,name,description'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
 
@@ -695,18 +695,16 @@ const request: CategoryApiCategoryListRequest = {
   count: 20,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
-    // Retrieves categories specified by parent id (optional)
-  parentId: "6",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,parent_id,name",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  responseFields: "{result{categories_count,category{id,parent_id,modified_at{value},images}}}",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "id,parent_id,name",
     // Retrieves categories specified by store id (optional)
   storeId: "1",
     // Retrieves categorys specified by language id (optional)
   langId: "3",
+    // Retrieves categories specified by parent id (optional)
+  parentId: "6",
+    // Defines category\'s visibility status (optional)
+  avail: false,
+    // A categorization for the product (optional)
+  productType: "BICYCLE",
     // Retrieve entities from their creation date (optional)
   createdFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their creation date (optional)
@@ -715,14 +713,16 @@ const request: CategoryApiCategoryListRequest = {
   modifiedFrom: "2010-07-29 13:45:52",
     // Retrieve entities to their modification date (optional)
   modifiedTo: "2100-08-29 13:45:52",
-    // Defines category\'s visibility status (optional)
-  avail: false,
-    // A categorization for the product (optional)
-  productType: "BICYCLE",
     // Entity search that is specified by some value (optional)
   findValue: "Demo category 1",
     // Category search that is specified by field (optional)
   findWhere: "name",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result{categories_count,category{id,parent_id,modified_at{value},images}}}",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,parent_id,name",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "id,parent_id,name",
     // Report request id (optional)
   reportRequestId: "105245017661",
     // Disable report cache for current request (optional)
@@ -743,20 +743,20 @@ Name | Type | Description  | Notes
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
- **parentId** | [**string**] | Retrieves categories specified by parent id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,parent_id,name,description'
- **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves categories specified by store id | (optional) defaults to undefined
  **langId** | [**string**] | Retrieves categorys specified by language id | (optional) defaults to undefined
+ **parentId** | [**string**] | Retrieves categories specified by parent id | (optional) defaults to undefined
+ **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **productType** | [**string**] | A categorization for the product | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
- **productType** | [**string**] | A categorization for the product | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Category search that is specified by field | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,parent_id,name,description'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
@@ -862,20 +862,18 @@ const request: CategoryApiCategoryUpdateRequest = {
   id: "10",
     // Defines new category’s name (optional)
   name: "NEW Shoes",
+    // Defines new category\'s description (optional)
+  description: "New test category",
+    // Defines short description (optional)
+  shortDescription: "Short description. This is very short description",
     // Defines new parent category id (optional)
   parentId: "6",
-    // Update category in the stores that is specified by comma-separated stores\' id (optional)
-  storesIds: "1,2",
     // Defines category\'s visibility status (optional)
   avail: false,
     // Sort number in the list (optional)
   sortOrder: 2,
     // Entity\'s date modification (optional)
   modifiedTime: "2014-07-30 15:58:41",
-    // Defines new category\'s description (optional)
-  description: "New test category",
-    // Defines short description (optional)
-  shortDescription: "Short description. This is very short description",
     // Defines unique meta title for each entity (optional)
   metaTitle: "category,test",
     // Defines unique meta description of a entity (optional)
@@ -884,10 +882,12 @@ const request: CategoryApiCategoryUpdateRequest = {
   metaKeywords: "category,test",
     // Defines unique category\'s URL for SEO (optional)
   seoUrl: "category,test",
-    // Language id (optional)
-  langId: "3",
     // Store Id (optional)
   storeId: "1",
+    // Update category in the stores that is specified by comma-separated stores\' id (optional)
+  storesIds: "1,2",
+    // Language id (optional)
+  langId: "3",
 };
 
 const data = await apiInstance.categoryUpdate(request);
@@ -901,19 +901,19 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Defines category update specified by category id | defaults to undefined
  **name** | [**string**] | Defines new category’s name | (optional) defaults to undefined
+ **description** | [**string**] | Defines new category\&#39;s description | (optional) defaults to undefined
+ **shortDescription** | [**string**] | Defines short description | (optional) defaults to undefined
  **parentId** | [**string**] | Defines new parent category id | (optional) defaults to undefined
- **storesIds** | [**string**] | Update category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
  **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to undefined
  **sortOrder** | [**number**] | Sort number in the list | (optional) defaults to undefined
  **modifiedTime** | [**string**] | Entity\&#39;s date modification | (optional) defaults to undefined
- **description** | [**string**] | Defines new category\&#39;s description | (optional) defaults to undefined
- **shortDescription** | [**string**] | Defines short description | (optional) defaults to undefined
  **metaTitle** | [**string**] | Defines unique meta title for each entity | (optional) defaults to undefined
  **metaDescription** | [**string**] | Defines unique meta description of a entity | (optional) defaults to undefined
  **metaKeywords** | [**string**] | Defines unique meta keywords for each entity | (optional) defaults to undefined
  **seoUrl** | [**string**] | Defines unique category\&#39;s URL for SEO | (optional) defaults to undefined
- **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **storesIds** | [**string**] | Update category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
 
 
 ### Return type

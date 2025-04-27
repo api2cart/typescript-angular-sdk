@@ -14,10 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class OrderShipmentTrackingAdd {
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * Defines the order id
     */
     'orderId'?: string;
@@ -29,6 +25,10 @@ export class OrderShipmentTrackingAdd {
     * Defines tracking carrier id
     */
     'carrierId'?: string;
+    /**
+    * Store Id
+    */
+    'storeId'?: string;
     /**
     * Defines name of the company which provides shipment tracking
     */
@@ -52,12 +52,6 @@ export class OrderShipmentTrackingAdd {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "orderId",
             "baseName": "order_id",
             "type": "string",
@@ -72,6 +66,12 @@ export class OrderShipmentTrackingAdd {
         {
             "name": "carrierId",
             "baseName": "carrier_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },

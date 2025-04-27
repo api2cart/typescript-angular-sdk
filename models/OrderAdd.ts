@@ -36,125 +36,17 @@ export class OrderAdd {
     */
     'orderStatus': string;
     /**
-    * Send notifications to customer after order was created
+    * Create order with fulfillment status
     */
-    'sendNotifications'?: boolean;
+    'fulfillmentStatus'?: string;
     /**
-    * Notify admin when new order was created.
+    * Create order with financial status
     */
-    'sendAdminNotifications'?: boolean;
+    'financialStatus'?: string;
     /**
     * Defines the customer specified by email for whom order has to be created
     */
     'customerEmail': string;
-    /**
-    * Specifies billing first name
-    */
-    'billFirstName': string;
-    /**
-    * Specifies billing last name
-    */
-    'billLastName': string;
-    /**
-    * Specifies first billing address
-    */
-    'billAddress1': string;
-    /**
-    * Specifies billing city
-    */
-    'billCity': string;
-    /**
-    * Specifies billing postcode
-    */
-    'billPostcode': string;
-    /**
-    * Specifies billing state code
-    */
-    'billState': string;
-    /**
-    * Specifies billing country code
-    */
-    'billCountry': string;
-    /**
-    * Specifies shipping first name
-    */
-    'shippFirstName'?: string;
-    /**
-    * Specifies shipping last name
-    */
-    'shippLastName'?: string;
-    /**
-    * Specifies first shipping address
-    */
-    'shippAddress1'?: string;
-    /**
-    * Specifies shipping city
-    */
-    'shippCity'?: string;
-    /**
-    * Specifies shipping postcode
-    */
-    'shippPostcode'?: string;
-    /**
-    * Specifies shipping state code
-    */
-    'shippState'?: string;
-    /**
-    * Specifies shipping country code
-    */
-    'shippCountry'?: string;
-    /**
-    * Defines order\'s total price
-    */
-    'totalPrice'?: number;
-    /**
-    * Specifies an order creation date in format Y-m-d H:i:s
-    */
-    'date'?: string;
-    /**
-    * Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to \'paid\'
-    */
-    'orderPaymentMethod'?: string;
-    /**
-    * Payment transaction id
-    */
-    'transactionId'?: string;
-    /**
-    * Defines order shipping method
-    */
-    'orderShippingMethod'?: string;
-    /**
-    * Currency code of order
-    */
-    'currency'?: string;
-    /**
-    * Specifies second billing address
-    */
-    'billAddress2'?: string;
-    /**
-    * Specifies billing company
-    */
-    'billCompany'?: string;
-    /**
-    * Specifies billing phone
-    */
-    'billPhone'?: string;
-    /**
-    * Specifies billing fax
-    */
-    'billFax'?: string;
-    /**
-    * Specifies order comment
-    */
-    'comment'?: string;
-    /**
-    * Specifies admin\'s order comment
-    */
-    'adminComment'?: string;
-    /**
-    * Specifies private admin\'s order comment
-    */
-    'adminPrivateComment'?: string;
     /**
     * Specifies customer\'s first name
     */
@@ -180,9 +72,105 @@ export class OrderAdd {
     */
     'customerFax'?: string;
     /**
+    * Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to \'paid\'
+    */
+    'orderPaymentMethod'?: string;
+    /**
+    * Payment transaction id
+    */
+    'transactionId'?: string;
+    /**
+    * Currency code of order
+    */
+    'currency'?: string;
+    /**
+    * Specifies an order creation date in format Y-m-d H:i:s
+    */
+    'date'?: string;
+    /**
+    * Specifies order\'s  modification date
+    */
+    'dateModified'?: string;
+    /**
+    * Specifies order\'s  finished date
+    */
+    'dateFinished'?: string;
+    /**
+    * Specifies billing first name
+    */
+    'billFirstName': string;
+    /**
+    * Specifies billing last name
+    */
+    'billLastName': string;
+    /**
+    * Specifies first billing address
+    */
+    'billAddress1': string;
+    /**
+    * Specifies second billing address
+    */
+    'billAddress2'?: string;
+    /**
+    * Specifies billing city
+    */
+    'billCity': string;
+    /**
+    * Specifies billing postcode
+    */
+    'billPostcode': string;
+    /**
+    * Specifies billing state code
+    */
+    'billState': string;
+    /**
+    * Specifies billing country code
+    */
+    'billCountry': string;
+    /**
+    * Specifies billing company
+    */
+    'billCompany'?: string;
+    /**
+    * Specifies billing phone
+    */
+    'billPhone'?: string;
+    /**
+    * Specifies billing fax
+    */
+    'billFax'?: string;
+    /**
+    * Specifies shipping first name
+    */
+    'shippFirstName'?: string;
+    /**
+    * Specifies shipping last name
+    */
+    'shippLastName'?: string;
+    /**
+    * Specifies first shipping address
+    */
+    'shippAddress1'?: string;
+    /**
     * Specifies second address line of a shipping street address
     */
     'shippAddress2'?: string;
+    /**
+    * Specifies shipping city
+    */
+    'shippCity'?: string;
+    /**
+    * Specifies shipping postcode
+    */
+    'shippPostcode'?: string;
+    /**
+    * Specifies shipping state code
+    */
+    'shippState'?: string;
+    /**
+    * Specifies shipping country code
+    */
+    'shippCountry'?: string;
     /**
     * Specifies shipping company
     */
@@ -196,14 +184,6 @@ export class OrderAdd {
     */
     'shippFax'?: string;
     /**
-    * Specifies order\'s  modification date
-    */
-    'dateModified'?: string;
-    /**
-    * Specifies order\'s  finished date
-    */
-    'dateFinished'?: string;
-    /**
     * Total price of all ordered products multiplied by their number, excluding tax, shipping price and discounts
     */
     'subtotalPrice'?: number;
@@ -211,6 +191,18 @@ export class OrderAdd {
     * The value of tax cost for order
     */
     'taxPrice'?: number;
+    /**
+    * Defines order\'s total price
+    */
+    'totalPrice'?: number;
+    /**
+    * Defines total paid amount for the order
+    */
+    'totalPaid'?: number;
+    /**
+    * Defines the sum of all line item weights in grams for the order
+    */
+    'totalWeight'?: number;
     /**
     * Indicates whether prices and subtotal includes tax.
     */
@@ -224,14 +216,6 @@ export class OrderAdd {
     */
     'shippingTax'?: number;
     /**
-    * Defines tracking carrier id
-    */
-    'carrierId'?: string;
-    /**
-    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-    */
-    'warehouseId'?: string;
-    /**
     * Specifies order\'s discount
     */
     'discount'?: number;
@@ -240,33 +224,53 @@ export class OrderAdd {
     */
     'couponDiscount'?: number;
     /**
-    * Coupons that will be applied to order
-    */
-    'coupons'?: Array<string>;
-    /**
     * Discounts for order with gift certificates
     */
     'giftCertificateDiscount'?: number;
     /**
-    * Create order with fulfillment status
+    * Defines order shipping method
     */
-    'fulfillmentStatus'?: string;
+    'orderShippingMethod'?: string;
     /**
-    * Create order with financial status
+    * Defines tracking carrier id
     */
-    'financialStatus'?: string;
+    'carrierId'?: string;
     /**
-    * Defines total paid amount for the order
+    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
-    'totalPaid'?: number;
+    'warehouseId'?: string;
     /**
-    * Identifying the system used to generate the order
+    * Coupons that will be applied to order
     */
-    'externalSource'?: string;
+    'coupons'?: Array<string>;
     /**
     * Order tags
     */
     'tags'?: string;
+    /**
+    * Specifies order comment
+    */
+    'comment'?: string;
+    /**
+    * Specifies admin\'s order comment
+    */
+    'adminComment'?: string;
+    /**
+    * Specifies private admin\'s order comment
+    */
+    'adminPrivateComment'?: string;
+    /**
+    * Send notifications to customer after order was created
+    */
+    'sendNotifications'?: boolean;
+    /**
+    * Notify admin when new order was created.
+    */
+    'sendAdminNotifications'?: boolean;
+    /**
+    * Identifying the system used to generate the order
+    */
+    'externalSource'?: string;
     /**
     * The behaviour to use when updating inventory.<hr><div style=\"font-style:normal\">Values description:<div style=\"margin-left: 2%; padding-top: 2%\"><div style=\"font-size:85%\"><b>bypass</b> = Do not claim inventory </br></br><b>decrement_ignoring_policy</b> = Ignore the product\'s </br> inventory policy and claim amounts</br></br><b>decrement_obeying_policy</b> =  Obey the product\'s </br> inventory policy.</br></br></div></div></div>
     */
@@ -279,10 +283,6 @@ export class OrderAdd {
     * Defines note attributes
     */
     'noteAttributes'?: Array<OrderAddNoteAttributesInner>;
-    /**
-    * Defines the sum of all line item weights in grams for the order
-    */
-    'totalWeight'?: number;
     /**
     * Is cache clear required
     */
@@ -329,182 +329,20 @@ export class OrderAdd {
             "format": ""
         },
         {
-            "name": "sendNotifications",
-            "baseName": "send_notifications",
-            "type": "boolean",
+            "name": "fulfillmentStatus",
+            "baseName": "fulfillment_status",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "sendAdminNotifications",
-            "baseName": "send_admin_notifications",
-            "type": "boolean",
+            "name": "financialStatus",
+            "baseName": "financial_status",
+            "type": "string",
             "format": ""
         },
         {
             "name": "customerEmail",
             "baseName": "customer_email",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billFirstName",
-            "baseName": "bill_first_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billLastName",
-            "baseName": "bill_last_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billAddress1",
-            "baseName": "bill_address_1",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billCity",
-            "baseName": "bill_city",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billPostcode",
-            "baseName": "bill_postcode",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billState",
-            "baseName": "bill_state",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billCountry",
-            "baseName": "bill_country",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippFirstName",
-            "baseName": "shipp_first_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippLastName",
-            "baseName": "shipp_last_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippAddress1",
-            "baseName": "shipp_address_1",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippCity",
-            "baseName": "shipp_city",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippPostcode",
-            "baseName": "shipp_postcode",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippState",
-            "baseName": "shipp_state",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippCountry",
-            "baseName": "shipp_country",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "totalPrice",
-            "baseName": "total_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "date",
-            "baseName": "date",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "orderPaymentMethod",
-            "baseName": "order_payment_method",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "transactionId",
-            "baseName": "transaction_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "orderShippingMethod",
-            "baseName": "order_shipping_method",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "currency",
-            "baseName": "currency",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billAddress2",
-            "baseName": "bill_address_2",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billCompany",
-            "baseName": "bill_company",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billPhone",
-            "baseName": "bill_phone",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "billFax",
-            "baseName": "bill_fax",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "comment",
-            "baseName": "comment",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "adminComment",
-            "baseName": "admin_comment",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "adminPrivateComment",
-            "baseName": "admin_private_comment",
             "type": "string",
             "format": ""
         },
@@ -545,8 +383,152 @@ export class OrderAdd {
             "format": ""
         },
         {
+            "name": "orderPaymentMethod",
+            "baseName": "order_payment_method",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "transactionId",
+            "baseName": "transaction_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "date",
+            "baseName": "date",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "dateModified",
+            "baseName": "date_modified",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "dateFinished",
+            "baseName": "date_finished",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billFirstName",
+            "baseName": "bill_first_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billLastName",
+            "baseName": "bill_last_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billAddress1",
+            "baseName": "bill_address_1",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billAddress2",
+            "baseName": "bill_address_2",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billCity",
+            "baseName": "bill_city",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billPostcode",
+            "baseName": "bill_postcode",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billState",
+            "baseName": "bill_state",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billCountry",
+            "baseName": "bill_country",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billCompany",
+            "baseName": "bill_company",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billPhone",
+            "baseName": "bill_phone",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "billFax",
+            "baseName": "bill_fax",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippFirstName",
+            "baseName": "shipp_first_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippLastName",
+            "baseName": "shipp_last_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippAddress1",
+            "baseName": "shipp_address_1",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "shippAddress2",
             "baseName": "shipp_address_2",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippCity",
+            "baseName": "shipp_city",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippPostcode",
+            "baseName": "shipp_postcode",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippState",
+            "baseName": "shipp_state",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shippCountry",
+            "baseName": "shipp_country",
             "type": "string",
             "format": ""
         },
@@ -569,18 +551,6 @@ export class OrderAdd {
             "format": ""
         },
         {
-            "name": "dateModified",
-            "baseName": "date_modified",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "dateFinished",
-            "baseName": "date_finished",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "subtotalPrice",
             "baseName": "subtotal_price",
             "type": "number",
@@ -589,6 +559,24 @@ export class OrderAdd {
         {
             "name": "taxPrice",
             "baseName": "tax_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "totalPrice",
+            "baseName": "total_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "totalPaid",
+            "baseName": "total_paid",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "totalWeight",
+            "baseName": "total_weight",
             "type": "number",
             "format": ""
         },
@@ -611,18 +599,6 @@ export class OrderAdd {
             "format": ""
         },
         {
-            "name": "carrierId",
-            "baseName": "carrier_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "warehouseId",
-            "baseName": "warehouse_id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "discount",
             "baseName": "discount",
             "type": "number",
@@ -635,44 +611,74 @@ export class OrderAdd {
             "format": ""
         },
         {
-            "name": "coupons",
-            "baseName": "coupons",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
             "name": "giftCertificateDiscount",
             "baseName": "gift_certificate_discount",
             "type": "number",
             "format": ""
         },
         {
-            "name": "fulfillmentStatus",
-            "baseName": "fulfillment_status",
+            "name": "orderShippingMethod",
+            "baseName": "order_shipping_method",
             "type": "string",
             "format": ""
         },
         {
-            "name": "financialStatus",
-            "baseName": "financial_status",
+            "name": "carrierId",
+            "baseName": "carrier_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "totalPaid",
-            "baseName": "total_paid",
-            "type": "number",
+            "name": "warehouseId",
+            "baseName": "warehouse_id",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "externalSource",
-            "baseName": "external_source",
-            "type": "string",
+            "name": "coupons",
+            "baseName": "coupons",
+            "type": "Array<string>",
             "format": ""
         },
         {
             "name": "tags",
             "baseName": "tags",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "comment",
+            "baseName": "comment",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "adminComment",
+            "baseName": "admin_comment",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "adminPrivateComment",
+            "baseName": "admin_private_comment",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "sendNotifications",
+            "baseName": "send_notifications",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sendAdminNotifications",
+            "baseName": "send_admin_notifications",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "externalSource",
+            "baseName": "external_source",
             "type": "string",
             "format": ""
         },
@@ -692,12 +698,6 @@ export class OrderAdd {
             "name": "noteAttributes",
             "baseName": "note_attributes",
             "type": "Array<OrderAddNoteAttributesInner>",
-            "format": ""
-        },
-        {
-            "name": "totalWeight",
-            "baseName": "total_weight",
-            "type": "number",
             "format": ""
         },
         {

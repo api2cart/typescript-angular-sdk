@@ -14,21 +14,9 @@ import { HttpFile } from '../http/http';
 
 export class CartCouponAdd {
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * Coupon code
     */
     'code': string;
-    /**
-    * Coupon name
-    */
-    'name'?: string;
-    /**
-    * Entity codes
-    */
-    'codes'?: Array<string>;
     /**
     * Coupon discount type
     */
@@ -45,6 +33,14 @@ export class CartCouponAdd {
     * Defines the discount amount value.
     */
     'actionAmount': number;
+    /**
+    * Entity codes
+    */
+    'codes'?: Array<string>;
+    /**
+    * Coupon name
+    */
+    'name'?: string;
     /**
     * Date start
     */
@@ -81,6 +77,10 @@ export class CartCouponAdd {
     * Indicates whether to apply a discount for taxes.
     */
     'includeTax'?: boolean;
+    /**
+    * Store Id
+    */
+    'storeId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -88,27 +88,9 @@ export class CartCouponAdd {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "code",
             "baseName": "code",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "codes",
-            "baseName": "codes",
-            "type": "Array<string>",
             "format": ""
         },
         {
@@ -133,6 +115,18 @@ export class CartCouponAdd {
             "name": "actionAmount",
             "baseName": "action_amount",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "codes",
+            "baseName": "codes",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
             "format": ""
         },
         {
@@ -187,6 +181,12 @@ export class CartCouponAdd {
             "name": "includeTax",
             "baseName": "include_tax",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
             "format": ""
         }    ];
 

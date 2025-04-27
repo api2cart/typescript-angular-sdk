@@ -30,22 +30,22 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * Add new category in store
      * category.add
      * @param name Defines category\&#39;s name that has to be added
-     * @param parentId Adds categories specified by parent id
-     * @param storesIds Create category in the stores that is specified by comma-separated stores\&#39; id
-     * @param storeId Store Id
-     * @param langId Language id
-     * @param avail Defines category\&#39;s visibility status
-     * @param sortOrder Sort number in the list
-     * @param createdTime Entity\&#39;s date creation
-     * @param modifiedTime Entity\&#39;s date modification
      * @param description Defines category\&#39;s description
      * @param shortDescription Defines short description
+     * @param parentId Adds categories specified by parent id
+     * @param avail Defines category\&#39;s visibility status
+     * @param createdTime Entity\&#39;s date creation
+     * @param modifiedTime Entity\&#39;s date modification
+     * @param sortOrder Sort number in the list
      * @param metaTitle Defines unique meta title for each entity
      * @param metaDescription Defines unique meta description of a entity
      * @param metaKeywords Defines unique meta keywords for each entity
      * @param seoUrl Defines unique category\&#39;s URL for SEO
+     * @param storeId Store Id
+     * @param storesIds Create category in the stores that is specified by comma-separated stores\&#39; id
+     * @param langId Language id
      */
-    public async categoryAdd(name: string, parentId?: string, storesIds?: string, storeId?: string, langId?: string, avail?: boolean, sortOrder?: number, createdTime?: string, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'name' is not null or undefined
@@ -81,33 +81,23 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (description !== undefined) {
+            requestContext.setQueryParam("description", ObjectSerializer.serialize(description, "string", ""));
+        }
+
+        // Query Params
+        if (shortDescription !== undefined) {
+            requestContext.setQueryParam("short_description", ObjectSerializer.serialize(shortDescription, "string", ""));
+        }
+
+        // Query Params
         if (parentId !== undefined) {
             requestContext.setQueryParam("parent_id", ObjectSerializer.serialize(parentId, "string", ""));
         }
 
         // Query Params
-        if (storesIds !== undefined) {
-            requestContext.setQueryParam("stores_ids", ObjectSerializer.serialize(storesIds, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (langId !== undefined) {
-            requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
-        }
-
-        // Query Params
         if (avail !== undefined) {
             requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
-        }
-
-        // Query Params
-        if (sortOrder !== undefined) {
-            requestContext.setQueryParam("sort_order", ObjectSerializer.serialize(sortOrder, "number", ""));
         }
 
         // Query Params
@@ -121,13 +111,8 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (description !== undefined) {
-            requestContext.setQueryParam("description", ObjectSerializer.serialize(description, "string", ""));
-        }
-
-        // Query Params
-        if (shortDescription !== undefined) {
-            requestContext.setQueryParam("short_description", ObjectSerializer.serialize(shortDescription, "string", ""));
+        if (sortOrder !== undefined) {
+            requestContext.setQueryParam("sort_order", ObjectSerializer.serialize(sortOrder, "number", ""));
         }
 
         // Query Params
@@ -148,6 +133,21 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (seoUrl !== undefined) {
             requestContext.setQueryParam("seo_url", ObjectSerializer.serialize(seoUrl, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (storesIds !== undefined) {
+            requestContext.setQueryParam("stores_ids", ObjectSerializer.serialize(storesIds, "string", ""));
+        }
+
+        // Query Params
+        if (langId !== undefined) {
+            requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
         }
 
 
@@ -227,22 +227,22 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Assign category to product
      * category.assign
-     * @param productId Defines category assign to the product, specified by product id
      * @param categoryId Defines category assign, specified by category id
+     * @param productId Defines category assign to the product, specified by product id
      * @param storeId Store Id
      */
-    public async categoryAssign(productId: string, categoryId: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'productId' is not null or undefined
-        if (productId === null || productId === undefined) {
-            throw new RequiredError("CategoryApi", "categoryAssign", "productId");
-        }
-
 
         // verify required parameter 'categoryId' is not null or undefined
         if (categoryId === null || categoryId === undefined) {
             throw new RequiredError("CategoryApi", "categoryAssign", "categoryId");
+        }
+
+
+        // verify required parameter 'productId' is not null or undefined
+        if (productId === null || productId === undefined) {
+            throw new RequiredError("CategoryApi", "categoryAssign", "productId");
         }
 
 
@@ -255,13 +255,13 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (productId !== undefined) {
-            requestContext.setQueryParam("product_id", ObjectSerializer.serialize(productId, "string", ""));
+        if (categoryId !== undefined) {
+            requestContext.setQueryParam("category_id", ObjectSerializer.serialize(categoryId, "string", ""));
         }
 
         // Query Params
-        if (categoryId !== undefined) {
-            requestContext.setQueryParam("category_id", ObjectSerializer.serialize(categoryId, "string", ""));
+        if (productId !== undefined) {
+            requestContext.setQueryParam("product_id", ObjectSerializer.serialize(productId, "string", ""));
         }
 
         // Query Params
@@ -296,18 +296,18 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param parentId Counts categories specified by parent id
      * @param storeId Counts category specified by store id
      * @param langId Counts category specified by language id
+     * @param avail Defines category\&#39;s visibility status
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
-     * @param avail Defines category\&#39;s visibility status
      * @param productType A categorization for the product
      * @param findValue Entity search that is specified by some value
      * @param findWhere Counts categories that are searched specified by field
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
      */
-    public async categoryCount(parentId?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async categoryCount(parentId?: string, storeId?: string, langId?: string, avail?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -346,6 +346,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (avail !== undefined) {
+            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
         if (createdFrom !== undefined) {
             requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
         }
@@ -363,11 +368,6 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (modifiedTo !== undefined) {
             requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
-        }
-
-        // Query Params
-        if (avail !== undefined) {
-            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
         }
 
         // Query Params
@@ -552,12 +552,12 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param imageName Defines image\&#39;s name
      * @param url Defines URL of the image that has to be added
      * @param type Defines image\&#39;s types that are specified by comma-separated list
+     * @param storeId Store Id
      * @param label Defines alternative text that has to be attached to the picture
      * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param position Defines image’s position in the list
-     * @param storeId Store Id
      */
-    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', label?: string, mime?: string, position?: number, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -611,6 +611,16 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (type !== undefined) {
+            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "'base' | 'thumbnail'", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
         if (label !== undefined) {
             requestContext.setQueryParam("label", ObjectSerializer.serialize(label, "string", ""));
         }
@@ -621,18 +631,8 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (type !== undefined) {
-            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "'base' | 'thumbnail'", ""));
-        }
-
-        // Query Params
         if (position !== undefined) {
             requestContext.setQueryParam("position", ObjectSerializer.serialize(position, "number", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
 
@@ -726,16 +726,16 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * Get category info about category ID*** or specify other category ID.
      * category.info
      * @param id Retrieves category\&#39;s info specified by category id
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param storeId Retrieves category info  specified by store id
      * @param langId Retrieves category info  specified by language id
      * @param schemaType The name of the requirements set for the provided schema.
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
      */
-    public async categoryInfo(id: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, schemaType?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -765,21 +765,6 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
@@ -792,6 +777,21 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (schemaType !== undefined) {
             requestContext.setQueryParam("schema_type", ObjectSerializer.serialize(schemaType, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
         // Query Params
@@ -831,25 +831,25 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param parentId Retrieves categories specified by parent id
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param storeId Retrieves categories specified by store id
      * @param langId Retrieves categorys specified by language id
+     * @param parentId Retrieves categories specified by parent id
+     * @param avail Defines category\&#39;s visibility status
+     * @param productType A categorization for the product
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
-     * @param avail Defines category\&#39;s visibility status
-     * @param productType A categorization for the product
      * @param findValue Entity search that is specified by some value
      * @param findWhere Category search that is specified by field
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
      * @param disableCache Disable cache for current request
      */
-    public async categoryList(start?: number, count?: number, pageCursor?: string, parentId?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, langId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, avail?: boolean, productType?: string, findValue?: string, findWhere?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -895,26 +895,6 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (parentId !== undefined) {
-            requestContext.setQueryParam("parent_id", ObjectSerializer.serialize(parentId, "string", ""));
-        }
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
@@ -922,6 +902,21 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (parentId !== undefined) {
+            requestContext.setQueryParam("parent_id", ObjectSerializer.serialize(parentId, "string", ""));
+        }
+
+        // Query Params
+        if (avail !== undefined) {
+            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (productType !== undefined) {
+            requestContext.setQueryParam("product_type", ObjectSerializer.serialize(productType, "string", ""));
         }
 
         // Query Params
@@ -945,16 +940,6 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (avail !== undefined) {
-            requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
-        }
-
-        // Query Params
-        if (productType !== undefined) {
-            requestContext.setQueryParam("product_type", ObjectSerializer.serialize(productType, "string", ""));
-        }
-
-        // Query Params
         if (findValue !== undefined) {
             requestContext.setQueryParam("find_value", ObjectSerializer.serialize(findValue, "string", ""));
         }
@@ -962,6 +947,21 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (findWhere !== undefined) {
             requestContext.setQueryParam("find_where", ObjectSerializer.serialize(findWhere, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
         // Query Params
@@ -1071,21 +1071,21 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * category.update
      * @param id Defines category update specified by category id
      * @param name Defines new category’s name
+     * @param description Defines new category\&#39;s description
+     * @param shortDescription Defines short description
      * @param parentId Defines new parent category id
-     * @param storesIds Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param avail Defines category\&#39;s visibility status
      * @param sortOrder Sort number in the list
      * @param modifiedTime Entity\&#39;s date modification
-     * @param description Defines new category\&#39;s description
-     * @param shortDescription Defines short description
      * @param metaTitle Defines unique meta title for each entity
      * @param metaDescription Defines unique meta description of a entity
      * @param metaKeywords Defines unique meta keywords for each entity
      * @param seoUrl Defines unique category\&#39;s URL for SEO
-     * @param langId Language id
      * @param storeId Store Id
+     * @param storesIds Update category in the stores that is specified by comma-separated stores\&#39; id
+     * @param langId Language id
      */
-    public async categoryUpdate(id: string, name?: string, parentId?: string, storesIds?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, description?: string, shortDescription?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, langId?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1126,13 +1126,18 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (parentId !== undefined) {
-            requestContext.setQueryParam("parent_id", ObjectSerializer.serialize(parentId, "string", ""));
+        if (description !== undefined) {
+            requestContext.setQueryParam("description", ObjectSerializer.serialize(description, "string", ""));
         }
 
         // Query Params
-        if (storesIds !== undefined) {
-            requestContext.setQueryParam("stores_ids", ObjectSerializer.serialize(storesIds, "string", ""));
+        if (shortDescription !== undefined) {
+            requestContext.setQueryParam("short_description", ObjectSerializer.serialize(shortDescription, "string", ""));
+        }
+
+        // Query Params
+        if (parentId !== undefined) {
+            requestContext.setQueryParam("parent_id", ObjectSerializer.serialize(parentId, "string", ""));
         }
 
         // Query Params
@@ -1148,16 +1153,6 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (modifiedTime !== undefined) {
             requestContext.setQueryParam("modified_time", ObjectSerializer.serialize(modifiedTime, "string", ""));
-        }
-
-        // Query Params
-        if (description !== undefined) {
-            requestContext.setQueryParam("description", ObjectSerializer.serialize(description, "string", ""));
-        }
-
-        // Query Params
-        if (shortDescription !== undefined) {
-            requestContext.setQueryParam("short_description", ObjectSerializer.serialize(shortDescription, "string", ""));
         }
 
         // Query Params
@@ -1181,13 +1176,18 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (langId !== undefined) {
-            requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        if (storesIds !== undefined) {
+            requestContext.setQueryParam("stores_ids", ObjectSerializer.serialize(storesIds, "string", ""));
+        }
+
+        // Query Params
+        if (langId !== undefined) {
+            requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
         }
 
 

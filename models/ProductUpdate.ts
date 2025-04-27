@@ -12,6 +12,7 @@
 
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
+import { ProductAddTierPricesInner } from '../models/ProductAddTierPricesInner';
 import { HttpFile } from '../http/http';
 
 export class ProductUpdate {
@@ -24,13 +25,29 @@ export class ProductUpdate {
     */
     'model'?: string;
     /**
-    * Defines product\'s old price
+    * Defines new product\'s sku
     */
-    'oldPrice'?: number;
+    'sku'?: string;
+    /**
+    * Defines product\'s name that has to be updated
+    */
+    'name'?: string;
+    /**
+    * Defines new product\'s description
+    */
+    'description'?: string;
+    /**
+    * Defines short description
+    */
+    'shortDescription'?: string;
     /**
     * Defines new product\'s price
     */
     'price'?: number;
+    /**
+    * Defines product\'s old price
+    */
+    'oldPrice'?: number;
     /**
     * Defines new product\'s special price
     */
@@ -56,37 +73,77 @@ export class ProductUpdate {
     */
     'retailPrice'?: number;
     /**
-    * Defines new product\'s quantity
+    * Defines product\'s tier prices
     */
-    'quantity'?: number;
+    'tierPrices'?: Array<ProductAddTierPricesInner>;
+    /**
+    * Defines reserve price value
+    */
+    'reservePrice'?: number;
+    /**
+    * Defines buy it now value
+    */
+    'buyitnowPrice'?: number;
+    /**
+    * Specifies whether a tax is charged
+    */
+    'taxable'?: boolean;
+    /**
+    * Defines tax classes where entity has to be added
+    */
+    'taxClassId'?: string;
+    /**
+    * Defines product\'s type
+    */
+    'type'?: string;
+    /**
+    * Defines product\'s status
+    */
+    'status'?: string;
+    /**
+    * The human-readable label for the condition (e.g., \"New\").
+    */
+    'condition'?: string;
+    /**
+    * Set visibility status
+    */
+    'visible'?: string;
+    /**
+    * Set stock status
+    */
+    'inStock'?: boolean;
+    /**
+    * Defines category\'s visibility status
+    */
+    'avail'?: boolean;
+    /**
+    * Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
+    */
+    'availFrom'?: string;
+    /**
+    * A categorization for the product
+    */
+    'productClass'?: string;
     /**
     * Specifies the set of visible/invisible products for users
     */
     'availableForView'?: boolean;
     /**
-    * Weight
+    * Assign product to the stores that is specified by comma-separated stores\' id
     */
-    'weight'?: number;
+    'storesIds'?: string;
     /**
-    * Weight Unit
+    * Defines store id where the product should be found
     */
-    'weightUnit'?: string;
+    'storeId'?: string;
     /**
-    * Weight Unit
+    * Language id
     */
-    'dimensionsUnit'?: string;
+    'langId'?: string;
     /**
-    * Defines the incremental changes in product quantity
+    * Defines new product\'s quantity
     */
-    'increaseQuantity'?: number;
-    /**
-    * Defines the decrement changes in product quantity
-    */
-    'reduceQuantity'?: number;
-    /**
-    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-    */
-    'warehouseId'?: string;
+    'quantity'?: number;
     /**
     * This parameter allows to reserve/unreserve product quantity.
     */
@@ -100,17 +157,73 @@ export class ProductUpdate {
     */
     'backorderStatus'?: string;
     /**
-    * Defines product\'s name that has to be updated
+    * Defines the incremental changes in product quantity
     */
-    'name'?: string;
+    'increaseQuantity'?: number;
     /**
-    * Defines new product\'s sku
+    * Defines the decrement changes in product quantity
     */
-    'sku'?: string;
+    'reduceQuantity'?: number;
     /**
-    * Set visibility status
+    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
-    'visible'?: string;
+    'warehouseId'?: string;
+    /**
+    * Weight
+    */
+    'weight'?: number;
+    /**
+    * Weight Unit
+    */
+    'weightUnit'?: string;
+    /**
+    * Defines product\'s height
+    */
+    'height'?: number;
+    /**
+    * Defines product\'s length
+    */
+    'length'?: number;
+    /**
+    * Defines product\'s width
+    */
+    'width'?: number;
+    /**
+    * Weight Unit
+    */
+    'dimensionsUnit'?: string;
+    /**
+    * Defines whether the product is virtual
+    */
+    'isVirtual'?: boolean;
+    /**
+    * Specifies product free shipping flag that has to be updated
+    */
+    'isFreeShipping'?: boolean;
+    /**
+    * Global Trade Item Number. An GTIN is an identifier for trade items.
+    */
+    'gtin'?: string;
+    /**
+    * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
+    */
+    'upc'?: string;
+    /**
+    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
+    */
+    'mpn'?: string;
+    /**
+    * European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
+    */
+    'ean'?: string;
+    /**
+    * International Standard Book Number. An ISBN is a unique identifier for books.
+    */
+    'isbn'?: string;
+    /**
+    * A barcode is a unique code composed of numbers used as a product identifier.
+    */
+    'barcode'?: string;
     /**
     * Defines product\'s manufacturer
     */
@@ -136,14 +249,6 @@ export class ProductUpdate {
     */
     'crossSellProductsIds'?: string;
     /**
-    * Defines new product\'s description
-    */
-    'description'?: string;
-    /**
-    * Defines short description
-    */
-    'shortDescription'?: string;
-    /**
     * Defines unique meta title for each entity
     */
     'metaTitle'?: string;
@@ -156,151 +261,30 @@ export class ProductUpdate {
     */
     'metaDescription'?: string;
     /**
-    * Defines store id where the product should be found
-    */
-    'storeId'?: string;
-    /**
-    * Language id
-    */
-    'langId'?: string;
-    /**
-    * Set stock status
-    */
-    'inStock'?: boolean;
-    /**
-    * Defines product\'s status
-    */
-    'status'?: string;
-    /**
     * Defines unique URL for SEO
     */
     'seoUrl'?: string;
-    /**
-    * Report request id
-    */
-    'reportRequestId'?: string;
-    /**
-    * Disable report cache for current request
-    */
-    'disableReportCache'?: boolean;
-    /**
-    * Is reindex required
-    */
-    'reindex'?: boolean;
-    /**
-    * Product tags
-    */
-    'tags'?: string;
-    /**
-    * Is cache clear required
-    */
-    'clearCache'?: boolean;
-    /**
-    * Global Trade Item Number. An GTIN is an identifier for trade items.
-    */
-    'gtin'?: string;
-    /**
-    * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
-    */
-    'upc'?: string;
-    /**
-    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
-    */
-    'mpn'?: string;
-    /**
-    * European Article Number. An EAN is a unique 8 or 13-digit identifier that many industries (such as book publishers) use to identify products.
-    */
-    'ean'?: string;
-    /**
-    * International Standard Book Number. An ISBN is a unique identifier for books.
-    */
-    'isbn'?: string;
-    /**
-    * Specifies whether a tax is charged
-    */
-    'taxable'?: boolean;
-    /**
-    * A categorization for the product
-    */
-    'productClass'?: string;
-    /**
-    * Defines product\'s height
-    */
-    'height'?: number;
-    /**
-    * Defines product\'s length
-    */
-    'length'?: number;
-    /**
-    * Defines product\'s width
-    */
-    'width'?: number;
-    /**
-    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
-    */
-    'harmonizedSystemCode'?: string;
-    /**
-    * The country where the inventory item was made
-    */
-    'countryOfOrigin'?: string;
     /**
     * Defines unique search keywords
     */
     'searchKeywords'?: string;
     /**
-    * A barcode is a unique code composed of numbers used as a product identifier.
+    * Product tags
     */
-    'barcode'?: string;
-    /**
-    * Defines whether the product is virtual
-    */
-    'isVirtual'?: boolean;
-    /**
-    * Specifies product free shipping flag that has to be updated
-    */
-    'isFreeShipping'?: boolean;
-    /**
-    * Defines reserve price value
-    */
-    'reservePrice'?: number;
-    /**
-    * Defines buy it now value
-    */
-    'buyitnowPrice'?: number;
-    /**
-    * Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
-    */
-    'availFrom'?: string;
-    /**
-    * Defines tax classes where entity has to be added
-    */
-    'taxClassId'?: string;
-    /**
-    * Defines product\'s type
-    */
-    'type'?: string;
-    /**
-    * Defines category\'s visibility status
-    */
-    'avail'?: boolean;
+    'tags'?: string;
     /**
     * The delivery promise that applies to offer
     */
     'deliveryCode'?: string;
-    /**
-    * Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
-    */
-    'checkProcessStatus'?: boolean;
     'packageDetails'?: ProductAddPackageDetails;
     /**
-    * Assign product to the stores that is specified by comma-separated stores\' id
+    * The country where the inventory item was made
     */
-    'storesIds'?: string;
-    'manufacturerInfo'?: ProductAddManufacturerInfo;
+    'countryOfOrigin'?: string;
     /**
-    * Defines product production partner ids that has to be updated
+    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
     */
-    'productionPartnerIds'?: string;
+    'harmonizedSystemCode'?: string;
     /**
     * The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id.
     */
@@ -329,6 +313,31 @@ export class ProductUpdate {
     * Set whether the product on sale
     */
     'onSale'?: boolean;
+    /**
+    * Defines product production partner ids that has to be updated
+    */
+    'productionPartnerIds'?: string;
+    'manufacturerInfo'?: ProductAddManufacturerInfo;
+    /**
+    * Report request id
+    */
+    'reportRequestId'?: string;
+    /**
+    * Disable report cache for current request
+    */
+    'disableReportCache'?: boolean;
+    /**
+    * Is reindex required
+    */
+    'reindex'?: boolean;
+    /**
+    * Is cache clear required
+    */
+    'clearCache'?: boolean;
+    /**
+    * Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
+    */
+    'checkProcessStatus'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -348,14 +357,38 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "oldPrice",
-            "baseName": "old_price",
-            "type": "number",
+            "name": "sku",
+            "baseName": "sku",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shortDescription",
+            "baseName": "short_description",
+            "type": "string",
             "format": ""
         },
         {
             "name": "price",
             "baseName": "price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "oldPrice",
+            "baseName": "old_price",
             "type": "number",
             "format": ""
         },
@@ -396,9 +429,81 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "quantity",
-            "baseName": "quantity",
+            "name": "tierPrices",
+            "baseName": "tier_prices",
+            "type": "Array<ProductAddTierPricesInner>",
+            "format": ""
+        },
+        {
+            "name": "reservePrice",
+            "baseName": "reserve_price",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "buyitnowPrice",
+            "baseName": "buyitnow_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "taxable",
+            "baseName": "taxable",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "taxClassId",
+            "baseName": "tax_class_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "condition",
+            "baseName": "condition",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "visible",
+            "baseName": "visible",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "inStock",
+            "baseName": "in_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "avail",
+            "baseName": "avail",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "availFrom",
+            "baseName": "avail_from",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "productClass",
+            "baseName": "product_class",
+            "type": "string",
             "format": ""
         },
         {
@@ -408,20 +513,44 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "weight",
-            "baseName": "weight",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "weightUnit",
-            "baseName": "weight_unit",
+            "name": "storesIds",
+            "baseName": "stores_ids",
             "type": "string",
             "format": ""
         },
         {
-            "name": "dimensionsUnit",
-            "baseName": "dimensions_unit",
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "langId",
+            "baseName": "lang_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "quantity",
+            "baseName": "quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "reserveQuantity",
+            "baseName": "reserve_quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "manageStock",
+            "baseName": "manage_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "backorderStatus",
+            "baseName": "backorder_status",
             "type": "string",
             "format": ""
         },
@@ -444,38 +573,86 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "reserveQuantity",
-            "baseName": "reserve_quantity",
+            "name": "weight",
+            "baseName": "weight",
             "type": "number",
             "format": ""
         },
         {
-            "name": "manageStock",
-            "baseName": "manage_stock",
+            "name": "weightUnit",
+            "baseName": "weight_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "height",
+            "baseName": "height",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "length",
+            "baseName": "length",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "width",
+            "baseName": "width",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "dimensionsUnit",
+            "baseName": "dimensions_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isVirtual",
+            "baseName": "is_virtual",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "backorderStatus",
-            "baseName": "backorder_status",
+            "name": "isFreeShipping",
+            "baseName": "is_free_shipping",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "gtin",
+            "baseName": "gtin",
             "type": "string",
             "format": ""
         },
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "upc",
+            "baseName": "upc",
             "type": "string",
             "format": ""
         },
         {
-            "name": "sku",
-            "baseName": "sku",
+            "name": "mpn",
+            "baseName": "mpn",
             "type": "string",
             "format": ""
         },
         {
-            "name": "visible",
-            "baseName": "visible",
+            "name": "ean",
+            "baseName": "ean",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isbn",
+            "baseName": "isbn",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "barcode",
+            "baseName": "barcode",
             "type": "string",
             "format": ""
         },
@@ -516,18 +693,6 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shortDescription",
-            "baseName": "short_description",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "metaTitle",
             "baseName": "meta_title",
             "type": "string",
@@ -546,134 +711,8 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "langId",
-            "baseName": "lang_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "inStock",
-            "baseName": "in_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "seoUrl",
             "baseName": "seo_url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "reportRequestId",
-            "baseName": "report_request_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "disableReportCache",
-            "baseName": "disable_report_cache",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "reindex",
-            "baseName": "reindex",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "tags",
-            "baseName": "tags",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "clearCache",
-            "baseName": "clear_cache",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "gtin",
-            "baseName": "gtin",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "upc",
-            "baseName": "upc",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "mpn",
-            "baseName": "mpn",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ean",
-            "baseName": "ean",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isbn",
-            "baseName": "isbn",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "taxable",
-            "baseName": "taxable",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "productClass",
-            "baseName": "product_class",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "height",
-            "baseName": "height",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "length",
-            "baseName": "length",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "width",
-            "baseName": "width",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "harmonizedSystemCode",
-            "baseName": "harmonized_system_code",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "countryOfOrigin",
-            "baseName": "country_of_origin",
             "type": "string",
             "format": ""
         },
@@ -684,57 +723,9 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "barcode",
-            "baseName": "barcode",
+            "name": "tags",
+            "baseName": "tags",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isVirtual",
-            "baseName": "is_virtual",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFreeShipping",
-            "baseName": "is_free_shipping",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "reservePrice",
-            "baseName": "reserve_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "buyitnowPrice",
-            "baseName": "buyitnow_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "availFrom",
-            "baseName": "avail_from",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "taxClassId",
-            "baseName": "tax_class_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "avail",
-            "baseName": "avail",
-            "type": "boolean",
             "format": ""
         },
         {
@@ -744,32 +735,20 @@ export class ProductUpdate {
             "format": ""
         },
         {
-            "name": "checkProcessStatus",
-            "baseName": "check_process_status",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "packageDetails",
             "baseName": "package_details",
             "type": "ProductAddPackageDetails",
             "format": ""
         },
         {
-            "name": "storesIds",
-            "baseName": "stores_ids",
+            "name": "countryOfOrigin",
+            "baseName": "country_of_origin",
             "type": "string",
             "format": ""
         },
         {
-            "name": "manufacturerInfo",
-            "baseName": "manufacturer_info",
-            "type": "ProductAddManufacturerInfo",
-            "format": ""
-        },
-        {
-            "name": "productionPartnerIds",
-            "baseName": "production_partner_ids",
+            "name": "harmonizedSystemCode",
+            "baseName": "harmonized_system_code",
             "type": "string",
             "format": ""
         },
@@ -812,6 +791,48 @@ export class ProductUpdate {
         {
             "name": "onSale",
             "baseName": "on_sale",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "productionPartnerIds",
+            "baseName": "production_partner_ids",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "manufacturerInfo",
+            "baseName": "manufacturer_info",
+            "type": "ProductAddManufacturerInfo",
+            "format": ""
+        },
+        {
+            "name": "reportRequestId",
+            "baseName": "report_request_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "disableReportCache",
+            "baseName": "disable_report_cache",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "reindex",
+            "baseName": "reindex",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "clearCache",
+            "baseName": "clear_cache",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "checkProcessStatus",
+            "baseName": "check_process_status",
             "type": "boolean",
             "format": ""
         }    ];

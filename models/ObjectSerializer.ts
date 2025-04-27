@@ -437,7 +437,7 @@ export * from '../models/WebhookList200Response';
 export * from '../models/WebhookList200ResponseResult';
 
 import { A2CDateTime } from '../models/A2CDateTime';
-import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                      } from '../models/AccountCartAdd';
+import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                       } from '../models/AccountCartAdd';
 import { AccountCartAdd200Response } from '../models/AccountCartAdd200Response';
 import { AccountCartAdd200ResponseResult } from '../models/AccountCartAdd200ResponseResult';
 import { AccountCartAddHybrisWebsitesInner } from '../models/AccountCartAddHybrisWebsitesInner';
@@ -502,7 +502,7 @@ import { CartConfig200Response } from '../models/CartConfig200Response';
 import { CartConfig200ResponseResult } from '../models/CartConfig200ResponseResult';
 import { CartConfigUpdate } from '../models/CartConfigUpdate';
 import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
-import { CartCouponAdd    , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum             } from '../models/CartCouponAdd';
+import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
@@ -742,7 +742,7 @@ import { ProductFind200ResponseResult } from '../models/ProductFind200ResponseRe
 import { ProductFind200ResponseResultProductInner } from '../models/ProductFind200ResponseResultProductInner';
 import { ProductGroupItem } from '../models/ProductGroupItem';
 import { ProductGroupPrice } from '../models/ProductGroupPrice';
-import { ProductImageAdd  , ProductImageAddTypeEnum              } from '../models/ProductImageAdd';
+import { ProductImageAdd, ProductImageAddTypeEnum                } from '../models/ProductImageAdd';
 import { ProductImageAdd200Response } from '../models/ProductImageAdd200Response';
 import { ProductImageAdd200ResponseResult } from '../models/ProductImageAdd200ResponseResult';
 import { ProductImageUpdate200Response } from '../models/ProductImageUpdate200Response';
@@ -789,7 +789,7 @@ import { ProductVariantCount200Response } from '../models/ProductVariantCount200
 import { ProductVariantCount200ResponseResult } from '../models/ProductVariantCount200ResponseResult';
 import { ProductVariantDeleteBatch } from '../models/ProductVariantDeleteBatch';
 import { ProductVariantDeleteBatchPayloadInner } from '../models/ProductVariantDeleteBatchPayloadInner';
-import { ProductVariantImageAdd   , ProductVariantImageAddTypeEnum          } from '../models/ProductVariantImageAdd';
+import { ProductVariantImageAdd    , ProductVariantImageAddTypeEnum         } from '../models/ProductVariantImageAdd';
 import { ProductVariantImageAdd200Response } from '../models/ProductVariantImageAdd200Response';
 import { ProductVariantImageAdd200ResponseResult } from '../models/ProductVariantImageAdd200ResponseResult';
 import { ProductVariantList200Response } from '../models/ProductVariantList200Response';

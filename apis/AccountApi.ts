@@ -71,14 +71,14 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * This method lets you get a list of online stores connected to your API2Cart account. You can get the number of API requests to each store if you specify a period using parameters (request_from_date, request_to_date). The total_calls field is displayed only if there are parameters (request_from_date, request_to_date).
      * account.cart.list
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param requestFromDate Retrieve entities from their creation date
-     * @param requestToDate Retrieve entities to their creation date
      * @param storeUrl A web address of a store
      * @param storeKey Find store by store key
+     * @param requestFromDate Retrieve entities from their creation date
+     * @param requestToDate Retrieve entities to their creation date
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async accountCartList(params?: string, exclude?: string, requestFromDate?: string, requestToDate?: string, storeUrl?: string, storeKey?: string, _options?: Configuration): Promise<RequestContext> {
+    public async accountCartList(storeUrl?: string, storeKey?: string, requestFromDate?: string, requestToDate?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -95,13 +95,13 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        if (storeUrl !== undefined) {
+            requestContext.setQueryParam("store_url", ObjectSerializer.serialize(storeUrl, "string", ""));
         }
 
         // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        if (storeKey !== undefined) {
+            requestContext.setQueryParam("store_key", ObjectSerializer.serialize(storeKey, "string", ""));
         }
 
         // Query Params
@@ -115,13 +115,13 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (storeUrl !== undefined) {
-            requestContext.setQueryParam("store_url", ObjectSerializer.serialize(storeUrl, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
 
         // Query Params
-        if (storeKey !== undefined) {
-            requestContext.setQueryParam("store_key", ObjectSerializer.serialize(storeKey, "string", ""));
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -202,6 +202,7 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
      * @param shoplineAccessToken Shopline APP Key
      * @param shoplineAppKey Shopline APP Key
      * @param shoplineAppSecret Shopline App Secret
+     * @param shoplineSharedSecret Shopline Shared Secret
      * @param shopifyAccessToken Access token authorizing the app to access resources on behalf of a user
      * @param shopifyApiKey Shopify API Key
      * @param shopifyApiPassword Shopify API Password
@@ -285,8 +286,9 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
      * @param sallaRefreshToken Salla Refresh Token
      * @param sallaAccessToken Salla Access Token
      */
-    public async accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -732,6 +734,11 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (shoplineSharedSecret !== undefined) {
+            requestContext.setQueryParam("shopline_shared_secret", ObjectSerializer.serialize(shoplineSharedSecret, "string", ""));
+        }
+
+        // Query Params
         if (shopifyAccessToken !== undefined) {
             requestContext.setQueryParam("shopify_access_token", ObjectSerializer.serialize(shopifyAccessToken, "string", ""));
         }
@@ -1168,11 +1175,11 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * If the callback of your service for some reason could not accept webhooks from API2Cart, then with the help of this method you can get a list of missed webhooks to perform synchronization again using entity_id. Please note that we keep such records for 24 hours.
      * account.failed_webhooks
-     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param start This parameter sets the number from which you want to get entities
+     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param ids List of сomma-separated webhook ids
      */
-    public async accountFailedWebhooks(count?: number, start?: number, ids?: string, _options?: Configuration): Promise<RequestContext> {
+    public async accountFailedWebhooks(start?: number, count?: number, ids?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -1186,13 +1193,13 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
 
         // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
         }
 
         // Query Params

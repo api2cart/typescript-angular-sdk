@@ -257,8 +257,6 @@ const configuration = createConfiguration();
 const apiInstance = new WebhookApi(configuration);
 
 const request: WebhookApiWebhookListRequest = {
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,entity,callback,fields",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
@@ -271,6 +269,8 @@ const request: WebhookApiWebhookListRequest = {
   active: true,
     // List of сomma-separated webhook ids (optional)
   ids: "3,14,25",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "id,entity,callback,fields",
 };
 
 const data = await apiInstance.webhookList(request);
@@ -282,13 +282,13 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,entity,action,callback'
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **entity** | [**string**] | The entity you want to filter webhooks by (e.g. order or product) | (optional) defaults to undefined
  **action** | [**string**] | The action you want to filter webhooks by (e.g. add, update, or delete) | (optional) defaults to undefined
  **active** | [**boolean**] | The webhook status you want to filter webhooks by | (optional) defaults to undefined
  **ids** | [**string**] | List of сomma-separated webhook ids | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,entity,action,callback'
 
 
 ### Return type

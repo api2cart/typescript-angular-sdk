@@ -15,10 +15,6 @@ import { HttpFile } from '../http/http';
 
 export class ProductVariantUpdate {
     /**
-    * Defines store id where the variant should be found
-    */
-    'storeId'?: string;
-    /**
     * Defines variant update specified by variant id
     */
     'id'?: string;
@@ -26,6 +22,86 @@ export class ProductVariantUpdate {
     * Defines product\'s id where the variant has to be updated
     */
     'productId'?: string;
+    /**
+    * Defines store id where the variant should be found
+    */
+    'storeId'?: string;
+    /**
+    * Language id
+    */
+    'langId'?: string;
+    /**
+    * Defines variant\'s options list
+    */
+    'options'?: Array<ProductVariantUpdateOptionsInner>;
+    /**
+    * Defines variant\'s name that has to be updated
+    */
+    'name'?: string;
+    /**
+    * Specifies variant\'s description
+    */
+    'description'?: string;
+    /**
+    * Defines short description
+    */
+    'shortDescription'?: string;
+    /**
+    * Specifies variant\'s model that has to be added
+    */
+    'model'?: string;
+    /**
+    * Defines new product\'s variant sku
+    */
+    'sku'?: string;
+    /**
+    * Set visibility status
+    */
+    'visible'?: string;
+    /**
+    * Defines product variant\'s status
+    */
+    'status'?: string;
+    /**
+    * Set backorder status
+    */
+    'backorderStatus'?: string;
+    /**
+    * Specifies the set of visible/invisible product\'s variants for sale
+    */
+    'availableForSale'?: boolean;
+    /**
+    * Defines category\'s visibility status
+    */
+    'avail'?: boolean;
+    /**
+    * Defines as a default variant
+    */
+    'isDefault'?: boolean;
+    /**
+    * Specifies variant\'s free shipping flag that has to be added
+    */
+    'isFreeShipping'?: boolean;
+    /**
+    * Specifies whether a tax is charged
+    */
+    'taxable'?: boolean;
+    /**
+    * Defines tax classes where entity has to be added
+    */
+    'taxClassId'?: string;
+    /**
+    * Defines whether the product is virtual
+    */
+    'isVirtual'?: boolean;
+    /**
+    * Defines inventory tracking for product variant
+    */
+    'manageStock'?: boolean;
+    /**
+    * Set stock status
+    */
+    'inStock'?: boolean;
     /**
     * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
@@ -79,54 +155,6 @@ export class ProductVariantUpdate {
     */
     'spriceExpire'?: string;
     /**
-    * Defines inventory tracking for product variant
-    */
-    'manageStock'?: boolean;
-    /**
-    * Set stock status
-    */
-    'inStock'?: boolean;
-    /**
-    * Defines variant\'s name that has to be updated
-    */
-    'name'?: string;
-    /**
-    * Specifies variant\'s description
-    */
-    'description'?: string;
-    /**
-    * Defines new product\'s variant sku
-    */
-    'sku'?: string;
-    /**
-    * Defines unique meta title for each entity
-    */
-    'metaTitle'?: string;
-    /**
-    * Defines unique meta description of a entity
-    */
-    'metaDescription'?: string;
-    /**
-    * Defines unique meta keywords for each entity
-    */
-    'metaKeywords'?: string;
-    /**
-    * Defines short description
-    */
-    'shortDescription'?: string;
-    /**
-    * Set visibility status
-    */
-    'visible'?: string;
-    /**
-    * Defines product variant\'s status
-    */
-    'status'?: string;
-    /**
-    * Set backorder status
-    */
-    'backorderStatus'?: string;
-    /**
     * Weight
     */
     'weight'?: number;
@@ -134,26 +162,6 @@ export class ProductVariantUpdate {
     * A barcode is a unique code composed of numbers used as a product identifier.
     */
     'barcode'?: string;
-    /**
-    * Is reindex required
-    */
-    'reindex'?: boolean;
-    /**
-    * Specifies whether a tax is charged
-    */
-    'taxable'?: boolean;
-    /**
-    * Defines variant\'s options list
-    */
-    'options'?: Array<ProductVariantUpdateOptionsInner>;
-    /**
-    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
-    */
-    'harmonizedSystemCode'?: string;
-    /**
-    * The country where the inventory item was made
-    */
-    'countryOfOrigin'?: string;
     /**
     * Defines product\'s width
     */
@@ -175,22 +183,6 @@ export class ProductVariantUpdate {
     */
     'gtin'?: string;
     /**
-    * Is cache clear required
-    */
-    'clearCache'?: boolean;
-    /**
-    * Language id
-    */
-    'langId'?: string;
-    /**
-    * Specifies variant\'s model that has to be added
-    */
-    'model'?: string;
-    /**
-    * Specifies the set of visible/invisible product\'s variants for sale
-    */
-    'availableForSale'?: boolean;
-    /**
     * Universal Product Code. A UPC (UPC-A) is a commonly used identifer for many different products.
     */
     'upc'?: string;
@@ -207,37 +199,39 @@ export class ProductVariantUpdate {
     */
     'isbn'?: string;
     /**
-    * Defines category\'s visibility status
+    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
     */
-    'avail'?: boolean;
+    'harmonizedSystemCode'?: string;
     /**
-    * Defines as a default variant
+    * The country where the inventory item was made
     */
-    'isDefault'?: boolean;
+    'countryOfOrigin'?: string;
     /**
-    * Specifies variant\'s free shipping flag that has to be added
+    * Defines unique meta title for each entity
     */
-    'isFreeShipping'?: boolean;
+    'metaTitle'?: string;
     /**
-    * Defines tax classes where entity has to be added
+    * Defines unique meta description of a entity
     */
-    'taxClassId'?: string;
+    'metaDescription'?: string;
     /**
-    * Defines whether the product is virtual
+    * Defines unique meta keywords for each entity
     */
-    'isVirtual'?: boolean;
+    'metaKeywords'?: string;
+    /**
+    * Is reindex required
+    */
+    'reindex'?: boolean;
+    /**
+    * Is cache clear required
+    */
+    'clearCache'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "id",
             "baseName": "id",
@@ -248,6 +242,126 @@ export class ProductVariantUpdate {
             "name": "productId",
             "baseName": "product_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "langId",
+            "baseName": "lang_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "options",
+            "baseName": "options",
+            "type": "Array<ProductVariantUpdateOptionsInner>",
+            "format": ""
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shortDescription",
+            "baseName": "short_description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "model",
+            "baseName": "model",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "sku",
+            "baseName": "sku",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "visible",
+            "baseName": "visible",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "backorderStatus",
+            "baseName": "backorder_status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "availableForSale",
+            "baseName": "available_for_sale",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "avail",
+            "baseName": "avail",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isDefault",
+            "baseName": "is_default",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isFreeShipping",
+            "baseName": "is_free_shipping",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "taxable",
+            "baseName": "taxable",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "taxClassId",
+            "baseName": "tax_class_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isVirtual",
+            "baseName": "is_virtual",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "manageStock",
+            "baseName": "manage_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "inStock",
+            "baseName": "in_stock",
+            "type": "boolean",
             "format": ""
         },
         {
@@ -329,78 +443,6 @@ export class ProductVariantUpdate {
             "format": ""
         },
         {
-            "name": "manageStock",
-            "baseName": "manage_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "inStock",
-            "baseName": "in_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "name",
-            "baseName": "name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "description",
-            "baseName": "description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "sku",
-            "baseName": "sku",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "metaTitle",
-            "baseName": "meta_title",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "metaDescription",
-            "baseName": "meta_description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "metaKeywords",
-            "baseName": "meta_keywords",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shortDescription",
-            "baseName": "short_description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "visible",
-            "baseName": "visible",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "status",
-            "baseName": "status",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "backorderStatus",
-            "baseName": "backorder_status",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "weight",
             "baseName": "weight",
             "type": "number",
@@ -409,36 +451,6 @@ export class ProductVariantUpdate {
         {
             "name": "barcode",
             "baseName": "barcode",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "reindex",
-            "baseName": "reindex",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "taxable",
-            "baseName": "taxable",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "options",
-            "baseName": "options",
-            "type": "Array<ProductVariantUpdateOptionsInner>",
-            "format": ""
-        },
-        {
-            "name": "harmonizedSystemCode",
-            "baseName": "harmonized_system_code",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "countryOfOrigin",
-            "baseName": "country_of_origin",
             "type": "string",
             "format": ""
         },
@@ -473,30 +485,6 @@ export class ProductVariantUpdate {
             "format": ""
         },
         {
-            "name": "clearCache",
-            "baseName": "clear_cache",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "langId",
-            "baseName": "lang_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "model",
-            "baseName": "model",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "availableForSale",
-            "baseName": "available_for_sale",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "upc",
             "baseName": "upc",
             "type": "string",
@@ -521,32 +509,44 @@ export class ProductVariantUpdate {
             "format": ""
         },
         {
-            "name": "avail",
-            "baseName": "avail",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isDefault",
-            "baseName": "is_default",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "isFreeShipping",
-            "baseName": "is_free_shipping",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "taxClassId",
-            "baseName": "tax_class_id",
+            "name": "harmonizedSystemCode",
+            "baseName": "harmonized_system_code",
             "type": "string",
             "format": ""
         },
         {
-            "name": "isVirtual",
-            "baseName": "is_virtual",
+            "name": "countryOfOrigin",
+            "baseName": "country_of_origin",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metaTitle",
+            "baseName": "meta_title",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metaDescription",
+            "baseName": "meta_description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "metaKeywords",
+            "baseName": "meta_keywords",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "reindex",
+            "baseName": "reindex",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "clearCache",
+            "baseName": "clear_cache",
             "type": "boolean",
             "format": ""
         }    ];

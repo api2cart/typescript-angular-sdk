@@ -22,6 +22,10 @@ export class ProductVariantImageAdd {
     */
     'productVariantId': string;
     /**
+    * Store Id
+    */
+    'storeId'?: string;
+    /**
     * Defines image\'s name
     */
     'imageName': string;
@@ -50,10 +54,6 @@ export class ProductVariantImageAdd {
     */
     'position'?: number;
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * Defines option id of the product variant for which the image will be added
     */
     'optionId'?: string;
@@ -72,6 +72,12 @@ export class ProductVariantImageAdd {
         {
             "name": "productVariantId",
             "baseName": "product_variant_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },
@@ -115,12 +121,6 @@ export class ProductVariantImageAdd {
             "name": "position",
             "baseName": "position",
             "type": "number",
-            "format": ""
-        },
-        {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
             "format": ""
         },
         {

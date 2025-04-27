@@ -98,13 +98,13 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (code !== undefined) {
-            requestContext.setQueryParam("code", ObjectSerializer.serialize(code, "string", ""));
+        if (name !== undefined) {
+            requestContext.setQueryParam("name", ObjectSerializer.serialize(name, "string", ""));
         }
 
         // Query Params
-        if (name !== undefined) {
-            requestContext.setQueryParam("name", ObjectSerializer.serialize(name, "string", ""));
+        if (code !== undefined) {
+            requestContext.setQueryParam("code", ObjectSerializer.serialize(code, "string", ""));
         }
 
         // Query Params
@@ -355,11 +355,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * attribute.attributeset.list
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async attributeAttributesetList(start?: number, count?: number, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeAttributesetList(start?: number, count?: number, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -385,6 +385,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -392,11 +397,6 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 
@@ -528,13 +528,13 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        if (id !== undefined) {
+            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
         }
 
         // Query Params
-        if (id !== undefined) {
-            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
 
@@ -563,13 +563,13 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * attribute.group.list
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param attributeSetId Attribute set id
      * @param langId Language id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param attributeSetId Attribute set id
      */
-    public async attributeGroupList(start?: number, count?: number, langId?: string, params?: string, exclude?: string, responseFields?: string, attributeSetId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeGroupList(start?: number, count?: number, attributeSetId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -597,8 +597,18 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (attributeSetId !== undefined) {
+            requestContext.setQueryParam("attribute_set_id", ObjectSerializer.serialize(attributeSetId, "string", ""));
+        }
+
+        // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
@@ -609,16 +619,6 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
-        }
-
-        // Query Params
-        if (attributeSetId !== undefined) {
-            requestContext.setQueryParam("attribute_set_id", ObjectSerializer.serialize(attributeSetId, "string", ""));
         }
 
 
@@ -649,11 +649,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param attributeSetId Attribute set id
      * @param storeId Store Id
      * @param langId Language id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async attributeInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeInfo(id: string, attributeSetId?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -696,6 +696,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
@@ -703,11 +708,6 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
 
@@ -736,19 +736,19 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * attribute.list
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param type Defines attribute\&#39;s type
      * @param attributeIds Filter attributes by ids
      * @param attributeSetId Filter items by attribute set id
      * @param storeId Store Id
      * @param langId Retrieves attributes on specified language id
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param type Defines attribute\&#39;s type
      * @param visible Filter items by visibility status
      * @param required Defines if the option is required
      * @param system True if attribute is system
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async attributeList(start?: number, count?: number, type?: string, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, params?: string, exclude?: string, responseFields?: string, visible?: boolean, required?: boolean, system?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async attributeList(start?: number, count?: number, attributeIds?: string, attributeSetId?: string, storeId?: string, langId?: string, type?: string, visible?: boolean, required?: boolean, system?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -782,11 +782,6 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (type !== undefined) {
-            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "string", ""));
-        }
-
-        // Query Params
         if (attributeIds !== undefined) {
             requestContext.setQueryParam("attribute_ids", ObjectSerializer.serialize(attributeIds, "string", ""));
         }
@@ -807,18 +802,8 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        if (type !== undefined) {
+            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "string", ""));
         }
 
         // Query Params
@@ -834,6 +819,21 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (system !== undefined) {
             requestContext.setQueryParam("system", ObjectSerializer.serialize(system, "boolean", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 

@@ -35,10 +35,6 @@ export class ProductAdd {
     */
     'model': string;
     /**
-    * Defines product\'s sku that has to be added
-    */
-    'sku'?: string;
-    /**
     * Defines product\'s description that has to be added
     */
     'description': string;
@@ -47,41 +43,53 @@ export class ProductAdd {
     */
     'price': number;
     /**
-    * Defines product\'s old price
+    * Defines product\'s sku that has to be added
     */
-    'oldPrice'?: number;
+    'sku'?: string;
     /**
-    * Defines product\'s model that has to be added
+    * Defines short description
     */
-    'specialPrice'?: number;
+    'shortDescription'?: string;
     /**
-    * Defines new product\'s cost price
+    * Defines product\'s type
     */
-    'costPrice'?: number;
+    'type'?: string;
     /**
-    * Specifies product\'s fixed cost shipping price
+    * Defines product\'s status
     */
-    'fixedCostShippingPrice'?: number;
+    'status'?: string;
     /**
-    * Defines the date of special price creation
+    * Set visibility status
     */
-    'spriceCreate'?: string;
+    'visible'?: string;
     /**
-    * Defines the date of special price modification
+    * Defines product add that is specified by category id
     */
-    'spriceModified'?: string;
+    'categoryId'?: string;
     /**
-    * Defines the term of special price offer duration
+    * Defines product add that is specified by comma-separated categories id
     */
-    'spriceExpire'?: string;
+    'categoriesIds'?: string;
     /**
-    * Defines product\'s tier prices
+    * A categorization for the product
     */
-    'tierPrices'?: Array<ProductAddTierPricesInner>;
+    'productClass'?: string;
     /**
-    * Defines product\'s group prices
+    * A categorization for the product
     */
-    'groupPrices'?: Array<ProductAddGroupPricesInner>;
+    'productType'?: string;
+    /**
+    * Defines whether the product is virtual
+    */
+    'isVirtual'?: boolean;
+    /**
+    * Defines whether the product is downloadable
+    */
+    'downloadable'?: boolean;
+    /**
+    * If true, it indicates the product as a supply, otherwise it indicates that it is a finished product.
+    */
+    'isSupply'?: boolean;
     /**
     * Specifies the set of visible/invisible products for users
     */
@@ -91,9 +99,89 @@ export class ProductAdd {
     */
     'availableForSale'?: boolean;
     /**
+    * Store Id
+    */
+    'storeId'?: string;
+    /**
+    * Assign product to the stores that is specified by comma-separated stores\' id
+    */
+    'storesIds'?: string;
+    /**
+    * Language id
+    */
+    'langId'?: string;
+    /**
+    * Defines product\'s old price
+    */
+    'oldPrice'?: number;
+    /**
+    * Defines product\'s model that has to be added
+    */
+    'specialPrice'?: number;
+    /**
+    * Defines product\'s sale price
+    */
+    'wholesalePrice'?: number;
+    /**
+    * Defines new product\'s cost price
+    */
+    'costPrice'?: number;
+    /**
+    * Specifies product\'s fixed cost shipping price
+    */
+    'fixedCostShippingPrice'?: number;
+    /**
+    * Defines product\'s tier prices
+    */
+    'tierPrices'?: Array<ProductAddTierPricesInner>;
+    /**
+    * Defines product\'s group prices
+    */
+    'groupPrices'?: Array<ProductAddGroupPricesInner>;
+    /**
+    * Defines buy it now value
+    */
+    'buyitnowPrice'?: number;
+    /**
+    * Defines reserve price value
+    */
+    'reservePrice'?: number;
+    /**
+    * Defines product\'s quantity that has to be added
+    */
+    'quantity'?: number;
+    /**
+    * Set stock status
+    */
+    'inStock'?: boolean;
+    /**
+    * Defines inventory tracking for product
+    */
+    'manageStock'?: boolean;
+    /**
+    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
+    */
+    'warehouseId'?: string;
+    /**
+    * Set backorder status
+    */
+    'backorderStatus'?: string;
+    /**
+    * The minimum quantity an order must contain, to be eligible to purchase this product.
+    */
+    'minOrderQuantity'?: number;
+    /**
+    * The maximum quantity an order can contain when purchasing the product.
+    */
+    'maxOrderQuantity'?: number;
+    /**
     * Weight
     */
     'weight'?: number;
+    /**
+    * Weight Unit
+    */
+    'weightUnit'?: string;
     /**
     * Defines product\'s width
     */
@@ -109,155 +197,7 @@ export class ProductAdd {
     /**
     * Weight Unit
     */
-    'weightUnit'?: string;
-    /**
-    * Weight Unit
-    */
     'dimensionsUnit'?: string;
-    /**
-    * Defines short description
-    */
-    'shortDescription'?: string;
-    /**
-    * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
-    */
-    'warehouseId'?: string;
-    /**
-    * Set backorder status
-    */
-    'backorderStatus'?: string;
-    /**
-    * Defines product\'s quantity that has to be added
-    */
-    'quantity'?: number;
-    /**
-    * Defines whether the product is downloadable
-    */
-    'downloadable'?: boolean;
-    /**
-    * Defines product\'s sale price
-    */
-    'wholesalePrice'?: number;
-    /**
-    * Defines the date of entity creation
-    */
-    'createdAt'?: string;
-    /**
-    * Defines product\'s manufacturer
-    */
-    'manufacturer'?: string;
-    /**
-    * Defines product\'s manufacturer by manufacturer_id
-    */
-    'manufacturerId'?: string;
-    /**
-    * Defines product add that is specified by comma-separated categories id
-    */
-    'categoriesIds'?: string;
-    /**
-    * Defines product\'s related products ids that has to be added
-    */
-    'relatedProductsIds'?: string;
-    /**
-    * Defines product\'s up-sell products ids that has to be added
-    */
-    'upSellProductsIds'?: string;
-    /**
-    * Defines product\'s cross-sell products ids that has to be added
-    */
-    'crossSellProductsIds'?: string;
-    /**
-    * Defines tax classes where entity has to be added
-    */
-    'taxClassId'?: string;
-    /**
-    * Defines product\'s type
-    */
-    'type'?: string;
-    /**
-    * Defines unique meta title for each entity
-    */
-    'metaTitle'?: string;
-    /**
-    * Defines unique meta keywords for each entity
-    */
-    'metaKeywords'?: string;
-    /**
-    * Defines unique meta description of a entity
-    */
-    'metaDescription'?: string;
-    /**
-    * Defines unique product\'s URL
-    */
-    'url'?: string;
-    /**
-    * Language id
-    */
-    'langId'?: string;
-    /**
-    * Assign product to the stores that is specified by comma-separated stores\' id
-    */
-    'storesIds'?: string;
-    /**
-    * Defines product add that is specified by category id
-    */
-    'categoryId'?: string;
-    /**
-    * Specifies the number of product\'s reviews
-    */
-    'viewedCount'?: number;
-    /**
-    * Defines how many times the product was ordered
-    */
-    'orderedCount'?: number;
-    /**
-    * Defines product’s attribute set name in Magento
-    */
-    'attributeSetName'?: string;
-    /**
-    * Defines product’s attribute name separated with a comma in Magento
-    */
-    'attributeName'?: string;
-    /**
-    * The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id.
-    */
-    'shippingTemplateId'?: number;
-    /**
-    * Defines product\'s production partner ids that has to be added
-    */
-    'productionPartnerIds'?: string;
-    /**
-    * The human-readable label for the condition (e.g., \"New\").
-    */
-    'condition'?: string;
-    /**
-    * Describes the number of days the seller wants the listing to be active. Look at cart.info method response for allowed values.
-    */
-    'listingDuration'?: string;
-    /**
-    * Indicates the selling format of the marketplace listing.
-    */
-    'listingType'?: string;
-    /**
-    * Identifies the payment method (such as PayPal) that the seller will accept when the buyer pays for the item. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">payment_methods[0] = string</br>payment_methods[1] = string</br></code></div></div>
-    */
-    'paymentMethods'?: Array<string>;
-    /**
-    * Indicates whether the seller allows the buyer to return the item.
-    */
-    'returnAccepted'?: boolean;
-    /**
-    * The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div>
-    */
-    'shippingDetails'?: Array<ProductAddShippingDetailsInner>;
-    /**
-    * Valid PayPal email address for the PayPal account that the seller will use if they offer PayPal as a payment method for the listing.
-    */
-    'paypalEmail'?: string;
-    'sellerProfiles'?: ProductAddSellerProfiles;
-    'packageDetails'?: ProductAddPackageDetails;
-    'bestOffer'?: ProductAddBestOffer;
-    'salesTax'?: ProductAddSalesTax;
     /**
     * A barcode is a unique code composed of numbers used as a product identifier.
     */
@@ -275,9 +215,42 @@ export class ProductAdd {
     */
     'isbn'?: string;
     /**
-    * An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b>
+    * Global Trade Item Number. An GTIN is an identifier for trade items.
     */
-    'specifics'?: Array<ProductAddSpecificsInner>;
+    'gtin'?: string;
+    /**
+    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
+    */
+    'mpn'?: string;
+    /**
+    * Amazon Standard Identification Number.
+    */
+    'asin'?: string;
+    /**
+    * Groups all variations, that you want to combine into one product.
+    */
+    'productReference'?: string;
+    /**
+    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
+    */
+    'harmonizedSystemCode'?: string;
+    /**
+    * The country where the inventory item was made
+    */
+    'countryOfOrigin'?: string;
+    /**
+    * Defines product\'s manufacturer
+    */
+    'manufacturer'?: string;
+    /**
+    * Defines product\'s manufacturer by manufacturer_id
+    */
+    'manufacturerId'?: string;
+    'manufacturerInfo'?: ProductAddManufacturerInfo;
+    /**
+    * Defines product brand name
+    */
+    'brandName'?: string;
     /**
     * Image Url
     */
@@ -291,125 +264,143 @@ export class ProductAdd {
     */
     'additionalImageUrls'?: Array<string>;
     /**
-    * Defines reserve price value
-    */
-    'reservePrice'?: number;
-    /**
-    * Defines buy it now value
-    */
-    'buyitnowPrice'?: number;
-    /**
-    * Detailed description of the product condition.
-    */
-    'conditionDescription'?: string;
-    /**
-    * This allows buyers to remain anonymous when the bid or buy an item.
-    */
-    'auctionConfidentialityLevel'?: string;
-    /**
-    * Defines product\'s logistic channel settings
-    */
-    'logisticInfo'?: Array<ProductAddLogisticInfoInner>;
-    /**
-    * Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
-    */
-    'availFrom'?: string;
-    /**
-    * Product tags
-    */
-    'tags'?: string;
-    /**
-    * Is cache clear required
-    */
-    'clearCache'?: boolean;
-    /**
-    * Amazon Standard Identification Number.
-    */
-    'asin'?: string;
-    /**
-    * Global Trade Item Number. An GTIN is an identifier for trade items.
-    */
-    'gtin'?: string;
-    /**
-    * Manufacturer Part Number. A MPN is an identifier of a particular part design or material used.
-    */
-    'mpn'?: string;
-    /**
-    * Specifies whether a tax is charged
-    */
-    'taxable'?: boolean;
-    /**
-    * Set visibility status
-    */
-    'visible'?: string;
-    /**
-    * Defines product\'s status
-    */
-    'status'?: string;
-    /**
-    * Defines unique URL for SEO
-    */
-    'seoUrl'?: string;
-    /**
-    * A categorization for the product
-    */
-    'productClass'?: string;
-    /**
-    * A categorization for the product
-    */
-    'productType'?: string;
-    /**
-    * String containing the JSON representation of the supplied data
-    */
-    'marketplaceItemProperties'?: string;
-    /**
-    * Defines inventory tracking for product
-    */
-    'manageStock'?: boolean;
-    /**
-    * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
-    */
-    'harmonizedSystemCode'?: string;
-    /**
-    * The country where the inventory item was made
-    */
-    'countryOfOrigin'?: string;
-    /**
     * File Url
     */
     'files'?: Array<ProductAddFilesInner>;
+    'sizeChart'?: ProductAddSizeChart;
+    /**
+    * Defines product\'s related products ids that has to be added
+    */
+    'relatedProductsIds'?: string;
+    /**
+    * Defines product\'s up-sell products ids that has to be added
+    */
+    'upSellProductsIds'?: string;
+    /**
+    * Defines product\'s cross-sell products ids that has to be added
+    */
+    'crossSellProductsIds'?: string;
+    /**
+    * Defines product’s attribute set name in Magento
+    */
+    'attributeSetName'?: string;
+    /**
+    * Defines product’s attribute name separated with a comma in Magento
+    */
+    'attributeName'?: string;
     /**
     * Defines unique search keywords
     */
     'searchKeywords'?: string;
     /**
-    * Store Id
+    * Product tags
     */
-    'storeId'?: string;
+    'tags'?: string;
     /**
-    * Defines product brand name
+    * A list of material strings for materials used in the product.
     */
-    'brandName'?: string;
+    'materials'?: Array<string>;
     /**
-    * Defines whether the product is virtual
+    * An array of product certifications. The list of possible certifications can be obtained using the \"<i>category.info</i>\" method (<i>additional_fields->rules->product_certifications</i>).
     */
-    'isVirtual'?: boolean;
+    'certifications'?: Array<ProductAddCertificationsInner>;
+    /**
+    * An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b>
+    */
+    'specifics'?: Array<ProductAddSpecificsInner>;
+    /**
+    * Allows to schedule a time in the future that the item becomes available. The value should be greater than the current date and time.
+    */
+    'availFrom'?: string;
+    /**
+    * Defines the date of special price creation
+    */
+    'spriceCreate'?: string;
+    /**
+    * Defines the date of special price modification
+    */
+    'spriceModified'?: string;
+    /**
+    * Defines the term of special price offer duration
+    */
+    'spriceExpire'?: string;
+    /**
+    * Defines the date of entity creation
+    */
+    'createdAt'?: string;
+    /**
+    * When true, automatically renews a listing upon its expiration.
+    */
+    'autoRenew'?: boolean;
+    /**
+    * An enumerated string for the era in which the maker made the product.
+    */
+    'whenMade'?: string;
+    /**
+    * Defines unique meta title for each entity
+    */
+    'metaTitle'?: string;
+    /**
+    * Defines unique meta keywords for each entity
+    */
+    'metaKeywords'?: string;
+    /**
+    * Defines unique meta description of a entity
+    */
+    'metaDescription'?: string;
+    /**
+    * Defines unique product\'s URL
+    */
+    'url'?: string;
+    /**
+    * Defines unique URL for SEO
+    */
+    'seoUrl'?: string;
+    /**
+    * Defines tax classes where entity has to be added
+    */
+    'taxClassId'?: string;
+    /**
+    * Specifies whether a tax is charged
+    */
+    'taxable'?: boolean;
+    'salesTax'?: ProductAddSalesTax;
+    /**
+    * The human-readable label for the condition (e.g., \"New\").
+    */
+    'condition'?: string;
+    /**
+    * Detailed description of the product condition.
+    */
+    'conditionDescription'?: string;
+    /**
+    * Flag used to determine whether the product condition is shown to the customer on the product page.
+    */
+    'allowDisplayCondition'?: boolean;
+    /**
+    * Identifies the payment method (such as PayPal) that the seller will accept when the buyer pays for the item. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">payment_methods[0] = string</br>payment_methods[1] = string</br></code></div></div>
+    */
+    'paymentMethods'?: Array<string>;
+    /**
+    * Valid PayPal email address for the PayPal account that the seller will use if they offer PayPal as a payment method for the listing.
+    */
+    'paypalEmail'?: string;
+    /**
+    * The numeric ID of the shipping template associated with the products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field shipping_zones[]->id.
+    */
+    'shippingTemplateId'?: number;
+    /**
+    * The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div>
+    */
+    'shippingDetails'?: Array<ProductAddShippingDetailsInner>;
     /**
     * Specifies product\'s free shipping flag that has to be added
     */
     'isFreeShipping'?: boolean;
     /**
-    * Set stock status
-    */
-    'inStock'?: boolean;
-    /**
     * The delivery promise that applies to offer
     */
     'deliveryCode'?: string;
-    /**
-    * Groups all variations, that you want to combine into one product.
-    */
-    'productReference'?: string;
     /**
     * Defines the type of the delivery.
     */
@@ -418,44 +409,53 @@ export class ProductAdd {
     * Defines delivery time in days.
     */
     'deliveryTime'?: number;
-    'sizeChart'?: ProductAddSizeChart;
-    /**
-    * An array of product certifications. The list of possible certifications can be obtained using the \"<i>category.info</i>\" method (<i>additional_fields->rules->product_certifications</i>).
-    */
-    'certifications'?: Array<ProductAddCertificationsInner>;
     /**
     * Defines delivery options for product by ids.
     */
     'deliveryOptionIds'?: string;
-    'manufacturerInfo'?: ProductAddManufacturerInfo;
+    'packageDetails'?: ProductAddPackageDetails;
     /**
-    * An enumerated string for the era in which the maker made the product.
+    * Defines product\'s logistic channel settings
     */
-    'whenMade'?: string;
+    'logisticInfo'?: Array<ProductAddLogisticInfoInner>;
     /**
-    * If true, it indicates the product as a supply, otherwise it indicates that it is a finished product.
+    * Describes the number of days the seller wants the listing to be active. Look at cart.info method response for allowed values.
     */
-    'isSupply'?: boolean;
+    'listingDuration'?: string;
     /**
-    * A list of material strings for materials used in the product.
+    * Indicates the selling format of the marketplace listing.
     */
-    'materials'?: Array<string>;
+    'listingType'?: string;
     /**
-    * When true, automatically renews a listing upon its expiration.
+    * Indicates whether the seller allows the buyer to return the item.
     */
-    'autoRenew'?: boolean;
+    'returnAccepted'?: boolean;
+    'sellerProfiles'?: ProductAddSellerProfiles;
     /**
-    * Flag used to determine whether the product condition is shown to the customer on the product page.
+    * This allows buyers to remain anonymous when the bid or buy an item.
     */
-    'allowDisplayCondition'?: boolean;
+    'auctionConfidentialityLevel'?: string;
+    'bestOffer'?: ProductAddBestOffer;
     /**
-    * The minimum quantity an order must contain, to be eligible to purchase this product.
+    * Defines product\'s production partner ids that has to be added
     */
-    'minOrderQuantity'?: number;
+    'productionPartnerIds'?: string;
     /**
-    * The maximum quantity an order can contain when purchasing the product.
+    * String containing the JSON representation of the supplied data
     */
-    'maxOrderQuantity'?: number;
+    'marketplaceItemProperties'?: string;
+    /**
+    * Is cache clear required
+    */
+    'clearCache'?: boolean;
+    /**
+    * Specifies the number of product\'s reviews
+    */
+    'viewedCount'?: number;
+    /**
+    * Defines how many times the product was ordered
+    */
+    'orderedCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -475,12 +475,6 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "sku",
-            "baseName": "sku",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "description",
             "baseName": "description",
             "type": "string",
@@ -493,6 +487,108 @@ export class ProductAdd {
             "format": ""
         },
         {
+            "name": "sku",
+            "baseName": "sku",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shortDescription",
+            "baseName": "short_description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "type",
+            "baseName": "type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "visible",
+            "baseName": "visible",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "categoryId",
+            "baseName": "category_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "categoriesIds",
+            "baseName": "categories_ids",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "productClass",
+            "baseName": "product_class",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "productType",
+            "baseName": "product_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isVirtual",
+            "baseName": "is_virtual",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "downloadable",
+            "baseName": "downloadable",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "isSupply",
+            "baseName": "is_supply",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "availableForView",
+            "baseName": "available_for_view",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "availableForSale",
+            "baseName": "available_for_sale",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storesIds",
+            "baseName": "stores_ids",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "langId",
+            "baseName": "lang_id",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "oldPrice",
             "baseName": "old_price",
             "type": "number",
@@ -501,6 +597,12 @@ export class ProductAdd {
         {
             "name": "specialPrice",
             "baseName": "special_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "wholesalePrice",
+            "baseName": "wholesale_price",
             "type": "number",
             "format": ""
         },
@@ -517,24 +619,6 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "spriceCreate",
-            "baseName": "sprice_create",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "spriceModified",
-            "baseName": "sprice_modified",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "spriceExpire",
-            "baseName": "sprice_expire",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "tierPrices",
             "baseName": "tier_prices",
             "type": "Array<ProductAddTierPricesInner>",
@@ -547,21 +631,69 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "availableForView",
-            "baseName": "available_for_view",
+            "name": "buyitnowPrice",
+            "baseName": "buyitnow_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "reservePrice",
+            "baseName": "reserve_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "quantity",
+            "baseName": "quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "inStock",
+            "baseName": "in_stock",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "availableForSale",
-            "baseName": "available_for_sale",
+            "name": "manageStock",
+            "baseName": "manage_stock",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "warehouseId",
+            "baseName": "warehouse_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "backorderStatus",
+            "baseName": "backorder_status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "minOrderQuantity",
+            "baseName": "min_order_quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "maxOrderQuantity",
+            "baseName": "max_order_quantity",
+            "type": "number",
             "format": ""
         },
         {
             "name": "weight",
             "baseName": "weight",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "weightUnit",
+            "baseName": "weight_unit",
+            "type": "string",
             "format": ""
         },
         {
@@ -583,56 +715,68 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "weightUnit",
-            "baseName": "weight_unit",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "dimensionsUnit",
             "baseName": "dimensions_unit",
             "type": "string",
             "format": ""
         },
         {
-            "name": "shortDescription",
-            "baseName": "short_description",
+            "name": "barcode",
+            "baseName": "barcode",
             "type": "string",
             "format": ""
         },
         {
-            "name": "warehouseId",
-            "baseName": "warehouse_id",
+            "name": "upc",
+            "baseName": "upc",
             "type": "string",
             "format": ""
         },
         {
-            "name": "backorderStatus",
-            "baseName": "backorder_status",
+            "name": "ean",
+            "baseName": "ean",
             "type": "string",
             "format": ""
         },
         {
-            "name": "quantity",
-            "baseName": "quantity",
-            "type": "number",
+            "name": "isbn",
+            "baseName": "isbn",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "downloadable",
-            "baseName": "downloadable",
-            "type": "boolean",
+            "name": "gtin",
+            "baseName": "gtin",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "wholesalePrice",
-            "baseName": "wholesale_price",
-            "type": "number",
+            "name": "mpn",
+            "baseName": "mpn",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "createdAt",
-            "baseName": "created_at",
+            "name": "asin",
+            "baseName": "asin",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "productReference",
+            "baseName": "product_reference",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "harmonizedSystemCode",
+            "baseName": "harmonized_system_code",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "countryOfOrigin",
+            "baseName": "country_of_origin",
             "type": "string",
             "format": ""
         },
@@ -649,9 +793,45 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "categoriesIds",
-            "baseName": "categories_ids",
+            "name": "manufacturerInfo",
+            "baseName": "manufacturer_info",
+            "type": "ProductAddManufacturerInfo",
+            "format": ""
+        },
+        {
+            "name": "brandName",
+            "baseName": "brand_name",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "imageUrl",
+            "baseName": "image_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "imageName",
+            "baseName": "image_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "additionalImageUrls",
+            "baseName": "additional_image_urls",
+            "type": "Array<string>",
+            "format": "uri"
+        },
+        {
+            "name": "files",
+            "baseName": "files",
+            "type": "Array<ProductAddFilesInner>",
+            "format": ""
+        },
+        {
+            "name": "sizeChart",
+            "baseName": "size_chart",
+            "type": "ProductAddSizeChart",
             "format": ""
         },
         {
@@ -673,14 +853,86 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "taxClassId",
-            "baseName": "tax_class_id",
+            "name": "attributeSetName",
+            "baseName": "attribute_set_name",
             "type": "string",
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
+            "name": "attributeName",
+            "baseName": "attribute_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "searchKeywords",
+            "baseName": "search_keywords",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "tags",
+            "baseName": "tags",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "materials",
+            "baseName": "materials",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "certifications",
+            "baseName": "certifications",
+            "type": "Array<ProductAddCertificationsInner>",
+            "format": ""
+        },
+        {
+            "name": "specifics",
+            "baseName": "specifics",
+            "type": "Array<ProductAddSpecificsInner>",
+            "format": ""
+        },
+        {
+            "name": "availFrom",
+            "baseName": "avail_from",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "spriceCreate",
+            "baseName": "sprice_create",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "spriceModified",
+            "baseName": "sprice_modified",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "spriceExpire",
+            "baseName": "sprice_expire",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "createdAt",
+            "baseName": "created_at",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "autoRenew",
+            "baseName": "auto_renew",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "whenMade",
+            "baseName": "when_made",
             "type": "string",
             "format": ""
         },
@@ -709,236 +961,14 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "langId",
-            "baseName": "lang_id",
+            "name": "seoUrl",
+            "baseName": "seo_url",
             "type": "string",
             "format": ""
         },
         {
-            "name": "storesIds",
-            "baseName": "stores_ids",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "categoryId",
-            "baseName": "category_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "viewedCount",
-            "baseName": "viewed_count",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "orderedCount",
-            "baseName": "ordered_count",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "attributeSetName",
-            "baseName": "attribute_set_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "attributeName",
-            "baseName": "attribute_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "shippingTemplateId",
-            "baseName": "shipping_template_id",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "productionPartnerIds",
-            "baseName": "production_partner_ids",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "condition",
-            "baseName": "condition",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "listingDuration",
-            "baseName": "listing_duration",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "listingType",
-            "baseName": "listing_type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "paymentMethods",
-            "baseName": "payment_methods",
-            "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "returnAccepted",
-            "baseName": "return_accepted",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "shippingDetails",
-            "baseName": "shipping_details",
-            "type": "Array<ProductAddShippingDetailsInner>",
-            "format": ""
-        },
-        {
-            "name": "paypalEmail",
-            "baseName": "paypal_email",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "sellerProfiles",
-            "baseName": "seller_profiles",
-            "type": "ProductAddSellerProfiles",
-            "format": ""
-        },
-        {
-            "name": "packageDetails",
-            "baseName": "package_details",
-            "type": "ProductAddPackageDetails",
-            "format": ""
-        },
-        {
-            "name": "bestOffer",
-            "baseName": "best_offer",
-            "type": "ProductAddBestOffer",
-            "format": ""
-        },
-        {
-            "name": "salesTax",
-            "baseName": "sales_tax",
-            "type": "ProductAddSalesTax",
-            "format": ""
-        },
-        {
-            "name": "barcode",
-            "baseName": "barcode",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "upc",
-            "baseName": "upc",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ean",
-            "baseName": "ean",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isbn",
-            "baseName": "isbn",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "specifics",
-            "baseName": "specifics",
-            "type": "Array<ProductAddSpecificsInner>",
-            "format": ""
-        },
-        {
-            "name": "imageUrl",
-            "baseName": "image_url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "imageName",
-            "baseName": "image_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "additionalImageUrls",
-            "baseName": "additional_image_urls",
-            "type": "Array<string>",
-            "format": "uri"
-        },
-        {
-            "name": "reservePrice",
-            "baseName": "reserve_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "buyitnowPrice",
-            "baseName": "buyitnow_price",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "conditionDescription",
-            "baseName": "condition_description",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "auctionConfidentialityLevel",
-            "baseName": "auction_confidentiality_level",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "logisticInfo",
-            "baseName": "logistic_info",
-            "type": "Array<ProductAddLogisticInfoInner>",
-            "format": ""
-        },
-        {
-            "name": "availFrom",
-            "baseName": "avail_from",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "tags",
-            "baseName": "tags",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "clearCache",
-            "baseName": "clear_cache",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "asin",
-            "baseName": "asin",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "gtin",
-            "baseName": "gtin",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "mpn",
-            "baseName": "mpn",
+            "name": "taxClassId",
+            "baseName": "tax_class_id",
             "type": "string",
             "format": ""
         },
@@ -949,87 +979,51 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "visible",
-            "baseName": "visible",
+            "name": "salesTax",
+            "baseName": "sales_tax",
+            "type": "ProductAddSalesTax",
+            "format": ""
+        },
+        {
+            "name": "condition",
+            "baseName": "condition",
             "type": "string",
             "format": ""
         },
         {
-            "name": "status",
-            "baseName": "status",
+            "name": "conditionDescription",
+            "baseName": "condition_description",
             "type": "string",
             "format": ""
         },
         {
-            "name": "seoUrl",
-            "baseName": "seo_url",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "productClass",
-            "baseName": "product_class",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "productType",
-            "baseName": "product_type",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "marketplaceItemProperties",
-            "baseName": "marketplace_item_properties",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "manageStock",
-            "baseName": "manage_stock",
+            "name": "allowDisplayCondition",
+            "baseName": "allow_display_condition",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "harmonizedSystemCode",
-            "baseName": "harmonized_system_code",
+            "name": "paymentMethods",
+            "baseName": "payment_methods",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "paypalEmail",
+            "baseName": "paypal_email",
             "type": "string",
             "format": ""
         },
         {
-            "name": "countryOfOrigin",
-            "baseName": "country_of_origin",
-            "type": "string",
+            "name": "shippingTemplateId",
+            "baseName": "shipping_template_id",
+            "type": "number",
             "format": ""
         },
         {
-            "name": "files",
-            "baseName": "files",
-            "type": "Array<ProductAddFilesInner>",
-            "format": ""
-        },
-        {
-            "name": "searchKeywords",
-            "baseName": "search_keywords",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "brandName",
-            "baseName": "brand_name",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "isVirtual",
-            "baseName": "is_virtual",
-            "type": "boolean",
+            "name": "shippingDetails",
+            "baseName": "shipping_details",
+            "type": "Array<ProductAddShippingDetailsInner>",
             "format": ""
         },
         {
@@ -1039,20 +1033,8 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "inStock",
-            "baseName": "in_stock",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "deliveryCode",
             "baseName": "delivery_code",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "productReference",
-            "baseName": "product_reference",
             "type": "string",
             "format": ""
         },
@@ -1069,68 +1051,86 @@ export class ProductAdd {
             "format": ""
         },
         {
-            "name": "sizeChart",
-            "baseName": "size_chart",
-            "type": "ProductAddSizeChart",
-            "format": ""
-        },
-        {
-            "name": "certifications",
-            "baseName": "certifications",
-            "type": "Array<ProductAddCertificationsInner>",
-            "format": ""
-        },
-        {
             "name": "deliveryOptionIds",
             "baseName": "delivery_option_ids",
             "type": "string",
             "format": ""
         },
         {
-            "name": "manufacturerInfo",
-            "baseName": "manufacturer_info",
-            "type": "ProductAddManufacturerInfo",
+            "name": "packageDetails",
+            "baseName": "package_details",
+            "type": "ProductAddPackageDetails",
             "format": ""
         },
         {
-            "name": "whenMade",
-            "baseName": "when_made",
+            "name": "logisticInfo",
+            "baseName": "logistic_info",
+            "type": "Array<ProductAddLogisticInfoInner>",
+            "format": ""
+        },
+        {
+            "name": "listingDuration",
+            "baseName": "listing_duration",
             "type": "string",
             "format": ""
         },
         {
-            "name": "isSupply",
-            "baseName": "is_supply",
+            "name": "listingType",
+            "baseName": "listing_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "returnAccepted",
+            "baseName": "return_accepted",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "materials",
-            "baseName": "materials",
-            "type": "Array<string>",
+            "name": "sellerProfiles",
+            "baseName": "seller_profiles",
+            "type": "ProductAddSellerProfiles",
             "format": ""
         },
         {
-            "name": "autoRenew",
-            "baseName": "auto_renew",
+            "name": "auctionConfidentialityLevel",
+            "baseName": "auction_confidentiality_level",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bestOffer",
+            "baseName": "best_offer",
+            "type": "ProductAddBestOffer",
+            "format": ""
+        },
+        {
+            "name": "productionPartnerIds",
+            "baseName": "production_partner_ids",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "marketplaceItemProperties",
+            "baseName": "marketplace_item_properties",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "clearCache",
+            "baseName": "clear_cache",
             "type": "boolean",
             "format": ""
         },
         {
-            "name": "allowDisplayCondition",
-            "baseName": "allow_display_condition",
-            "type": "boolean",
-            "format": ""
-        },
-        {
-            "name": "minOrderQuantity",
-            "baseName": "min_order_quantity",
+            "name": "viewedCount",
+            "baseName": "viewed_count",
             "type": "number",
             "format": ""
         },
         {
-            "name": "maxOrderQuantity",
-            "baseName": "max_order_quantity",
+            "name": "orderedCount",
+            "baseName": "ordered_count",
             "type": "number",
             "format": ""
         }    ];

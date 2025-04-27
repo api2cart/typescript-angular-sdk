@@ -102,6 +102,7 @@ const request: AccountApiAccountCartAddRequest = {
     shoplineAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     shoplineAppKey: "737cf6bd2879cb6c7e5a8ff9cd63f3d46b0b5b7b",
     shoplineAppSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
+    shoplineSharedSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
     shopifyAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     shopifyApiKey: "bbca57d8ff3c3677128112c15556d9e3",
     shopifyApiPassword: "860f3a6fc87632301a42cd88e4b5ab3d",
@@ -242,18 +243,18 @@ const configuration = createConfiguration();
 const apiInstance = new AccountApi(configuration);
 
 const request: AccountApiAccountCartListRequest = {
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "url,store_key",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "url,store_key",
-    // Retrieve entities from their creation date (optional)
-  requestFromDate: "2010-07-29",
-    // Retrieve entities to their creation date (optional)
-  requestToDate: "2100-08-29",
     // A web address of a store (optional)
   storeUrl: "http://mystore.com",
     // Find store by store key (optional)
   storeKey: "ab37fc230bc5df63a5be1b11220949be",
+    // Retrieve entities from their creation date (optional)
+  requestFromDate: "2010-07-29",
+    // Retrieve entities to their creation date (optional)
+  requestToDate: "2100-08-29",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  params: "url,store_key",
+    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
+  exclude: "url,store_key",
 };
 
 const data = await apiInstance.accountCartList(request);
@@ -265,12 +266,12 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
- **requestFromDate** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **requestToDate** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
  **storeUrl** | [**string**] | A web address of a store | (optional) defaults to undefined
  **storeKey** | [**string**] | Find store by store key | (optional) defaults to undefined
+ **requestFromDate** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **requestToDate** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
+ **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
 
 ### Return type
@@ -428,6 +429,8 @@ const request: AccountApiAccountConfigUpdateRequest = {
   shoplineAppKey: "737cf6bd2879cb6c7e5a8ff9cd63f3d46b0b5b7b",
     // Shopline App Secret (optional)
   shoplineAppSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
+    // Shopline Shared Secret (optional)
+  shoplineSharedSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
     // Access token authorizing the app to access resources on behalf of a user (optional)
   shopifyAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     // Shopify API Key (optional)
@@ -669,6 +672,7 @@ Name | Type | Description  | Notes
  **shoplineAccessToken** | [**string**] | Shopline APP Key | (optional) defaults to undefined
  **shoplineAppKey** | [**string**] | Shopline APP Key | (optional) defaults to undefined
  **shoplineAppSecret** | [**string**] | Shopline App Secret | (optional) defaults to undefined
+ **shoplineSharedSecret** | [**string**] | Shopline Shared Secret | (optional) defaults to undefined
  **shopifyAccessToken** | [**string**] | Access token authorizing the app to access resources on behalf of a user | (optional) defaults to undefined
  **shopifyApiKey** | [**string**] | Shopify API Key | (optional) defaults to undefined
  **shopifyApiPassword** | [**string**] | Shopify API Password | (optional) defaults to undefined
@@ -790,10 +794,10 @@ const configuration = createConfiguration();
 const apiInstance = new AccountApi(configuration);
 
 const request: AccountApiAccountFailedWebhooksRequest = {
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
+    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
+  count: 20,
     // List of сomma-separated webhook ids (optional)
   ids: "3,14,25",
 };
@@ -807,8 +811,8 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
+ **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **ids** | [**string**] | List of сomma-separated webhook ids | (optional) defaults to undefined
 
 

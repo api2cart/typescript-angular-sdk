@@ -68,10 +68,6 @@ export class CustomerUpdate {
     */
     'gender'?: string;
     /**
-    * Store Id
-    */
-    'storeId'?: string;
-    /**
     * The customer note.
     */
     'note'?: string;
@@ -79,6 +75,10 @@ export class CustomerUpdate {
     * Defines customer\'s status
     */
     'status'?: string;
+    /**
+    * Store Id
+    */
+    'storeId'?: string;
     'address'?: Array<CustomerUpdateAddressInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -165,12 +165,6 @@ export class CustomerUpdate {
             "format": ""
         },
         {
-            "name": "storeId",
-            "baseName": "store_id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "note",
             "baseName": "note",
             "type": "string",
@@ -179,6 +173,12 @@ export class CustomerUpdate {
         {
             "name": "status",
             "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeId",
+            "baseName": "store_id",
             "type": "string",
             "format": ""
         },

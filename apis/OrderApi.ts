@@ -47,22 +47,22 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get list of orders that were left by customers before completing the order.
      * order.abandoned.list
+     * @param start This parameter sets the number from which you want to get entities
+     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param customerId Retrieves orders specified by customer id
      * @param customerEmail Retrieves orders specified by customer email
-     * @param createdTo Retrieve entities to their creation date
-     * @param createdFrom Retrieve entities from their creation date
-     * @param modifiedTo Retrieve entities to their modification date
-     * @param modifiedFrom Retrieve entities from their modification date
-     * @param skipEmptyEmail Filter empty emails
      * @param storeId Store Id
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
-     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param start This parameter sets the number from which you want to get entities
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param createdFrom Retrieve entities from their creation date
+     * @param createdTo Retrieve entities to their creation date
+     * @param modifiedFrom Retrieve entities from their modification date
+     * @param modifiedTo Retrieve entities to their modification date
+     * @param skipEmptyEmail Filter empty emails
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async orderAbandonedList(customerId?: string, customerEmail?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, skipEmptyEmail?: boolean, storeId?: string, pageCursor?: string, count?: number, start?: number, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderAbandonedList(start?: number, count?: number, pageCursor?: string, customerId?: string, customerEmail?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, skipEmptyEmail?: boolean, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -87,6 +87,21 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        }
+
+        // Query Params
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
         if (customerId !== undefined) {
             requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
         }
@@ -97,8 +112,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (createdTo !== undefined) {
-            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -107,8 +122,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (modifiedTo !== undefined) {
-            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
+        if (createdTo !== undefined) {
+            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
         }
 
         // Query Params
@@ -117,38 +132,23 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (modifiedTo !== undefined) {
+            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
+        }
+
+        // Query Params
         if (skipEmptyEmail !== undefined) {
             requestContext.setQueryParam("skip_empty_email", ObjectSerializer.serialize(skipEmptyEmail, "boolean", ""));
         }
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
-        }
-
-        // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
-        }
-
-        // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
         if (params !== undefined) {
             requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
@@ -233,17 +233,13 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Count orders in store
      * order.count
+     * @param orderIds Counts orders specified by order ids
+     * @param ids Counts orders specified by ids
      * @param customerId Counts orders quantity specified by customer id
+     * @param storeId Counts orders quantity specified by store id
      * @param customerEmail Counts orders quantity specified by customer email
      * @param orderStatus Counts orders quantity specified by order status
      * @param orderStatusIds Retrieves orders specified by order statuses
-     * @param createdTo Retrieve entities to their creation date
-     * @param createdFrom Retrieve entities from their creation date
-     * @param modifiedTo Retrieve entities to their modification date
-     * @param modifiedFrom Retrieve entities from their modification date
-     * @param storeId Counts orders quantity specified by store id
-     * @param ids Counts orders specified by ids
-     * @param orderIds Counts orders specified by order ids
      * @param ebayOrderStatus Counts orders quantity specified by order status
      * @param financialStatus Counts orders quantity specified by financial status
      * @param financialStatusIds Retrieves orders count specified by financial status ids
@@ -253,8 +249,12 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * @param deliveryMethod Retrieves order with delivery method
      * @param tags Order tags
      * @param shipNodeType Retrieves order with ship node type
+     * @param createdFrom Retrieve entities from their creation date
+     * @param createdTo Retrieve entities to their creation date
+     * @param modifiedFrom Retrieve entities from their modification date
+     * @param modifiedTo Retrieve entities to their modification date
      */
-    public async orderCount(customerId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderCount(orderIds?: string, ids?: string, customerId?: string, storeId?: string, customerEmail?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentChannel?: string, fulfillmentStatus?: string, shippingMethod?: string, deliveryMethod?: string, tags?: string, shipNodeType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -285,8 +285,23 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (orderIds !== undefined) {
+            requestContext.setQueryParam("order_ids", ObjectSerializer.serialize(orderIds, "string", ""));
+        }
+
+        // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
         if (customerId !== undefined) {
             requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -305,41 +320,6 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
             for (const serializedParam of serializedParams) {
                 requestContext.appendQueryParam("order_status_ids", serializedParam);
             }
-        }
-
-        // Query Params
-        if (createdTo !== undefined) {
-            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
-        }
-
-        // Query Params
-        if (createdFrom !== undefined) {
-            requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
-        }
-
-        // Query Params
-        if (modifiedTo !== undefined) {
-            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
-        }
-
-        // Query Params
-        if (modifiedFrom !== undefined) {
-            requestContext.setQueryParam("modified_from", ObjectSerializer.serialize(modifiedFrom, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (ids !== undefined) {
-            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
-        }
-
-        // Query Params
-        if (orderIds !== undefined) {
-            requestContext.setQueryParam("order_ids", ObjectSerializer.serialize(orderIds, "string", ""));
         }
 
         // Query Params
@@ -388,6 +368,26 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (shipNodeType !== undefined) {
             requestContext.setQueryParam("ship_node_type", ObjectSerializer.serialize(shipNodeType, "string", ""));
+        }
+
+        // Query Params
+        if (createdFrom !== undefined) {
+            requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
+        }
+
+        // Query Params
+        if (createdTo !== undefined) {
+            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
+        }
+
+        // Query Params
+        if (modifiedFrom !== undefined) {
+            requestContext.setQueryParam("modified_from", ObjectSerializer.serialize(modifiedFrom, "string", ""));
+        }
+
+        // Query Params
+        if (modifiedTo !== undefined) {
+            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
         }
 
 
@@ -449,20 +449,20 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
      * order.find
+     * @param start This parameter sets the number from which you want to get entities
+     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param customerId Retrieves orders specified by customer id
      * @param customerEmail Retrieves orders specified by customer email
      * @param orderStatus Retrieves orders specified by order status
-     * @param start This parameter sets the number from which you want to get entities
-     * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param financialStatus Retrieves orders specified by financial status
      * @param createdTo Retrieve entities to their creation date
      * @param createdFrom Retrieve entities from their creation date
      * @param modifiedTo Retrieve entities to their modification date
      * @param modifiedFrom Retrieve entities from their modification date
-     * @param financialStatus Retrieves orders specified by financial status
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async orderFind(customerId?: string, customerEmail?: string, orderStatus?: string, start?: number, count?: number, params?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, financialStatus?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderFind(start?: number, count?: number, customerId?: string, customerEmail?: string, orderStatus?: string, financialStatus?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -485,6 +485,16 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        }
+
+        // Query Params
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
         if (customerId !== undefined) {
             requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
         }
@@ -500,23 +510,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
-        }
-
-        // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
-        }
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        if (financialStatus !== undefined) {
+            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
         }
 
         // Query Params
@@ -540,8 +535,13 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (financialStatus !== undefined) {
-            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -610,16 +610,16 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Info about a specific order by ID
      * order.info
-     * @param orderId Retrieves order’s info specified by order id
      * @param id Retrieves order info specified by id
+     * @param orderId Retrieves order’s info specified by order id
+     * @param storeId Defines store id where the order should be found
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param storeId Defines store id where the order should be found
      * @param enableCache If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * @param useLatestApiVersion Use the latest platform API version
      */
-    public async orderInfo(orderId?: string, id?: string, params?: string, responseFields?: string, exclude?: string, storeId?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async orderInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -638,13 +638,18 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (id !== undefined) {
+            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
+        }
+
+        // Query Params
         if (orderId !== undefined) {
             requestContext.setQueryParam("order_id", ObjectSerializer.serialize(orderId, "string", ""));
         }
 
         // Query Params
-        if (id !== undefined) {
-            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -660,11 +665,6 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -701,46 +701,46 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get list of orders from store.
      * order.list
-     * @param customerId Retrieves orders specified by customer id
-     * @param customerEmail Retrieves orders specified by customer email
-     * @param phone Filter orders by customer\&#39;s phone number
-     * @param orderStatus Retrieves orders specified by order status
-     * @param orderStatusIds Retrieves orders specified by order statuses
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve orders via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param ids Retrieves orders specified by ids
+     * @param orderIds Retrieves orders specified by order ids
+     * @param sinceId Retrieve entities starting from the specified id.
+     * @param storeId Store Id
+     * @param customerId Retrieves orders specified by customer id
+     * @param customerEmail Retrieves orders specified by customer email
+     * @param basketId Retrieves order’s info specified by basket id.
+     * @param currencyId Currency Id
+     * @param phone Filter orders by customer\&#39;s phone number
+     * @param orderStatus Retrieves orders specified by order status
+     * @param orderStatusIds Retrieves orders specified by order statuses
+     * @param ebayOrderStatus Retrieves orders specified by order status
+     * @param financialStatus Retrieves orders specified by financial status
+     * @param financialStatusIds Retrieves orders specified by financial status ids
+     * @param fulfillmentStatus Create order with fulfillment status
+     * @param returnStatus Retrieves orders specified by return status
+     * @param fulfillmentChannel Retrieves order with a fulfillment channel
+     * @param shippingMethod Retrieve entities according to shipping method
+     * @param skipOrderIds Skipped orders by ids
+     * @param isDeleted Filter deleted orders
+     * @param shippingCountryIso3 Retrieve entities according to shipping country
+     * @param deliveryMethod Retrieves order with delivery method
+     * @param shipNodeType Retrieves order with ship node type
+     * @param createdTo Retrieve entities to their creation date
+     * @param createdFrom Retrieve entities from their creation date
+     * @param modifiedTo Retrieve entities to their modification date
+     * @param modifiedFrom Retrieve entities from their modification date
+     * @param tags Order tags
      * @param sortBy Set field to sort by
      * @param sortDirection Set sorting direction
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param createdTo Retrieve entities to their creation date
-     * @param createdFrom Retrieve entities from their creation date
-     * @param modifiedTo Retrieve entities to their modification date
-     * @param modifiedFrom Retrieve entities from their modification date
-     * @param storeId Store Id
-     * @param ids Retrieves orders specified by ids
-     * @param orderIds Retrieves orders specified by order ids
-     * @param ebayOrderStatus Retrieves orders specified by order status
-     * @param basketId Retrieves order’s info specified by basket id.
-     * @param financialStatus Retrieves orders specified by financial status
-     * @param financialStatusIds Retrieves orders specified by financial status ids
-     * @param fulfillmentStatus Create order with fulfillment status
-     * @param fulfillmentChannel Retrieves order with a fulfillment channel
-     * @param shippingMethod Retrieve entities according to shipping method
-     * @param skipOrderIds Skipped orders by ids
-     * @param sinceId Retrieve entities starting from the specified id.
-     * @param isDeleted Filter deleted orders
-     * @param shippingCountryIso3 Retrieve entities according to shipping country
      * @param enableCache If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
-     * @param deliveryMethod Retrieves order with delivery method
-     * @param tags Order tags
-     * @param shipNodeType Retrieves order with ship node type
-     * @param currencyId Currency Id
-     * @param returnStatus Retrieves orders specified by return status
      * @param useLatestApiVersion Use the latest platform API version
      */
-    public async orderList(customerId?: string, customerEmail?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, start?: number, count?: number, pageCursor?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, storeId?: string, ids?: string, orderIds?: string, ebayOrderStatus?: string, basketId?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, sinceId?: string, isDeleted?: boolean, shippingCountryIso3?: string, enableCache?: boolean, deliveryMethod?: string, tags?: string, shipNodeType?: string, currencyId?: string, returnStatus?: string, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async orderList(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
 
@@ -789,6 +789,41 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        }
+
+        // Query Params
+        if (count !== undefined) {
+            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
+
+        // Query Params
+        if (orderIds !== undefined) {
+            requestContext.setQueryParam("order_ids", ObjectSerializer.serialize(orderIds, "string", ""));
+        }
+
+        // Query Params
+        if (sinceId !== undefined) {
+            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
         if (customerId !== undefined) {
             requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
         }
@@ -796,6 +831,16 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (customerEmail !== undefined) {
             requestContext.setQueryParam("customer_email", ObjectSerializer.serialize(customerEmail, "string", ""));
+        }
+
+        // Query Params
+        if (basketId !== undefined) {
+            requestContext.setQueryParam("basket_id", ObjectSerializer.serialize(basketId, "string", ""));
+        }
+
+        // Query Params
+        if (currencyId !== undefined) {
+            requestContext.setQueryParam("currency_id", ObjectSerializer.serialize(currencyId, "string", ""));
         }
 
         // Query Params
@@ -817,18 +862,91 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        if (ebayOrderStatus !== undefined) {
+            requestContext.setQueryParam("ebay_order_status", ObjectSerializer.serialize(ebayOrderStatus, "string", ""));
         }
 
         // Query Params
-        if (count !== undefined) {
-            requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        if (financialStatus !== undefined) {
+            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
         }
 
         // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        if (financialStatusIds !== undefined) {
+            const serializedParams = ObjectSerializer.serialize(financialStatusIds, "Array<string>", "");
+            for (const serializedParam of serializedParams) {
+                requestContext.appendQueryParam("financial_status_ids", serializedParam);
+            }
+        }
+
+        // Query Params
+        if (fulfillmentStatus !== undefined) {
+            requestContext.setQueryParam("fulfillment_status", ObjectSerializer.serialize(fulfillmentStatus, "string", ""));
+        }
+
+        // Query Params
+        if (returnStatus !== undefined) {
+            requestContext.setQueryParam("return_status", ObjectSerializer.serialize(returnStatus, "string", ""));
+        }
+
+        // Query Params
+        if (fulfillmentChannel !== undefined) {
+            requestContext.setQueryParam("fulfillment_channel", ObjectSerializer.serialize(fulfillmentChannel, "string", ""));
+        }
+
+        // Query Params
+        if (shippingMethod !== undefined) {
+            requestContext.setQueryParam("shipping_method", ObjectSerializer.serialize(shippingMethod, "string", ""));
+        }
+
+        // Query Params
+        if (skipOrderIds !== undefined) {
+            requestContext.setQueryParam("skip_order_ids", ObjectSerializer.serialize(skipOrderIds, "string", ""));
+        }
+
+        // Query Params
+        if (isDeleted !== undefined) {
+            requestContext.setQueryParam("is_deleted", ObjectSerializer.serialize(isDeleted, "boolean", ""));
+        }
+
+        // Query Params
+        if (shippingCountryIso3 !== undefined) {
+            requestContext.setQueryParam("shipping_country_iso3", ObjectSerializer.serialize(shippingCountryIso3, "string", ""));
+        }
+
+        // Query Params
+        if (deliveryMethod !== undefined) {
+            requestContext.setQueryParam("delivery_method", ObjectSerializer.serialize(deliveryMethod, "string", ""));
+        }
+
+        // Query Params
+        if (shipNodeType !== undefined) {
+            requestContext.setQueryParam("ship_node_type", ObjectSerializer.serialize(shipNodeType, "string", ""));
+        }
+
+        // Query Params
+        if (createdTo !== undefined) {
+            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
+        }
+
+        // Query Params
+        if (createdFrom !== undefined) {
+            requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
+        }
+
+        // Query Params
+        if (modifiedTo !== undefined) {
+            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
+        }
+
+        // Query Params
+        if (modifiedFrom !== undefined) {
+            requestContext.setQueryParam("modified_from", ObjectSerializer.serialize(modifiedFrom, "string", ""));
+        }
+
+        // Query Params
+        if (tags !== undefined) {
+            requestContext.setQueryParam("tags", ObjectSerializer.serialize(tags, "string", ""));
         }
 
         // Query Params
@@ -857,126 +975,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (createdTo !== undefined) {
-            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
-        }
-
-        // Query Params
-        if (createdFrom !== undefined) {
-            requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
-        }
-
-        // Query Params
-        if (modifiedTo !== undefined) {
-            requestContext.setQueryParam("modified_to", ObjectSerializer.serialize(modifiedTo, "string", ""));
-        }
-
-        // Query Params
-        if (modifiedFrom !== undefined) {
-            requestContext.setQueryParam("modified_from", ObjectSerializer.serialize(modifiedFrom, "string", ""));
-        }
-
-        // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
-        }
-
-        // Query Params
-        if (ids !== undefined) {
-            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
-        }
-
-        // Query Params
-        if (orderIds !== undefined) {
-            requestContext.setQueryParam("order_ids", ObjectSerializer.serialize(orderIds, "string", ""));
-        }
-
-        // Query Params
-        if (ebayOrderStatus !== undefined) {
-            requestContext.setQueryParam("ebay_order_status", ObjectSerializer.serialize(ebayOrderStatus, "string", ""));
-        }
-
-        // Query Params
-        if (basketId !== undefined) {
-            requestContext.setQueryParam("basket_id", ObjectSerializer.serialize(basketId, "string", ""));
-        }
-
-        // Query Params
-        if (financialStatus !== undefined) {
-            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
-        }
-
-        // Query Params
-        if (financialStatusIds !== undefined) {
-            const serializedParams = ObjectSerializer.serialize(financialStatusIds, "Array<string>", "");
-            for (const serializedParam of serializedParams) {
-                requestContext.appendQueryParam("financial_status_ids", serializedParam);
-            }
-        }
-
-        // Query Params
-        if (fulfillmentStatus !== undefined) {
-            requestContext.setQueryParam("fulfillment_status", ObjectSerializer.serialize(fulfillmentStatus, "string", ""));
-        }
-
-        // Query Params
-        if (fulfillmentChannel !== undefined) {
-            requestContext.setQueryParam("fulfillment_channel", ObjectSerializer.serialize(fulfillmentChannel, "string", ""));
-        }
-
-        // Query Params
-        if (shippingMethod !== undefined) {
-            requestContext.setQueryParam("shipping_method", ObjectSerializer.serialize(shippingMethod, "string", ""));
-        }
-
-        // Query Params
-        if (skipOrderIds !== undefined) {
-            requestContext.setQueryParam("skip_order_ids", ObjectSerializer.serialize(skipOrderIds, "string", ""));
-        }
-
-        // Query Params
-        if (sinceId !== undefined) {
-            requestContext.setQueryParam("since_id", ObjectSerializer.serialize(sinceId, "string", ""));
-        }
-
-        // Query Params
-        if (isDeleted !== undefined) {
-            requestContext.setQueryParam("is_deleted", ObjectSerializer.serialize(isDeleted, "boolean", ""));
-        }
-
-        // Query Params
-        if (shippingCountryIso3 !== undefined) {
-            requestContext.setQueryParam("shipping_country_iso3", ObjectSerializer.serialize(shippingCountryIso3, "string", ""));
-        }
-
-        // Query Params
         if (enableCache !== undefined) {
             requestContext.setQueryParam("enable_cache", ObjectSerializer.serialize(enableCache, "boolean", ""));
-        }
-
-        // Query Params
-        if (deliveryMethod !== undefined) {
-            requestContext.setQueryParam("delivery_method", ObjectSerializer.serialize(deliveryMethod, "string", ""));
-        }
-
-        // Query Params
-        if (tags !== undefined) {
-            requestContext.setQueryParam("tags", ObjectSerializer.serialize(tags, "string", ""));
-        }
-
-        // Query Params
-        if (shipNodeType !== undefined) {
-            requestContext.setQueryParam("ship_node_type", ObjectSerializer.serialize(shipNodeType, "string", ""));
-        }
-
-        // Query Params
-        if (currencyId !== undefined) {
-            requestContext.setQueryParam("currency_id", ObjectSerializer.serialize(currencyId, "string", ""));
-        }
-
-        // Query Params
-        if (returnStatus !== undefined) {
-            requestContext.setQueryParam("return_status", ObjectSerializer.serialize(returnStatus, "string", ""));
         }
 
         // Query Params
@@ -1461,12 +1461,12 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * @param id Entity id
      * @param orderId Defines the order id
      * @param start This parameter sets the number from which you want to get entities
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param storeId Store Id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async orderShipmentInfo(id: string, orderId: string, start?: number, params?: string, responseFields?: string, exclude?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderShipmentInfo(id: string, orderId: string, start?: number, storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1494,6 +1494,11 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
+        }
+
+        // Query Params
         if (id !== undefined) {
             requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
         }
@@ -1504,13 +1509,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (start !== undefined) {
-            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
-        }
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -1519,13 +1519,13 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
         }
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -1553,19 +1553,19 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * Get list of shipments by orders.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
+     * @param storeId Store Id
      * @param createdFrom Retrieve entities from their creation date
      * @param createdTo Retrieve entities to their creation date
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
-     * @param storeId Store Id
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
+     * @param params Set this parameter in order to choose which entity fields you want to retrieve
+     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async orderShipmentList(orderId: string, pageCursor?: string, start?: number, count?: number, params?: string, responseFields?: string, exclude?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderShipmentList(orderId: string, start?: number, count?: number, pageCursor?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'orderId' is not null or undefined
@@ -1593,16 +1593,6 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (orderId !== undefined) {
-            requestContext.setQueryParam("order_id", ObjectSerializer.serialize(orderId, "string", ""));
-        }
-
-        // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
-        }
-
-        // Query Params
         if (start !== undefined) {
             requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
@@ -1613,18 +1603,18 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
         }
 
         // Query Params
-        if (responseFields !== undefined) {
-            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        if (orderId !== undefined) {
+            requestContext.setQueryParam("order_id", ObjectSerializer.serialize(orderId, "string", ""));
         }
 
         // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
         // Query Params
@@ -1648,8 +1638,18 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (storeId !== undefined) {
-            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
+        }
+
+        // Query Params
+        if (params !== undefined) {
+            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
+        }
+
+        // Query Params
+        if (exclude !== undefined) {
+            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
 
@@ -1840,13 +1840,13 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * order.transaction.list
      * @param orderIds Retrieves order transactions specified by order ids
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param storeId Store Id
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      */
-    public async orderTransactionList(orderIds: string, count?: number, storeId?: string, params?: string, responseFields?: string, exclude?: string, pageCursor?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderTransactionList(orderIds: string, count?: number, pageCursor?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'orderIds' is not null or undefined
@@ -1874,6 +1874,11 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (pageCursor !== undefined) {
+            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
+        }
+
+        // Query Params
         if (orderIds !== undefined) {
             requestContext.setQueryParam("order_ids", ObjectSerializer.serialize(orderIds, "string", ""));
         }
@@ -1896,11 +1901,6 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (exclude !== undefined) {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-        // Query Params
-        if (pageCursor !== undefined) {
-            requestContext.setQueryParam("page_cursor", ObjectSerializer.serialize(pageCursor, "string", ""));
         }
 
 
@@ -1930,21 +1930,21 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * @param orderId Defines the orders specified by order id
      * @param storeId Defines store id where the order should be found
      * @param orderStatus Defines new order\&#39;s status
+     * @param financialStatus Update order financial status to specified
+     * @param fulfillmentStatus Create order with fulfillment status
      * @param cancellationReason Defines the cancellation reason when the order will be canceled
+     * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param comment Specifies order comment
      * @param adminComment Specifies admin\&#39;s order comment
      * @param adminPrivateComment Specifies private admin\&#39;s order comment
+     * @param invoiceAdminComment Specifies admin\&#39;s order invoice comment
      * @param dateModified Specifies order\&#39;s  modification date
      * @param dateFinished Specifies order\&#39;s  finished date
-     * @param financialStatus Update order financial status to specified
-     * @param fulfillmentStatus Create order with fulfillment status
-     * @param orderPaymentMethod Defines order payment method.&lt;br/&gt;Setting order_payment_method on Shopify will also change financial_status field value to \&#39;paid\&#39;
      * @param sendNotifications Send notifications to customer after order was created
-     * @param origin The source of the order
      * @param createInvoice Determines whether an invoice should be created if it has not already been created
-     * @param invoiceAdminComment Specifies admin\&#39;s order invoice comment
+     * @param origin The source of the order
      */
-    public async orderUpdate(orderId: string, storeId?: string, orderStatus?: string, cancellationReason?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, dateModified?: string, dateFinished?: string, financialStatus?: string, fulfillmentStatus?: string, orderPaymentMethod?: string, sendNotifications?: boolean, origin?: string, createInvoice?: boolean, invoiceAdminComment?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'orderId' is not null or undefined
@@ -1991,8 +1991,23 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (financialStatus !== undefined) {
+            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
+        }
+
+        // Query Params
+        if (fulfillmentStatus !== undefined) {
+            requestContext.setQueryParam("fulfillment_status", ObjectSerializer.serialize(fulfillmentStatus, "string", ""));
+        }
+
+        // Query Params
         if (cancellationReason !== undefined) {
             requestContext.setQueryParam("cancellation_reason", ObjectSerializer.serialize(cancellationReason, "string", ""));
+        }
+
+        // Query Params
+        if (orderPaymentMethod !== undefined) {
+            requestContext.setQueryParam("order_payment_method", ObjectSerializer.serialize(orderPaymentMethod, "string", ""));
         }
 
         // Query Params
@@ -2011,6 +2026,11 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (invoiceAdminComment !== undefined) {
+            requestContext.setQueryParam("invoice_admin_comment", ObjectSerializer.serialize(invoiceAdminComment, "string", ""));
+        }
+
+        // Query Params
         if (dateModified !== undefined) {
             requestContext.setQueryParam("date_modified", ObjectSerializer.serialize(dateModified, "string", ""));
         }
@@ -2021,28 +2041,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (financialStatus !== undefined) {
-            requestContext.setQueryParam("financial_status", ObjectSerializer.serialize(financialStatus, "string", ""));
-        }
-
-        // Query Params
-        if (fulfillmentStatus !== undefined) {
-            requestContext.setQueryParam("fulfillment_status", ObjectSerializer.serialize(fulfillmentStatus, "string", ""));
-        }
-
-        // Query Params
-        if (orderPaymentMethod !== undefined) {
-            requestContext.setQueryParam("order_payment_method", ObjectSerializer.serialize(orderPaymentMethod, "string", ""));
-        }
-
-        // Query Params
         if (sendNotifications !== undefined) {
             requestContext.setQueryParam("send_notifications", ObjectSerializer.serialize(sendNotifications, "boolean", ""));
-        }
-
-        // Query Params
-        if (origin !== undefined) {
-            requestContext.setQueryParam("origin", ObjectSerializer.serialize(origin, "string", ""));
         }
 
         // Query Params
@@ -2051,8 +2051,8 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
-        if (invoiceAdminComment !== undefined) {
-            requestContext.setQueryParam("invoice_admin_comment", ObjectSerializer.serialize(invoiceAdminComment, "string", ""));
+        if (origin !== undefined) {
+            requestContext.setQueryParam("origin", ObjectSerializer.serialize(origin, "string", ""));
         }
 
 
