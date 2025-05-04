@@ -1224,6 +1224,7 @@ const request: OrderApiOrderShipmentAddRequest = {
     adjustStock: true,
     enableCache: true,
     checkProcessStatus: false,
+    trackingProvider: "Custom tracker",
     useLatestApiVersion: true,
   },
 };
@@ -1644,6 +1645,14 @@ const request: OrderApiOrderShipmentUpdateRequest = {
     isShipped: true,
     deliveredAt: "2024-08-25T23:56:12+00:00",
     replace: false,
+    sendNotifications: true,
+    trackingProvider: "Custom tracker",
+    items: [
+      {
+        orderProductId: "orderProductId_example",
+        quantity: 3.14,
+      },
+    ],
   },
 };
 

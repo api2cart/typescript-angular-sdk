@@ -151,6 +151,14 @@ export class AccountCartAdd {
     */
     'bolRetailerId'?: number;
     /**
+    * Subdomain of store
+    */
+    'bigcartelUserName': string;
+    /**
+    * BigCartel account password
+    */
+    'bigcartelPassword': string;
+    /**
     * Demandware client id
     */
     'demandwareClientId'?: string;
@@ -818,6 +826,18 @@ export class AccountCartAdd {
             "name": "bolRetailerId",
             "baseName": "bol_retailer_id",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "bigcartelUserName",
+            "baseName": "bigcartel_user_name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bigcartelPassword",
+            "baseName": "bigcartel_password",
+            "type": "string",
             "format": ""
         },
         {
@@ -1525,6 +1545,7 @@ export enum AccountCartAddCartIdEnum {
     AceShop = 'AceShop',
     AmazonSp = 'AmazonSP',
     AspDotNetStorefront = 'AspDotNetStorefront',
+    BigCartel = 'BigCartel',
     BigcommerceApi = 'BigcommerceApi',
     Bol = 'Bol',
     CommerceHq = 'CommerceHQ',

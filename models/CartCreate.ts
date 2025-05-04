@@ -1035,6 +1035,7 @@ export enum CartCreateCartIdEnum {
     AceShop = 'AceShop',
     AmazonSp = 'AmazonSP',
     AspDotNetStorefront = 'AspDotNetStorefront',
+    BigCartel = 'BigCartel',
     BigcommerceApi = 'BigcommerceApi',
     Bol = 'Bol',
     CommerceHq = 'CommerceHQ',

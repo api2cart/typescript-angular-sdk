@@ -68,6 +68,10 @@ export class OrderShipmentAdd {
     */
     'checkProcessStatus'?: boolean;
     /**
+    * Defines name of the company which provides shipment tracking
+    */
+    'trackingProvider'?: string;
+    /**
     * Use the latest platform API version
     */
     'useLatestApiVersion'?: boolean;
@@ -153,6 +157,12 @@ export class OrderShipmentAdd {
             "name": "checkProcessStatus",
             "baseName": "check_process_status",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "trackingProvider",
+            "baseName": "tracking_provider",
+            "type": "string",
             "format": ""
         },
         {

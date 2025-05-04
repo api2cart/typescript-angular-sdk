@@ -63,6 +63,8 @@ const request: AccountApiAccountCartAddRequest = {
     bolApiKey: "51369628-feee-11ed-be56-0242ac120002",
     bolApiSecret: "8fGzEsbEP5z2MNZubmIil87m-sWzTkj?KDQKrmzmU!fA6aAUNMdKRp7LMWHwE!G37UMfnWByHBGSXJHkAG?QcuYTO2uklv4idIHwUMLHK!OO1yfRlWh!",
     bolRetailerId: 145001,
+    bigcartelUserName: "subdomain",
+    bigcartelPassword: "4GrrZCLNNoSUuhAjesKuchxo9SL",
     demandwareClientId: "b849eb85-v8b9-1dw8-9fe2-97e1d6ffc7b0",
     demandwareApiPassword: "testpassword",
     demandwareUserName: "admin",
@@ -453,6 +455,10 @@ const request: AccountApiAccountConfigUpdateRequest = {
   shopwareApiKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
     // Shopware client secret access key (optional)
   shopwareApiSecret: "V3NYNWg2b1dZdHBUWDN1cmdKdGhnenp5enVJYlJ0WlJvOFF2bnQ",
+    // Subdomain of store (optional)
+  bigcartelUserName: "subdomain",
+    // BigCartel account password (optional)
+  bigcartelPassword: "4GrrZCLNNoSUuhAjesKuchxo9SL",
     // It\'s a Volusion account for which API is enabled (optional)
   volusionLogin: "admin",
     // Volusion API Password (optional)
@@ -684,6 +690,8 @@ Name | Type | Description  | Notes
  **shopwareAccessKey** | [**string**] | Shopware access key | (optional) defaults to undefined
  **shopwareApiKey** | [**string**] | Shopware api key | (optional) defaults to undefined
  **shopwareApiSecret** | [**string**] | Shopware client secret access key | (optional) defaults to undefined
+ **bigcartelUserName** | [**string**] | Subdomain of store | (optional) defaults to undefined
+ **bigcartelPassword** | [**string**] | BigCartel account password | (optional) defaults to undefined
  **volusionLogin** | [**string**] | It\&#39;s a Volusion account for which API is enabled | (optional) defaults to undefined
  **volusionPassword** | [**string**] | Volusion API Password | (optional) defaults to undefined
  **walmartClientId** | [**string**] | Walmart client ID. For the region \&#39;ca\&#39; use Consumer ID | (optional) defaults to undefined

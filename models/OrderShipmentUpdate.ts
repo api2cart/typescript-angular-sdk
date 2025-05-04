@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { OrderShipmentAddItemsInner } from '../models/OrderShipmentAddItemsInner';
 import { OrderShipmentAddTrackingNumbersInner } from '../models/OrderShipmentAddTrackingNumbersInner';
 import { HttpFile } from '../http/http';
 
@@ -50,6 +51,18 @@ export class OrderShipmentUpdate {
     * Allows rewrite tracking numbers
     */
     'replace'?: boolean;
+    /**
+    * Send notifications to customer after order was created
+    */
+    'sendNotifications'?: boolean;
+    /**
+    * Defines name of the company which provides shipment tracking
+    */
+    'trackingProvider'?: string;
+    /**
+    * Defines items in the order that will be shipped
+    */
+    'items'?: Array<OrderShipmentAddItemsInner>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -108,6 +121,24 @@ export class OrderShipmentUpdate {
             "name": "replace",
             "baseName": "replace",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "sendNotifications",
+            "baseName": "send_notifications",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "trackingProvider",
+            "baseName": "tracking_provider",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "items",
+            "baseName": "items",
+            "type": "Array<OrderShipmentAddItemsInner>",
             "format": ""
         }    ];
 
