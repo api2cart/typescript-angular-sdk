@@ -23,6 +23,8 @@ const configuration = createConfiguration();
 const apiInstance = new SubscriberApi(configuration);
 
 const request: SubscriberApiSubscriberListRequest = {
+    // Retrieves subscribers specified by ids (optional)
+  ids: "24,25",
     // This parameter sets the number from which you want to get entities (optional)
   start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
@@ -60,6 +62,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **ids** | [**string**] | Retrieves subscribers specified by ids | (optional) defaults to undefined
  **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined

@@ -12,6 +12,8 @@
 
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
+import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
+import { ProductAddSpecificsInner } from '../models/ProductAddSpecificsInner';
 import { ProductAddTierPricesInner } from '../models/ProductAddTierPricesInner';
 import { HttpFile } from '../http/http';
 
@@ -338,6 +340,15 @@ export class ProductUpdate {
     * Disable or enable check process status. Please note that the response will be slower due to additional requests to the store.
     */
     'checkProcessStatus'?: boolean;
+    /**
+    * An array of Item Specific Name/Value pairs used by the seller to provide descriptive details of an item in a structured manner.         The list of possible specifications can be obtained using the category.info method (additional_fields->product_specifics).         <b>The structure of the parameter is different for specific platforms.</b>
+    */
+    'specifics'?: Array<ProductAddSpecificsInner>;
+    /**
+    * Add Shop Section Id
+    */
+    'shopSectionId'?: number;
+    'personalizationDetails'?: ProductAddPersonalizationDetails;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -834,6 +845,24 @@ export class ProductUpdate {
             "name": "checkProcessStatus",
             "baseName": "check_process_status",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "specifics",
+            "baseName": "specifics",
+            "type": "Array<ProductAddSpecificsInner>",
+            "format": ""
+        },
+        {
+            "name": "shopSectionId",
+            "baseName": "shop_section_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "personalizationDetails",
+            "baseName": "personalization_details",
+            "type": "ProductAddPersonalizationDetails",
             "format": ""
         }    ];
 

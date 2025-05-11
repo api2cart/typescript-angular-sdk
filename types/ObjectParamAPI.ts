@@ -274,6 +274,7 @@ import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner
 import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
+import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';
@@ -11452,6 +11453,13 @@ import { SubscriberApiRequestFactory, SubscriberApiResponseProcessor} from "../a
 
 export interface SubscriberApiSubscriberListRequest {
     /**
+     * Retrieves subscribers specified by ids
+     * Defaults to: undefined
+     * @type string
+     * @memberof SubscriberApisubscriberList
+     */
+    ids?: string
+    /**
      * This parameter sets the number from which you want to get entities
      * Defaults to: 0
      * @type number
@@ -11557,7 +11565,7 @@ export class ObjectSubscriberApi {
      * @param param the request object
      */
     public subscriberListWithHttpInfo(param: SubscriberApiSubscriberListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseSubscriberList>> {
-        return this.api.subscriberListWithHttpInfo(param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.subscriberListWithHttpInfo(param.ids, param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11566,7 +11574,7 @@ export class ObjectSubscriberApi {
      * @param param the request object
      */
     public subscriberList(param: SubscriberApiSubscriberListRequest = {}, options?: Configuration): Promise<ModelResponseSubscriberList> {
-        return this.api.subscriberList(param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.subscriberList(param.ids, param.start, param.count, param.pageCursor, param.subscribed, param.storeId, param.email, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
 }

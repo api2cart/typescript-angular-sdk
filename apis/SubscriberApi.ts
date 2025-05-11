@@ -18,6 +18,7 @@ export class SubscriberApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get subscribers list
      * subscriber.list
+     * @param ids Retrieves subscribers specified by ids
      * @param start This parameter sets the number from which you want to get entities
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
@@ -32,8 +33,9 @@ export class SubscriberApiRequestFactory extends BaseAPIRequestFactory {
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async subscriberList(start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async subscriberList(ids?: string, start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -54,6 +56,11 @@ export class SubscriberApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (ids !== undefined) {
+            requestContext.setQueryParam("ids", ObjectSerializer.serialize(ids, "string", ""));
+        }
 
         // Query Params
         if (start !== undefined) {

@@ -17,6 +17,7 @@ import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner
 import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
+import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';
@@ -456,6 +457,15 @@ export class ProductAdd {
     * Defines how many times the product was ordered
     */
     'orderedCount'?: number;
+    /**
+    * Add Shop Section Id
+    */
+    'shopSectionId'?: number;
+    /**
+    * Add Return Policy Id
+    */
+    'returnPolicyId'?: number;
+    'personalizationDetails'?: ProductAddPersonalizationDetails;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -1132,6 +1142,24 @@ export class ProductAdd {
             "name": "orderedCount",
             "baseName": "ordered_count",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "shopSectionId",
+            "baseName": "shop_section_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "returnPolicyId",
+            "baseName": "return_policy_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "personalizationDetails",
+            "baseName": "personalization_details",
+            "type": "ProductAddPersonalizationDetails",
             "format": ""
         }    ];
 

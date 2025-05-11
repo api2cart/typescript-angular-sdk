@@ -275,6 +275,7 @@ import { ProductAddGroupPricesInner } from '../models/ProductAddGroupPricesInner
 import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInner';
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
+import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';
@@ -7964,6 +7965,7 @@ export class ObservableSubscriberApi {
     /**
      * Get subscribers list
      * subscriber.list
+     * @param [ids] Retrieves subscribers specified by ids
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
@@ -7978,8 +7980,8 @@ export class ObservableSubscriberApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public subscriberListWithHttpInfo(start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseSubscriberList>> {
-        const requestContextPromise = this.requestFactory.subscriberList(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
+    public subscriberListWithHttpInfo(ids?: string, start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseSubscriberList>> {
+        const requestContextPromise = this.requestFactory.subscriberList(ids, start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8000,6 +8002,7 @@ export class ObservableSubscriberApi {
     /**
      * Get subscribers list
      * subscriber.list
+     * @param [ids] Retrieves subscribers specified by ids
      * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
@@ -8014,8 +8017,8 @@ export class ObservableSubscriberApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public subscriberList(start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseSubscriberList> {
-        return this.subscriberListWithHttpInfo(start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseSubscriberList>) => apiResponse.data));
+    public subscriberList(ids?: string, start?: number, count?: number, pageCursor?: string, subscribed?: boolean, storeId?: string, email?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseSubscriberList> {
+        return this.subscriberListWithHttpInfo(ids, start, count, pageCursor, subscribed, storeId, email, createdFrom, createdTo, modifiedFrom, modifiedTo, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseSubscriberList>) => apiResponse.data));
     }
 
 }

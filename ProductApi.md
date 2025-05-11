@@ -310,6 +310,14 @@ const request: ProductApiProductAddRequest = {
     clearCache: false,
     viewedCount: 9,
     orderedCount: 15,
+    shopSectionId: `12345678`,
+    returnPolicyId: `12345678`,
+    personalizationDetails: {
+      isPersonalizable: true,
+      personalizationIsRequired: true,
+      personalizationCharCountMax: 1,
+      personalizationInstructions: "personalizationInstructions_example",
+    },
   },
 };
 
@@ -3134,6 +3142,60 @@ const request: ProductApiProductUpdateRequest = {
     reindex: false,
     clearCache: false,
     checkProcessStatus: false,
+    specifics: [
+      {
+        name: "name_example",
+        value: "value_example",
+        values: [
+          "values_example",
+        ],
+        usedForVariations: false,
+        scaleId: 1,
+        foodDetails: {
+          calories: 3.14,
+        },
+        groupProductsDetails: [
+          {
+            id: "id_example",
+            quantity: 1,
+          },
+        ],
+        bookingDetails: {
+          location: "location_example",
+          type: "date",
+          sessionDuration: 1,
+          sessionGap: 1,
+          sessionsCount: 1,
+          timeStrictValue: 3.14,
+          timeStrictType: "days",
+          availabilities: [
+            {
+              day: "sunday",
+              isAvailable: true,
+              times: [
+                {
+                  _from: "23:20",
+                  to: "23:20",
+                },
+              ],
+            },
+          ],
+          overrides: [
+            {
+              day: "sunday",
+              date: "2048-09-18",
+            },
+          ],
+        },
+      },
+    ],
+    shopSectionId: `12345678`,
+    personalizationDetails: {
+      isPersonalizable: true,
+      personalizationIsRequired: true,
+      personalizationCharCountMax: 1,
+      personalizationInstructions: "personalizationInstructions_example",
+    },
   },
 };
 
