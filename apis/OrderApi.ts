@@ -1943,14 +1943,16 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
      * @param sendNotifications Send notifications to customer after order was created
      * @param createInvoice Determines whether an invoice should be created if it has not already been created
      * @param origin The source of the order
+     * @param tags Order tags
      */
-    public async orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Promise<RequestContext> {
+    public async orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'orderId' is not null or undefined
         if (orderId === null || orderId === undefined) {
             throw new RequiredError("OrderApi", "orderUpdate", "orderId");
         }
+
 
 
 
@@ -2053,6 +2055,11 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (origin !== undefined) {
             requestContext.setQueryParam("origin", ObjectSerializer.serialize(origin, "string", ""));
+        }
+
+        // Query Params
+        if (tags !== undefined) {
+            requestContext.setQueryParam("tags", ObjectSerializer.serialize(tags, "string", ""));
         }
 
 

@@ -7510,6 +7510,13 @@ export interface OrderApiOrderUpdateRequest {
      * @memberof OrderApiorderUpdate
      */
     origin?: string
+    /**
+     * Order tags
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    tags?: string
 }
 
 export class ObjectOrderApi {
@@ -7921,7 +7928,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdateWithHttpInfo(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin,  options).toPromise();
+        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags,  options).toPromise();
     }
 
     /**
@@ -7930,7 +7937,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdate(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin,  options).toPromise();
+        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags,  options).toPromise();
     }
 
 }

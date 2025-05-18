@@ -4013,9 +4013,10 @@ export class PromiseOrderApi {
      * @param [sendNotifications] Send notifications to customer after order was created
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
+     * @param [tags] Order tags
      */
-    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, _options);
+    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options);
         return result.toPromise();
     }
 
@@ -4038,9 +4039,10 @@ export class PromiseOrderApi {
      * @param [sendNotifications] Send notifications to customer after order was created
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
+     * @param [tags] Order tags
      */
-    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, _options);
+    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options);
         return result.toPromise();
     }
 

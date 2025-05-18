@@ -1867,6 +1867,8 @@ const request: OrderApiOrderUpdateRequest = {
   createInvoice: true,
     // The source of the order (optional)
   origin: "newsletter",
+    // Order tags (optional)
+  tags: "tag1,tag2",
 };
 
 const data = await apiInstance.orderUpdate(request);
@@ -1894,6 +1896,7 @@ Name | Type | Description  | Notes
  **sendNotifications** | [**boolean**] | Send notifications to customer after order was created | (optional) defaults to false
  **createInvoice** | [**boolean**] | Determines whether an invoice should be created if it has not already been created | (optional) defaults to undefined
  **origin** | [**string**] | The source of the order | (optional) defaults to undefined
+ **tags** | [**string**] | Order tags | (optional) defaults to undefined
 
 
 ### Return type
