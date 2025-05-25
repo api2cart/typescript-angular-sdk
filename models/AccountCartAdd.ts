@@ -335,6 +335,30 @@ export class AccountCartAdd {
     */
     'shopifySharedSecret'?: string;
     /**
+    * Shopee Partner ID
+    */
+    'shopeePartnerId'?: string;
+    /**
+    * Shopee Partner Key
+    */
+    'shopeePartnerKey'?: string;
+    /**
+    * Shopee SHOP ID
+    */
+    'shopeeShopId'?: string;
+    /**
+    * Shopee Refresh Token
+    */
+    'shopeeRefreshToken'?: string;
+    /**
+    * Shopee API endpoint Region. Use for Chinese Mainland or Brazil.
+    */
+    'shopeeRegion'?: string;
+    /**
+    * Shopee Environment
+    */
+    'shopeeEnvironment'?: string;
+    /**
     * Access token authorizing the app to access resources on behalf of a user
     */
     'shoplazzaAccessToken'?: string;
@@ -618,6 +642,22 @@ export class AccountCartAdd {
     * Salla Access Token
     */
     'sallaAccessToken'?: string;
+    /**
+    * Temu App Key
+    */
+    'temuAppKey'?: string;
+    /**
+    * Temu App Secret
+    */
+    'temuAppSecret'?: string;
+    /**
+    * Temu Access Token
+    */
+    'temuAccessToken': string;
+    /**
+    * Temu API endpoint Region.
+    */
+    'temuRegion'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -1105,6 +1145,42 @@ export class AccountCartAdd {
             "format": ""
         },
         {
+            "name": "shopeePartnerId",
+            "baseName": "shopee_partner_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopeePartnerKey",
+            "baseName": "shopee_partner_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopeeShopId",
+            "baseName": "shopee_shop_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopeeRefreshToken",
+            "baseName": "shopee_refresh_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopeeRegion",
+            "baseName": "shopee_region",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopeeEnvironment",
+            "baseName": "shopee_environment",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "shoplazzaAccessToken",
             "baseName": "shoplazza_access_token",
             "type": "string",
@@ -1529,6 +1605,30 @@ export class AccountCartAdd {
             "baseName": "salla_access_token",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "temuAppKey",
+            "baseName": "temu_app_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "temuAppSecret",
+            "baseName": "temu_app_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "temuAccessToken",
+            "baseName": "temu_access_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "temuRegion",
+            "baseName": "temu_region",
+            "type": "string",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
@@ -1579,6 +1679,7 @@ export enum AccountCartAddCartIdEnum {
     SsPremium = 'SSPremium',
     Salla = 'Salla',
     Shopify = 'Shopify',
+    Shopee = 'Shopee',
     Shoplazza = 'Shoplazza',
     Shopline = 'Shopline',
     Shopware = 'Shopware',

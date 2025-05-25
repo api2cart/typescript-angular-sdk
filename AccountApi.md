@@ -109,6 +109,12 @@ const request: AccountApiAccountCartAddRequest = {
     shopifyApiKey: "bbca57d8ff3c3677128112c15556d9e3",
     shopifyApiPassword: "860f3a6fc87632301a42cd88e4b5ab3d",
     shopifySharedSecret: "gmz3iz45x2",
+    shopeePartnerId: "1276777",
+    shopeePartnerKey: "6a46494b4d746576554646626775617a577542774850636375464d6a736d5598",
+    shopeeShopId: "137968",
+    shopeeRefreshToken: "EAAPP06rM2n8BO4mZBuMPnu9zS0MaMbN7ue8aUkcxw4zewU987mVVb5br",
+    shopeeRegion: "CN",
+    shopeeEnvironment: "sandbox",
     shoplazzaAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     shoplazzaSharedSecret: "gmz3iz45x2",
     shopwareAccessKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
@@ -193,6 +199,10 @@ const request: AccountApiAccountCartAddRequest = {
     sallaClientSecret: "8x88axxxc25e1fxxxa1c06fxxx150xx5",
     sallaRefreshToken: "oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc",
     sallaAccessToken: "oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc",
+    temuAppKey: "4ebbc9190ae410443d65b4c2faca9811",
+    temuAppSecret: "4782d2d827276688bf4758bed55dbdd4bbe79a78",
+    temuAccessToken: "uplv3hfyt5kcwoymrgnajnbl1ow5qxlz4sqhev6hl3xosz5dejrtyl2jre6",
+    temuRegion: "US",
   },
 };
 
@@ -441,6 +451,18 @@ const request: AccountApiAccountConfigUpdateRequest = {
   shopifyApiPassword: "860f3a6fc87632301a42cd88e4b5ab3d",
     // Shared secret (optional)
   shopifySharedSecret: "gmz3iz45x2",
+    // Shopee Partner ID (optional)
+  shopeePartnerId: "1276777",
+    // Shopee Partner Key (optional)
+  shopeePartnerKey: "6a46494b4d746576554646626775617a577542774850636375464d6a736d5598",
+    // Shopee SHOP ID (optional)
+  shopeeShopId: "137968",
+    // Shopee Refresh Token (optional)
+  shopeeRefreshToken: "EAAPP06rM2n8BO4mZBuMPnu9zS0MaMbN7ue8aUkcxw4zewU987mVVb5br",
+    // Shopee API endpoint Region. Use for Chinese Mainland or Brazil. (optional)
+  shopeeRegion: "CN",
+    // Shopee Environment (optional)
+  shopeeEnvironment: "sandbox",
     // Access token authorizing the app to access resources on behalf of a user (optional)
   shoplazzaAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     // Shared secret (optional)
@@ -608,6 +630,14 @@ const request: AccountApiAccountConfigUpdateRequest = {
   sallaRefreshToken: "oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc",
     // Salla Access Token (optional)
   sallaAccessToken: "oxy_rt_zxxxxiY2xxZWWxxxxlU-tROxxxxx2JzS2fwzxxxxxkU.p3xxxkCIyFexxxxP50WwZYfhw5_wg1xxxxV5F-8xxXc",
+    // Temu App Key (optional)
+  temuAppKey: "4ebbc9190ae410443d65b4c2faca9811",
+    // Temu App Secret (optional)
+  temuAppSecret: "4782d2d827276688bf4758bed55dbdd4bbe79a78",
+    // Temu Access Token (optional)
+  temuAccessToken: "uplv3hfyt5kcwoymrgnajnbl1ow5qxlz4sqhev6hl3xosz5dejrtyl2jre6",
+    // Temu API endpoint Region. (optional)
+  temuRegion: "US",
 };
 
 const data = await apiInstance.accountConfigUpdate(request);
@@ -683,6 +713,12 @@ Name | Type | Description  | Notes
  **shopifyApiKey** | [**string**] | Shopify API Key | (optional) defaults to undefined
  **shopifyApiPassword** | [**string**] | Shopify API Password | (optional) defaults to undefined
  **shopifySharedSecret** | [**string**] | Shared secret | (optional) defaults to undefined
+ **shopeePartnerId** | [**string**] | Shopee Partner ID | (optional) defaults to undefined
+ **shopeePartnerKey** | [**string**] | Shopee Partner Key | (optional) defaults to undefined
+ **shopeeShopId** | [**string**] | Shopee SHOP ID | (optional) defaults to undefined
+ **shopeeRefreshToken** | [**string**] | Shopee Refresh Token | (optional) defaults to undefined
+ **shopeeRegion** | [**string**] | Shopee API endpoint Region. Use for Chinese Mainland or Brazil. | (optional) defaults to undefined
+ **shopeeEnvironment** | [**string**] | Shopee Environment | (optional) defaults to undefined
  **shoplazzaAccessToken** | [**string**] | Access token authorizing the app to access resources on behalf of a user | (optional) defaults to undefined
  **shoplazzaSharedSecret** | [**string**] | Shared secret | (optional) defaults to undefined
  **mivaAccessToken** | [**string**] | Miva access token | (optional) defaults to undefined
@@ -763,6 +799,10 @@ Name | Type | Description  | Notes
  **sallaClientSecret** | [**string**] | Salla Client Secret | (optional) defaults to undefined
  **sallaRefreshToken** | [**string**] | Salla Refresh Token | (optional) defaults to undefined
  **sallaAccessToken** | [**string**] | Salla Access Token | (optional) defaults to undefined
+ **temuAppKey** | [**string**] | Temu App Key | (optional) defaults to undefined
+ **temuAppSecret** | [**string**] | Temu App Secret | (optional) defaults to undefined
+ **temuAccessToken** | [**string**] | Temu Access Token | (optional) defaults to undefined
+ **temuRegion** | [**string**] | Temu API endpoint Region. | (optional) defaults to 'US'
 
 
 ### Return type

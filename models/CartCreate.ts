@@ -1069,6 +1069,7 @@ export enum CartCreateCartIdEnum {
     SsPremium = 'SSPremium',
     Salla = 'Salla',
     Shopify = 'Shopify',
+    Shopee = 'Shopee',
     Shoplazza = 'Shoplazza',
     Shopline = 'Shopline',
     Shopware = 'Shopware',

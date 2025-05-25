@@ -207,6 +207,12 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
      * @param shopifyApiKey Shopify API Key
      * @param shopifyApiPassword Shopify API Password
      * @param shopifySharedSecret Shared secret
+     * @param shopeePartnerId Shopee Partner ID
+     * @param shopeePartnerKey Shopee Partner Key
+     * @param shopeeShopId Shopee SHOP ID
+     * @param shopeeRefreshToken Shopee Refresh Token
+     * @param shopeeRegion Shopee API endpoint Region. Use for Chinese Mainland or Brazil.
+     * @param shopeeEnvironment Shopee Environment
      * @param shoplazzaAccessToken Access token authorizing the app to access resources on behalf of a user
      * @param shoplazzaSharedSecret Shared secret
      * @param mivaAccessToken Miva access token
@@ -287,9 +293,23 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
      * @param sallaClientSecret Salla Client Secret
      * @param sallaRefreshToken Salla Refresh Token
      * @param sallaAccessToken Salla Access Token
+     * @param temuAppKey Temu App Key
+     * @param temuAppSecret Temu App Secret
+     * @param temuAccessToken Temu Access Token
+     * @param temuRegion Temu API endpoint Region.
      */
-    public async accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, _options?: Configuration): Promise<RequestContext> {
+    public async accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -763,6 +783,36 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (shopeePartnerId !== undefined) {
+            requestContext.setQueryParam("shopee_partner_id", ObjectSerializer.serialize(shopeePartnerId, "string", ""));
+        }
+
+        // Query Params
+        if (shopeePartnerKey !== undefined) {
+            requestContext.setQueryParam("shopee_partner_key", ObjectSerializer.serialize(shopeePartnerKey, "string", ""));
+        }
+
+        // Query Params
+        if (shopeeShopId !== undefined) {
+            requestContext.setQueryParam("shopee_shop_id", ObjectSerializer.serialize(shopeeShopId, "string", ""));
+        }
+
+        // Query Params
+        if (shopeeRefreshToken !== undefined) {
+            requestContext.setQueryParam("shopee_refresh_token", ObjectSerializer.serialize(shopeeRefreshToken, "string", ""));
+        }
+
+        // Query Params
+        if (shopeeRegion !== undefined) {
+            requestContext.setQueryParam("shopee_region", ObjectSerializer.serialize(shopeeRegion, "string", ""));
+        }
+
+        // Query Params
+        if (shopeeEnvironment !== undefined) {
+            requestContext.setQueryParam("shopee_environment", ObjectSerializer.serialize(shopeeEnvironment, "string", ""));
+        }
+
+        // Query Params
         if (shoplazzaAccessToken !== undefined) {
             requestContext.setQueryParam("shoplazza_access_token", ObjectSerializer.serialize(shoplazzaAccessToken, "string", ""));
         }
@@ -1163,6 +1213,26 @@ export class AccountApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (sallaAccessToken !== undefined) {
             requestContext.setQueryParam("salla_access_token", ObjectSerializer.serialize(sallaAccessToken, "string", ""));
+        }
+
+        // Query Params
+        if (temuAppKey !== undefined) {
+            requestContext.setQueryParam("temu_app_key", ObjectSerializer.serialize(temuAppKey, "string", ""));
+        }
+
+        // Query Params
+        if (temuAppSecret !== undefined) {
+            requestContext.setQueryParam("temu_app_secret", ObjectSerializer.serialize(temuAppSecret, "string", ""));
+        }
+
+        // Query Params
+        if (temuAccessToken !== undefined) {
+            requestContext.setQueryParam("temu_access_token", ObjectSerializer.serialize(temuAccessToken, "string", ""));
+        }
+
+        // Query Params
+        if (temuRegion !== undefined) {
+            requestContext.setQueryParam("temu_region", ObjectSerializer.serialize(temuRegion, "string", ""));
         }
 
 
