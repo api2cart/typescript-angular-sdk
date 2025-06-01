@@ -802,7 +802,7 @@ Name | Type | Description  | Notes
  **temuAppKey** | [**string**] | Temu App Key | (optional) defaults to undefined
  **temuAppSecret** | [**string**] | Temu App Secret | (optional) defaults to undefined
  **temuAccessToken** | [**string**] | Temu Access Token | (optional) defaults to undefined
- **temuRegion** | [**string**] | Temu API endpoint Region. | (optional) defaults to 'US'
+ **temuRegion** | [**string**] | Temu API endpoint Region. | (optional) defaults to undefined
 
 
 ### Return type

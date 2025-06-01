@@ -1571,7 +1571,7 @@ export interface AccountApiAccountConfigUpdateRequest {
     temuAccessToken?: string
     /**
      * Temu API endpoint Region.
-     * Defaults to: &#39;US&#39;
+     * Defaults to: undefined
      * @type string
      * @memberof AccountApiaccountConfigUpdate
      */

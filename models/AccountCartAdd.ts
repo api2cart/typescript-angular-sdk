@@ -657,7 +657,7 @@ export class AccountCartAdd {
     /**
     * Temu API endpoint Region.
     */
-    'temuRegion'?: string;
+    'temuRegion': AccountCartAddTemuRegionEnum;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -1627,7 +1627,7 @@ export class AccountCartAdd {
         {
             "name": "temuRegion",
             "baseName": "temu_region",
-            "type": "string",
+            "type": "AccountCartAddTemuRegionEnum",
             "format": ""
         }    ];
 
@@ -1705,5 +1705,10 @@ export enum AccountCartAddCartIdEnum {
     Zid = 'Zid',
     Zoey = 'Zoey',
     Zoho = 'Zoho'
+}
+export enum AccountCartAddTemuRegionEnum {
+    Us = 'US',
+    Eu = 'EU',
+    Global = 'GLOBAL'
 }
 
