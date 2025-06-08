@@ -6006,10 +6006,11 @@ export class PromiseWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
      */
-    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const result = this.api.webhookCreateWithHttpInfo(entity, action, callback, label, fields, active, storeId, _options);
+    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const result = this.api.webhookCreateWithHttpInfo(entity, action, callback, label, fields, active, langId, storeId, _options);
         return result.toPromise();
     }
 
@@ -6022,10 +6023,11 @@ export class PromiseWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
      */
-    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, storeId?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        const result = this.api.webhookCreate(entity, action, callback, label, fields, active, storeId, _options);
+    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
+        const result = this.api.webhookCreate(entity, action, callback, label, fields, active, langId, storeId, _options);
         return result.toPromise();
     }
 
@@ -6107,9 +6109,10 @@ export class PromiseWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      */
-    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, active?: boolean, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        const result = this.api.webhookUpdateWithHttpInfo(id, callback, label, fields, active, _options);
+    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
+        const result = this.api.webhookUpdateWithHttpInfo(id, callback, label, fields, active, langId, _options);
         return result.toPromise();
     }
 
@@ -6121,9 +6124,10 @@ export class PromiseWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      */
-    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, active?: boolean, _options?: Configuration): Promise<ProductImageUpdate200Response> {
-        const result = this.api.webhookUpdate(id, callback, label, fields, active, _options);
+    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<ProductImageUpdate200Response> {
+        const result = this.api.webhookUpdate(id, callback, label, fields, active, langId, _options);
         return result.toPromise();
     }
 

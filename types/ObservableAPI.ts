@@ -8219,10 +8219,11 @@ export class ObservableWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
      */
-    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const requestContextPromise = this.requestFactory.webhookCreate(entity, action, callback, label, fields, active, storeId, _options);
+    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const requestContextPromise = this.requestFactory.webhookCreate(entity, action, callback, label, fields, active, langId, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8249,10 +8250,11 @@ export class ObservableWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
      */
-    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
-        return this.webhookCreateWithHttpInfo(entity, action, callback, label, fields, active, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
+    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
+        return this.webhookCreateWithHttpInfo(entity, action, callback, label, fields, active, langId, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
     }
 
     /**
@@ -8372,9 +8374,10 @@ export class ObservableWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      */
-    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, active?: boolean, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.webhookUpdate(id, callback, label, fields, active, _options);
+    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.webhookUpdate(id, callback, label, fields, active, langId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8400,9 +8403,10 @@ export class ObservableWebhookApi {
      * @param [label] The name you give to the webhook
      * @param [fields] Fields the webhook should send
      * @param [active] Webhook status
+     * @param [langId] Language id
      */
-    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, active?: boolean, _options?: Configuration): Observable<ProductImageUpdate200Response> {
-        return this.webhookUpdateWithHttpInfo(id, callback, label, fields, active, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
+    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, _options?: Configuration): Observable<ProductImageUpdate200Response> {
+        return this.webhookUpdateWithHttpInfo(id, callback, label, fields, active, langId, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
     }
 
 }

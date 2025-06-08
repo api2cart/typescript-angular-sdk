@@ -11893,6 +11893,13 @@ export interface WebhookApiWebhookCreateRequest {
      */
     active?: boolean
     /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookCreate
+     */
+    langId?: string
+    /**
      * Defines store id where the webhook should be assigned
      * Defaults to: undefined
      * @type string
@@ -12002,6 +12009,13 @@ export interface WebhookApiWebhookUpdateRequest {
      * @memberof WebhookApiwebhookUpdate
      */
     active?: boolean
+    /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookUpdate
+     */
+    langId?: string
 }
 
 export class ObjectWebhookApi {
@@ -12035,7 +12049,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreateWithHttpInfo(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.storeId,  options).toPromise();
+        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.langId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -12044,7 +12058,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreate(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.storeId,  options).toPromise();
+        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.langId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -12107,7 +12121,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdateWithHttpInfo(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.active,  options).toPromise();
+        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.active, param.langId,  options).toPromise();
     }
 
     /**
@@ -12116,7 +12130,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdate(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<ProductImageUpdate200Response> {
-        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.active,  options).toPromise();
+        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.active, param.langId,  options).toPromise();
     }
 
 }

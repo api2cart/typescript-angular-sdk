@@ -99,6 +99,8 @@ const request: WebhookApiWebhookCreateRequest = {
   fields: "id, name, description",
     // Webhook status (optional)
   active: true,
+    // Language id (optional)
+  langId: "3",
     // Defines store id where the webhook should be assigned (optional)
   storeId: "1",
 };
@@ -118,6 +120,7 @@ Name | Type | Description  | Notes
  **label** | [**string**] | The name you give to the webhook | (optional) defaults to undefined
  **fields** | [**string**] | Fields the webhook should send | (optional) defaults to 'force_all'
  **active** | [**boolean**] | Webhook status | (optional) defaults to true
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Defines store id where the webhook should be assigned | (optional) defaults to undefined
 
 
@@ -338,6 +341,8 @@ const request: WebhookApiWebhookUpdateRequest = {
   fields: "id, name, description",
     // Webhook status (optional)
   active: true,
+    // Language id (optional)
+  langId: "3",
 };
 
 const data = await apiInstance.webhookUpdate(request);
@@ -354,6 +359,7 @@ Name | Type | Description  | Notes
  **label** | [**string**] | The name you give to the webhook | (optional) defaults to undefined
  **fields** | [**string**] | Fields the webhook should send | (optional) defaults to undefined
  **active** | [**boolean**] | Webhook status | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
 
 
 ### Return type

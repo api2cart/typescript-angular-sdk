@@ -16,6 +16,7 @@ export class Webhook {
     'id'?: number;
     'label'?: string;
     'storeId'?: string;
+    'langId'?: string;
     'active'?: boolean;
     'callback'?: string;
     'fields'?: string;
@@ -46,6 +47,12 @@ export class Webhook {
         {
             "name": "storeId",
             "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "langId",
+            "baseName": "lang_id",
             "type": "string",
             "format": ""
         },
