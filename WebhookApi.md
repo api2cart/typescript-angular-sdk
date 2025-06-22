@@ -97,6 +97,8 @@ const request: WebhookApiWebhookCreateRequest = {
   label: "Super webhook",
     // Fields the webhook should send (optional)
   fields: "id, name, description",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
     // Webhook status (optional)
   active: true,
     // Language id (optional)
@@ -119,6 +121,7 @@ Name | Type | Description  | Notes
  **callback** | [**string**] | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | (optional) defaults to undefined
  **label** | [**string**] | The name you give to the webhook | (optional) defaults to undefined
  **fields** | [**string**] | Fields the webhook should send | (optional) defaults to 'force_all'
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **active** | [**boolean**] | Webhook status | (optional) defaults to true
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Defines store id where the webhook should be assigned | (optional) defaults to undefined
@@ -339,6 +342,8 @@ const request: WebhookApiWebhookUpdateRequest = {
   label: "Super webhook",
     // Fields the webhook should send (optional)
   fields: "id, name, description",
+    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
+  responseFields: "{result}",
     // Webhook status (optional)
   active: true,
     // Language id (optional)
@@ -358,6 +363,7 @@ Name | Type | Description  | Notes
  **callback** | [**string**] | Callback url that returns shipping rates. It should be able to accept POST requests with json data. | (optional) defaults to undefined
  **label** | [**string**] | The name you give to the webhook | (optional) defaults to undefined
  **fields** | [**string**] | Fields the webhook should send | (optional) defaults to undefined
+ **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **active** | [**boolean**] | Webhook status | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
 

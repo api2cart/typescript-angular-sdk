@@ -46,6 +46,7 @@ export class Child {
     'availForSale'?: boolean;
     'allowBackorders'?: boolean;
     'inStock'?: boolean;
+    'onSale'?: boolean;
     'manageStock'?: boolean;
     'inventoryLevel'?: number;
     'inventory'?: Array<ProductInventory>;
@@ -230,6 +231,12 @@ export class Child {
         {
             "name": "inStock",
             "baseName": "in_stock",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "onSale",
+            "baseName": "on_sale",
             "type": "boolean",
             "format": ""
         },

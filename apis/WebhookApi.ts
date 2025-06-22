@@ -84,11 +84,12 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param label The name you give to the webhook
      * @param fields Fields the webhook should send
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param active Webhook status
      * @param langId Language id
      * @param storeId Defines store id where the webhook should be assigned
      */
-    public async webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'entity' is not null or undefined
@@ -101,6 +102,7 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
         if (action === null || action === undefined) {
             throw new RequiredError("WebhookApi", "webhookCreate", "action");
         }
+
 
 
 
@@ -139,6 +141,11 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (fields !== undefined) {
             requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params
@@ -350,16 +357,18 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param label The name you give to the webhook
      * @param fields Fields the webhook should send
+     * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param active Webhook status
      * @param langId Language id
      */
-    public async webhookUpdate(id: string, callback?: string, label?: string, fields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async webhookUpdate(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("WebhookApi", "webhookUpdate", "id");
         }
+
 
 
 
@@ -392,6 +401,11 @@ export class WebhookApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (fields !== undefined) {
             requestContext.setQueryParam("fields", ObjectSerializer.serialize(fields, "string", ""));
+        }
+
+        // Query Params
+        if (responseFields !== undefined) {
+            requestContext.setQueryParam("response_fields", ObjectSerializer.serialize(responseFields, "string", ""));
         }
 
         // Query Params

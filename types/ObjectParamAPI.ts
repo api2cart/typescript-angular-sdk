@@ -11886,6 +11886,13 @@ export interface WebhookApiWebhookCreateRequest {
      */
     fields?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookCreate
+     */
+    responseFields?: string
+    /**
      * Webhook status
      * Defaults to: true
      * @type boolean
@@ -12003,6 +12010,13 @@ export interface WebhookApiWebhookUpdateRequest {
      */
     fields?: string
     /**
+     * Set this parameter in order to choose which entity fields you want to retrieve
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookUpdate
+     */
+    responseFields?: string
+    /**
      * Webhook status
      * Defaults to: undefined
      * @type boolean
@@ -12049,7 +12063,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreateWithHttpInfo(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.langId, param.storeId,  options).toPromise();
+        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -12058,7 +12072,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreate(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.active, param.langId, param.storeId,  options).toPromise();
+        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId,  options).toPromise();
     }
 
     /**
@@ -12121,7 +12135,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdateWithHttpInfo(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.active, param.langId,  options).toPromise();
+        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId,  options).toPromise();
     }
 
     /**
@@ -12130,7 +12144,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdate(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<ProductImageUpdate200Response> {
-        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.active, param.langId,  options).toPromise();
+        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId,  options).toPromise();
     }
 
 }

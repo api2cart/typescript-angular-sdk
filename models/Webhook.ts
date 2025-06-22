@@ -20,6 +20,7 @@ export class Webhook {
     'active'?: boolean;
     'callback'?: string;
     'fields'?: string;
+    'responseFields'?: string;
     'createdAt'?: string;
     'updatedAt'?: string;
     'entity'?: string;
@@ -71,6 +72,12 @@ export class Webhook {
         {
             "name": "fields",
             "baseName": "fields",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "responseFields",
+            "baseName": "response_fields",
             "type": "string",
             "format": ""
         },
