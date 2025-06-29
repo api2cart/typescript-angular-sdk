@@ -197,6 +197,7 @@ const request: ProductApiProductAddRequest = {
         ],
         usedForVariations: false,
         scaleId: 1,
+        inputValue: "inputValue_example",
         foodDetails: {
           calories: 3.14,
         },
@@ -294,6 +295,7 @@ const request: ProductApiProductAddRequest = {
     ],
     listingDuration: "Days_3",
     listingType: "Auction",
+    categoryType: "Apparel",
     returnAccepted: true,
     sellerProfiles: {
       shippingProfileId: "shippingProfileId_example",
@@ -1161,6 +1163,8 @@ const request: ProductApiProductCountRequest = {
   status: "disabled",
     // Defines products\'s type (optional)
   type: "simple",
+    // Filter items by visibility status (optional)
+  visible: "everywhere",
     // Entity search that is specified by some value (optional)
   findValue: "Phone",
     // Counts products that are searched specified by field (optional)
@@ -1200,6 +1204,7 @@ Name | Type | Description  | Notes
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
+ **visible** | [**string**] | Filter items by visibility status | (optional) defaults to 'everywhere'
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Counts products that are searched specified by field | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
@@ -1951,6 +1956,8 @@ const request: ProductApiProductListRequest = {
   status: "disabled",
     // Defines products\'s type (optional)
   type: "simple",
+    // Filter items by visibility status (optional)
+  visible: "everywhere",
     // Entity search that is specified by some value (optional)
   findValue: "Phone",
     // Product search that is specified by field (optional)
@@ -2007,6 +2014,7 @@ Name | Type | Description  | Notes
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
+ **visible** | [**string**] | Filter items by visibility status | (optional) defaults to 'everywhere'
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Product search that is specified by field | (optional) defaults to undefined
  **returnGlobal** | [**boolean**] | Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned. | (optional) defaults to false
@@ -3151,6 +3159,7 @@ const request: ProductApiProductUpdateRequest = {
         ],
         usedForVariations: false,
         scaleId: 1,
+        inputValue: "inputValue_example",
         foodDetails: {
           calories: 3.14,
         },

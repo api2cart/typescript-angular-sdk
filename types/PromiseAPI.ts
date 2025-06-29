@@ -3877,7 +3877,7 @@ export class PromiseOrderApi {
     }
 
     /**
-     * Get list of shipments by orders.
+     * Get list of shipments per order.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
      * @param [start] This parameter sets the number from which you want to get entities
@@ -3898,7 +3898,7 @@ export class PromiseOrderApi {
     }
 
     /**
-     * Get list of shipments by orders.
+     * Get list of shipments per order.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
      * @param [start] This parameter sets the number from which you want to get entities
@@ -4434,6 +4434,7 @@ export class PromiseProductApi {
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
+     * @param [visible] Filter items by visibility status
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts products that are searched specified by field
      * @param [reportRequestId] Report request id
@@ -4441,8 +4442,8 @@ export class PromiseProductApi {
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productCountWithHttpInfo(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<ProductCount200Response>> {
-        const result = this.api.productCountWithHttpInfo(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options);
+    public productCountWithHttpInfo(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<ProductCount200Response>> {
+        const result = this.api.productCountWithHttpInfo(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -4465,6 +4466,7 @@ export class PromiseProductApi {
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
+     * @param [visible] Filter items by visibility status
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts products that are searched specified by field
      * @param [reportRequestId] Report request id
@@ -4472,8 +4474,8 @@ export class PromiseProductApi {
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productCount(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<ProductCount200Response> {
-        const result = this.api.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options);
+    public productCount(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<ProductCount200Response> {
+        const result = this.api.productCount(productIds, sinceId, categoriesIds, categoryId, storeId, langId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, brandName, productAttributes, status, type, visible, findValue, findWhere, reportRequestId, returnGlobal, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -4777,6 +4779,7 @@ export class PromiseProductApi {
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
+     * @param [visible] Filter items by visibility status
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Product search that is specified by field
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
@@ -4790,8 +4793,8 @@ export class PromiseProductApi {
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productListWithHttpInfo(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<ModelResponseProductList>> {
-        const result = this.api.productListWithHttpInfo(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options);
+    public productListWithHttpInfo(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<ModelResponseProductList>> {
+        const result = this.api.productListWithHttpInfo(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -4819,6 +4822,7 @@ export class PromiseProductApi {
      * @param [productAttributes] Defines product attributes
      * @param [status] Defines product\&#39;s status
      * @param [type] Defines products\&#39;s type
+     * @param [visible] Filter items by visibility status
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Product search that is specified by field
      * @param [returnGlobal] Determines the type of products to be returned. If set to \&#39;true\&#39;, only global products will be returned; if set to \&#39;false\&#39;, only local products will be returned.
@@ -4832,8 +4836,8 @@ export class PromiseProductApi {
      * @param [disableReportCache] Disable report cache for current request
      * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<ModelResponseProductList> {
-        const result = this.api.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options);
+    public productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<ModelResponseProductList> {
+        const result = this.api.productList(start, count, pageCursor, productIds, sinceId, categoriesIds, categoryId, storeId, langId, currencyId, availView, availSale, createdFrom, createdTo, modifiedFrom, modifiedTo, sku, brandName, productAttributes, status, type, visible, findValue, findWhere, returnGlobal, params, responseFields, exclude, sortBy, sortDirection, reportRequestId, disableCache, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 

@@ -1550,7 +1550,7 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Get list of shipments by orders.
+     * Get list of shipments per order.
      * order.shipment.list
      * @param orderId Retrieves shipments specified by order id
      * @param start This parameter sets the number from which you want to get entities

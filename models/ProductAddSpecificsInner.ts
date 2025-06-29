@@ -21,6 +21,7 @@ export class ProductAddSpecificsInner {
     'values'?: Array<string>;
     'usedForVariations'?: boolean;
     'scaleId'?: number | null;
+    'inputValue'?: string | null;
     'foodDetails'?: ProductAddSpecificsInnerFoodDetails;
     'groupProductsDetails'?: Array<ProductAddSpecificsInnerGroupProductsDetailsInner>;
     'bookingDetails'?: ProductAddSpecificsInnerBookingDetails;
@@ -58,6 +59,12 @@ export class ProductAddSpecificsInner {
             "name": "scaleId",
             "baseName": "scale_id",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "inputValue",
+            "baseName": "input_value",
+            "type": "string",
             "format": ""
         },
         {

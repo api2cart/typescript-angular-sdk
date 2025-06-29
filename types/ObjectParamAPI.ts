@@ -7903,7 +7903,7 @@ export class ObjectOrderApi {
     }
 
     /**
-     * Get list of shipments by orders.
+     * Get list of shipments per order.
      * order.shipment.list
      * @param param the request object
      */
@@ -7912,7 +7912,7 @@ export class ObjectOrderApi {
     }
 
     /**
-     * Get list of shipments by orders.
+     * Get list of shipments per order.
      * order.shipment.list
      * @param param the request object
      */
@@ -8742,6 +8742,13 @@ export interface ProductApiProductCountRequest {
      */
     type?: string
     /**
+     * Filter items by visibility status
+     * Defaults to: &#39;everywhere&#39;
+     * @type string
+     * @memberof ProductApiproductCount
+     */
+    visible?: string
+    /**
      * Entity search that is specified by some value
      * Defaults to: undefined
      * @type string
@@ -9297,6 +9304,13 @@ export interface ProductApiProductListRequest {
      * @memberof ProductApiproductList
      */
     type?: string
+    /**
+     * Filter items by visibility status
+     * Defaults to: &#39;everywhere&#39;
+     * @type string
+     * @memberof ProductApiproductList
+     */
+    visible?: string
     /**
      * Entity search that is specified by some value
      * Defaults to: undefined
@@ -10365,7 +10379,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCountWithHttpInfo(param: ProductApiProductCountRequest = {}, options?: Configuration): Promise<HttpInfo<ProductCount200Response>> {
-        return this.api.productCountWithHttpInfo(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productCountWithHttpInfo(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.visible, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10374,7 +10388,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCount(param: ProductApiProductCountRequest = {}, options?: Configuration): Promise<ProductCount200Response> {
-        return this.api.productCount(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productCount(param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.brandName, param.productAttributes, param.status, param.type, param.visible, param.findValue, param.findWhere, param.reportRequestId, param.returnGlobal, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10563,7 +10577,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productListWithHttpInfo(param: ProductApiProductListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseProductList>> {
-        return this.api.productListWithHttpInfo(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productListWithHttpInfo(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.visible, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -10572,7 +10586,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productList(param: ProductApiProductListRequest = {}, options?: Configuration): Promise<ModelResponseProductList> {
-        return this.api.productList(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.productList(param.start, param.count, param.pageCursor, param.productIds, param.sinceId, param.categoriesIds, param.categoryId, param.storeId, param.langId, param.currencyId, param.availView, param.availSale, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sku, param.brandName, param.productAttributes, param.status, param.type, param.visible, param.findValue, param.findWhere, param.returnGlobal, param.params, param.responseFields, param.exclude, param.sortBy, param.sortDirection, param.reportRequestId, param.disableCache, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**

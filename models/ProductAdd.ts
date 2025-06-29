@@ -428,6 +428,10 @@ export class ProductAdd {
     */
     'listingType'?: string;
     /**
+    * Specifies the type of category (e.g., apparel or other) for the product being added.
+    */
+    'categoryType'?: string;
+    /**
     * Indicates whether the seller allows the buyer to return the item.
     */
     'returnAccepted'?: boolean;
@@ -1087,6 +1091,12 @@ export class ProductAdd {
         {
             "name": "listingType",
             "baseName": "listing_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "categoryType",
+            "baseName": "category_type",
             "type": "string",
             "format": ""
         },

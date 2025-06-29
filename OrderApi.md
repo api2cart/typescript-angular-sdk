@@ -225,6 +225,7 @@ const request: OrderApiOrderAddRequest = {
         orderItemWeight: 5, where {x} - 1,2,3,... etc,
         orderItemVariantId: "52",
         orderItemTax: 5.5,
+        orderItemTaxClass: "standard",
         orderItemPriceIncludesTax: false,
         orderItemParent: 2,
         orderItemParentOptionName: "Internal Memory Storage",
@@ -1468,7 +1469,7 @@ Name | Type | Description  | Notes
 # **orderShipmentList**
 > ModelResponseOrderShipmentList orderShipmentList()
 
-Get list of shipments by orders.
+Get list of shipments per order.
 
 ### Example
 

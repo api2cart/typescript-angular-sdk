@@ -503,7 +503,7 @@ import { CartConfig200Response } from '../models/CartConfig200Response';
 import { CartConfig200ResponseResult } from '../models/CartConfig200ResponseResult';
 import { CartConfigUpdate } from '../models/CartConfigUpdate';
 import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
-import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                } from '../models/CartCouponAdd';
+import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                 } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';

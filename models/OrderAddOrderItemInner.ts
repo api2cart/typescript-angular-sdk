@@ -48,6 +48,10 @@ export class OrderAddOrderItemInner {
     */
     'orderItemTax'?: number;
     /**
+    * Id of the tax class of product.
+    */
+    'orderItemTaxClass'?: string;
+    /**
     * Defines if item price includes tax
     */
     'orderItemPriceIncludesTax'?: boolean;
@@ -121,6 +125,12 @@ export class OrderAddOrderItemInner {
             "name": "orderItemTax",
             "baseName": "order_item_tax",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "orderItemTaxClass",
+            "baseName": "order_item_tax_class",
+            "type": "string",
             "format": ""
         },
         {

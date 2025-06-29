@@ -403,6 +403,7 @@ const request: CartApiCartCouponAddRequest = {
     actionConditionValue: "17834222,45466663",
     includeTax: true,
     storeId: "1",
+    freeCashOnDelivery: true,
   },
 };
 
