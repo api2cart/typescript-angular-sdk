@@ -240,6 +240,7 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param groupId Customer group_id
      * @param storeId Counts customer specified by store id
      * @param avail Defines category\&#39;s visibility status
+     * @param includeGuests Indicates whether to include guest customers in the total count.
      * @param findValue Entity search that is specified by some value
      * @param findWhere Counts customers that are searched specified by field
      * @param createdFrom Retrieve entities from their creation date
@@ -247,8 +248,9 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
      */
-    public async customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -297,6 +299,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (avail !== undefined) {
             requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (includeGuests !== undefined) {
+            requestContext.setQueryParam("include_guests", ObjectSerializer.serialize(includeGuests, "boolean", ""));
         }
 
         // Query Params
@@ -404,14 +411,16 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param findWhere Entity search that is specified by the comma-separated unique fields
      * @param findParams Entity search that is specified by comma-separated parameters
      * @param storeId Store Id
+     * @param includeGuests Indicates whether to search among guest customers when looking up a customer.
      */
-    public async customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, includeGuests?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'findValue' is not null or undefined
         if (findValue === null || findValue === undefined) {
             throw new RequiredError("CustomerApi", "customerFind", "findValue");
         }
+
 
 
 
@@ -442,6 +451,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (includeGuests !== undefined) {
+            requestContext.setQueryParam("include_guests", ObjectSerializer.serialize(includeGuests, "boolean", ""));
         }
 
 
@@ -718,6 +732,7 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param groupId Customer group_id
      * @param storeId Retrieves customers specified by store id
      * @param avail Defines category\&#39;s visibility status
+     * @param includeGuests Indicates whether to include guest customers in the list results.
      * @param findValue Entity search that is specified by some value
      * @param findWhere Customer search that is specified by field
      * @param createdFrom Retrieve entities from their creation date
@@ -730,8 +745,9 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -803,6 +819,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (avail !== undefined) {
             requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (includeGuests !== undefined) {
+            requestContext.setQueryParam("include_guests", ObjectSerializer.serialize(includeGuests, "boolean", ""));
         }
 
         // Query Params

@@ -2981,6 +2981,7 @@ export class PromiseCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Counts customer specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the total count.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -2988,8 +2989,8 @@ export class PromiseCustomerApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public customerCountWithHttpInfo(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<HttpInfo<CustomerCount200Response>> {
-        const result = this.api.customerCountWithHttpInfo(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
+    public customerCountWithHttpInfo(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<HttpInfo<CustomerCount200Response>> {
+        const result = this.api.customerCountWithHttpInfo(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
         return result.toPromise();
     }
 
@@ -3002,6 +3003,7 @@ export class PromiseCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Counts customer specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the total count.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -3009,8 +3011,8 @@ export class PromiseCustomerApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<CustomerCount200Response> {
-        const result = this.api.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
+    public customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Promise<CustomerCount200Response> {
+        const result = this.api.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
         return result.toPromise();
     }
 
@@ -3041,9 +3043,10 @@ export class PromiseCustomerApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findParams] Entity search that is specified by comma-separated parameters
      * @param [storeId] Store Id
+     * @param [includeGuests] Indicates whether to search among guest customers when looking up a customer.
      */
-    public customerFindWithHttpInfo(findValue: string, findWhere?: string, findParams?: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<CustomerFind200Response>> {
-        const result = this.api.customerFindWithHttpInfo(findValue, findWhere, findParams, storeId, _options);
+    public customerFindWithHttpInfo(findValue: string, findWhere?: string, findParams?: string, storeId?: string, includeGuests?: boolean, _options?: Configuration): Promise<HttpInfo<CustomerFind200Response>> {
+        const result = this.api.customerFindWithHttpInfo(findValue, findWhere, findParams, storeId, includeGuests, _options);
         return result.toPromise();
     }
 
@@ -3054,9 +3057,10 @@ export class PromiseCustomerApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findParams] Entity search that is specified by comma-separated parameters
      * @param [storeId] Store Id
+     * @param [includeGuests] Indicates whether to search among guest customers when looking up a customer.
      */
-    public customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, _options?: Configuration): Promise<CustomerFind200Response> {
-        const result = this.api.customerFind(findValue, findWhere, findParams, storeId, _options);
+    public customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, includeGuests?: boolean, _options?: Configuration): Promise<CustomerFind200Response> {
+        const result = this.api.customerFind(findValue, findWhere, findParams, storeId, includeGuests, _options);
         return result.toPromise();
     }
 
@@ -3162,6 +3166,7 @@ export class PromiseCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Retrieves customers specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the list results.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -3174,8 +3179,8 @@ export class PromiseCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<HttpInfo<ModelResponseCustomerList>> {
-        const result = this.api.customerListWithHttpInfo(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
+    public customerListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<HttpInfo<ModelResponseCustomerList>> {
+        const result = this.api.customerListWithHttpInfo(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
         return result.toPromise();
     }
 
@@ -3191,6 +3196,7 @@ export class PromiseCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Retrieves customers specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the list results.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -3203,8 +3209,8 @@ export class PromiseCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<ModelResponseCustomerList> {
-        const result = this.api.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
+    public customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<ModelResponseCustomerList> {
+        const result = this.api.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
         return result.toPromise();
     }
 

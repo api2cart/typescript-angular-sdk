@@ -303,6 +303,8 @@ const request: CustomerApiCustomerCountRequest = {
   storeId: "1",
     // Defines category\'s visibility status (optional)
   avail: false,
+    // Indicates whether to include guest customers in the total count. (optional)
+  includeGuests: true,
     // Entity search that is specified by some value (optional)
   findValue: "mail@gmail.com",
     // Counts customers that are searched specified by field (optional)
@@ -332,6 +334,7 @@ Name | Type | Description  | Notes
  **groupId** | [**string**] | Customer group_id | (optional) defaults to undefined
  **storeId** | [**string**] | Counts customer specified by store id | (optional) defaults to undefined
  **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **includeGuests** | [**boolean**] | Indicates whether to include guest customers in the total count. | (optional) defaults to false
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Counts customers that are searched specified by field | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
@@ -438,6 +441,8 @@ const request: CustomerApiCustomerFindRequest = {
   findParams: "regex",
     // Store Id (optional)
   storeId: "1",
+    // Indicates whether to search among guest customers when looking up a customer. (optional)
+  includeGuests: true,
 };
 
 const data = await apiInstance.customerFind(request);
@@ -453,6 +458,7 @@ Name | Type | Description  | Notes
  **findWhere** | [**string**] | Entity search that is specified by the comma-separated unique fields | (optional) defaults to 'email'
  **findParams** | [**string**] | Entity search that is specified by comma-separated parameters | (optional) defaults to 'whole_words'
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **includeGuests** | [**boolean**] | Indicates whether to search among guest customers when looking up a customer. | (optional) defaults to false
 
 
 ### Return type
@@ -714,6 +720,8 @@ const request: CustomerApiCustomerListRequest = {
   storeId: "1",
     // Defines category\'s visibility status (optional)
   avail: false,
+    // Indicates whether to include guest customers in the list results. (optional)
+  includeGuests: true,
     // Entity search that is specified by some value (optional)
   findValue: "mail@gmail.com",
     // Customer search that is specified by field (optional)
@@ -756,6 +764,7 @@ Name | Type | Description  | Notes
  **groupId** | [**string**] | Customer group_id | (optional) defaults to undefined
  **storeId** | [**string**] | Retrieves customers specified by store id | (optional) defaults to undefined
  **avail** | [**boolean**] | Defines category\&#39;s visibility status | (optional) defaults to true
+ **includeGuests** | [**boolean**] | Indicates whether to include guest customers in the list results. | (optional) defaults to false
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined
  **findWhere** | [**string**] | Customer search that is specified by field | (optional) defaults to undefined
  **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined

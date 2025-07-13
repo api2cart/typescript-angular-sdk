@@ -1076,6 +1076,7 @@ export enum CartCreateCartIdEnum {
     ShopwareApi = 'ShopwareApi',
     Square = 'Square',
     Squarespace = 'Squarespace',
+    Temu = 'Temu',
     Tiendanube = 'Tiendanube',
     TikTokShop = 'TikTokShop',
     Tomatocart = 'Tomatocart',

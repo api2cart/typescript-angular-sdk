@@ -29,6 +29,7 @@ export class Customer {
     'lastLogin'?: A2CDateTime;
     'birthDay'?: A2CDateTime;
     'status'?: string;
+    'isGuest'?: boolean;
     'newsLetterSubscription'?: boolean;
     'consents'?: Array<CustomerConsent>;
     'gender'?: string;
@@ -119,6 +120,12 @@ export class Customer {
             "name": "status",
             "baseName": "status",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isGuest",
+            "baseName": "is_guest",
+            "type": "boolean",
             "format": ""
         },
         {

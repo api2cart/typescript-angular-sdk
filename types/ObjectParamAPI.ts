@@ -5669,6 +5669,13 @@ export interface CustomerApiCustomerCountRequest {
      */
     avail?: boolean
     /**
+     * Indicates whether to include guest customers in the total count.
+     * Defaults to: false
+     * @type boolean
+     * @memberof CustomerApicustomerCount
+     */
+    includeGuests?: boolean
+    /**
      * Entity search that is specified by some value
      * Defaults to: undefined
      * @type string
@@ -5751,6 +5758,13 @@ export interface CustomerApiCustomerFindRequest {
      * @memberof CustomerApicustomerFind
      */
     storeId?: string
+    /**
+     * Indicates whether to search among guest customers when looking up a customer.
+     * Defaults to: false
+     * @type boolean
+     * @memberof CustomerApicustomerFind
+     */
+    includeGuests?: boolean
 }
 
 export interface CustomerApiCustomerGroupAddRequest {
@@ -5952,6 +5966,13 @@ export interface CustomerApiCustomerListRequest {
      * @memberof CustomerApicustomerList
      */
     avail?: boolean
+    /**
+     * Indicates whether to include guest customers in the list results.
+     * Defaults to: false
+     * @type boolean
+     * @memberof CustomerApicustomerList
+     */
+    includeGuests?: boolean
     /**
      * Entity search that is specified by some value
      * Defaults to: undefined
@@ -6159,7 +6180,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerCountWithHttpInfo(param: CustomerApiCustomerCountRequest = {}, options?: Configuration): Promise<HttpInfo<CustomerCount200Response>> {
-        return this.api.customerCountWithHttpInfo(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
+        return this.api.customerCountWithHttpInfo(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.includeGuests, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -6168,7 +6189,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerCount(param: CustomerApiCustomerCountRequest = {}, options?: Configuration): Promise<CustomerCount200Response> {
-        return this.api.customerCount(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
+        return this.api.customerCount(param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.includeGuests, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
     }
 
     /**
@@ -6195,7 +6216,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerFindWithHttpInfo(param: CustomerApiCustomerFindRequest, options?: Configuration): Promise<HttpInfo<CustomerFind200Response>> {
-        return this.api.customerFindWithHttpInfo(param.findValue, param.findWhere, param.findParams, param.storeId,  options).toPromise();
+        return this.api.customerFindWithHttpInfo(param.findValue, param.findWhere, param.findParams, param.storeId, param.includeGuests,  options).toPromise();
     }
 
     /**
@@ -6204,7 +6225,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerFind(param: CustomerApiCustomerFindRequest, options?: Configuration): Promise<CustomerFind200Response> {
-        return this.api.customerFind(param.findValue, param.findWhere, param.findParams, param.storeId,  options).toPromise();
+        return this.api.customerFind(param.findValue, param.findWhere, param.findParams, param.storeId, param.includeGuests,  options).toPromise();
     }
 
     /**
@@ -6267,7 +6288,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerListWithHttpInfo(param: CustomerApiCustomerListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerList>> {
-        return this.api.customerListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.customerListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.includeGuests, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6276,7 +6297,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerList(param: CustomerApiCustomerListRequest = {}, options?: Configuration): Promise<ModelResponseCustomerList> {
-        return this.api.customerList(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.customerList(param.start, param.count, param.pageCursor, param.ids, param.sinceId, param.customerListId, param.groupId, param.storeId, param.avail, param.includeGuests, param.findValue, param.findWhere, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**

@@ -3966,6 +3966,7 @@ export class ObservableCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Counts customer specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the total count.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -3973,8 +3974,8 @@ export class ObservableCustomerApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public customerCountWithHttpInfo(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<CustomerCount200Response>> {
-        const requestContextPromise = this.requestFactory.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
+    public customerCountWithHttpInfo(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<CustomerCount200Response>> {
+        const requestContextPromise = this.requestFactory.customerCount(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4001,6 +4002,7 @@ export class ObservableCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Counts customer specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the total count.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Counts customers that are searched specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -4008,8 +4010,8 @@ export class ObservableCustomerApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [modifiedTo] Retrieve entities to their modification date
      */
-    public customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<CustomerCount200Response> {
-        return this.customerCountWithHttpInfo(ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<CustomerCount200Response>) => apiResponse.data));
+    public customerCount(ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<CustomerCount200Response> {
+        return this.customerCountWithHttpInfo(ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<CustomerCount200Response>) => apiResponse.data));
     }
 
     /**
@@ -4052,9 +4054,10 @@ export class ObservableCustomerApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findParams] Entity search that is specified by comma-separated parameters
      * @param [storeId] Store Id
+     * @param [includeGuests] Indicates whether to search among guest customers when looking up a customer.
      */
-    public customerFindWithHttpInfo(findValue: string, findWhere?: string, findParams?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CustomerFind200Response>> {
-        const requestContextPromise = this.requestFactory.customerFind(findValue, findWhere, findParams, storeId, _options);
+    public customerFindWithHttpInfo(findValue: string, findWhere?: string, findParams?: string, storeId?: string, includeGuests?: boolean, _options?: Configuration): Observable<HttpInfo<CustomerFind200Response>> {
+        const requestContextPromise = this.requestFactory.customerFind(findValue, findWhere, findParams, storeId, includeGuests, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4079,9 +4082,10 @@ export class ObservableCustomerApi {
      * @param [findWhere] Entity search that is specified by the comma-separated unique fields
      * @param [findParams] Entity search that is specified by comma-separated parameters
      * @param [storeId] Store Id
+     * @param [includeGuests] Indicates whether to search among guest customers when looking up a customer.
      */
-    public customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, _options?: Configuration): Observable<CustomerFind200Response> {
-        return this.customerFindWithHttpInfo(findValue, findWhere, findParams, storeId, _options).pipe(map((apiResponse: HttpInfo<CustomerFind200Response>) => apiResponse.data));
+    public customerFind(findValue: string, findWhere?: string, findParams?: string, storeId?: string, includeGuests?: boolean, _options?: Configuration): Observable<CustomerFind200Response> {
+        return this.customerFindWithHttpInfo(findValue, findWhere, findParams, storeId, includeGuests, _options).pipe(map((apiResponse: HttpInfo<CustomerFind200Response>) => apiResponse.data));
     }
 
     /**
@@ -4225,6 +4229,7 @@ export class ObservableCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Retrieves customers specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the list results.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -4237,8 +4242,8 @@ export class ObservableCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerList>> {
-        const requestContextPromise = this.requestFactory.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
+    public customerListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerList>> {
+        const requestContextPromise = this.requestFactory.customerList(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4268,6 +4273,7 @@ export class ObservableCustomerApi {
      * @param [groupId] Customer group_id
      * @param [storeId] Retrieves customers specified by store id
      * @param [avail] Defines category\&#39;s visibility status
+     * @param [includeGuests] Indicates whether to include guest customers in the list results.
      * @param [findValue] Entity search that is specified by some value
      * @param [findWhere] Customer search that is specified by field
      * @param [createdFrom] Retrieve entities from their creation date
@@ -4280,8 +4286,8 @@ export class ObservableCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerList> {
-        return this.customerListWithHttpInfo(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerList>) => apiResponse.data));
+    public customerList(start?: number, count?: number, pageCursor?: string, ids?: string, sinceId?: string, customerListId?: string, groupId?: string, storeId?: string, avail?: boolean, includeGuests?: boolean, findValue?: string, findWhere?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerList> {
+        return this.customerListWithHttpInfo(start, count, pageCursor, ids, sinceId, customerListId, groupId, storeId, avail, includeGuests, findValue, findWhere, createdFrom, createdTo, modifiedFrom, modifiedTo, sortBy, sortDirection, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerList>) => apiResponse.data));
     }
 
     /**
