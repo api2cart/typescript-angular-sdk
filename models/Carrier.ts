@@ -18,8 +18,8 @@ export class Carrier {
     'name'?: string;
     'active'?: boolean;
     'shippingMethods'?: Array<OrderShippingMethod>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

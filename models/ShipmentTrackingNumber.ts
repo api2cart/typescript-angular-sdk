@@ -13,10 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class ShipmentTrackingNumber {
-    'carrierId'?: string;
-    'trackingNumber'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'carrierId'?: string | null;
+    'trackingNumber'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

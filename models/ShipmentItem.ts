@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class ShipmentItem {
-    'orderProductId'?: string;
-    'productId'?: string;
-    'variantId'?: string;
-    'model'?: string;
-    'name'?: string;
-    'price'?: number;
-    'quantity'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'orderProductId'?: string | null;
+    'productId'?: string | null;
+    'variantId'?: string | null;
+    'model'?: string | null;
+    'name'?: string | null;
+    'price'?: number | null;
+    'quantity'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -16,15 +16,15 @@ import { CartWarehouse } from '../models/CartWarehouse';
 import { HttpFile } from '../http/http';
 
 export class Cart {
-    'name'?: string;
-    'url'?: string;
-    'version'?: string;
-    'dbPrefix'?: string;
+    'name'?: string | null;
+    'url'?: string | null;
+    'version'?: string | null;
+    'dbPrefix'?: string | null;
     'storesInfo'?: Array<CartStoreInfo>;
     'warehouses'?: Array<CartWarehouse>;
     'shippingZones'?: Array<CartShippingZone>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

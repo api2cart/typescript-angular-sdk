@@ -15,10 +15,10 @@ import { HttpFile } from '../http/http';
 export class ProductInventory {
     'warehouseId'?: string;
     'quantity'?: number;
-    'inStock'?: boolean;
-    'priority'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'inStock'?: boolean | null;
+    'priority'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -14,11 +14,11 @@ import { BatchJobResult } from '../models/BatchJobResult';
 import { HttpFile } from '../http/http';
 
 export class ResponseBatchJobResult {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'result'?: BatchJobResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'result'?: BatchJobResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

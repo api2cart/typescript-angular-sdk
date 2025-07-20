@@ -14,12 +14,12 @@ import { A2CDateTime } from '../models/A2CDateTime';
 import { HttpFile } from '../http/http';
 
 export class CustomerWishListItem {
-    'id'?: string;
+    'id'?: string | null;
     'productId'?: string;
-    'childId'?: string;
-    'createdTime'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'childId'?: string | null;
+    'createdTime'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

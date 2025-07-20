@@ -16,23 +16,23 @@ import { HttpFile } from '../http/http';
 
 export class Category {
     'id'?: string;
-    'parentId'?: string;
-    'createdAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
+    'parentId'?: string | null;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
     'name'?: string;
-    'shortDescription'?: string;
-    'description'?: string;
+    'shortDescription'?: string | null;
+    'description'?: string | null;
     'storesIds'?: Array<string>;
-    'keywords'?: string;
-    'metaDescription'?: string;
-    'metaTitle'?: string;
+    'keywords'?: string | null;
+    'metaDescription'?: string | null;
+    'metaTitle'?: string | null;
     'avail'?: boolean;
-    'path'?: string;
-    'seoUrl'?: string;
-    'sortOrder'?: number;
+    'path'?: string | null;
+    'seoUrl'?: string | null;
+    'sortOrder'?: number | null;
     'images'?: Array<Image>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

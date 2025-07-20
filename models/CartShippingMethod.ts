@@ -14,18 +14,18 @@ import { CartShippingMethodRate } from '../models/CartShippingMethodRate';
 import { HttpFile } from '../http/http';
 
 export class CartShippingMethod {
-    'name'?: string;
-    'handlingFee'?: string;
-    'handlingEnabled'?: string;
-    'handlingType'?: string;
-    'defaultPrice'?: string;
-    'defaultPriceType'?: string;
-    'type'?: string;
-    'enabled'?: string;
-    'minOrderAmount'?: string;
+    'name'?: string | null;
+    'handlingFee'?: string | null;
+    'handlingEnabled'?: string | null;
+    'handlingType'?: string | null;
+    'defaultPrice'?: string | null;
+    'defaultPriceType'?: string | null;
+    'type'?: string | null;
+    'enabled'?: string | null;
+    'minOrderAmount'?: string | null;
     'rates'?: Array<CartShippingMethodRate>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

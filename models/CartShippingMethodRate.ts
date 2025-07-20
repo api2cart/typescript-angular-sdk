@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class CartShippingMethodRate {
-    'minWeight'?: string;
-    'maxWeight'?: string;
-    'minOrderAmount'?: string;
-    'maxOrderAmount'?: string;
-    'minItemsCount'?: string;
-    'maxItemsCount'?: string;
-    'price'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'minWeight'?: string | null;
+    'maxWeight'?: string | null;
+    'minOrderAmount'?: string | null;
+    'maxOrderAmount'?: string | null;
+    'minItemsCount'?: string | null;
+    'maxItemsCount'?: string | null;
+    'price'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

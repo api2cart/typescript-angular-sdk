@@ -19,8 +19,8 @@ export class BatchJobResult {
     'itemsProcessed'?: number;
     'itemsSucceed'?: number;
     'items'?: Array<BatchJobResultItem>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

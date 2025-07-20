@@ -14,10 +14,10 @@ import { HttpFile } from '../http/http';
 
 export class ProductReviewRating {
     'id'?: string;
-    'name'?: string;
+    'name'?: string | null;
     'value'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

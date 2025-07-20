@@ -18,9 +18,9 @@ export class OrderStatus {
     'id'?: string;
     'name'?: string;
     'history'?: Array<OrderStatusHistoryItem>;
-    'refundInfo'?: OrderStatusRefund;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'refundInfo'?: OrderStatusRefund | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

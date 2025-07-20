@@ -15,12 +15,12 @@ import { ResponseCartMetaDataListResult } from '../models/ResponseCartMetaDataLi
 import { HttpFile } from '../http/http';
 
 export class ModelResponseCartMetaDataList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseCartMetaDataListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseCartMetaDataListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

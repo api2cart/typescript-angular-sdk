@@ -16,13 +16,13 @@ import { HttpFile } from '../http/http';
 export class TaxClass {
     'id'?: string;
     'name'?: string;
-    'avail'?: boolean;
-    'tax'?: number;
-    'taxType'?: number;
-    'createdAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'avail'?: boolean | null;
+    'tax'?: number | null;
+    'taxType'?: number | null;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

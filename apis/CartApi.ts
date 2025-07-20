@@ -8,26 +8,17 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { AccountCartAdd200Response } from '../models/AccountCartAdd200Response';
 import { AttributeAdd200Response } from '../models/AttributeAdd200Response';
 import { AttributeDelete200Response } from '../models/AttributeDelete200Response';
 import { BasketLiveShippingServiceDelete200Response } from '../models/BasketLiveShippingServiceDelete200Response';
-import { CartBridge200Response } from '../models/CartBridge200Response';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
-import { CartClearCache200Response } from '../models/CartClearCache200Response';
-import { CartConfig200Response } from '../models/CartConfig200Response';
-import { CartConfigUpdate } from '../models/CartConfigUpdate';
-import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
 import { CartCouponAdd } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
-import { CartCreate } from '../models/CartCreate';
 import { CartDelete200Response } from '../models/CartDelete200Response';
-import { CartDisconnect200Response } from '../models/CartDisconnect200Response';
 import { CartGiftcardAdd200Response } from '../models/CartGiftcardAdd200Response';
 import { CartGiftcardCount200Response } from '../models/CartGiftcardCount200Response';
 import { CartInfo200Response } from '../models/CartInfo200Response';
-import { CartList200Response } from '../models/CartList200Response';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartPluginList200Response } from '../models/CartPluginList200Response';
 import { CartScriptAdd200Response } from '../models/CartScriptAdd200Response';
@@ -43,36 +34,6 @@ import { ModelResponseCartShippingZonesList } from '../models/ModelResponseCartS
  * no description
  */
 export class CartApiRequestFactory extends BaseAPIRequestFactory {
-
-    /**
-     * Get bridge key and store key
-     * cart.bridge
-     */
-    public async cartBridge(_options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // Path Params
-        const localVarPath = '/cart.bridge.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
 
     /**
      * Get count of cart catalog price rules discounts.
@@ -172,155 +133,6 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
         }
 
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["StoreKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Clear cache on store.
-     * cart.clear_cache
-     * @param cacheType Defines which cache should be cleared.
-     */
-    public async cartClearCache(cacheType: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'cacheType' is not null or undefined
-        if (cacheType === null || cacheType === undefined) {
-            throw new RequiredError("CartApi", "cartClearCache", "cacheType");
-        }
-
-
-        // Path Params
-        const localVarPath = '/cart.clear_cache.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (cacheType !== undefined) {
-            requestContext.setQueryParam("cache_type", ObjectSerializer.serialize(cacheType, "string", ""));
-        }
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["StoreKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Get list of cart configs
-     * cart.config
-     * @param params Set this parameter in order to choose which entity fields you want to retrieve
-     * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public async cartConfig(params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-
-        // Path Params
-        const localVarPath = '/cart.config.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (params !== undefined) {
-            requestContext.setQueryParam("params", ObjectSerializer.serialize(params, "string", ""));
-        }
-
-        // Query Params
-        if (exclude !== undefined) {
-            requestContext.setQueryParam("exclude", ObjectSerializer.serialize(exclude, "string", ""));
-        }
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["StoreKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Use this API method to update custom data in client database.
-     * cart.config.update
-     * @param cartConfigUpdate 
-     */
-    public async cartConfigUpdate(cartConfigUpdate: CartConfigUpdate, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'cartConfigUpdate' is not null or undefined
-        if (cartConfigUpdate === null || cartConfigUpdate === undefined) {
-            throw new RequiredError("CartApi", "cartConfigUpdate", "cartConfigUpdate");
-        }
-
-
-        // Path Params
-        const localVarPath = '/cart.config.update.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(cartConfigUpdate, "CartConfigUpdate", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -783,54 +595,6 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * Add store to the account
-     * cart.create
-     * @param cartCreate 
-     */
-    public async cartCreate(cartCreate: CartCreate, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'cartCreate' is not null or undefined
-        if (cartCreate === null || cartCreate === undefined) {
-            throw new RequiredError("CartApi", "cartCreate", "cartCreate");
-        }
-
-
-        // Path Params
-        const localVarPath = '/cart.create.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(cartCreate, "CartCreate", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
      * Remove store from API2Cart
      * cart.delete
      * @param deleteBridge Identifies if there is a necessity to delete bridge
@@ -844,48 +608,6 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (deleteBridge !== undefined) {
-            requestContext.setQueryParam("delete_bridge", ObjectSerializer.serialize(deleteBridge, "boolean", ""));
-        }
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["StoreKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Disconnect with the store and clear store session data.
-     * cart.disconnect
-     * @param deleteBridge Identifies if there is a necessity to delete bridge
-     */
-    public async cartDisconnect(deleteBridge?: boolean, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-
-        // Path Params
-        const localVarPath = '/cart.disconnect.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -1218,36 +940,6 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         if (authMethod?.applySecurityAuthentication) {
             await authMethod?.applySecurityAuthentication(requestContext);
         }
-        // Apply auth methods
-        authMethod = _config.authMethods["ApiKeyAuth"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
-     * Get list of supported carts
-     * cart.list
-     */
-    public async cartList(_options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // Path Params
-        const localVarPath = '/cart.list.json';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-
-        let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
         authMethod = _config.authMethods["ApiKeyAuth"]
         if (authMethod?.applySecurityAuthentication) {
@@ -2043,35 +1735,6 @@ export class CartApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to cartBridge
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartBridgeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartBridge200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartBridge200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartBridge200Response", ""
-            ) as CartBridge200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartBridge200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartBridge200Response", ""
-            ) as CartBridge200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to cartCatalogPriceRulesCount
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2120,93 +1783,6 @@ export class CartApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ModelResponseCartCatalogPriceRulesList", ""
             ) as ModelResponseCartCatalogPriceRulesList;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to cartClearCache
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartClearCacheWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartClearCache200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartClearCache200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartClearCache200Response", ""
-            ) as CartClearCache200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartClearCache200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartClearCache200Response", ""
-            ) as CartClearCache200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to cartConfig
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartConfigWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartConfig200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartConfig200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfig200Response", ""
-            ) as CartConfig200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartConfig200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfig200Response", ""
-            ) as CartConfig200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to cartConfigUpdate
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartConfigUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartConfigUpdate200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -2362,35 +1938,6 @@ export class CartApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to cartCreate
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartCreateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AccountCartAdd200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: AccountCartAdd200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AccountCartAdd200Response", ""
-            ) as AccountCartAdd200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: AccountCartAdd200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "AccountCartAdd200Response", ""
-            ) as AccountCartAdd200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
      * @params response Response returned by the server for a request to cartDelete
      * @throws ApiException if the response code was not in [200, 299]
      */
@@ -2410,35 +1957,6 @@ export class CartApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "CartDelete200Response", ""
             ) as CartDelete200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to cartDisconnect
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartDisconnectWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartDisconnect200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartDisconnect200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartDisconnect200Response", ""
-            ) as CartDisconnect200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartDisconnect200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartDisconnect200Response", ""
-            ) as CartDisconnect200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -2584,35 +2102,6 @@ export class CartApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "CartInfo200Response", ""
             ) as CartInfo200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to cartList
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async cartListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartList200Response >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartList200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartList200Response", ""
-            ) as CartList200Response;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartList200Response = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartList200Response", ""
-            ) as CartList200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

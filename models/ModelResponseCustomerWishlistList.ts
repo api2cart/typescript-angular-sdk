@@ -15,12 +15,12 @@ import { ResponseCustomerWishlistListResult } from '../models/ResponseCustomerWi
 import { HttpFile } from '../http/http';
 
 export class ModelResponseCustomerWishlistList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseCustomerWishlistListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseCustomerWishlistListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

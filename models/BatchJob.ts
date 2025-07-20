@@ -18,9 +18,9 @@ export class BatchJob {
     'method'?: string;
     'status'?: string;
     'createdTime'?: A2CDateTime;
-    'processedTime'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'processedTime'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

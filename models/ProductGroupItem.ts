@@ -13,13 +13,13 @@
 import { HttpFile } from '../http/http';
 
 export class ProductGroupItem {
-    'childItemId'?: string;
+    'childItemId'?: string | null;
     'productId'?: string;
     'defaultQtyInPack'?: string;
-    'isQtyInPackFixed'?: boolean;
-    'price'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'isQtyInPackFixed'?: boolean | null;
+    'price'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

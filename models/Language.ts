@@ -16,8 +16,8 @@ export class Language {
     'id'?: string;
     'isoCode'?: string;
     'name'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

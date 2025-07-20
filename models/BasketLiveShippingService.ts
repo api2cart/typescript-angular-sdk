@@ -14,12 +14,12 @@ import { HttpFile } from '../http/http';
 
 export class BasketLiveShippingService {
     'id'?: string;
-    'name'?: string;
+    'name'?: string | null;
     'callback'?: string;
-    'callbackErrCnt'?: number;
-    'enabledOnStore'?: boolean;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'callbackErrCnt'?: number | null;
+    'enabledOnStore'?: boolean | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

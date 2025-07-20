@@ -15,12 +15,12 @@ import { ResponseOrderPreestimateShippingListResult } from '../models/ResponseOr
 import { HttpFile } from '../http/http';
 
 export class ModelResponseOrderPreestimateShippingList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseOrderPreestimateShippingListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseOrderPreestimateShippingListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

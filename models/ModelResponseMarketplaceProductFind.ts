@@ -15,12 +15,12 @@ import { ResponseMarketplaceProductFindResult } from '../models/ResponseMarketpl
 import { HttpFile } from '../http/http';
 
 export class ModelResponseMarketplaceProductFind {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseMarketplaceProductFindResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseMarketplaceProductFindResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

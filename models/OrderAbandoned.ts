@@ -20,15 +20,15 @@ import { HttpFile } from '../http/http';
 export class OrderAbandoned {
     'id'?: string;
     'customer'?: BaseCustomer;
-    'basketId'?: string;
-    'basketUrl'?: string;
-    'createdAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
+    'basketId'?: string | null;
+    'basketUrl'?: string | null;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
     'currency'?: Currency;
     'totals'?: OrderTotals;
     'orderProducts'?: Array<OrderItem>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

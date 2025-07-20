@@ -14,10 +14,10 @@ import { Product } from '../models/Product';
 import { HttpFile } from '../http/http';
 
 export class ResponseProductListResult {
-    'productsCount'?: number;
+    'productsCount'?: number | null;
     'product'?: Array<Product>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

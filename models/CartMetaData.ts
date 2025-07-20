@@ -14,11 +14,11 @@ import { HttpFile } from '../http/http';
 
 export class CartMetaData {
     'id'?: string;
-    'key'?: string;
-    'value'?: string;
-    'namespace'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'key'?: string | null;
+    'value'?: string | null;
+    'namespace'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

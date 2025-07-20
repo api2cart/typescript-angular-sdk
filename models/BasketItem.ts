@@ -14,20 +14,20 @@ import { BasketItemOption } from '../models/BasketItemOption';
 import { HttpFile } from '../http/http';
 
 export class BasketItem {
-    'id'?: string;
-    'parentId'?: string;
+    'id'?: string | null;
+    'parentId'?: string | null;
     'productId'?: string;
-    'variantId'?: string;
-    'sku'?: string;
+    'variantId'?: string | null;
+    'sku'?: string | null;
     'name'?: string;
     'price'?: number;
-    'tax'?: number;
-    'quantity'?: number;
-    'weightUnit'?: string;
-    'weight'?: number;
+    'tax'?: number | null;
+    'quantity'?: number | null;
+    'weightUnit'?: string | null;
+    'weight'?: number | null;
     'options'?: Array<BasketItemOption>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

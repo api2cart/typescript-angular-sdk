@@ -14,9 +14,9 @@ import { HttpFile } from '../http/http';
 
 export class CustomerGroup {
     'id'?: string;
-    'name'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'name'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

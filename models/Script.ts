@@ -15,17 +15,17 @@ import { HttpFile } from '../http/http';
 
 export class Script {
     'id'?: string;
-    'name'?: string;
-    'description'?: string;
-    'src'?: string;
-    'scope'?: string;
-    'event'?: string;
-    'loadMethod'?: string;
-    'html'?: string;
-    'createdTime'?: A2CDateTime;
-    'modifiedTime'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'name'?: string | null;
+    'description'?: string | null;
+    'src'?: string | null;
+    'scope'?: string | null;
+    'event'?: string | null;
+    'loadMethod'?: string | null;
+    'html'?: string | null;
+    'createdTime'?: A2CDateTime | null;
+    'modifiedTime'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -14,19 +14,19 @@ import { HttpFile } from '../http/http';
 
 export class StoreAttribute {
     'id'?: string;
-    'code'?: string;
+    'code'?: string | null;
     'type'?: string;
     'name'?: string;
     'defaultValues'?: Array<string>;
-    'position'?: number;
-    'visible'?: boolean;
-    'required'?: boolean;
-    'system'?: boolean;
+    'position'?: number | null;
+    'visible'?: boolean | null;
+    'required'?: boolean | null;
+    'system'?: boolean | null;
     'values'?: Array<string>;
-    'storeId'?: string;
-    'langId'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'storeId'?: string | null;
+    'langId'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

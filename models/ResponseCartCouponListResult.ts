@@ -14,10 +14,10 @@ import { Coupon } from '../models/Coupon';
 import { HttpFile } from '../http/http';
 
 export class ResponseCartCouponListResult {
-    'couponCount'?: number;
+    'couponCount'?: number | null;
     'coupon'?: Array<Coupon>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

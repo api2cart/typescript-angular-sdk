@@ -13,13 +13,13 @@
 import { HttpFile } from '../http/http';
 
 export class OrderStatusRefundItem {
-    'productId'?: string;
-    'variantId'?: string;
-    'orderProductId'?: string;
-    'qty'?: number;
-    'refund'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'productId'?: string | null;
+    'variantId'?: string | null;
+    'orderProductId'?: string | null;
+    'qty'?: number | null;
+    'refund'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

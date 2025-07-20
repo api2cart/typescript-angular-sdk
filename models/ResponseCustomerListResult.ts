@@ -14,10 +14,10 @@ import { Customer } from '../models/Customer';
 import { HttpFile } from '../http/http';
 
 export class ResponseCustomerListResult {
-    'customersCount'?: number;
+    'customersCount'?: number | null;
     'customer'?: Array<Customer>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

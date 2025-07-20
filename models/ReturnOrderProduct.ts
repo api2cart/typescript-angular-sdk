@@ -15,17 +15,17 @@ import { ReturnReason } from '../models/ReturnReason';
 import { HttpFile } from '../http/http';
 
 export class ReturnOrderProduct {
-    'productId'?: string;
+    'productId'?: string | null;
     'orderProductId'?: string;
-    'sku'?: string;
-    'name'?: string;
+    'sku'?: string | null;
+    'name'?: string | null;
     'quantity'?: number;
     'reason'?: ReturnReason;
-    'action'?: ReturnAction;
-    'condition'?: string;
-    'customerComment'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'action'?: ReturnAction | null;
+    'condition'?: string | null;
+    'customerComment'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

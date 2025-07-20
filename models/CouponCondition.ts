@@ -15,14 +15,14 @@ import { HttpFile } from '../http/http';
 export class CouponCondition {
     'id'?: string;
     'entity'?: string;
-    'matchItems'?: string;
-    'key'?: string;
-    'operator'?: string;
-    'value'?: string;
-    'logicOperator'?: string;
+    'matchItems'?: string | null;
+    'key'?: string | null;
+    'operator'?: string | null;
+    'value'?: string | null;
+    'logicOperator'?: string | null;
     'subConditions'?: Array<CouponCondition>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -14,11 +14,11 @@ import { ResponseTaxClassInfoResult } from '../models/ResponseTaxClassInfoResult
 import { HttpFile } from '../http/http';
 
 export class ModelResponseTaxClassInfo {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'result'?: ResponseTaxClassInfoResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'result'?: ResponseTaxClassInfoResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

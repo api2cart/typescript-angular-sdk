@@ -16,12 +16,12 @@ import { HttpFile } from '../http/http';
 
 export class CartShippingZone2 {
     'id'?: string;
-    'name'?: string;
-    'enabled'?: boolean;
+    'name'?: string | null;
+    'enabled'?: boolean | null;
     'countries'?: Array<Country>;
     'shippingMethods'?: Array<CartShippingMethod>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

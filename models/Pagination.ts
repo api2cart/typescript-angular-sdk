@@ -13,10 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class Pagination {
-    'previous'?: string;
-    'next'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'previous'?: string | null;
+    'next'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

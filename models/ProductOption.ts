@@ -15,17 +15,17 @@ import { HttpFile } from '../http/http';
 
 export class ProductOption {
     'id'?: string;
-    'productOptionId'?: string;
+    'productOptionId'?: string | null;
     'name'?: string;
-    'description'?: string;
-    'sortOrder'?: number;
+    'description'?: string | null;
+    'sortOrder'?: number | null;
     'type'?: string;
-    'required'?: boolean;
-    'available'?: boolean;
-    'usedInCombination'?: boolean;
+    'required'?: boolean | null;
+    'available'?: boolean | null;
+    'usedInCombination'?: boolean | null;
     'optionItems'?: Array<ProductOptionItem>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

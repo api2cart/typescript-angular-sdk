@@ -15,11 +15,11 @@ import { HttpFile } from '../http/http';
 export class BatchJobResultItem {
     'id'?: number;
     'status'?: string;
-    'entityId'?: string;
+    'entityId'?: string | null;
     'errors'?: Array<string>;
     'warnings'?: Array<string>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

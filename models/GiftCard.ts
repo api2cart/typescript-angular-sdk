@@ -16,23 +16,23 @@ import { HttpFile } from '../http/http';
 export class GiftCard {
     'id'?: string;
     'code'?: string;
-    'name'?: string;
+    'name'?: string | null;
     'type'?: string;
-    'currencyCode'?: string;
+    'currencyCode'?: string | null;
     'amount'?: number;
     'initialAmount'?: number;
     'status'?: string;
-    'createdAt'?: string;
-    'availTo'?: string;
-    'freeProductIds'?: string;
-    'message'?: string;
-    'issuerEmail'?: string;
-    'recipientEmail'?: string;
-    'issuerName'?: string;
-    'recipientName'?: string;
+    'createdAt'?: string | null;
+    'availTo'?: string | null;
+    'freeProductIds'?: string | null;
+    'message'?: string | null;
+    'issuerEmail'?: string | null;
+    'recipientEmail'?: string | null;
+    'issuerName'?: string | null;
+    'recipientName'?: string | null;
     'usageHistory'?: Array<CouponHistory>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

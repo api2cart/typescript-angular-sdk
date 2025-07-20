@@ -13,11 +13,11 @@
 import { HttpFile } from '../http/http';
 
 export class OrderTotalsNewDiscount {
-    'code'?: string;
+    'code'?: string | null;
     'value'?: number;
-    'type'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'type'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

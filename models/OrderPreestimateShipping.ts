@@ -14,15 +14,15 @@ import { HttpFile } from '../http/http';
 
 export class OrderPreestimateShipping {
     'methodCode'?: string;
-    'methodName'?: string;
-    'carrierCode'?: string;
-    'carrierName'?: string;
-    'description'?: string;
-    'price'?: number;
-    'priceIncTax'?: number;
-    'deliveryTime'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'methodName'?: string | null;
+    'carrierCode'?: string | null;
+    'carrierName'?: string | null;
+    'description'?: string | null;
+    'price'?: number | null;
+    'priceIncTax'?: number | null;
+    'deliveryTime'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -17,19 +17,19 @@ import { HttpFile } from '../http/http';
 
 export class ProductReview {
     'id'?: string;
-    'productId'?: string;
-    'customerId'?: string;
-    'nickName'?: string;
-    'email'?: string;
-    'summary'?: string;
-    'message'?: string;
-    'rating'?: number;
+    'productId'?: string | null;
+    'customerId'?: string | null;
+    'nickName'?: string | null;
+    'email'?: string | null;
+    'summary'?: string | null;
+    'message'?: string | null;
+    'rating'?: number | null;
     'ratings'?: Array<ProductReviewRating>;
-    'status'?: string;
-    'createdTime'?: A2CDateTime;
+    'status'?: string | null;
+    'createdTime'?: A2CDateTime | null;
     'medias'?: Array<Media>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

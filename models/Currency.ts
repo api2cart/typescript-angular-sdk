@@ -14,15 +14,15 @@ import { HttpFile } from '../http/http';
 
 export class Currency {
     'id'?: string;
-    'name'?: string;
+    'name'?: string | null;
     'iso3'?: string;
     'symbolLeft'?: string;
-    'symbolRight'?: string;
-    'rate'?: number;
-    'avail'?: boolean;
-    '_default'?: boolean;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'symbolRight'?: string | null;
+    'rate'?: number | null;
+    'avail'?: boolean | null;
+    '_default'?: boolean | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

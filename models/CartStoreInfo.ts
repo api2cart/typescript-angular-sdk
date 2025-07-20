@@ -19,25 +19,25 @@ import { HttpFile } from '../http/http';
 
 export class CartStoreInfo {
     'storeId'?: string;
-    'name'?: string;
-    'language'?: string;
+    'name'?: string | null;
+    'language'?: string | null;
     'storeLanguages'?: Array<Language>;
     'currency'?: Currency;
     'storeCurrencies'?: Array<Currency>;
-    'timezone'?: string;
-    'country'?: string;
-    'rootCategoryId'?: string;
-    'multiStoreUrl'?: string;
-    'active'?: boolean;
-    'weightUnit'?: string;
-    'dimensionUnit'?: string;
-    'pricesIncludeTax'?: boolean;
+    'timezone'?: string | null;
+    'country'?: string | null;
+    'rootCategoryId'?: string | null;
+    'multiStoreUrl'?: string | null;
+    'active'?: boolean | null;
+    'weightUnit'?: string | null;
+    'dimensionUnit'?: string | null;
+    'pricesIncludeTax'?: boolean | null;
     'carrierInfo'?: Array<Carrier>;
-    'storeOwnerInfo'?: Info;
-    'defaultWarehouseId'?: string;
+    'storeOwnerInfo'?: Info | null;
+    'defaultWarehouseId'?: string | null;
     'channels'?: Array<CartChannel>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

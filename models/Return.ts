@@ -16,18 +16,18 @@ import { HttpFile } from '../http/http';
 
 export class Return {
     'id'?: string;
-    'name'?: string;
-    'orderId'?: string;
-    'customerId'?: string;
-    'storeId'?: string;
-    'createdAt'?: string;
-    'modifiedAt'?: string;
+    'name'?: string | null;
+    'orderId'?: string | null;
+    'customerId'?: string | null;
+    'storeId'?: string | null;
+    'createdAt'?: string | null;
+    'modifiedAt'?: string | null;
     'status'?: ReturnStatus;
     'orderProducts'?: Array<ReturnOrderProduct>;
-    'comment'?: string;
-    'staffNote'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'comment'?: string | null;
+    'staffNote'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

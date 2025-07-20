@@ -14,13 +14,13 @@ import { CustomerAttributeValue } from '../models/CustomerAttributeValue';
 import { HttpFile } from '../http/http';
 
 export class CustomerAttribute {
-    'attributeId'?: string;
-    'code'?: string;
-    'name'?: string;
-    'type'?: string;
+    'attributeId'?: string | null;
+    'code'?: string | null;
+    'name'?: string | null;
+    'type'?: string | null;
     'values'?: Array<CustomerAttributeValue>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

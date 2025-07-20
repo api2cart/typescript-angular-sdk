@@ -17,12 +17,12 @@ export class Discount {
     'name'?: string;
     'modifierType'?: string;
     'value'?: number;
-    'fromTime'?: string;
-    'toTime'?: string;
-    'customerGroupIds'?: string;
-    'sortOrder'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'fromTime'?: string | null;
+    'toTime'?: string | null;
+    'customerGroupIds'?: string | null;
+    'sortOrder'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

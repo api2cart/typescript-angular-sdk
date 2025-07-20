@@ -56,35 +56,21 @@ import { BatchJobResultItem } from '../models/BatchJobResultItem';
 import { Brand } from '../models/Brand';
 import { Carrier } from '../models/Carrier';
 import { Cart } from '../models/Cart';
-import { CartBridge200Response } from '../models/CartBridge200Response';
-import { CartBridge200ResponseResult } from '../models/CartBridge200ResponseResult';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
 import { CartCatalogPriceRulesCount200ResponseResult } from '../models/CartCatalogPriceRulesCount200ResponseResult';
 import { CartChannel } from '../models/CartChannel';
-import { CartClearCache200Response } from '../models/CartClearCache200Response';
-import { CartClearCache200ResponseResult } from '../models/CartClearCache200ResponseResult';
-import { CartConfig200Response } from '../models/CartConfig200Response';
-import { CartConfig200ResponseResult } from '../models/CartConfig200ResponseResult';
-import { CartConfigUpdate } from '../models/CartConfigUpdate';
-import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
 import { CartCouponAdd } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
 import { CartCouponCount200ResponseResult } from '../models/CartCouponCount200ResponseResult';
-import { CartCreate } from '../models/CartCreate';
 import { CartDelete200Response } from '../models/CartDelete200Response';
 import { CartDelete200ResponseResult } from '../models/CartDelete200ResponseResult';
-import { CartDisconnect200Response } from '../models/CartDisconnect200Response';
-import { CartDisconnect200ResponseResult } from '../models/CartDisconnect200ResponseResult';
 import { CartGiftcardAdd200Response } from '../models/CartGiftcardAdd200Response';
 import { CartGiftcardAdd200ResponseResult } from '../models/CartGiftcardAdd200ResponseResult';
 import { CartGiftcardCount200Response } from '../models/CartGiftcardCount200Response';
 import { CartGiftcardCount200ResponseResult } from '../models/CartGiftcardCount200ResponseResult';
 import { CartInfo200Response } from '../models/CartInfo200Response';
-import { CartList200Response } from '../models/CartList200Response';
-import { CartList200ResponseResult } from '../models/CartList200ResponseResult';
-import { CartList200ResponseResultSupportedCartsInner } from '../models/CartList200ResponseResultSupportedCartsInner';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
@@ -110,6 +96,7 @@ import { CategoryAddBatch200Response } from '../models/CategoryAddBatch200Respon
 import { CategoryAddBatch200ResponseResult } from '../models/CategoryAddBatch200ResponseResult';
 import { CategoryAddBatchPayloadInner } from '../models/CategoryAddBatchPayloadInner';
 import { CategoryAddBatchPayloadInnerImagesInner } from '../models/CategoryAddBatchPayloadInnerImagesInner';
+import { CategoryAssign200Response } from '../models/CategoryAssign200Response';
 import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
@@ -207,8 +194,6 @@ import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResu
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
 import { OrderFinancialStatusList200ResponseResult } from '../models/OrderFinancialStatusList200ResponseResult';
 import { OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner } from '../models/OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner';
-import { OrderFind200Response } from '../models/OrderFind200Response';
-import { OrderFind200ResponseResult } from '../models/OrderFind200ResponseResult';
 import { OrderFulfillmentStatusList200Response } from '../models/OrderFulfillmentStatusList200Response';
 import { OrderFulfillmentStatusList200ResponseResult } from '../models/OrderFulfillmentStatusList200ResponseResult';
 import { OrderInfo200Response } from '../models/OrderInfo200Response';
@@ -351,15 +336,11 @@ import { ProductVariantAddAttributesInner } from '../models/ProductVariantAddAtt
 import { ProductVariantAddBatch } from '../models/ProductVariantAddBatch';
 import { ProductVariantAddBatchPayloadInner } from '../models/ProductVariantAddBatchPayloadInner';
 import { ProductVariantAddBatchPayloadInnerCombinationInner } from '../models/ProductVariantAddBatchPayloadInnerCombinationInner';
-import { ProductVariantCount200Response } from '../models/ProductVariantCount200Response';
-import { ProductVariantCount200ResponseResult } from '../models/ProductVariantCount200ResponseResult';
 import { ProductVariantDeleteBatch } from '../models/ProductVariantDeleteBatch';
 import { ProductVariantDeleteBatchPayloadInner } from '../models/ProductVariantDeleteBatchPayloadInner';
 import { ProductVariantImageAdd } from '../models/ProductVariantImageAdd';
 import { ProductVariantImageAdd200Response } from '../models/ProductVariantImageAdd200Response';
 import { ProductVariantImageAdd200ResponseResult } from '../models/ProductVariantImageAdd200ResponseResult';
-import { ProductVariantList200Response } from '../models/ProductVariantList200Response';
-import { ProductVariantList200ResponseResult } from '../models/ProductVariantList200ResponseResult';
 import { ProductVariantPriceAdd } from '../models/ProductVariantPriceAdd';
 import { ProductVariantPriceUpdate } from '../models/ProductVariantPriceUpdate';
 import { ProductVariantUpdate } from '../models/ProductVariantUpdate';
@@ -1052,6 +1033,34 @@ export interface AccountApiAccountConfigUpdateRequest {
      */
     bigcartelPassword?: string
     /**
+     * Bricklink Consumer Key
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    bricklinkConsumerKey?: string
+    /**
+     * Bricklink Consumer Secret
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    bricklinkConsumerSecret?: string
+    /**
+     * Bricklink Access Token
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    bricklinkToken?: string
+    /**
+     * Bricklink Access Token Secret
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    bricklinkTokenSecret?: string
+    /**
      * It\&#39;s a Volusion account for which API is enabled
      * Defaults to: undefined
      * @type string
@@ -1654,7 +1663,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdateWithHttpInfo(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion,  options).toPromise();
+        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion,  options).toPromise();
     }
 
     /**
@@ -1663,7 +1672,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdate(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion,  options).toPromise();
+        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion,  options).toPromise();
     }
 
     /**
@@ -3134,9 +3143,6 @@ export class ObjectBridgeApi {
 import { ObservableCartApi } from "./ObservableAPI";
 import { CartApiRequestFactory, CartApiResponseProcessor} from "../apis/CartApi";
 
-export interface CartApiCartBridgeRequest {
-}
-
 export interface CartApiCartCatalogPriceRulesCountRequest {
 }
 
@@ -3190,42 +3196,6 @@ export interface CartApiCartCatalogPriceRulesListRequest {
      * @memberof CartApicartCatalogPriceRulesList
      */
     exclude?: string
-}
-
-export interface CartApiCartClearCacheRequest {
-    /**
-     * Defines which cache should be cleared.
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartClearCache
-     */
-    cacheType: string
-}
-
-export interface CartApiCartConfigRequest {
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;store_name,store_url,db_prefix&#39;
-     * @type string
-     * @memberof CartApicartConfig
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof CartApicartConfig
-     */
-    exclude?: string
-}
-
-export interface CartApiCartConfigUpdateRequest {
-    /**
-     * 
-     * @type CartConfigUpdate
-     * @memberof CartApicartConfigUpdate
-     */
-    cartConfigUpdate: CartConfigUpdate
 }
 
 export interface CartApiCartCouponAddRequest {
@@ -3466,31 +3436,12 @@ export interface CartApiCartCouponListRequest {
     exclude?: string
 }
 
-export interface CartApiCartCreateRequest {
-    /**
-     * 
-     * @type CartCreate
-     * @memberof CartApicartCreate
-     */
-    cartCreate: CartCreate
-}
-
 export interface CartApiCartDeleteRequest {
     /**
      * Identifies if there is a necessity to delete bridge
      * Defaults to: true
      * @type boolean
      * @memberof CartApicartDelete
-     */
-    deleteBridge?: boolean
-}
-
-export interface CartApiCartDisconnectRequest {
-    /**
-     * Identifies if there is a necessity to delete bridge
-     * Defaults to: false
-     * @type boolean
-     * @memberof CartApicartDisconnect
      */
     deleteBridge?: boolean
 }
@@ -3641,9 +3592,6 @@ export interface CartApiCartInfoRequest {
      * @memberof CartApicartInfo
      */
     exclude?: string
-}
-
-export interface CartApiCartListRequest {
 }
 
 export interface CartApiCartMetaDataListRequest {
@@ -4062,24 +4010,6 @@ export class ObjectCartApi {
     }
 
     /**
-     * Get bridge key and store key
-     * cart.bridge
-     * @param param the request object
-     */
-    public cartBridgeWithHttpInfo(param: CartApiCartBridgeRequest = {}, options?: Configuration): Promise<HttpInfo<CartBridge200Response>> {
-        return this.api.cartBridgeWithHttpInfo( options).toPromise();
-    }
-
-    /**
-     * Get bridge key and store key
-     * cart.bridge
-     * @param param the request object
-     */
-    public cartBridge(param: CartApiCartBridgeRequest = {}, options?: Configuration): Promise<CartBridge200Response> {
-        return this.api.cartBridge( options).toPromise();
-    }
-
-    /**
      * Get count of cart catalog price rules discounts.
      * cart.catalog_price_rules.count
      * @param param the request object
@@ -4113,60 +4043,6 @@ export class ObjectCartApi {
      */
     public cartCatalogPriceRulesList(param: CartApiCartCatalogPriceRulesListRequest = {}, options?: Configuration): Promise<ModelResponseCartCatalogPriceRulesList> {
         return this.api.cartCatalogPriceRulesList(param.start, param.count, param.pageCursor, param.ids, param.responseFields, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Clear cache on store.
-     * cart.clear_cache
-     * @param param the request object
-     */
-    public cartClearCacheWithHttpInfo(param: CartApiCartClearCacheRequest, options?: Configuration): Promise<HttpInfo<CartClearCache200Response>> {
-        return this.api.cartClearCacheWithHttpInfo(param.cacheType,  options).toPromise();
-    }
-
-    /**
-     * Clear cache on store.
-     * cart.clear_cache
-     * @param param the request object
-     */
-    public cartClearCache(param: CartApiCartClearCacheRequest, options?: Configuration): Promise<CartClearCache200Response> {
-        return this.api.cartClearCache(param.cacheType,  options).toPromise();
-    }
-
-    /**
-     * Get list of cart configs
-     * cart.config
-     * @param param the request object
-     */
-    public cartConfigWithHttpInfo(param: CartApiCartConfigRequest = {}, options?: Configuration): Promise<HttpInfo<CartConfig200Response>> {
-        return this.api.cartConfigWithHttpInfo(param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Get list of cart configs
-     * cart.config
-     * @param param the request object
-     */
-    public cartConfig(param: CartApiCartConfigRequest = {}, options?: Configuration): Promise<CartConfig200Response> {
-        return this.api.cartConfig(param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Use this API method to update custom data in client database.
-     * cart.config.update
-     * @param param the request object
-     */
-    public cartConfigUpdateWithHttpInfo(param: CartApiCartConfigUpdateRequest, options?: Configuration): Promise<HttpInfo<CartConfigUpdate200Response>> {
-        return this.api.cartConfigUpdateWithHttpInfo(param.cartConfigUpdate,  options).toPromise();
-    }
-
-    /**
-     * Use this API method to update custom data in client database.
-     * cart.config.update
-     * @param param the request object
-     */
-    public cartConfigUpdate(param: CartApiCartConfigUpdateRequest, options?: Configuration): Promise<CartConfigUpdate200Response> {
-        return this.api.cartConfigUpdate(param.cartConfigUpdate,  options).toPromise();
     }
 
     /**
@@ -4260,24 +4136,6 @@ export class ObjectCartApi {
     }
 
     /**
-     * Add store to the account
-     * cart.create
-     * @param param the request object
-     */
-    public cartCreateWithHttpInfo(param: CartApiCartCreateRequest, options?: Configuration): Promise<HttpInfo<AccountCartAdd200Response>> {
-        return this.api.cartCreateWithHttpInfo(param.cartCreate,  options).toPromise();
-    }
-
-    /**
-     * Add store to the account
-     * cart.create
-     * @param param the request object
-     */
-    public cartCreate(param: CartApiCartCreateRequest, options?: Configuration): Promise<AccountCartAdd200Response> {
-        return this.api.cartCreate(param.cartCreate,  options).toPromise();
-    }
-
-    /**
      * Remove store from API2Cart
      * cart.delete
      * @param param the request object
@@ -4293,24 +4151,6 @@ export class ObjectCartApi {
      */
     public cartDelete(param: CartApiCartDeleteRequest = {}, options?: Configuration): Promise<CartDelete200Response> {
         return this.api.cartDelete(param.deleteBridge,  options).toPromise();
-    }
-
-    /**
-     * Disconnect with the store and clear store session data.
-     * cart.disconnect
-     * @param param the request object
-     */
-    public cartDisconnectWithHttpInfo(param: CartApiCartDisconnectRequest = {}, options?: Configuration): Promise<HttpInfo<CartDisconnect200Response>> {
-        return this.api.cartDisconnectWithHttpInfo(param.deleteBridge,  options).toPromise();
-    }
-
-    /**
-     * Disconnect with the store and clear store session data.
-     * cart.disconnect
-     * @param param the request object
-     */
-    public cartDisconnect(param: CartApiCartDisconnectRequest = {}, options?: Configuration): Promise<CartDisconnect200Response> {
-        return this.api.cartDisconnect(param.deleteBridge,  options).toPromise();
     }
 
     /**
@@ -4401,24 +4241,6 @@ export class ObjectCartApi {
      */
     public cartInfo(param: CartApiCartInfoRequest = {}, options?: Configuration): Promise<CartInfo200Response> {
         return this.api.cartInfo(param.storeId, param.responseFields, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Get list of supported carts
-     * cart.list
-     * @param param the request object
-     */
-    public cartListWithHttpInfo(param: CartApiCartListRequest = {}, options?: Configuration): Promise<HttpInfo<CartList200Response>> {
-        return this.api.cartListWithHttpInfo( options).toPromise();
-    }
-
-    /**
-     * Get list of supported carts
-     * cart.list
-     * @param param the request object
-     */
-    public cartList(param: CartApiCartListRequest = {}, options?: Configuration): Promise<CartList200Response> {
-        return this.api.cartList( options).toPromise();
     }
 
     /**
@@ -5368,7 +5190,7 @@ export class ObjectCategoryApi {
      * category.assign
      * @param param the request object
      */
-    public categoryAssignWithHttpInfo(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<HttpInfo<CartConfigUpdate200Response>> {
+    public categoryAssignWithHttpInfo(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
         return this.api.categoryAssignWithHttpInfo(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
@@ -5377,7 +5199,7 @@ export class ObjectCategoryApi {
      * category.assign
      * @param param the request object
      */
-    public categoryAssign(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<CartConfigUpdate200Response> {
+    public categoryAssign(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<CategoryAssign200Response> {
         return this.api.categoryAssign(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
@@ -5512,7 +5334,7 @@ export class ObjectCategoryApi {
      * category.unassign
      * @param param the request object
      */
-    public categoryUnassignWithHttpInfo(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<HttpInfo<CartConfigUpdate200Response>> {
+    public categoryUnassignWithHttpInfo(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
         return this.api.categoryUnassignWithHttpInfo(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
@@ -5521,7 +5343,7 @@ export class ObjectCategoryApi {
      * category.unassign
      * @param param the request object
      */
-    public categoryUnassign(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<CartConfigUpdate200Response> {
+    public categoryUnassign(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<CategoryAssign200Response> {
         return this.api.categoryUnassign(param.categoryId, param.productId, param.storeId,  options).toPromise();
     }
 
@@ -6728,93 +6550,6 @@ export interface OrderApiOrderCountRequest {
 export interface OrderApiOrderFinancialStatusListRequest {
 }
 
-export interface OrderApiOrderFindRequest {
-    /**
-     * This parameter sets the number from which you want to get entities
-     * Defaults to: 0
-     * @type number
-     * @memberof OrderApiorderFind
-     */
-    start?: number
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof OrderApiorderFind
-     */
-    count?: number
-    /**
-     * Retrieves orders specified by customer id
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    customerId?: string
-    /**
-     * Retrieves orders specified by customer email
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    customerEmail?: string
-    /**
-     * Retrieves orders specified by order status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    orderStatus?: string
-    /**
-     * Retrieves orders specified by financial status
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    financialStatus?: string
-    /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    modifiedTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    modifiedFrom?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;order_id,customer,totals,address,items,bundles,status&#39;
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof OrderApiorderFind
-     */
-    exclude?: string
-}
-
 export interface OrderApiOrderFulfillmentStatusListRequest {
     /**
      * Available statuses for the specified action.
@@ -7687,24 +7422,6 @@ export class ObjectOrderApi {
      */
     public orderFinancialStatusList(param: OrderApiOrderFinancialStatusListRequest = {}, options?: Configuration): Promise<OrderFinancialStatusList200Response> {
         return this.api.orderFinancialStatusList( options).toPromise();
-    }
-
-    /**
-     * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
-     * order.find
-     * @param param the request object
-     */
-    public orderFindWithHttpInfo(param: OrderApiOrderFindRequest = {}, options?: Configuration): Promise<HttpInfo<OrderFind200Response>> {
-        return this.api.orderFindWithHttpInfo(param.start, param.count, param.customerId, param.customerEmail, param.orderStatus, param.financialStatus, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
-     * order.find
-     * @param param the request object
-     */
-    public orderFind(param: OrderApiOrderFindRequest = {}, options?: Configuration): Promise<OrderFind200Response> {
-        return this.api.orderFind(param.start, param.count, param.customerId, param.customerEmail, param.orderStatus, param.financialStatus, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -8950,9 +8667,6 @@ export interface ProductApiProductDeleteBatchRequest {
     productDeleteBatch: ProductDeleteBatch
 }
 
-export interface ProductApiProductFieldsRequest {
-}
-
 export interface ProductApiProductFindRequest {
     /**
      * Entity search that is specified by some value
@@ -9922,58 +9636,6 @@ export interface ProductApiProductVariantAddBatchRequest {
     productVariantAddBatch: ProductVariantAddBatch
 }
 
-export interface ProductApiProductVariantCountRequest {
-    /**
-     * Retrieves products\&#39; variants specified by product id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    productId: string
-    /**
-     * Counts products’ variants specified by category id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    categoryId?: string
-    /**
-     * Retrieves variants specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    storeId?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    modifiedFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantCount
-     */
-    modifiedTo?: string
-}
-
 export interface ProductApiProductVariantDeleteRequest {
     /**
      * Defines variant removal, specified by variant id
@@ -10045,117 +9707,6 @@ export interface ProductApiProductVariantImageDeleteRequest {
      * @memberof ProductApiproductVariantImageDelete
      */
     storeId?: string
-}
-
-export interface ProductApiProductVariantInfoRequest {
-    /**
-     * Retrieves variant\&#39;s info specified by variant id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantInfo
-     */
-    id: string
-    /**
-     * Retrieves variant info specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantInfo
-     */
-    storeId?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description,price&#39;
-     * @type string
-     * @memberof ProductApiproductVariantInfo
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantInfo
-     */
-    exclude?: string
-}
-
-export interface ProductApiProductVariantListRequest {
-    /**
-     * This parameter sets the number from which you want to get entities
-     * Defaults to: 0
-     * @type number
-     * @memberof ProductApiproductVariantList
-     */
-    start?: number
-    /**
-     * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * Defaults to: 10
-     * @type number
-     * @memberof ProductApiproductVariantList
-     */
-    count?: number
-    /**
-     * Retrieves products\&#39; variants specified by product id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    productId?: string
-    /**
-     * Retrieves products’ variants specified by category id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    categoryId?: string
-    /**
-     * Retrieves variants specified by store id
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    storeId?: string
-    /**
-     * Retrieve entities from their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    createdFrom?: string
-    /**
-     * Retrieve entities to their creation date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    createdTo?: string
-    /**
-     * Retrieve entities from their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    modifiedFrom?: string
-    /**
-     * Retrieve entities to their modification date
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    modifiedTo?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to retrieve
-     * Defaults to: &#39;id,name,description,price&#39;
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    params?: string
-    /**
-     * Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     * Defaults to: undefined
-     * @type string
-     * @memberof ProductApiproductVariantList
-     */
-    exclude?: string
 }
 
 export interface ProductApiProductVariantPriceAddRequest {
@@ -10482,24 +10033,6 @@ export class ObjectProductApi {
      */
     public productDeleteBatch(param: ProductApiProductDeleteBatchRequest, options?: Configuration): Promise<CategoryAddBatch200Response> {
         return this.api.productDeleteBatch(param.productDeleteBatch,  options).toPromise();
-    }
-
-    /**
-     * Retrieve all available fields for product item in store.
-     * product.fields
-     * @param param the request object
-     */
-    public productFieldsWithHttpInfo(param: ProductApiProductFieldsRequest = {}, options?: Configuration): Promise<HttpInfo<CartConfigUpdate200Response>> {
-        return this.api.productFieldsWithHttpInfo( options).toPromise();
-    }
-
-    /**
-     * Retrieve all available fields for product item in store.
-     * product.fields
-     * @param param the request object
-     */
-    public productFields(param: ProductApiProductFieldsRequest = {}, options?: Configuration): Promise<CartConfigUpdate200Response> {
-        return this.api.productFields( options).toPromise();
     }
 
     /**
@@ -10953,24 +10486,6 @@ export class ObjectProductApi {
     }
 
     /**
-     * Get count variants.
-     * product.variant.count
-     * @param param the request object
-     */
-    public productVariantCountWithHttpInfo(param: ProductApiProductVariantCountRequest, options?: Configuration): Promise<HttpInfo<ProductVariantCount200Response>> {
-        return this.api.productVariantCountWithHttpInfo(param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
-    }
-
-    /**
-     * Get count variants.
-     * product.variant.count
-     * @param param the request object
-     */
-    public productVariantCount(param: ProductApiProductVariantCountRequest, options?: Configuration): Promise<ProductVariantCount200Response> {
-        return this.api.productVariantCount(param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo,  options).toPromise();
-    }
-
-    /**
      * Delete variant.
      * product.variant.delete
      * @param param the request object
@@ -11040,42 +10555,6 @@ export class ObjectProductApi {
      */
     public productVariantImageDelete(param: ProductApiProductVariantImageDeleteRequest, options?: Configuration): Promise<AttributeDelete200Response> {
         return this.api.productVariantImageDelete(param.productId, param.productVariantId, param.id, param.storeId,  options).toPromise();
-    }
-
-    /**
-     * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-     * product.variant.info
-     * @param param the request object
-     */
-    public productVariantInfoWithHttpInfo(param: ProductApiProductVariantInfoRequest, options?: Configuration): Promise<HttpInfo<ProductInfo200Response>> {
-        return this.api.productVariantInfoWithHttpInfo(param.id, param.storeId, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-     * product.variant.info
-     * @param param the request object
-     */
-    public productVariantInfo(param: ProductApiProductVariantInfoRequest, options?: Configuration): Promise<ProductInfo200Response> {
-        return this.api.productVariantInfo(param.id, param.storeId, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-     * product.variant.list
-     * @param param the request object
-     */
-    public productVariantListWithHttpInfo(param: ProductApiProductVariantListRequest = {}, options?: Configuration): Promise<HttpInfo<ProductVariantList200Response>> {
-        return this.api.productVariantListWithHttpInfo(param.start, param.count, param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.exclude,  options).toPromise();
-    }
-
-    /**
-     * Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-     * product.variant.list
-     * @param param the request object
-     */
-    public productVariantList(param: ProductApiProductVariantListRequest = {}, options?: Configuration): Promise<ProductVariantList200Response> {
-        return this.api.productVariantList(param.start, param.count, param.productId, param.categoryId, param.storeId, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.params, param.exclude,  options).toPromise();
     }
 
     /**

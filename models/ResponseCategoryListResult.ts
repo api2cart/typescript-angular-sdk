@@ -14,10 +14,10 @@ import { Category } from '../models/Category';
 import { HttpFile } from '../http/http';
 
 export class ResponseCategoryListResult {
-    'categoriesCount'?: number;
+    'categoriesCount'?: number | null;
     'category'?: Array<Category>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

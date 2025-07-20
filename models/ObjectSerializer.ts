@@ -53,35 +53,21 @@ export * from '../models/BatchJobResultItem';
 export * from '../models/Brand';
 export * from '../models/Carrier';
 export * from '../models/Cart';
-export * from '../models/CartBridge200Response';
-export * from '../models/CartBridge200ResponseResult';
 export * from '../models/CartCatalogPriceRulesCount200Response';
 export * from '../models/CartCatalogPriceRulesCount200ResponseResult';
 export * from '../models/CartChannel';
-export * from '../models/CartClearCache200Response';
-export * from '../models/CartClearCache200ResponseResult';
-export * from '../models/CartConfig200Response';
-export * from '../models/CartConfig200ResponseResult';
-export * from '../models/CartConfigUpdate';
-export * from '../models/CartConfigUpdate200Response';
 export * from '../models/CartCouponAdd';
 export * from '../models/CartCouponAdd200Response';
 export * from '../models/CartCouponAdd200ResponseResult';
 export * from '../models/CartCouponCount200Response';
 export * from '../models/CartCouponCount200ResponseResult';
-export * from '../models/CartCreate';
 export * from '../models/CartDelete200Response';
 export * from '../models/CartDelete200ResponseResult';
-export * from '../models/CartDisconnect200Response';
-export * from '../models/CartDisconnect200ResponseResult';
 export * from '../models/CartGiftcardAdd200Response';
 export * from '../models/CartGiftcardAdd200ResponseResult';
 export * from '../models/CartGiftcardCount200Response';
 export * from '../models/CartGiftcardCount200ResponseResult';
 export * from '../models/CartInfo200Response';
-export * from '../models/CartList200Response';
-export * from '../models/CartList200ResponseResult';
-export * from '../models/CartList200ResponseResultSupportedCartsInner';
 export * from '../models/CartMetaData';
 export * from '../models/CartMethods200Response';
 export * from '../models/CartMethods200ResponseResult';
@@ -107,6 +93,7 @@ export * from '../models/CategoryAddBatch200Response';
 export * from '../models/CategoryAddBatch200ResponseResult';
 export * from '../models/CategoryAddBatchPayloadInner';
 export * from '../models/CategoryAddBatchPayloadInnerImagesInner';
+export * from '../models/CategoryAssign200Response';
 export * from '../models/CategoryCount200Response';
 export * from '../models/CategoryCount200ResponseResult';
 export * from '../models/CategoryDelete200Response';
@@ -204,8 +191,6 @@ export * from '../models/OrderCount200ResponseResult';
 export * from '../models/OrderFinancialStatusList200Response';
 export * from '../models/OrderFinancialStatusList200ResponseResult';
 export * from '../models/OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner';
-export * from '../models/OrderFind200Response';
-export * from '../models/OrderFind200ResponseResult';
 export * from '../models/OrderFulfillmentStatusList200Response';
 export * from '../models/OrderFulfillmentStatusList200ResponseResult';
 export * from '../models/OrderInfo200Response';
@@ -348,15 +333,11 @@ export * from '../models/ProductVariantAddAttributesInner';
 export * from '../models/ProductVariantAddBatch';
 export * from '../models/ProductVariantAddBatchPayloadInner';
 export * from '../models/ProductVariantAddBatchPayloadInnerCombinationInner';
-export * from '../models/ProductVariantCount200Response';
-export * from '../models/ProductVariantCount200ResponseResult';
 export * from '../models/ProductVariantDeleteBatch';
 export * from '../models/ProductVariantDeleteBatchPayloadInner';
 export * from '../models/ProductVariantImageAdd';
 export * from '../models/ProductVariantImageAdd200Response';
 export * from '../models/ProductVariantImageAdd200ResponseResult';
-export * from '../models/ProductVariantList200Response';
-export * from '../models/ProductVariantList200ResponseResult';
 export * from '../models/ProductVariantPriceAdd';
 export * from '../models/ProductVariantPriceUpdate';
 export * from '../models/ProductVariantUpdate';
@@ -438,7 +419,7 @@ export * from '../models/WebhookList200Response';
 export * from '../models/WebhookList200ResponseResult';
 
 import { A2CDateTime } from '../models/A2CDateTime';
-import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                                 , AccountCartAddTemuRegionEnum   } from '../models/AccountCartAdd';
+import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                                     , AccountCartAddTemuRegionEnum   } from '../models/AccountCartAdd';
 import { AccountCartAdd200Response } from '../models/AccountCartAdd200Response';
 import { AccountCartAdd200ResponseResult } from '../models/AccountCartAdd200ResponseResult';
 import { AccountCartAddHybrisWebsitesInner } from '../models/AccountCartAddHybrisWebsitesInner';
@@ -492,35 +473,21 @@ import { BatchJobResultItem } from '../models/BatchJobResultItem';
 import { Brand } from '../models/Brand';
 import { Carrier } from '../models/Carrier';
 import { Cart } from '../models/Cart';
-import { CartBridge200Response } from '../models/CartBridge200Response';
-import { CartBridge200ResponseResult } from '../models/CartBridge200ResponseResult';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
 import { CartCatalogPriceRulesCount200ResponseResult } from '../models/CartCatalogPriceRulesCount200ResponseResult';
 import { CartChannel } from '../models/CartChannel';
-import { CartClearCache200Response } from '../models/CartClearCache200Response';
-import { CartClearCache200ResponseResult } from '../models/CartClearCache200ResponseResult';
-import { CartConfig200Response } from '../models/CartConfig200Response';
-import { CartConfig200ResponseResult } from '../models/CartConfig200ResponseResult';
-import { CartConfigUpdate } from '../models/CartConfigUpdate';
-import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
 import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                 } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
 import { CartCouponCount200ResponseResult } from '../models/CartCouponCount200ResponseResult';
-import { CartCreate, CartCreateCartIdEnum                                                                                                      } from '../models/CartCreate';
 import { CartDelete200Response } from '../models/CartDelete200Response';
 import { CartDelete200ResponseResult } from '../models/CartDelete200ResponseResult';
-import { CartDisconnect200Response } from '../models/CartDisconnect200Response';
-import { CartDisconnect200ResponseResult } from '../models/CartDisconnect200ResponseResult';
 import { CartGiftcardAdd200Response } from '../models/CartGiftcardAdd200Response';
 import { CartGiftcardAdd200ResponseResult } from '../models/CartGiftcardAdd200ResponseResult';
 import { CartGiftcardCount200Response } from '../models/CartGiftcardCount200Response';
 import { CartGiftcardCount200ResponseResult } from '../models/CartGiftcardCount200ResponseResult';
 import { CartInfo200Response } from '../models/CartInfo200Response';
-import { CartList200Response } from '../models/CartList200Response';
-import { CartList200ResponseResult } from '../models/CartList200ResponseResult';
-import { CartList200ResponseResultSupportedCartsInner } from '../models/CartList200ResponseResultSupportedCartsInner';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
@@ -546,6 +513,7 @@ import { CategoryAddBatch200Response } from '../models/CategoryAddBatch200Respon
 import { CategoryAddBatch200ResponseResult } from '../models/CategoryAddBatch200ResponseResult';
 import { CategoryAddBatchPayloadInner } from '../models/CategoryAddBatchPayloadInner';
 import { CategoryAddBatchPayloadInnerImagesInner } from '../models/CategoryAddBatchPayloadInnerImagesInner';
+import { CategoryAssign200Response } from '../models/CategoryAssign200Response';
 import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
@@ -643,8 +611,6 @@ import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResu
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
 import { OrderFinancialStatusList200ResponseResult } from '../models/OrderFinancialStatusList200ResponseResult';
 import { OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner } from '../models/OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner';
-import { OrderFind200Response } from '../models/OrderFind200Response';
-import { OrderFind200ResponseResult } from '../models/OrderFind200ResponseResult';
 import { OrderFulfillmentStatusList200Response } from '../models/OrderFulfillmentStatusList200Response';
 import { OrderFulfillmentStatusList200ResponseResult } from '../models/OrderFulfillmentStatusList200ResponseResult';
 import { OrderInfo200Response } from '../models/OrderInfo200Response';
@@ -787,15 +753,11 @@ import { ProductVariantAddAttributesInner } from '../models/ProductVariantAddAtt
 import { ProductVariantAddBatch } from '../models/ProductVariantAddBatch';
 import { ProductVariantAddBatchPayloadInner } from '../models/ProductVariantAddBatchPayloadInner';
 import { ProductVariantAddBatchPayloadInnerCombinationInner } from '../models/ProductVariantAddBatchPayloadInnerCombinationInner';
-import { ProductVariantCount200Response } from '../models/ProductVariantCount200Response';
-import { ProductVariantCount200ResponseResult } from '../models/ProductVariantCount200ResponseResult';
 import { ProductVariantDeleteBatch } from '../models/ProductVariantDeleteBatch';
 import { ProductVariantDeleteBatchPayloadInner } from '../models/ProductVariantDeleteBatchPayloadInner';
 import { ProductVariantImageAdd    , ProductVariantImageAddTypeEnum         } from '../models/ProductVariantImageAdd';
 import { ProductVariantImageAdd200Response } from '../models/ProductVariantImageAdd200Response';
 import { ProductVariantImageAdd200ResponseResult } from '../models/ProductVariantImageAdd200ResponseResult';
-import { ProductVariantList200Response } from '../models/ProductVariantList200Response';
-import { ProductVariantList200ResponseResult } from '../models/ProductVariantList200ResponseResult';
 import { ProductVariantPriceAdd } from '../models/ProductVariantPriceAdd';
 import { ProductVariantPriceUpdate } from '../models/ProductVariantPriceUpdate';
 import { ProductVariantUpdate } from '../models/ProductVariantUpdate';
@@ -894,7 +856,6 @@ let enumsMap: Set<string> = new Set<string>([
     "CartCouponAddActionTypeEnum",
     "CartCouponAddActionApplyToEnum",
     "CartCouponAddActionScopeEnum",
-    "CartCreateCartIdEnum",
     "CustomerAddConsentsInnerTypeEnum",
     "ProductAddBatchNestedItemsUpdateBehaviourEnum",
     "ProductAddSpecificsInnerBookingDetailsTypeEnum",
@@ -964,35 +925,21 @@ let typeMap: {[index: string]: any} = {
     "Brand": Brand,
     "Carrier": Carrier,
     "Cart": Cart,
-    "CartBridge200Response": CartBridge200Response,
-    "CartBridge200ResponseResult": CartBridge200ResponseResult,
     "CartCatalogPriceRulesCount200Response": CartCatalogPriceRulesCount200Response,
     "CartCatalogPriceRulesCount200ResponseResult": CartCatalogPriceRulesCount200ResponseResult,
     "CartChannel": CartChannel,
-    "CartClearCache200Response": CartClearCache200Response,
-    "CartClearCache200ResponseResult": CartClearCache200ResponseResult,
-    "CartConfig200Response": CartConfig200Response,
-    "CartConfig200ResponseResult": CartConfig200ResponseResult,
-    "CartConfigUpdate": CartConfigUpdate,
-    "CartConfigUpdate200Response": CartConfigUpdate200Response,
     "CartCouponAdd": CartCouponAdd,
     "CartCouponAdd200Response": CartCouponAdd200Response,
     "CartCouponAdd200ResponseResult": CartCouponAdd200ResponseResult,
     "CartCouponCount200Response": CartCouponCount200Response,
     "CartCouponCount200ResponseResult": CartCouponCount200ResponseResult,
-    "CartCreate": CartCreate,
     "CartDelete200Response": CartDelete200Response,
     "CartDelete200ResponseResult": CartDelete200ResponseResult,
-    "CartDisconnect200Response": CartDisconnect200Response,
-    "CartDisconnect200ResponseResult": CartDisconnect200ResponseResult,
     "CartGiftcardAdd200Response": CartGiftcardAdd200Response,
     "CartGiftcardAdd200ResponseResult": CartGiftcardAdd200ResponseResult,
     "CartGiftcardCount200Response": CartGiftcardCount200Response,
     "CartGiftcardCount200ResponseResult": CartGiftcardCount200ResponseResult,
     "CartInfo200Response": CartInfo200Response,
-    "CartList200Response": CartList200Response,
-    "CartList200ResponseResult": CartList200ResponseResult,
-    "CartList200ResponseResultSupportedCartsInner": CartList200ResponseResultSupportedCartsInner,
     "CartMetaData": CartMetaData,
     "CartMethods200Response": CartMethods200Response,
     "CartMethods200ResponseResult": CartMethods200ResponseResult,
@@ -1018,6 +965,7 @@ let typeMap: {[index: string]: any} = {
     "CategoryAddBatch200ResponseResult": CategoryAddBatch200ResponseResult,
     "CategoryAddBatchPayloadInner": CategoryAddBatchPayloadInner,
     "CategoryAddBatchPayloadInnerImagesInner": CategoryAddBatchPayloadInnerImagesInner,
+    "CategoryAssign200Response": CategoryAssign200Response,
     "CategoryCount200Response": CategoryCount200Response,
     "CategoryCount200ResponseResult": CategoryCount200ResponseResult,
     "CategoryDelete200Response": CategoryDelete200Response,
@@ -1115,8 +1063,6 @@ let typeMap: {[index: string]: any} = {
     "OrderFinancialStatusList200Response": OrderFinancialStatusList200Response,
     "OrderFinancialStatusList200ResponseResult": OrderFinancialStatusList200ResponseResult,
     "OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner": OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner,
-    "OrderFind200Response": OrderFind200Response,
-    "OrderFind200ResponseResult": OrderFind200ResponseResult,
     "OrderFulfillmentStatusList200Response": OrderFulfillmentStatusList200Response,
     "OrderFulfillmentStatusList200ResponseResult": OrderFulfillmentStatusList200ResponseResult,
     "OrderInfo200Response": OrderInfo200Response,
@@ -1259,15 +1205,11 @@ let typeMap: {[index: string]: any} = {
     "ProductVariantAddBatch": ProductVariantAddBatch,
     "ProductVariantAddBatchPayloadInner": ProductVariantAddBatchPayloadInner,
     "ProductVariantAddBatchPayloadInnerCombinationInner": ProductVariantAddBatchPayloadInnerCombinationInner,
-    "ProductVariantCount200Response": ProductVariantCount200Response,
-    "ProductVariantCount200ResponseResult": ProductVariantCount200ResponseResult,
     "ProductVariantDeleteBatch": ProductVariantDeleteBatch,
     "ProductVariantDeleteBatchPayloadInner": ProductVariantDeleteBatchPayloadInner,
     "ProductVariantImageAdd": ProductVariantImageAdd,
     "ProductVariantImageAdd200Response": ProductVariantImageAdd200Response,
     "ProductVariantImageAdd200ResponseResult": ProductVariantImageAdd200ResponseResult,
-    "ProductVariantList200Response": ProductVariantList200Response,
-    "ProductVariantList200ResponseResult": ProductVariantList200ResponseResult,
     "ProductVariantPriceAdd": ProductVariantPriceAdd,
     "ProductVariantPriceUpdate": ProductVariantPriceUpdate,
     "ProductVariantUpdate": ProductVariantUpdate,

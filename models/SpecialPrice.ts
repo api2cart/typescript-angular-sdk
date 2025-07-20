@@ -16,11 +16,11 @@ import { HttpFile } from '../http/http';
 export class SpecialPrice {
     'value'?: number;
     'avail'?: boolean;
-    'createdAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
-    'expiredAt'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
+    'expiredAt'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

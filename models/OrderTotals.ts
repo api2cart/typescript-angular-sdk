@@ -16,10 +16,10 @@ export class OrderTotals {
     'total'?: number;
     'subtotal'?: number;
     'shipping'?: number;
-    'tax'?: number;
-    'discount'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'tax'?: number | null;
+    'discount'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

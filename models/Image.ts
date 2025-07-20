@@ -14,19 +14,19 @@ import { A2CDateTime } from '../models/A2CDateTime';
 import { HttpFile } from '../http/http';
 
 export class Image {
-    'id'?: string;
+    'id'?: string | null;
     'httpPath'?: string;
-    'fileName'?: string;
-    'mimeType'?: string;
-    'size'?: number;
-    'createAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
-    'alt'?: string;
+    'fileName'?: string | null;
+    'mimeType'?: string | null;
+    'size'?: number | null;
+    'createAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
+    'alt'?: string | null;
     'avail'?: boolean;
-    'sortOrder'?: number;
+    'sortOrder'?: number | null;
     'type'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

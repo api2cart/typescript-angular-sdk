@@ -14,13 +14,13 @@ import { HttpFile } from '../http/http';
 
 export class CustomerConsent {
     'id'?: string;
-    'type'?: string;
-    'status'?: string;
-    'source'?: string;
-    'optInLevel'?: string;
-    'modifiedTime'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'type'?: string | null;
+    'status'?: string | null;
+    'source'?: string | null;
+    'optInLevel'?: string | null;
+    'modifiedTime'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

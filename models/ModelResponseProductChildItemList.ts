@@ -15,12 +15,12 @@ import { ResponseProductChildItemListResult } from '../models/ResponseProductChi
 import { HttpFile } from '../http/http';
 
 export class ModelResponseProductChildItemList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseProductChildItemListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseProductChildItemListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -19,23 +19,23 @@ import { HttpFile } from '../http/http';
 
 export class Coupon {
     'id'?: string;
-    'code'?: string;
+    'code'?: string | null;
     'codes'?: Array<CouponCode>;
-    'name'?: string;
-    'description'?: string;
+    'name'?: string | null;
+    'description'?: string | null;
     'actions'?: Array<CouponAction>;
-    'dateStart'?: A2CDateTime;
-    'dateEnd'?: A2CDateTime;
-    'avail'?: boolean;
-    'priority'?: number;
-    'usedTimes'?: number;
-    'usageLimit'?: number;
-    'usageLimitPerCustomer'?: number;
-    'logicOperator'?: string;
+    'dateStart'?: A2CDateTime | null;
+    'dateEnd'?: A2CDateTime | null;
+    'avail'?: boolean | null;
+    'priority'?: number | null;
+    'usedTimes'?: number | null;
+    'usageLimit'?: number | null;
+    'usageLimitPerCustomer'?: number | null;
+    'logicOperator'?: string | null;
     'conditions'?: Array<CouponCondition>;
     'usageHistory'?: Array<CouponHistory>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

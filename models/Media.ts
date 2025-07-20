@@ -13,12 +13,12 @@
 import { HttpFile } from '../http/http';
 
 export class Media {
-    'id'?: string;
+    'id'?: string | null;
     'httpPath'?: string;
-    'fileName'?: string;
+    'fileName'?: string | null;
     'type'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -15,12 +15,12 @@ import { ResponseCartShippingZonesListResult } from '../models/ResponseCartShipp
 import { HttpFile } from '../http/http';
 
 export class ModelResponseCartShippingZonesList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseCartShippingZonesListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseCartShippingZonesListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

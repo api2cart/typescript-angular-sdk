@@ -24,8 +24,8 @@ export class TaxClassRate {
     'cities'?: Array<string>;
     'address'?: Array<string>;
     'zipCodes'?: Array<TaxClassZipCodes>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

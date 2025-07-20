@@ -15,12 +15,12 @@ import { ResponseProductCurrencyListResult } from '../models/ResponseProductCurr
 import { HttpFile } from '../http/http';
 
 export class ModelResponseProductCurrencyList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseProductCurrencyListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseProductCurrencyListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

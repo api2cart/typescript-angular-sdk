@@ -14,14 +14,14 @@ import { TaxClassZipCodes } from '../models/TaxClassZipCodes';
 import { HttpFile } from '../http/http';
 
 export class TaxClassStates {
-    'id'?: string;
+    'id'?: string | null;
     'tax'?: number;
     'taxType'?: number;
     'name'?: string;
     'code'?: string;
     'zipCodes'?: Array<TaxClassZipCodes>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

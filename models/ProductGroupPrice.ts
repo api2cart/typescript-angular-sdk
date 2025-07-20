@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class ProductGroupPrice {
-    'id'?: string;
+    'id'?: string | null;
     'groupId'?: string;
     'price'?: number;
-    'storeId'?: string;
-    'quantity'?: number;
-    'startTime'?: string;
-    'expireTime'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'storeId'?: string | null;
+    'quantity'?: number | null;
+    'startTime'?: string | null;
+    'expireTime'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

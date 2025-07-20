@@ -19,13 +19,13 @@ import { HttpFile } from '../http/http';
 export class Basket {
     'id'?: string;
     'customer'?: BaseCustomer;
-    'basketUrl'?: string;
-    'createdAt'?: A2CDateTime;
-    'modifiedAt'?: A2CDateTime;
+    'basketUrl'?: string | null;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedAt'?: A2CDateTime | null;
     'currency'?: Currency;
     'basketProducts'?: Array<BasketItem>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -13,20 +13,20 @@
 import { HttpFile } from '../http/http';
 
 export class Webhook {
-    'id'?: number;
-    'label'?: string;
-    'storeId'?: string;
-    'langId'?: string;
-    'active'?: boolean;
-    'callback'?: string;
-    'fields'?: string;
-    'responseFields'?: string;
-    'createdAt'?: string;
-    'updatedAt'?: string;
-    'entity'?: string;
-    'action'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'id'?: number | null;
+    'label'?: string | null;
+    'storeId'?: string | null;
+    'langId'?: string | null;
+    'active'?: boolean | null;
+    'callback'?: string | null;
+    'fields'?: string | null;
+    'responseFields'?: string | null;
+    'createdAt'?: string | null;
+    'updatedAt'?: string | null;
+    'entity'?: string | null;
+    'action'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

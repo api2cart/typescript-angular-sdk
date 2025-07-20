@@ -17,21 +17,21 @@ import { HttpFile } from '../http/http';
 
 export class CatalogPriceRule {
     'id'?: string;
-    'gid'?: string;
-    'type'?: string;
-    'name'?: string;
-    'description'?: string;
-    'shortDescription'?: string;
-    'avail'?: boolean;
+    'gid'?: string | null;
+    'type'?: string | null;
+    'name'?: string | null;
+    'description'?: string | null;
+    'shortDescription'?: string | null;
+    'avail'?: boolean | null;
     'actions'?: Array<CatalogPriceRuleAction>;
-    'createdTime'?: A2CDateTime;
-    'dateStart'?: A2CDateTime;
-    'dateEnd'?: A2CDateTime;
-    'usageCount'?: number;
+    'createdTime'?: A2CDateTime | null;
+    'dateStart'?: A2CDateTime | null;
+    'dateEnd'?: A2CDateTime | null;
+    'usageCount'?: number | null;
     'conditions'?: Array<CouponCondition>;
-    'usesPerOrderLimit'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'usesPerOrderLimit'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

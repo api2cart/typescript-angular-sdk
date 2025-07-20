@@ -13,15 +13,15 @@
 import { HttpFile } from '../http/http';
 
 export class OrderItemOption {
-    'optionId'?: string;
+    'optionId'?: string | null;
     'name'?: string;
     'value'?: string;
     'price'?: number;
-    'weight'?: number;
-    'type'?: string;
-    'productOptionValueId'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'weight'?: number | null;
+    'type'?: string | null;
+    'productOptionValueId'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

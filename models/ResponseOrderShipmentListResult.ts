@@ -14,10 +14,10 @@ import { Shipment } from '../models/Shipment';
 import { HttpFile } from '../http/http';
 
 export class ResponseOrderShipmentListResult {
-    'shipmentCount'?: number;
+    'shipmentCount'?: number | null;
     'shipment'?: Array<Shipment>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

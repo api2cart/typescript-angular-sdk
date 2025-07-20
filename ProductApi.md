@@ -1,6 +1,6 @@
 # .ProductApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,6 @@ Method | HTTP request | Description
 [**productCurrencyList**](ProductApi.md#productCurrencyList) | **GET** /product.currency.list.json | product.currency.list
 [**productDelete**](ProductApi.md#productDelete) | **DELETE** /product.delete.json | product.delete
 [**productDeleteBatch**](ProductApi.md#productDeleteBatch) | **POST** /product.delete.batch.json | product.delete.batch
-[**productFields**](ProductApi.md#productFields) | **GET** /product.fields.json | product.fields
 [**productFind**](ProductApi.md#productFind) | **GET** /product.find.json | product.find
 [**productImageAdd**](ProductApi.md#productImageAdd) | **POST** /product.image.add.json | product.image.add
 [**productImageDelete**](ProductApi.md#productImageDelete) | **DELETE** /product.image.delete.json | product.image.delete
@@ -44,13 +43,10 @@ Method | HTTP request | Description
 [**productUpdateBatch**](ProductApi.md#productUpdateBatch) | **POST** /product.update.batch.json | product.update.batch
 [**productVariantAdd**](ProductApi.md#productVariantAdd) | **POST** /product.variant.add.json | product.variant.add
 [**productVariantAddBatch**](ProductApi.md#productVariantAddBatch) | **POST** /product.variant.add.batch.json | product.variant.add.batch
-[**productVariantCount**](ProductApi.md#productVariantCount) | **GET** /product.variant.count.json | product.variant.count
 [**productVariantDelete**](ProductApi.md#productVariantDelete) | **DELETE** /product.variant.delete.json | product.variant.delete
 [**productVariantDeleteBatch**](ProductApi.md#productVariantDeleteBatch) | **POST** /product.variant.delete.batch.json | product.variant.delete.batch
 [**productVariantImageAdd**](ProductApi.md#productVariantImageAdd) | **POST** /product.variant.image.add.json | product.variant.image.add
 [**productVariantImageDelete**](ProductApi.md#productVariantImageDelete) | **DELETE** /product.variant.image.delete.json | product.variant.image.delete
-[**productVariantInfo**](ProductApi.md#productVariantInfo) | **GET** /product.variant.info.json | product.variant.info
-[**productVariantList**](ProductApi.md#productVariantList) | **GET** /product.variant.list.json | product.variant.list
 [**productVariantPriceAdd**](ProductApi.md#productVariantPriceAdd) | **POST** /product.variant.price.add.json | product.variant.price.add
 [**productVariantPriceDelete**](ProductApi.md#productVariantPriceDelete) | **DELETE** /product.variant.price.delete.json | product.variant.price.delete
 [**productVariantPriceUpdate**](ProductApi.md#productVariantPriceUpdate) | **PUT** /product.variant.price.update.json | product.variant.price.update
@@ -1485,52 +1481,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | successful operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **productFields**
-> CartConfigUpdate200Response productFields()
-
-Retrieve all available fields for product item in store.
-
-### Example
-
-
-```typescript
-import { createConfiguration, ProductApi } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new ProductApi(configuration);
-
-const request = {};
-
-const data = await apiInstance.productFields(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-This endpoint does not need any parameter.
-
-
-### Return type
-
-**CartConfigUpdate200Response**
-
-### Authorization
-
-[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -3658,77 +3608,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **productVariantCount**
-> ProductVariantCount200Response productVariantCount()
-
-Get count variants.
-
-### Example
-
-
-```typescript
-import { createConfiguration, ProductApi } from '';
-import type { ProductApiProductVariantCountRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new ProductApi(configuration);
-
-const request: ProductApiProductVariantCountRequest = {
-    // Retrieves products\' variants specified by product id
-  productId: "10",
-    // Counts products’ variants specified by category id (optional)
-  categoryId: "6",
-    // Retrieves variants specified by store id (optional)
-  storeId: "1",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
-};
-
-const data = await apiInstance.productVariantCount(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **productId** | [**string**] | Retrieves products\&#39; variants specified by product id | defaults to undefined
- **categoryId** | [**string**] | Counts products’ variants specified by category id | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
-
-
-### Return type
-
-**ProductVariantCount200Response**
-
-### Authorization
-
-[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | successful operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **productVariantDelete**
 > AttributeValueDelete200Response productVariantDelete()
 
@@ -3960,151 +3839,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **AttributeDelete200Response**
-
-### Authorization
-
-[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | successful operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **productVariantInfo**
-> ProductInfo200Response productVariantInfo()
-
-Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-
-### Example
-
-
-```typescript
-import { createConfiguration, ProductApi } from '';
-import type { ProductApiProductVariantInfoRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new ProductApi(configuration);
-
-const request: ProductApiProductVariantInfoRequest = {
-    // Retrieves variant\'s info specified by variant id
-  id: "10",
-    // Retrieves variant info specified by store id (optional)
-  storeId: "1",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
-};
-
-const data = await apiInstance.productVariantInfo(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | [**string**] | Retrieves variant\&#39;s info specified by variant id | defaults to undefined
- **storeId** | [**string**] | Retrieves variant info specified by store id | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
-
-
-### Return type
-
-**ProductInfo200Response**
-
-### Authorization
-
-[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | successful operation |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **productVariantList**
-> ProductVariantList200Response productVariantList()
-
-Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-
-### Example
-
-
-```typescript
-import { createConfiguration, ProductApi } from '';
-import type { ProductApiProductVariantListRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new ProductApi(configuration);
-
-const request: ProductApiProductVariantListRequest = {
-    // This parameter sets the number from which you want to get entities (optional)
-  start: 0,
-    // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
-  count: 20,
-    // Retrieves products\' variants specified by product id (optional)
-  productId: "10",
-    // Retrieves products’ variants specified by category id (optional)
-  categoryId: "6",
-    // Retrieves variants specified by store id (optional)
-  storeId: "1",
-    // Retrieve entities from their creation date (optional)
-  createdFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their creation date (optional)
-  createdTo: "2100-08-29 13:45:52",
-    // Retrieve entities from their modification date (optional)
-  modifiedFrom: "2010-07-29 13:45:52",
-    // Retrieve entities to their modification date (optional)
-  modifiedTo: "2100-08-29 13:45:52",
-    // Set this parameter in order to choose which entity fields you want to retrieve (optional)
-  params: "id,model,price,images",
-    // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
-  exclude: "false",
-};
-
-const data = await apiInstance.productVariantList(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
- **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
- **productId** | [**string**] | Retrieves products\&#39; variants specified by product id | (optional) defaults to undefined
- **categoryId** | [**string**] | Retrieves products’ variants specified by category id | (optional) defaults to undefined
- **storeId** | [**string**] | Retrieves variants specified by store id | (optional) defaults to undefined
- **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
- **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
- **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
- **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
- **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,name,description,price'
- **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
-
-
-### Return type
-
-**ProductVariantList200Response**
 
 ### Authorization
 

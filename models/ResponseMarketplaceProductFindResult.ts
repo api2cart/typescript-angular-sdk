@@ -14,10 +14,10 @@ import { MarketplaceProduct } from '../models/MarketplaceProduct';
 import { HttpFile } from '../http/http';
 
 export class ResponseMarketplaceProductFindResult {
-    'marketplaceProductsCount'?: number;
+    'marketplaceProductsCount'?: number | null;
     'marketplaceProduct'?: Array<MarketplaceProduct>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -1,6 +1,6 @@
 # .AccountApi
 
-All URIs are relative to *https://api.api2cart.com/v1.1*
+All URIs are relative to *https://api.api2cart.local.com/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -65,6 +65,10 @@ const request: AccountApiAccountCartAddRequest = {
     bolRetailerId: 145001,
     bigcartelUserName: "subdomain",
     bigcartelPassword: "4GrrZCLNNoSUuhAjesKuchxo9SL",
+    bricklinkConsumerKey: "26F6CDA087D9444EAA71AC09E7A1D39A",
+    bricklinkConsumerSecret: "a46abc3kxyinlbggy06i9g975xqo6gjq",
+    bricklinkToken: "ktv4n9rgrj0evjuy2t6p2xlb1f8u5pmy",
+    bricklinkTokenSecret: "a46abc3kxyinlbggy06i9g975xqo6gjq",
     demandwareClientId: "b849eb85-v8b9-1dw8-9fe2-97e1d6ffc7b0",
     demandwareApiPassword: "testpassword",
     demandwareUserName: "admin",
@@ -481,6 +485,14 @@ const request: AccountApiAccountConfigUpdateRequest = {
   bigcartelUserName: "subdomain",
     // BigCartel account password (optional)
   bigcartelPassword: "4GrrZCLNNoSUuhAjesKuchxo9SL",
+    // Bricklink Consumer Key (optional)
+  bricklinkConsumerKey: "26F6CDA087D9444EAA71AC09E7A1D39A",
+    // Bricklink Consumer Secret (optional)
+  bricklinkConsumerSecret: "a46abc3kxyinlbggy06i9g975xqo6gjq",
+    // Bricklink Access Token (optional)
+  bricklinkToken: "ktv4n9rgrj0evjuy2t6p2xlb1f8u5pmy",
+    // Bricklink Access Token Secret (optional)
+  bricklinkTokenSecret: "a46abc3kxyinlbggy06i9g975xqo6gjq",
     // It\'s a Volusion account for which API is enabled (optional)
   volusionLogin: "admin",
     // Volusion API Password (optional)
@@ -728,6 +740,10 @@ Name | Type | Description  | Notes
  **shopwareApiSecret** | [**string**] | Shopware client secret access key | (optional) defaults to undefined
  **bigcartelUserName** | [**string**] | Subdomain of store | (optional) defaults to undefined
  **bigcartelPassword** | [**string**] | BigCartel account password | (optional) defaults to undefined
+ **bricklinkConsumerKey** | [**string**] | Bricklink Consumer Key | (optional) defaults to undefined
+ **bricklinkConsumerSecret** | [**string**] | Bricklink Consumer Secret | (optional) defaults to undefined
+ **bricklinkToken** | [**string**] | Bricklink Access Token | (optional) defaults to undefined
+ **bricklinkTokenSecret** | [**string**] | Bricklink Access Token Secret | (optional) defaults to undefined
  **volusionLogin** | [**string**] | It\&#39;s a Volusion account for which API is enabled | (optional) defaults to undefined
  **volusionPassword** | [**string**] | Volusion API Password | (optional) defaults to undefined
  **walmartClientId** | [**string**] | Walmart client ID. For the region \&#39;ca\&#39; use Consumer ID | (optional) defaults to undefined

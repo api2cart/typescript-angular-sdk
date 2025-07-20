@@ -13,10 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class TaxClassZipCodesRange {
-    '_from'?: string;
-    'to'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    '_from'?: string | null;
+    'to'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

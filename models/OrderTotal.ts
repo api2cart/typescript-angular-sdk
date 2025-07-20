@@ -14,14 +14,14 @@ import { HttpFile } from '../http/http';
 
 export class OrderTotal {
     'subtotalExTax'?: number;
-    'wrappingExTax'?: number;
+    'wrappingExTax'?: number | null;
     'shippingExTax'?: number;
     'totalDiscount'?: number;
     'totalTax'?: number;
     'total'?: number;
-    'totalPaid'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'totalPaid'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

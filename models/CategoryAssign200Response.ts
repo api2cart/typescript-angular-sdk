@@ -10,17 +10,12 @@
  * Do not edit the class manually.
  */
 
-import { Pagination } from '../models/Pagination';
-import { ResponseOrderAbandonedListResult } from '../models/ResponseOrderAbandonedListResult';
 import { HttpFile } from '../http/http';
 
-export class ModelResponseOrderAbandonedList {
-    'returnCode'?: number | null;
-    'returnMessage'?: string | null;
-    'pagination'?: Pagination | null;
-    'result'?: ResponseOrderAbandonedListResult | null;
-    'additionalFields'?: any | null;
-    'customFields'?: any | null;
+export class CategoryAssign200Response {
+    'returnCode'?: number;
+    'returnMessage'?: string;
+    'result'?: any;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -40,32 +35,14 @@ export class ModelResponseOrderAbandonedList {
             "format": ""
         },
         {
-            "name": "pagination",
-            "baseName": "pagination",
-            "type": "Pagination",
-            "format": ""
-        },
-        {
             "name": "result",
             "baseName": "result",
-            "type": "ResponseOrderAbandonedListResult",
-            "format": ""
-        },
-        {
-            "name": "additionalFields",
-            "baseName": "additional_fields",
-            "type": "any",
-            "format": ""
-        },
-        {
-            "name": "customFields",
-            "baseName": "custom_fields",
             "type": "any",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ModelResponseOrderAbandonedList.attributeTypeMap;
+        return CategoryAssign200Response.attributeTypeMap;
     }
 
     public constructor() {

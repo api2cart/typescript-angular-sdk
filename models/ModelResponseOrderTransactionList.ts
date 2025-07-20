@@ -15,12 +15,12 @@ import { ResponseOrderTransactionListResult } from '../models/ResponseOrderTrans
 import { HttpFile } from '../http/http';
 
 export class ModelResponseOrderTransactionList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseOrderTransactionListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseOrderTransactionListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

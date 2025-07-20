@@ -15,12 +15,12 @@ import { ResponseCustomerAttributeListResult } from '../models/ResponseCustomerA
 import { HttpFile } from '../http/http';
 
 export class ModelResponseCustomerAttributeList {
-    'returnCode'?: number;
-    'returnMessage'?: string;
-    'pagination'?: Pagination;
-    'result'?: ResponseCustomerAttributeListResult;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'returnCode'?: number | null;
+    'returnMessage'?: string | null;
+    'pagination'?: Pagination | null;
+    'result'?: ResponseCustomerAttributeListResult | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

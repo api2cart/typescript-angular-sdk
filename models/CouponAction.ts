@@ -17,15 +17,15 @@ export class CouponAction {
     'scope'?: string;
     'applyTo'?: string;
     'amount'?: number;
-    'currencyCode'?: string;
-    'includeTax'?: boolean;
+    'currencyCode'?: string | null;
+    'includeTax'?: boolean | null;
     'type'?: string;
-    'discountedQuantity'?: number;
-    'discountQuantityStep'?: number;
-    'logicOperator'?: string;
+    'discountedQuantity'?: number | null;
+    'discountQuantityStep'?: number | null;
+    'logicOperator'?: string | null;
     'conditions'?: Array<CouponCondition>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

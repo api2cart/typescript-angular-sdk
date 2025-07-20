@@ -17,13 +17,13 @@ export class CatalogPriceRuleAction {
     'scope'?: string;
     'applyTo'?: string;
     'type'?: string;
-    'quantity'?: number;
+    'quantity'?: number | null;
     'value'?: number;
-    'currencyCode'?: string;
-    'includeTax'?: boolean;
+    'currencyCode'?: string | null;
+    'includeTax'?: boolean | null;
     'conditions'?: Array<CouponCondition>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

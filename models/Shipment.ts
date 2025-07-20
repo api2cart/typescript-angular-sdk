@@ -18,17 +18,17 @@ import { HttpFile } from '../http/http';
 export class Shipment {
     'id'?: string;
     'orderId'?: string;
-    'name'?: string;
-    'warehouseId'?: string;
-    'shipmentProvider'?: string;
+    'name'?: string | null;
+    'warehouseId'?: string | null;
+    'shipmentProvider'?: string | null;
     'trackingNumbers'?: Array<ShipmentTrackingNumber>;
-    'createdAt'?: A2CDateTime;
-    'modifiedTime'?: A2CDateTime;
+    'createdAt'?: A2CDateTime | null;
+    'modifiedTime'?: A2CDateTime | null;
     'items'?: Array<ShipmentItem>;
-    'isShipped'?: boolean;
-    'deliveredAt'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'isShipped'?: boolean | null;
+    'deliveredAt'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

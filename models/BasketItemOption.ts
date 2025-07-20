@@ -13,13 +13,13 @@
 import { HttpFile } from '../http/http';
 
 export class BasketItemOption {
-    'id'?: string;
-    'valueId'?: string;
-    'name'?: string;
-    'value'?: string;
-    'usedInCombination'?: boolean;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'id'?: string | null;
+    'valueId'?: string | null;
+    'name'?: string | null;
+    'value'?: string | null;
+    'usedInCombination'?: boolean | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

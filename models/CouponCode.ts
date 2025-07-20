@@ -15,9 +15,9 @@ import { HttpFile } from '../http/http';
 export class CouponCode {
     'id'?: string;
     'code'?: string;
-    'usedTimes'?: number;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'usedTimes'?: number | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

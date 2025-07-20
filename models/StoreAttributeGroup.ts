@@ -15,11 +15,11 @@ import { HttpFile } from '../http/http';
 export class StoreAttributeGroup {
     'id'?: string;
     'name'?: string;
-    'position'?: number;
-    'attributeSetId'?: string;
+    'position'?: number | null;
+    'attributeSetId'?: string | null;
     'assignedAttributeIds'?: Array<string>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -16,13 +16,13 @@ import { HttpFile } from '../http/http';
 export class ProductAdvancedPrice {
     'id'?: string;
     'value'?: number;
-    'avail'?: boolean;
-    'groupId'?: string;
-    'quantityFrom'?: number;
-    'startTime'?: A2CDateTime;
-    'expireTime'?: A2CDateTime;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'avail'?: boolean | null;
+    'groupId'?: string | null;
+    'quantityFrom'?: number | null;
+    'startTime'?: A2CDateTime | null;
+    'expireTime'?: A2CDateTime | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

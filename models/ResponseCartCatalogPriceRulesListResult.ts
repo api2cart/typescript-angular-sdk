@@ -14,10 +14,10 @@ import { CatalogPriceRule } from '../models/CatalogPriceRule';
 import { HttpFile } from '../http/http';
 
 export class ResponseCartCatalogPriceRulesListResult {
-    'catalogPriceRulesCount'?: number;
+    'catalogPriceRulesCount'?: number | null;
     'catalogPriceRules'?: Array<CatalogPriceRule>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

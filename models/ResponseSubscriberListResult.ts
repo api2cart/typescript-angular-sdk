@@ -14,10 +14,10 @@ import { Subscriber } from '../models/Subscriber';
 import { HttpFile } from '../http/http';
 
 export class ResponseSubscriberListResult {
-    'totalCount'?: number;
+    'totalCount'?: number | null;
     'subscribers'?: Array<Subscriber>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

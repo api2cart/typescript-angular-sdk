@@ -16,19 +16,19 @@ import { HttpFile } from '../http/http';
 export class Brand {
     'id'?: string;
     'name'?: string;
-    'createdTime'?: string;
-    'modifiedTime'?: string;
-    'fullDescription'?: string;
-    'shortDescription'?: string;
+    'createdTime'?: string | null;
+    'modifiedTime'?: string | null;
+    'fullDescription'?: string | null;
+    'shortDescription'?: string | null;
     'storesIds'?: Array<string>;
     'active'?: boolean;
     'url'?: string;
-    'metaTitle'?: string;
-    'metaKeywords'?: string;
-    'metaDescription'?: string;
+    'metaTitle'?: string | null;
+    'metaKeywords'?: string | null;
+    'metaDescription'?: string | null;
     'images'?: Array<Image>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

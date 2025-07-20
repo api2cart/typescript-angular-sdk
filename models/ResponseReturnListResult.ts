@@ -14,10 +14,10 @@ import { Return } from '../models/Return';
 import { HttpFile } from '../http/http';
 
 export class ResponseReturnListResult {
-    'totalCount'?: number;
+    'totalCount'?: number | null;
     'returns'?: Array<Return>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

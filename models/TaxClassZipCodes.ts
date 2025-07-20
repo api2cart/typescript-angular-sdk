@@ -17,8 +17,8 @@ export class TaxClassZipCodes {
     'isRange'?: boolean;
     'range'?: Array<string>;
     'fields'?: Array<TaxClassZipCodesRange>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

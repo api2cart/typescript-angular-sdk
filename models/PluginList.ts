@@ -14,10 +14,10 @@ import { Plugin } from '../models/Plugin';
 import { HttpFile } from '../http/http';
 
 export class PluginList {
-    'allPlugins'?: number;
+    'allPlugins'?: number | null;
     'plugins'?: Array<Plugin>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

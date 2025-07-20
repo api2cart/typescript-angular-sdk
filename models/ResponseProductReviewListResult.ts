@@ -14,10 +14,10 @@ import { ProductReview } from '../models/ProductReview';
 import { HttpFile } from '../http/http';
 
 export class ResponseProductReviewListResult {
-    'totalCount'?: number;
+    'totalCount'?: number | null;
     'reviews'?: Array<ProductReview>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

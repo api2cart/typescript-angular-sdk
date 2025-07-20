@@ -15,16 +15,16 @@ import { OrderStatusRefundItem } from '../models/OrderStatusRefundItem';
 import { HttpFile } from '../http/http';
 
 export class OrderRefund {
-    'id'?: string;
-    'shipping'?: number;
-    'fee'?: number;
-    'tax'?: number;
-    'total'?: number;
-    'modifiedTime'?: A2CDateTime;
-    'comment'?: string;
+    'id'?: string | null;
+    'shipping'?: number | null;
+    'fee'?: number | null;
+    'tax'?: number | null;
+    'total'?: number | null;
+    'modifiedTime'?: A2CDateTime | null;
+    'comment'?: string | null;
     'items'?: Array<OrderStatusRefundItem>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

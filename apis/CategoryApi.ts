@@ -10,10 +10,10 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { AccountConfigUpdate200Response } from '../models/AccountConfigUpdate200Response';
 import { AttributeDelete200Response } from '../models/AttributeDelete200Response';
-import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
 import { CategoryAdd200Response } from '../models/CategoryAdd200Response';
 import { CategoryAddBatch } from '../models/CategoryAddBatch';
 import { CategoryAddBatch200Response } from '../models/CategoryAddBatch200Response';
+import { CategoryAssign200Response } from '../models/CategoryAssign200Response';
 import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
@@ -1280,22 +1280,22 @@ export class CategoryApiResponseProcessor {
      * @params response Response returned by the server for a request to categoryAssign
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async categoryAssignWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartConfigUpdate200Response >> {
+     public async categoryAssignWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CategoryAssign200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
+            const body: CategoryAssign200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
+                "CategoryAssign200Response", ""
+            ) as CategoryAssign200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
+            const body: CategoryAssign200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
+                "CategoryAssign200Response", ""
+            ) as CategoryAssign200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -1512,22 +1512,22 @@ export class CategoryApiResponseProcessor {
      * @params response Response returned by the server for a request to categoryUnassign
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async categoryUnassignWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CartConfigUpdate200Response >> {
+     public async categoryUnassignWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CategoryAssign200Response >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
+            const body: CategoryAssign200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
+                "CategoryAssign200Response", ""
+            ) as CategoryAssign200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: CartConfigUpdate200Response = ObjectSerializer.deserialize(
+            const body: CategoryAssign200Response = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "CartConfigUpdate200Response", ""
-            ) as CartConfigUpdate200Response;
+                "CategoryAssign200Response", ""
+            ) as CategoryAssign200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

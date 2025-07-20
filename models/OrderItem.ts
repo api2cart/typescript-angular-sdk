@@ -14,26 +14,26 @@ import { OrderItemOption } from '../models/OrderItemOption';
 import { HttpFile } from '../http/http';
 
 export class OrderItem {
-    'productId'?: string;
-    'orderProductId'?: string;
-    'model'?: string;
+    'productId'?: string | null;
+    'orderProductId'?: string | null;
+    'model'?: string | null;
     'name'?: string;
     'price'?: number;
-    'priceIncTax'?: number;
-    'quantity'?: number;
-    'discountAmount'?: number;
-    'totalPrice'?: number;
-    'taxPercent'?: number;
-    'taxValue'?: number;
-    'taxValueAfterDiscount'?: number;
+    'priceIncTax'?: number | null;
+    'quantity'?: number | null;
+    'discountAmount'?: number | null;
+    'totalPrice'?: number | null;
+    'taxPercent'?: number | null;
+    'taxValue'?: number | null;
+    'taxValueAfterDiscount'?: number | null;
     'options'?: Array<OrderItemOption>;
-    'variantId'?: string;
-    'weightUnit'?: string;
-    'weight'?: number;
-    'barcode'?: string;
-    'parentOrderProductId'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'variantId'?: string | null;
+    'weightUnit'?: string | null;
+    'weight'?: number | null;
+    'barcode'?: string | null;
+    'parentOrderProductId'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

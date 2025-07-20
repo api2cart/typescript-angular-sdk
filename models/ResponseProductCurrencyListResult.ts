@@ -14,10 +14,10 @@ import { Currency } from '../models/Currency';
 import { HttpFile } from '../http/http';
 
 export class ResponseProductCurrencyListResult {
-    'totalCount'?: number;
+    'totalCount'?: number | null;
     'currency'?: Array<Currency>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

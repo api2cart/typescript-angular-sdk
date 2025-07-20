@@ -49,6 +49,6 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
     }
 }
 
-export const server1 = new ServerConfiguration<{  }>("https://api.api2cart.com/v1.1", {  })
+export const server1 = new ServerConfiguration<{  }>("https://api.api2cart.local.com/v1.1", {  })
 
 export const servers = [server1];

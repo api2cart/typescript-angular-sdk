@@ -13,18 +13,18 @@
 import { HttpFile } from '../http/http';
 
 export class Info {
-    'owner'?: string;
-    'country'?: string;
-    'state'?: string;
-    'stateCode'?: string;
-    'city'?: string;
-    'streetAddress'?: string;
-    'streetAddressLine2'?: string;
-    'zipCode'?: string;
-    'email'?: string;
-    'phone'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'owner'?: string | null;
+    'country'?: string | null;
+    'state'?: string | null;
+    'stateCode'?: string | null;
+    'city'?: string | null;
+    'streetAddress'?: string | null;
+    'streetAddressLine2'?: string | null;
+    'zipCode'?: string | null;
+    'email'?: string | null;
+    'phone'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

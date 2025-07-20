@@ -17,10 +17,10 @@ export class OrderStatusHistoryItem {
     'id'?: string;
     'name'?: string;
     'modifiedTime'?: A2CDateTime;
-    'notify'?: boolean;
-    'comment'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'notify'?: boolean | null;
+    'comment'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

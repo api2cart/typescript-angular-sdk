@@ -13,10 +13,10 @@
 import { HttpFile } from '../http/http';
 
 export class A2CDateTime {
-    'value'?: string;
+    'value'?: string | null;
     'format'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

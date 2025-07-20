@@ -15,11 +15,11 @@ import { HttpFile } from '../http/http';
 export class BaseCustomer {
     'id'?: string;
     'email'?: string;
-    'firstName'?: string;
-    'lastName'?: string;
-    'phone'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'firstName'?: string | null;
+    'lastName'?: string | null;
+    'phone'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -14,10 +14,10 @@ import { StoreAttribute } from '../models/StoreAttribute';
 import { HttpFile } from '../http/http';
 
 export class ResponseAttributeListResult {
-    'attributesCount'?: number;
+    'attributesCount'?: number | null;
     'attribute'?: Array<StoreAttribute>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

@@ -14,18 +14,18 @@ import { HttpFile } from '../http/http';
 
 export class Subscriber {
     'id'?: string;
-    'customerId'?: string;
-    'email'?: string;
-    'subscribed'?: boolean;
-    'firstName'?: string;
-    'lastName'?: string;
+    'customerId'?: string | null;
+    'email'?: string | null;
+    'subscribed'?: boolean | null;
+    'firstName'?: string | null;
+    'lastName'?: string | null;
     'storesIds'?: Array<string>;
-    'createdTime'?: string;
-    'modifiedTime'?: string;
-    'langId'?: string;
-    'gender'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'createdTime'?: string | null;
+    'modifiedTime'?: string | null;
+    'langId'?: string | null;
+    'gender'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

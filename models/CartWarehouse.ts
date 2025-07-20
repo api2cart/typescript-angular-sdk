@@ -14,15 +14,15 @@ import { CustomerAddress } from '../models/CustomerAddress';
 import { HttpFile } from '../http/http';
 
 export class CartWarehouse {
-    'id'?: string;
-    'name'?: string;
-    'description'?: string;
-    'avail'?: boolean;
-    'address'?: CustomerAddress;
+    'id'?: string | null;
+    'name'?: string | null;
+    'description'?: string | null;
+    'avail'?: boolean | null;
+    'address'?: CustomerAddress | null;
     'carriersIds'?: Array<string>;
     'storesIds'?: Array<string>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

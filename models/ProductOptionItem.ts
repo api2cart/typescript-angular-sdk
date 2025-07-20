@@ -14,17 +14,17 @@ import { HttpFile } from '../http/http';
 
 export class ProductOptionItem {
     'id'?: string;
-    'productOptionItemId'?: string;
+    'productOptionItemId'?: string | null;
     'name'?: string;
-    'sortOrder'?: number;
-    'price'?: string;
-    'weight'?: string;
-    'quantity'?: number;
-    'typePrice'?: string;
-    'sku'?: string;
-    'isDefault'?: boolean;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'sortOrder'?: number | null;
+    'price'?: string | null;
+    'weight'?: string | null;
+    'quantity'?: number | null;
+    'typePrice'?: string | null;
+    'sku'?: string | null;
+    'isDefault'?: boolean | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

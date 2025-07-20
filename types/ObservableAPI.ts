@@ -57,35 +57,21 @@ import { BatchJobResultItem } from '../models/BatchJobResultItem';
 import { Brand } from '../models/Brand';
 import { Carrier } from '../models/Carrier';
 import { Cart } from '../models/Cart';
-import { CartBridge200Response } from '../models/CartBridge200Response';
-import { CartBridge200ResponseResult } from '../models/CartBridge200ResponseResult';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
 import { CartCatalogPriceRulesCount200ResponseResult } from '../models/CartCatalogPriceRulesCount200ResponseResult';
 import { CartChannel } from '../models/CartChannel';
-import { CartClearCache200Response } from '../models/CartClearCache200Response';
-import { CartClearCache200ResponseResult } from '../models/CartClearCache200ResponseResult';
-import { CartConfig200Response } from '../models/CartConfig200Response';
-import { CartConfig200ResponseResult } from '../models/CartConfig200ResponseResult';
-import { CartConfigUpdate } from '../models/CartConfigUpdate';
-import { CartConfigUpdate200Response } from '../models/CartConfigUpdate200Response';
 import { CartCouponAdd } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
 import { CartCouponCount200ResponseResult } from '../models/CartCouponCount200ResponseResult';
-import { CartCreate } from '../models/CartCreate';
 import { CartDelete200Response } from '../models/CartDelete200Response';
 import { CartDelete200ResponseResult } from '../models/CartDelete200ResponseResult';
-import { CartDisconnect200Response } from '../models/CartDisconnect200Response';
-import { CartDisconnect200ResponseResult } from '../models/CartDisconnect200ResponseResult';
 import { CartGiftcardAdd200Response } from '../models/CartGiftcardAdd200Response';
 import { CartGiftcardAdd200ResponseResult } from '../models/CartGiftcardAdd200ResponseResult';
 import { CartGiftcardCount200Response } from '../models/CartGiftcardCount200Response';
 import { CartGiftcardCount200ResponseResult } from '../models/CartGiftcardCount200ResponseResult';
 import { CartInfo200Response } from '../models/CartInfo200Response';
-import { CartList200Response } from '../models/CartList200Response';
-import { CartList200ResponseResult } from '../models/CartList200ResponseResult';
-import { CartList200ResponseResultSupportedCartsInner } from '../models/CartList200ResponseResultSupportedCartsInner';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
@@ -111,6 +97,7 @@ import { CategoryAddBatch200Response } from '../models/CategoryAddBatch200Respon
 import { CategoryAddBatch200ResponseResult } from '../models/CategoryAddBatch200ResponseResult';
 import { CategoryAddBatchPayloadInner } from '../models/CategoryAddBatchPayloadInner';
 import { CategoryAddBatchPayloadInnerImagesInner } from '../models/CategoryAddBatchPayloadInnerImagesInner';
+import { CategoryAssign200Response } from '../models/CategoryAssign200Response';
 import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
@@ -208,8 +195,6 @@ import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResu
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
 import { OrderFinancialStatusList200ResponseResult } from '../models/OrderFinancialStatusList200ResponseResult';
 import { OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner } from '../models/OrderFinancialStatusList200ResponseResultOrderFinancialStatusesInner';
-import { OrderFind200Response } from '../models/OrderFind200Response';
-import { OrderFind200ResponseResult } from '../models/OrderFind200ResponseResult';
 import { OrderFulfillmentStatusList200Response } from '../models/OrderFulfillmentStatusList200Response';
 import { OrderFulfillmentStatusList200ResponseResult } from '../models/OrderFulfillmentStatusList200ResponseResult';
 import { OrderInfo200Response } from '../models/OrderInfo200Response';
@@ -352,15 +337,11 @@ import { ProductVariantAddAttributesInner } from '../models/ProductVariantAddAtt
 import { ProductVariantAddBatch } from '../models/ProductVariantAddBatch';
 import { ProductVariantAddBatchPayloadInner } from '../models/ProductVariantAddBatchPayloadInner';
 import { ProductVariantAddBatchPayloadInnerCombinationInner } from '../models/ProductVariantAddBatchPayloadInnerCombinationInner';
-import { ProductVariantCount200Response } from '../models/ProductVariantCount200Response';
-import { ProductVariantCount200ResponseResult } from '../models/ProductVariantCount200ResponseResult';
 import { ProductVariantDeleteBatch } from '../models/ProductVariantDeleteBatch';
 import { ProductVariantDeleteBatchPayloadInner } from '../models/ProductVariantDeleteBatchPayloadInner';
 import { ProductVariantImageAdd } from '../models/ProductVariantImageAdd';
 import { ProductVariantImageAdd200Response } from '../models/ProductVariantImageAdd200Response';
 import { ProductVariantImageAdd200ResponseResult } from '../models/ProductVariantImageAdd200ResponseResult';
-import { ProductVariantList200Response } from '../models/ProductVariantList200Response';
-import { ProductVariantList200ResponseResult } from '../models/ProductVariantList200ResponseResult';
 import { ProductVariantPriceAdd } from '../models/ProductVariantPriceAdd';
 import { ProductVariantPriceUpdate } from '../models/ProductVariantPriceUpdate';
 import { ProductVariantUpdate } from '../models/ProductVariantUpdate';
@@ -615,6 +596,10 @@ export class ObservableAccountApi {
      * @param [shopwareApiSecret] Shopware client secret access key
      * @param [bigcartelUserName] Subdomain of store
      * @param [bigcartelPassword] BigCartel account password
+     * @param [bricklinkConsumerKey] Bricklink Consumer Key
+     * @param [bricklinkConsumerSecret] Bricklink Consumer Secret
+     * @param [bricklinkToken] Bricklink Access Token
+     * @param [bricklinkTokenSecret] Bricklink Access Token Secret
      * @param [volusionLogin] It\&#39;s a Volusion account for which API is enabled
      * @param [volusionPassword] Volusion API Password
      * @param [walmartClientId] Walmart client ID. For the region \&#39;ca\&#39; use Consumer ID
@@ -691,8 +676,8 @@ export class ObservableAccountApi {
      * @param [temuAccessToken] Temu Access Token
      * @param [temuRegion] Temu API endpoint Region.
      */
-    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, _options);
+    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -792,6 +777,10 @@ export class ObservableAccountApi {
      * @param [shopwareApiSecret] Shopware client secret access key
      * @param [bigcartelUserName] Subdomain of store
      * @param [bigcartelPassword] BigCartel account password
+     * @param [bricklinkConsumerKey] Bricklink Consumer Key
+     * @param [bricklinkConsumerSecret] Bricklink Consumer Secret
+     * @param [bricklinkToken] Bricklink Access Token
+     * @param [bricklinkTokenSecret] Bricklink Access Token Secret
      * @param [volusionLogin] It\&#39;s a Volusion account for which API is enabled
      * @param [volusionPassword] Volusion API Password
      * @param [walmartClientId] Walmart client ID. For the region \&#39;ca\&#39; use Consumer ID
@@ -868,8 +857,8 @@ export class ObservableAccountApi {
      * @param [temuAccessToken] Temu Access Token
      * @param [temuRegion] Temu API endpoint Region.
      */
-    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -2075,37 +2064,6 @@ export class ObservableCartApi {
     }
 
     /**
-     * Get bridge key and store key
-     * cart.bridge
-     */
-    public cartBridgeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CartBridge200Response>> {
-        const requestContextPromise = this.requestFactory.cartBridge(_options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartBridgeWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get bridge key and store key
-     * cart.bridge
-     */
-    public cartBridge(_options?: Configuration): Observable<CartBridge200Response> {
-        return this.cartBridgeWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<CartBridge200Response>) => apiResponse.data));
-    }
-
-    /**
      * Get count of cart catalog price rules discounts.
      * cart.catalog_price_rules.count
      */
@@ -2179,107 +2137,6 @@ export class ObservableCartApi {
      */
     public cartCatalogPriceRulesList(start?: number, count?: number, pageCursor?: string, ids?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCartCatalogPriceRulesList> {
         return this.cartCatalogPriceRulesListWithHttpInfo(start, count, pageCursor, ids, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCartCatalogPriceRulesList>) => apiResponse.data));
-    }
-
-    /**
-     * Clear cache on store.
-     * cart.clear_cache
-     * @param cacheType Defines which cache should be cleared.
-     */
-    public cartClearCacheWithHttpInfo(cacheType: string, _options?: Configuration): Observable<HttpInfo<CartClearCache200Response>> {
-        const requestContextPromise = this.requestFactory.cartClearCache(cacheType, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartClearCacheWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Clear cache on store.
-     * cart.clear_cache
-     * @param cacheType Defines which cache should be cleared.
-     */
-    public cartClearCache(cacheType: string, _options?: Configuration): Observable<CartClearCache200Response> {
-        return this.cartClearCacheWithHttpInfo(cacheType, _options).pipe(map((apiResponse: HttpInfo<CartClearCache200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Get list of cart configs
-     * cart.config
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public cartConfigWithHttpInfo(params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<CartConfig200Response>> {
-        const requestContextPromise = this.requestFactory.cartConfig(params, exclude, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartConfigWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get list of cart configs
-     * cart.config
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public cartConfig(params?: string, exclude?: string, _options?: Configuration): Observable<CartConfig200Response> {
-        return this.cartConfigWithHttpInfo(params, exclude, _options).pipe(map((apiResponse: HttpInfo<CartConfig200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Use this API method to update custom data in client database.
-     * cart.config.update
-     * @param cartConfigUpdate
-     */
-    public cartConfigUpdateWithHttpInfo(cartConfigUpdate: CartConfigUpdate, _options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.cartConfigUpdate(cartConfigUpdate, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartConfigUpdateWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Use this API method to update custom data in client database.
-     * cart.config.update
-     * @param cartConfigUpdate
-     */
-    public cartConfigUpdate(cartConfigUpdate: CartConfigUpdate, _options?: Configuration): Observable<CartConfigUpdate200Response> {
-        return this.cartConfigUpdateWithHttpInfo(cartConfigUpdate, _options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -2502,39 +2359,6 @@ export class ObservableCartApi {
     }
 
     /**
-     * Add store to the account
-     * cart.create
-     * @param cartCreate
-     */
-    public cartCreateWithHttpInfo(cartCreate: CartCreate, _options?: Configuration): Observable<HttpInfo<AccountCartAdd200Response>> {
-        const requestContextPromise = this.requestFactory.cartCreate(cartCreate, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartCreateWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Add store to the account
-     * cart.create
-     * @param cartCreate
-     */
-    public cartCreate(cartCreate: CartCreate, _options?: Configuration): Observable<AccountCartAdd200Response> {
-        return this.cartCreateWithHttpInfo(cartCreate, _options).pipe(map((apiResponse: HttpInfo<AccountCartAdd200Response>) => apiResponse.data));
-    }
-
-    /**
      * Remove store from API2Cart
      * cart.delete
      * @param [deleteBridge] Identifies if there is a necessity to delete bridge
@@ -2565,39 +2389,6 @@ export class ObservableCartApi {
      */
     public cartDelete(deleteBridge?: boolean, _options?: Configuration): Observable<CartDelete200Response> {
         return this.cartDeleteWithHttpInfo(deleteBridge, _options).pipe(map((apiResponse: HttpInfo<CartDelete200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Disconnect with the store and clear store session data.
-     * cart.disconnect
-     * @param [deleteBridge] Identifies if there is a necessity to delete bridge
-     */
-    public cartDisconnectWithHttpInfo(deleteBridge?: boolean, _options?: Configuration): Observable<HttpInfo<CartDisconnect200Response>> {
-        const requestContextPromise = this.requestFactory.cartDisconnect(deleteBridge, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartDisconnectWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Disconnect with the store and clear store session data.
-     * cart.disconnect
-     * @param [deleteBridge] Identifies if there is a necessity to delete bridge
-     */
-    public cartDisconnect(deleteBridge?: boolean, _options?: Configuration): Observable<CartDisconnect200Response> {
-        return this.cartDisconnectWithHttpInfo(deleteBridge, _options).pipe(map((apiResponse: HttpInfo<CartDisconnect200Response>) => apiResponse.data));
     }
 
     /**
@@ -2791,37 +2582,6 @@ export class ObservableCartApi {
      */
     public cartInfo(storeId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<CartInfo200Response> {
         return this.cartInfoWithHttpInfo(storeId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<CartInfo200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Get list of supported carts
-     * cart.list
-     */
-    public cartListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CartList200Response>> {
-        const requestContextPromise = this.requestFactory.cartList(_options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.cartListWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get list of supported carts
-     * cart.list
-     */
-    public cartList(_options?: Configuration): Observable<CartList200Response> {
-        return this.cartListWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<CartList200Response>) => apiResponse.data));
     }
 
     /**
@@ -3361,7 +3121,7 @@ export class ObservableCategoryApi {
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
+    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
         const requestContextPromise = this.requestFactory.categoryAssign(categoryId, productId, storeId, _options);
 
         // build promise chain
@@ -3387,8 +3147,8 @@ export class ObservableCategoryApi {
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CartConfigUpdate200Response> {
-        return this.categoryAssignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
+    public categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
+        return this.categoryAssignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -3735,7 +3495,7 @@ export class ObservableCategoryApi {
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
+    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
         const requestContextPromise = this.requestFactory.categoryUnassign(categoryId, productId, storeId, _options);
 
         // build promise chain
@@ -3761,8 +3521,8 @@ export class ObservableCategoryApi {
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
      */
-    public categoryUnassign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CartConfigUpdate200Response> {
-        return this.categoryUnassignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
+    public categoryUnassign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
+        return this.categoryUnassignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -4655,61 +4415,6 @@ export class ObservableOrderApi {
      */
     public orderFinancialStatusList(_options?: Configuration): Observable<OrderFinancialStatusList200Response> {
         return this.orderFinancialStatusListWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<OrderFinancialStatusList200Response>) => apiResponse.data));
-    }
-
-    /**
-     * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
-     * order.find
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [customerId] Retrieves orders specified by customer id
-     * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [orderStatus] Retrieves orders specified by order status
-     * @param [financialStatus] Retrieves orders specified by financial status
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public orderFindWithHttpInfo(start?: number, count?: number, customerId?: string, customerEmail?: string, orderStatus?: string, financialStatus?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<OrderFind200Response>> {
-        const requestContextPromise = this.requestFactory.orderFind(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.orderFindWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * This method is deprecated and won\'t be supported in the future. Please use \"order.list\" instead.
-     * order.find
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [customerId] Retrieves orders specified by customer id
-     * @param [customerEmail] Retrieves orders specified by customer email
-     * @param [orderStatus] Retrieves orders specified by order status
-     * @param [financialStatus] Retrieves orders specified by financial status
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public orderFind(start?: number, count?: number, customerId?: string, customerEmail?: string, orderStatus?: string, financialStatus?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, params?: string, exclude?: string, _options?: Configuration): Observable<OrderFind200Response> {
-        return this.orderFindWithHttpInfo(start, count, customerId, customerEmail, orderStatus, financialStatus, createdTo, createdFrom, modifiedTo, modifiedFrom, params, exclude, _options).pipe(map((apiResponse: HttpInfo<OrderFind200Response>) => apiResponse.data));
     }
 
     /**
@@ -6187,37 +5892,6 @@ export class ObservableProductApi {
     }
 
     /**
-     * Retrieve all available fields for product item in store.
-     * product.fields
-     */
-    public productFieldsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CartConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.productFields(_options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.productFieldsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Retrieve all available fields for product item in store.
-     * product.fields
-     */
-    public productFields(_options?: Configuration): Observable<CartConfigUpdate200Response> {
-        return this.productFieldsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<CartConfigUpdate200Response>) => apiResponse.data));
-    }
-
-    /**
      * Search product in store catalog. \"Apple\" is specified here by default.
      * product.find
      * @param findValue Entity search that is specified by some value
@@ -7251,51 +6925,6 @@ export class ObservableProductApi {
     }
 
     /**
-     * Get count variants.
-     * product.variant.count
-     * @param productId Retrieves products\&#39; variants specified by product id
-     * @param [categoryId] Counts products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     */
-    public productVariantCountWithHttpInfo(productId: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantCount200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantCount(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.productVariantCountWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get count variants.
-     * product.variant.count
-     * @param productId Retrieves products\&#39; variants specified by product id
-     * @param [categoryId] Counts products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     */
-    public productVariantCount(productId: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, _options?: Configuration): Observable<ProductVariantCount200Response> {
-        return this.productVariantCountWithHttpInfo(productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, _options).pipe(map((apiResponse: HttpInfo<ProductVariantCount200Response>) => apiResponse.data));
-    }
-
-    /**
      * Delete variant.
      * product.variant.delete
      * @param id Defines variant removal, specified by variant id
@@ -7435,98 +7064,6 @@ export class ObservableProductApi {
      */
     public productVariantImageDelete(productId: string, productVariantId: string, id: string, storeId?: string, _options?: Configuration): Observable<AttributeDelete200Response> {
         return this.productVariantImageDeleteWithHttpInfo(productId, productVariantId, id, storeId, _options).pipe(map((apiResponse: HttpInfo<AttributeDelete200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-     * product.variant.info
-     * @param id Retrieves variant\&#39;s info specified by variant id
-     * @param [storeId] Retrieves variant info specified by store id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public productVariantInfoWithHttpInfo(id: string, storeId?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ProductInfo200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantInfo(id, storeId, params, exclude, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.productVariantInfoWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get variant info. This method is deprecated, and its development is stopped. Please use \"product.child_item.info\" instead.
-     * product.variant.info
-     * @param id Retrieves variant\&#39;s info specified by variant id
-     * @param [storeId] Retrieves variant info specified by store id
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public productVariantInfo(id: string, storeId?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ProductInfo200Response> {
-        return this.productVariantInfoWithHttpInfo(id, storeId, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ProductInfo200Response>) => apiResponse.data));
-    }
-
-    /**
-     * Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-     * product.variant.list
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [productId] Retrieves products\&#39; variants specified by product id
-     * @param [categoryId] Retrieves products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public productVariantListWithHttpInfo(start?: number, count?: number, productId?: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ProductVariantList200Response>> {
-        const requestContextPromise = this.requestFactory.productVariantList(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (const middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (const middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.productVariantListWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Get a list of variants. This method is deprecated, and its development is stopped. Please use \"product.child_item.list\" instead.
-     * product.variant.list
-     * @param [start] This parameter sets the number from which you want to get entities
-     * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
-     * @param [productId] Retrieves products\&#39; variants specified by product id
-     * @param [categoryId] Retrieves products’ variants specified by category id
-     * @param [storeId] Retrieves variants specified by store id
-     * @param [createdFrom] Retrieve entities from their creation date
-     * @param [createdTo] Retrieve entities to their creation date
-     * @param [modifiedFrom] Retrieve entities from their modification date
-     * @param [modifiedTo] Retrieve entities to their modification date
-     * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
-     * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
-     */
-    public productVariantList(start?: number, count?: number, productId?: string, categoryId?: string, storeId?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ProductVariantList200Response> {
-        return this.productVariantListWithHttpInfo(start, count, productId, categoryId, storeId, createdFrom, createdTo, modifiedFrom, modifiedTo, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ProductVariantList200Response>) => apiResponse.data));
     }
 
     /**

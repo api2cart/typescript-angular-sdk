@@ -16,18 +16,18 @@ export class ProductAttribute {
     'attributeId'?: string;
     'code'?: string;
     'name'?: string;
-    'langId'?: string;
-    'storeId'?: string;
-    'value'?: string;
-    'required'?: boolean;
-    'visible'?: boolean;
-    'type'?: string;
-    'position'?: number;
-    'attributeGroupId'?: string;
-    'productId'?: string;
-    'variantId'?: string;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'langId'?: string | null;
+    'storeId'?: string | null;
+    'value'?: string | null;
+    'required'?: boolean | null;
+    'visible'?: boolean | null;
+    'type'?: string | null;
+    'position'?: number | null;
+    'attributeGroupId'?: string | null;
+    'productId'?: string | null;
+    'variantId'?: string | null;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

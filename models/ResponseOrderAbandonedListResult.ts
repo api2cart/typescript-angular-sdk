@@ -15,8 +15,8 @@ import { HttpFile } from '../http/http';
 
 export class ResponseOrderAbandonedListResult {
     'order'?: Array<OrderAbandoned>;
-    'additionalFields'?: any;
-    'customFields'?: any;
+    'additionalFields'?: any | null;
+    'customFields'?: any | null;
 
     static readonly discriminator: string | undefined = undefined;
 

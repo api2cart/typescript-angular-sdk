@@ -159,6 +159,22 @@ export class AccountCartAdd {
     */
     'bigcartelPassword': string;
     /**
+    * Bricklink Consumer Key
+    */
+    'bricklinkConsumerKey': string;
+    /**
+    * Bricklink Consumer Secret
+    */
+    'bricklinkConsumerSecret': string;
+    /**
+    * Bricklink Access Token
+    */
+    'bricklinkToken': string;
+    /**
+    * Bricklink Access Token Secret
+    */
+    'bricklinkTokenSecret': string;
+    /**
     * Demandware client id
     */
     'demandwareClientId'?: string;
@@ -877,6 +893,30 @@ export class AccountCartAdd {
         {
             "name": "bigcartelPassword",
             "baseName": "bigcartel_password",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bricklinkConsumerKey",
+            "baseName": "bricklink_consumer_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bricklinkConsumerSecret",
+            "baseName": "bricklink_consumer_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bricklinkToken",
+            "baseName": "bricklink_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bricklinkTokenSecret",
+            "baseName": "bricklink_token_secret",
             "type": "string",
             "format": ""
         },
