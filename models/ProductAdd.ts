@@ -176,6 +176,10 @@ export class ProductAdd {
     */
     'maxOrderQuantity'?: number;
     /**
+    * Specify the quantity threshold below which the product is considered low in stock
+    */
+    'lowStockThreshold'?: number;
+    /**
     * Weight
     */
     'weight'?: number;
@@ -695,6 +699,12 @@ export class ProductAdd {
         {
             "name": "maxOrderQuantity",
             "baseName": "max_order_quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "lowStockThreshold",
+            "baseName": "low_stock_threshold",
             "type": "number",
             "format": ""
         },

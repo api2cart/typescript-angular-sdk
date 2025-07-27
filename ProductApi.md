@@ -119,6 +119,7 @@ const request: ProductApiProductAddRequest = {
     backorderStatus: "true",
     minOrderQuantity: 1,
     maxOrderQuantity: 1,
+    lowStockThreshold: 1,
     weight: 23.69,
     weightUnit: "lb",
     width: 56.12,
@@ -1932,6 +1933,8 @@ const request: ProductApiProductListRequest = {
   disableReportCache: false,
     // Use the latest platform API version (optional)
   useLatestApiVersion: true,
+    // A categorization for the product (optional)
+  productType: "BICYCLE",
 };
 
 const data = await apiInstance.productList(request);
@@ -1977,6 +1980,7 @@ Name | Type | Description  | Notes
  **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
+ **productType** | [**string**] | A categorization for the product | (optional) defaults to undefined
 
 
 ### Return type
@@ -3039,6 +3043,7 @@ const request: ProductApiProductUpdateRequest = {
     backorderStatus: "true",
     increaseQuantity: 4,
     reduceQuantity: 4,
+    lowStockThreshold: 1,
     warehouseId: "1",
     weight: 23.69,
     weightUnit: "lb",
@@ -3399,6 +3404,7 @@ const request: ProductApiProductVariantAddRequest = {
     inStock: true,
     backorderStatus: "true",
     manageStock: false,
+    lowStockThreshold: 1,
     weight: 23.69,
     width: 56.12,
     height: 56.12,
@@ -4081,6 +4087,7 @@ const request: ProductApiProductVariantUpdateRequest = {
     visible: "catalog",
     status: "disabled",
     backorderStatus: "true",
+    lowStockThreshold: 1,
     availableForSale: false,
     avail: false,
     isDefault: true,

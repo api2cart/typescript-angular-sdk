@@ -120,6 +120,10 @@ export class ProductVariantAdd {
     */
     'manageStock'?: boolean;
     /**
+    * Specify the quantity threshold below which the product is considered low in stock
+    */
+    'lowStockThreshold'?: number;
+    /**
     * Weight
     */
     'weight'?: number;
@@ -383,6 +387,12 @@ export class ProductVariantAdd {
             "name": "manageStock",
             "baseName": "manage_stock",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "lowStockThreshold",
+            "baseName": "low_stock_threshold",
+            "type": "number",
             "format": ""
         },
         {

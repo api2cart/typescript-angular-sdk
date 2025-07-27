@@ -51,6 +51,7 @@ export class Child {
     'inventoryLevel'?: number | null;
     'inventory'?: Array<ProductInventory>;
     'minQuantity'?: number | null;
+    'lowStockThreshold'?: number | null;
     'defaultQtyInPack'?: number | null;
     'isQtyInPackFixed'?: boolean | null;
     'weightUnit'?: string | null;
@@ -261,6 +262,12 @@ export class Child {
         {
             "name": "minQuantity",
             "baseName": "min_quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "lowStockThreshold",
+            "baseName": "low_stock_threshold",
             "type": "number",
             "format": ""
         },

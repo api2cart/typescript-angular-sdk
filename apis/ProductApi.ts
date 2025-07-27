@@ -1973,9 +1973,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param disableCache Disable cache for current request
      * @param disableReportCache Disable report cache for current request
      * @param useLatestApiVersion Use the latest platform API version
+     * @param productType A categorization for the product
      */
-    public async productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, productType?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -2189,6 +2191,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (useLatestApiVersion !== undefined) {
             requestContext.setQueryParam("use_latest_api_version", ObjectSerializer.serialize(useLatestApiVersion, "boolean", ""));
+        }
+
+        // Query Params
+        if (productType !== undefined) {
+            requestContext.setQueryParam("product_type", ObjectSerializer.serialize(productType, "string", ""));
         }
 
 

@@ -167,6 +167,10 @@ export class ProductUpdate {
     */
     'reduceQuantity'?: number;
     /**
+    * Specify the quantity threshold below which the product is considered low in stock
+    */
+    'lowStockThreshold'?: number;
+    /**
     * This parameter is used for selecting a warehouse where you need to set/modify a product quantity.
     */
     'warehouseId'?: string;
@@ -574,6 +578,12 @@ export class ProductUpdate {
         {
             "name": "reduceQuantity",
             "baseName": "reduce_quantity",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "lowStockThreshold",
+            "baseName": "low_stock_threshold",
             "type": "number",
             "format": ""
         },

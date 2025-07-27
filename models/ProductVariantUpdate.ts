@@ -67,6 +67,10 @@ export class ProductVariantUpdate {
     */
     'backorderStatus'?: string;
     /**
+    * Specify the quantity threshold below which the product is considered low in stock
+    */
+    'lowStockThreshold'?: number;
+    /**
     * Specifies the set of visible/invisible product\'s variants for sale
     */
     'availableForSale'?: boolean;
@@ -308,6 +312,12 @@ export class ProductVariantUpdate {
             "name": "backorderStatus",
             "baseName": "backorder_status",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "lowStockThreshold",
+            "baseName": "low_stock_threshold",
+            "type": "number",
             "format": ""
         },
         {
