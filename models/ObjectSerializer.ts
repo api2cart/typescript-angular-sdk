@@ -419,7 +419,7 @@ export * from '../models/WebhookList200Response';
 export * from '../models/WebhookList200ResponseResult';
 
 import { A2CDateTime } from '../models/A2CDateTime';
-import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                                     , AccountCartAddTemuRegionEnum   } from '../models/AccountCartAdd';
+import { AccountCartAdd, AccountCartAddCartIdEnum                                                                                                                                                                       } from '../models/AccountCartAdd';
 import { AccountCartAdd200Response } from '../models/AccountCartAdd200Response';
 import { AccountCartAdd200ResponseResult } from '../models/AccountCartAdd200ResponseResult';
 import { AccountCartAddHybrisWebsitesInner } from '../models/AccountCartAddHybrisWebsitesInner';
@@ -852,7 +852,6 @@ let primitives = [
 
 let enumsMap: Set<string> = new Set<string>([
     "AccountCartAddCartIdEnum",
-    "AccountCartAddTemuRegionEnum",
     "CartCouponAddActionTypeEnum",
     "CartCouponAddActionApplyToEnum",
     "CartCouponAddActionScopeEnum",

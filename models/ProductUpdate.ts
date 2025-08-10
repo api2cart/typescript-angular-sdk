@@ -353,6 +353,14 @@ export class ProductUpdate {
     */
     'shopSectionId'?: number;
     'personalizationDetails'?: ProductAddPersonalizationDetails;
+    /**
+    * String containing the JSON representation of the supplied data
+    */
+    'marketplaceItemProperties'?: string;
+    /**
+    * The minimum quantity an order must contain, to be eligible to purchase this product.
+    */
+    'minOrderQuantity'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -873,6 +881,18 @@ export class ProductUpdate {
             "name": "personalizationDetails",
             "baseName": "personalization_details",
             "type": "ProductAddPersonalizationDetails",
+            "format": ""
+        },
+        {
+            "name": "marketplaceItemProperties",
+            "baseName": "marketplace_item_properties",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "minOrderQuantity",
+            "baseName": "min_order_quantity",
+            "type": "number",
             "format": ""
         }    ];
 

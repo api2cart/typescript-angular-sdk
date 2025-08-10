@@ -48,6 +48,10 @@ export class ProductVariantAdd {
     */
     'availableForSale'?: boolean;
     /**
+    * Defines status
+    */
+    'status'?: string;
+    /**
     * Defines whether the product is virtual
     */
     'isVirtual'?: boolean;
@@ -172,6 +176,10 @@ export class ProductVariantAdd {
     */
     'isbn'?: string;
     /**
+    * Defines unique URL for SEO
+    */
+    'seoUrl'?: string;
+    /**
     * Specifies the product variant\'s manufacturer
     */
     'manufacturer'?: string;
@@ -279,6 +287,12 @@ export class ProductVariantAdd {
             "name": "availableForSale",
             "baseName": "available_for_sale",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {
@@ -464,6 +478,12 @@ export class ProductVariantAdd {
         {
             "name": "isbn",
             "baseName": "isbn",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "seoUrl",
+            "baseName": "seo_url",
             "type": "string",
             "format": ""
         },

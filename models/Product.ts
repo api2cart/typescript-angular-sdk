@@ -53,10 +53,10 @@ export class Product {
     'weightUnit'?: string | null;
     'sortOrder'?: number | null;
     'inStock'?: boolean | null;
-    'onSale'?: boolean | null;
     'backorders'?: string | null;
     'manageStock'?: string | null;
     'isStockManaged'?: boolean | null;
+    'onSale'?: boolean | null;
     'createAt'?: A2CDateTime | null;
     'modifiedAt'?: A2CDateTime | null;
     'taxClassId'?: string | null;
@@ -267,12 +267,6 @@ export class Product {
             "format": ""
         },
         {
-            "name": "onSale",
-            "baseName": "on_sale",
-            "type": "boolean",
-            "format": ""
-        },
-        {
             "name": "backorders",
             "baseName": "backorders",
             "type": "string",
@@ -287,6 +281,12 @@ export class Product {
         {
             "name": "isStockManaged",
             "baseName": "is_stock_managed",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "onSale",
+            "baseName": "on_sale",
             "type": "boolean",
             "format": ""
         },

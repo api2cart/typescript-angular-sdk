@@ -3160,6 +3160,8 @@ const request: ProductApiProductUpdateRequest = {
       personalizationCharCountMax: 1,
       personalizationInstructions: "personalizationInstructions_example",
     },
+    marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
+    minOrderQuantity: 1,
   },
 };
 
@@ -3381,6 +3383,7 @@ const request: ProductApiProductVariantAddRequest = {
     shortDescription: "Short description. This is very short description",
     availableForView: false,
     availableForSale: false,
+    status: "disabled",
     isVirtual: false,
     isDefault: true,
     storeId: "1",
@@ -3417,6 +3420,7 @@ const request: ProductApiProductVariantAddRequest = {
     ean: "5901234123457",
     mpn: "9770317847001",
     isbn: "9783161484100",
+    seoUrl: "some seo url",
     manufacturer: "Samsung",
     createdAt: "2014-08-09 13:13:13",
     metaTitle: "category,test",

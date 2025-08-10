@@ -153,27 +153,27 @@ export class AccountCartAdd {
     /**
     * Subdomain of store
     */
-    'bigcartelUserName': string;
+    'bigcartelUserName'?: string;
     /**
     * BigCartel account password
     */
-    'bigcartelPassword': string;
+    'bigcartelPassword'?: string;
     /**
     * Bricklink Consumer Key
     */
-    'bricklinkConsumerKey': string;
+    'bricklinkConsumerKey'?: string;
     /**
     * Bricklink Consumer Secret
     */
-    'bricklinkConsumerSecret': string;
+    'bricklinkConsumerSecret'?: string;
     /**
     * Bricklink Access Token
     */
-    'bricklinkToken': string;
+    'bricklinkToken'?: string;
     /**
     * Bricklink Access Token Secret
     */
-    'bricklinkTokenSecret': string;
+    'bricklinkTokenSecret'?: string;
     /**
     * Demandware client id
     */
@@ -513,11 +513,11 @@ export class AccountCartAdd {
     /**
     * Wix App ID
     */
-    'wixAppId': string;
+    'wixAppId'?: string;
     /**
     * Wix App Secret Key
     */
-    'wixAppSecretKey': string;
+    'wixAppSecretKey'?: string;
     /**
     * Wix Instance ID
     */
@@ -669,11 +669,11 @@ export class AccountCartAdd {
     /**
     * Temu Access Token
     */
-    'temuAccessToken': string;
+    'temuAccessToken'?: string;
     /**
     * Temu API endpoint Region.
     */
-    'temuRegion': AccountCartAddTemuRegionEnum;
+    'temuRegion'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -1667,7 +1667,7 @@ export class AccountCartAdd {
         {
             "name": "temuRegion",
             "baseName": "temu_region",
-            "type": "AccountCartAddTemuRegionEnum",
+            "type": "string",
             "format": ""
         }    ];
 
@@ -1746,10 +1746,5 @@ export enum AccountCartAddCartIdEnum {
     Zid = 'Zid',
     Zoey = 'Zoey',
     Zoho = 'Zoho'
-}
-export enum AccountCartAddTemuRegionEnum {
-    Us = 'US',
-    Eu = 'EU',
-    Global = 'GLOBAL'
 }
 

@@ -19,6 +19,7 @@ export class Cart {
     'name'?: string | null;
     'url'?: string | null;
     'version'?: string | null;
+    'bridgeVersion'?: string | null;
     'dbPrefix'?: string | null;
     'storesInfo'?: Array<CartStoreInfo>;
     'warehouses'?: Array<CartWarehouse>;
@@ -46,6 +47,12 @@ export class Cart {
         {
             "name": "version",
             "baseName": "version",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bridgeVersion",
+            "baseName": "bridge_version",
             "type": "string",
             "format": ""
         },
