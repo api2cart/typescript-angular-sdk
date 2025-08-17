@@ -85,6 +85,10 @@ export class CartCouponAdd {
     * Defines whether the coupon provides free cash on delivery
     */
     'freeCashOnDelivery'?: boolean;
+    /**
+    * Retrieves orders specified by customer id
+    */
+    'customerId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -197,6 +201,12 @@ export class CartCouponAdd {
             "name": "freeCashOnDelivery",
             "baseName": "free_cash_on_delivery",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "customerId",
+            "baseName": "customer_id",
+            "type": "string",
             "format": ""
         }    ];
 

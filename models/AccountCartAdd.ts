@@ -1686,6 +1686,7 @@ export enum AccountCartAddCartIdEnum {
     AmazonSp = 'AmazonSP',
     AspDotNetStorefront = 'AspDotNetStorefront',
     BigCartel = 'BigCartel',
+    Bricklink = 'Bricklink',
     BigcommerceApi = 'BigcommerceApi',
     Bol = 'Bol',
     CommerceHq = 'CommerceHQ',

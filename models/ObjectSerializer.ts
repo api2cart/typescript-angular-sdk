@@ -476,7 +476,7 @@ import { Cart } from '../models/Cart';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
 import { CartCatalogPriceRulesCount200ResponseResult } from '../models/CartCatalogPriceRulesCount200ResponseResult';
 import { CartChannel } from '../models/CartChannel';
-import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                 } from '../models/CartCouponAdd';
+import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                  } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';

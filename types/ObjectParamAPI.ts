@@ -3386,6 +3386,13 @@ export interface CartApiCartCouponListRequest {
      */
     avail?: boolean
     /**
+     * Defines coupon\&#39;s status
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCouponList
+     */
+    status?: string
+    /**
      * Filter entity by date_start (greater or equal)
      * Defaults to: undefined
      * @type string
@@ -4123,7 +4130,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponListWithHttpInfo(param: CartApiCartCouponListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCartCouponList>> {
-        return this.api.cartCouponListWithHttpInfo(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.cartCouponListWithHttpInfo(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.status, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -4132,7 +4139,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponList(param: CartApiCartCouponListRequest = {}, options?: Configuration): Promise<ModelResponseCartCouponList> {
-        return this.api.cartCouponList(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.cartCouponList(param.start, param.count, param.pageCursor, param.couponsIds, param.storeId, param.langId, param.avail, param.status, param.dateStartFrom, param.dateStartTo, param.dateEndFrom, param.dateEndTo, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**

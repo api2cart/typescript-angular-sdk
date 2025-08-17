@@ -184,6 +184,7 @@ const request: CartApiCartCouponAddRequest = {
     includeTax: true,
     storeId: "1",
     freeCashOnDelivery: true,
+    customerId: "5",
   },
 };
 
@@ -451,6 +452,8 @@ const request: CartApiCartCouponListRequest = {
   langId: "3",
     // Filter coupons by avail status (optional)
   avail: false,
+    // Defines coupon\'s status (optional)
+  status: "disabled",
     // Filter entity by date_start (greater or equal) (optional)
   dateStartFrom: "2016-12-29 16:44:30",
     // Filter entity by date_start (less or equal) (optional)
@@ -483,6 +486,7 @@ Name | Type | Description  | Notes
  **storeId** | [**string**] | Filter coupons by store id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **avail** | [**boolean**] | Filter coupons by avail status | (optional) defaults to undefined
+ **status** | [**string**] | Defines coupon\&#39;s status | (optional) defaults to undefined
  **dateStartFrom** | [**string**] | Filter entity by date_start (greater or equal) | (optional) defaults to undefined
  **dateStartTo** | [**string**] | Filter entity by date_start (less or equal) | (optional) defaults to undefined
  **dateEndFrom** | [**string**] | Filter entity by date_end (greater or equal) | (optional) defaults to undefined

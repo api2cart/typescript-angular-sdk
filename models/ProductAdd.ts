@@ -236,6 +236,10 @@ export class ProductAdd {
     */
     'productReference'?: string;
     /**
+    * External product link
+    */
+    'externalProductLink'?: string;
+    /**
     * Harmonized System Code. An HSC is a 6-digit identifier that allows participating countries to classify traded goods on a common basis for customs purposes
     */
     'harmonizedSystemCode'?: string;
@@ -789,6 +793,12 @@ export class ProductAdd {
         {
             "name": "productReference",
             "baseName": "product_reference",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "externalProductLink",
+            "baseName": "external_product_link",
             "type": "string",
             "format": ""
         },

@@ -134,6 +134,7 @@ const request: ProductApiProductAddRequest = {
     mpn: "9770317847001",
     asin: "97703178470",
     productReference: "5901234123457",
+    externalProductLink: "http://example.com/t-shirt",
     harmonizedSystemCode: "123456",
     countryOfOrigin: "123456",
     manufacturer: "Samsung",

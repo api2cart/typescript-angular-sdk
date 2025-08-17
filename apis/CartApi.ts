@@ -471,6 +471,7 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param storeId Filter coupons by store id
      * @param langId Language id
      * @param avail Filter coupons by avail status
+     * @param status Defines coupon\&#39;s status
      * @param dateStartFrom Filter entity by date_start (greater or equal)
      * @param dateStartTo Filter entity by date_start (less or equal)
      * @param dateEndFrom Filter entity by date_end (greater or equal)
@@ -479,8 +480,9 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async cartCouponList(start?: number, count?: number, pageCursor?: string, couponsIds?: string, storeId?: string, langId?: string, avail?: boolean, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cartCouponList(start?: number, count?: number, pageCursor?: string, couponsIds?: string, storeId?: string, langId?: string, avail?: boolean, status?: string, dateStartFrom?: string, dateStartTo?: string, dateEndFrom?: string, dateEndTo?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -536,6 +538,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (avail !== undefined) {
             requestContext.setQueryParam("avail", ObjectSerializer.serialize(avail, "boolean", ""));
+        }
+
+        // Query Params
+        if (status !== undefined) {
+            requestContext.setQueryParam("status", ObjectSerializer.serialize(status, "string", ""));
         }
 
         // Query Params
