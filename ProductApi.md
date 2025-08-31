@@ -3161,6 +3161,7 @@ const request: ProductApiProductUpdateRequest = {
       personalizationCharCountMax: 1,
       personalizationInstructions: "personalizationInstructions_example",
     },
+    externalProductLink: "http://example.com/t-shirt",
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
     minOrderQuantity: 1,
   },

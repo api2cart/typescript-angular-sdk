@@ -354,6 +354,10 @@ export class ProductUpdate {
     'shopSectionId'?: number;
     'personalizationDetails'?: ProductAddPersonalizationDetails;
     /**
+    * External product link
+    */
+    'externalProductLink'?: string;
+    /**
     * String containing the JSON representation of the supplied data
     */
     'marketplaceItemProperties'?: string;
@@ -881,6 +885,12 @@ export class ProductUpdate {
             "name": "personalizationDetails",
             "baseName": "personalization_details",
             "type": "ProductAddPersonalizationDetails",
+            "format": ""
+        },
+        {
+            "name": "externalProductLink",
+            "baseName": "external_product_link",
+            "type": "string",
             "format": ""
         },
         {
