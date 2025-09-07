@@ -186,6 +186,15 @@ export * from '../models/OrderAddNoteAttributesInner';
 export * from '../models/OrderAddOrderItemInner';
 export * from '../models/OrderAddOrderItemInnerOrderItemOptionInner';
 export * from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
+export * from '../models/OrderCalculate';
+export * from '../models/OrderCalculate200Response';
+export * from '../models/OrderCalculateDiscount';
+export * from '../models/OrderCalculateItem';
+export * from '../models/OrderCalculateOrderItemInner';
+export * from '../models/OrderCalculateOrderItemInnerOrderItemOptionInner';
+export * from '../models/OrderCalculateShippingRate';
+export * from '../models/OrderCalculateSubtotal';
+export * from '../models/OrderCalculateTax';
 export * from '../models/OrderCount200Response';
 export * from '../models/OrderCount200ResponseResult';
 export * from '../models/OrderFinancialStatusList200Response';
@@ -606,6 +615,15 @@ import { OrderAddNoteAttributesInner } from '../models/OrderAddNoteAttributesInn
 import { OrderAddOrderItemInner } from '../models/OrderAddOrderItemInner';
 import { OrderAddOrderItemInnerOrderItemOptionInner } from '../models/OrderAddOrderItemInnerOrderItemOptionInner';
 import { OrderAddOrderItemInnerOrderItemPropertyInner } from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
+import { OrderCalculate } from '../models/OrderCalculate';
+import { OrderCalculate200Response } from '../models/OrderCalculate200Response';
+import { OrderCalculateDiscount } from '../models/OrderCalculateDiscount';
+import { OrderCalculateItem } from '../models/OrderCalculateItem';
+import { OrderCalculateOrderItemInner } from '../models/OrderCalculateOrderItemInner';
+import { OrderCalculateOrderItemInnerOrderItemOptionInner } from '../models/OrderCalculateOrderItemInnerOrderItemOptionInner';
+import { OrderCalculateShippingRate } from '../models/OrderCalculateShippingRate';
+import { OrderCalculateSubtotal } from '../models/OrderCalculateSubtotal';
+import { OrderCalculateTax } from '../models/OrderCalculateTax';
 import { OrderCount200Response } from '../models/OrderCount200Response';
 import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResult';
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
@@ -1057,6 +1075,15 @@ let typeMap: {[index: string]: any} = {
     "OrderAddOrderItemInner": OrderAddOrderItemInner,
     "OrderAddOrderItemInnerOrderItemOptionInner": OrderAddOrderItemInnerOrderItemOptionInner,
     "OrderAddOrderItemInnerOrderItemPropertyInner": OrderAddOrderItemInnerOrderItemPropertyInner,
+    "OrderCalculate": OrderCalculate,
+    "OrderCalculate200Response": OrderCalculate200Response,
+    "OrderCalculateDiscount": OrderCalculateDiscount,
+    "OrderCalculateItem": OrderCalculateItem,
+    "OrderCalculateOrderItemInner": OrderCalculateOrderItemInner,
+    "OrderCalculateOrderItemInnerOrderItemOptionInner": OrderCalculateOrderItemInnerOrderItemOptionInner,
+    "OrderCalculateShippingRate": OrderCalculateShippingRate,
+    "OrderCalculateSubtotal": OrderCalculateSubtotal,
+    "OrderCalculateTax": OrderCalculateTax,
     "OrderCount200Response": OrderCount200Response,
     "OrderCount200ResponseResult": OrderCount200ResponseResult,
     "OrderFinancialStatusList200Response": OrderFinancialStatusList200Response,

@@ -1697,6 +1697,7 @@ export enum AccountCartAddCartIdEnum {
     EBay = 'EBay',
     Ecwid = 'Ecwid',
     EtsyApiv3 = 'EtsyAPIv3',
+    Facebook = 'Facebook',
     Flipkart = 'Flipkart',
     Gambio = 'Gambio',
     Hybris = 'Hybris',

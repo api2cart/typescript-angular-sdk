@@ -27,6 +27,7 @@ export class ProductReview {
     'ratings'?: Array<ProductReviewRating>;
     'status'?: string | null;
     'createdTime'?: A2CDateTime | null;
+    'modifiedTime'?: A2CDateTime | null;
     'medias'?: Array<Media>;
     'additionalFields'?: any | null;
     'customFields'?: any | null;
@@ -99,6 +100,12 @@ export class ProductReview {
         {
             "name": "createdTime",
             "baseName": "created_time",
+            "type": "A2CDateTime",
+            "format": ""
+        },
+        {
+            "name": "modifiedTime",
+            "baseName": "modified_time",
             "type": "A2CDateTime",
             "format": ""
         },

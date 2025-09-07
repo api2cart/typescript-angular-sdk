@@ -2225,8 +2225,14 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param productId Defines products specified by product id
      * @param manufacturer Defines product’s manufacturer\&#39;s name
      * @param storeId Store Id
+     * @param metaTitle Defines unique meta title for each entity
+     * @param metaKeywords Defines unique meta keywords for each entity
+     * @param metaDescription Defines unique meta description of a entity
+     * @param searchKeywords Defines unique search keywords
+     * @param imageUrl Image Url
+     * @param seoUrl Defines unique URL for SEO
      */
-    public async productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -2239,6 +2245,12 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (manufacturer === null || manufacturer === undefined) {
             throw new RequiredError("ProductApi", "productManufacturerAdd", "manufacturer");
         }
+
+
+
+
+
+
 
 
 
@@ -2262,6 +2274,36 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (metaTitle !== undefined) {
+            requestContext.setQueryParam("meta_title", ObjectSerializer.serialize(metaTitle, "string", ""));
+        }
+
+        // Query Params
+        if (metaKeywords !== undefined) {
+            requestContext.setQueryParam("meta_keywords", ObjectSerializer.serialize(metaKeywords, "string", ""));
+        }
+
+        // Query Params
+        if (metaDescription !== undefined) {
+            requestContext.setQueryParam("meta_description", ObjectSerializer.serialize(metaDescription, "string", ""));
+        }
+
+        // Query Params
+        if (searchKeywords !== undefined) {
+            requestContext.setQueryParam("search_keywords", ObjectSerializer.serialize(searchKeywords, "string", ""));
+        }
+
+        // Query Params
+        if (imageUrl !== undefined) {
+            requestContext.setQueryParam("image_url", ObjectSerializer.serialize(imageUrl, "string", ""));
+        }
+
+        // Query Params
+        if (seoUrl !== undefined) {
+            requestContext.setQueryParam("seo_url", ObjectSerializer.serialize(seoUrl, "string", ""));
         }
 
 
@@ -3102,18 +3144,30 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param ids Retrieves reviews specified by ids
      * @param storeId Store Id
+     * @param langId Language id
      * @param status Defines status
+     * @param createdFrom Retrieve entities from their creation date
+     * @param createdTo Retrieve entities to their creation date
+     * @param customerId Retrieves orders specified by customer id
+     * @param sortBy Set field to sort by
+     * @param sortDirection Set sorting direction
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      * @param params Set this parameter in order to choose which entity fields you want to retrieve
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public async productReviewList(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, status?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productReviewList(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, langId?: string, status?: string, createdFrom?: string, createdTo?: string, customerId?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
         if (productId === null || productId === undefined) {
             throw new RequiredError("ProductApi", "productReviewList", "productId");
         }
+
+
+
+
+
+
 
 
 
@@ -3163,8 +3217,38 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (langId !== undefined) {
+            requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
         if (status !== undefined) {
             requestContext.setQueryParam("status", ObjectSerializer.serialize(status, "string", ""));
+        }
+
+        // Query Params
+        if (createdFrom !== undefined) {
+            requestContext.setQueryParam("created_from", ObjectSerializer.serialize(createdFrom, "string", ""));
+        }
+
+        // Query Params
+        if (createdTo !== undefined) {
+            requestContext.setQueryParam("created_to", ObjectSerializer.serialize(createdTo, "string", ""));
+        }
+
+        // Query Params
+        if (customerId !== undefined) {
+            requestContext.setQueryParam("customer_id", ObjectSerializer.serialize(customerId, "string", ""));
+        }
+
+        // Query Params
+        if (sortBy !== undefined) {
+            requestContext.setQueryParam("sort_by", ObjectSerializer.serialize(sortBy, "string", ""));
+        }
+
+        // Query Params
+        if (sortDirection !== undefined) {
+            requestContext.setQueryParam("sort_direction", ObjectSerializer.serialize(sortDirection, "string", ""));
         }
 
         // Query Params

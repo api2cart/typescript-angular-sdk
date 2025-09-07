@@ -190,6 +190,15 @@ import { OrderAddNoteAttributesInner } from '../models/OrderAddNoteAttributesInn
 import { OrderAddOrderItemInner } from '../models/OrderAddOrderItemInner';
 import { OrderAddOrderItemInnerOrderItemOptionInner } from '../models/OrderAddOrderItemInnerOrderItemOptionInner';
 import { OrderAddOrderItemInnerOrderItemPropertyInner } from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
+import { OrderCalculate } from '../models/OrderCalculate';
+import { OrderCalculate200Response } from '../models/OrderCalculate200Response';
+import { OrderCalculateDiscount } from '../models/OrderCalculateDiscount';
+import { OrderCalculateItem } from '../models/OrderCalculateItem';
+import { OrderCalculateOrderItemInner } from '../models/OrderCalculateOrderItemInner';
+import { OrderCalculateOrderItemInnerOrderItemOptionInner } from '../models/OrderCalculateOrderItemInnerOrderItemOptionInner';
+import { OrderCalculateShippingRate } from '../models/OrderCalculateShippingRate';
+import { OrderCalculateSubtotal } from '../models/OrderCalculateSubtotal';
+import { OrderCalculateTax } from '../models/OrderCalculateTax';
 import { OrderCount200Response } from '../models/OrderCount200Response';
 import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResult';
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
@@ -4318,6 +4327,39 @@ export class ObservableOrderApi {
     }
 
     /**
+     * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     * order.calculate
+     * @param orderCalculate
+     */
+    public orderCalculateWithHttpInfo(orderCalculate: OrderCalculate, _options?: Configuration): Observable<HttpInfo<OrderCalculate200Response>> {
+        const requestContextPromise = this.requestFactory.orderCalculate(orderCalculate, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.orderCalculateWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     * order.calculate
+     * @param orderCalculate
+     */
+    public orderCalculate(orderCalculate: OrderCalculate, _options?: Configuration): Observable<OrderCalculate200Response> {
+        return this.orderCalculateWithHttpInfo(orderCalculate, _options).pipe(map((apiResponse: HttpInfo<OrderCalculate200Response>) => apiResponse.data));
+    }
+
+    /**
      * Count orders in store
      * order.count
      * @param [orderIds] Counts orders specified by order ids
@@ -6215,9 +6257,15 @@ export class ObservableProductApi {
      * @param productId Defines products specified by product id
      * @param manufacturer Defines product’s manufacturer\&#39;s name
      * @param [storeId] Store Id
+     * @param [metaTitle] Defines unique meta title for each entity
+     * @param [metaKeywords] Defines unique meta keywords for each entity
+     * @param [metaDescription] Defines unique meta description of a entity
+     * @param [searchKeywords] Defines unique search keywords
+     * @param [imageUrl] Image Url
+     * @param [seoUrl] Defines unique URL for SEO
      */
-    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ProductManufacturerAdd200Response>> {
-        const requestContextPromise = this.requestFactory.productManufacturerAdd(productId, manufacturer, storeId, _options);
+    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Observable<HttpInfo<ProductManufacturerAdd200Response>> {
+        const requestContextPromise = this.requestFactory.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6241,9 +6289,15 @@ export class ObservableProductApi {
      * @param productId Defines products specified by product id
      * @param manufacturer Defines product’s manufacturer\&#39;s name
      * @param [storeId] Store Id
+     * @param [metaTitle] Defines unique meta title for each entity
+     * @param [metaKeywords] Defines unique meta keywords for each entity
+     * @param [metaDescription] Defines unique meta description of a entity
+     * @param [searchKeywords] Defines unique search keywords
+     * @param [imageUrl] Image Url
+     * @param [seoUrl] Defines unique URL for SEO
      */
-    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, _options?: Configuration): Observable<ProductManufacturerAdd200Response> {
-        return this.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, _options).pipe(map((apiResponse: HttpInfo<ProductManufacturerAdd200Response>) => apiResponse.data));
+    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Observable<ProductManufacturerAdd200Response> {
+        return this.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options).pipe(map((apiResponse: HttpInfo<ProductManufacturerAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -6686,13 +6740,19 @@ export class ObservableProductApi {
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves reviews specified by ids
      * @param [storeId] Store Id
+     * @param [langId] Language id
      * @param [status] Defines status
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [customerId] Retrieves orders specified by customer id
+     * @param [sortBy] Set field to sort by
+     * @param [sortDirection] Set sorting direction
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productReviewListWithHttpInfo(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, status?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductReviewList>> {
-        const requestContextPromise = this.requestFactory.productReviewList(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude, _options);
+    public productReviewListWithHttpInfo(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, langId?: string, status?: string, createdFrom?: string, createdTo?: string, customerId?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseProductReviewList>> {
+        const requestContextPromise = this.requestFactory.productReviewList(productId, start, count, pageCursor, ids, storeId, langId, status, createdFrom, createdTo, customerId, sortBy, sortDirection, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6719,13 +6779,19 @@ export class ObservableProductApi {
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [ids] Retrieves reviews specified by ids
      * @param [storeId] Store Id
+     * @param [langId] Language id
      * @param [status] Defines status
+     * @param [createdFrom] Retrieve entities from their creation date
+     * @param [createdTo] Retrieve entities to their creation date
+     * @param [customerId] Retrieves orders specified by customer id
+     * @param [sortBy] Set field to sort by
+     * @param [sortDirection] Set sorting direction
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public productReviewList(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, status?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductReviewList> {
-        return this.productReviewListWithHttpInfo(productId, start, count, pageCursor, ids, storeId, status, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductReviewList>) => apiResponse.data));
+    public productReviewList(productId: string, start?: number, count?: number, pageCursor?: string, ids?: string, storeId?: string, langId?: string, status?: string, createdFrom?: string, createdTo?: string, customerId?: string, sortBy?: string, sortDirection?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseProductReviewList> {
+        return this.productReviewListWithHttpInfo(productId, start, count, pageCursor, ids, storeId, langId, status, createdFrom, createdTo, customerId, sortBy, sortDirection, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseProductReviewList>) => apiResponse.data));
     }
 
     /**

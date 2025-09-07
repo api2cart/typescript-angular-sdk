@@ -230,6 +230,15 @@ models/OrderAddNoteAttributesInner.ts
 models/OrderAddOrderItemInner.ts
 models/OrderAddOrderItemInnerOrderItemOptionInner.ts
 models/OrderAddOrderItemInnerOrderItemPropertyInner.ts
+models/OrderCalculate.ts
+models/OrderCalculate200Response.ts
+models/OrderCalculateDiscount.ts
+models/OrderCalculateItem.ts
+models/OrderCalculateOrderItemInner.ts
+models/OrderCalculateOrderItemInnerOrderItemOptionInner.ts
+models/OrderCalculateShippingRate.ts
+models/OrderCalculateSubtotal.ts
+models/OrderCalculateTax.ts
 models/OrderCount200Response.ts
 models/OrderCount200ResponseResult.ts
 models/OrderFinancialStatusList200Response.ts

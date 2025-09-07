@@ -19,6 +19,8 @@ import { ModelResponseOrderStatusList } from '../models/ModelResponseOrderStatus
 import { ModelResponseOrderTransactionList } from '../models/ModelResponseOrderTransactionList';
 import { OrderAdd } from '../models/OrderAdd';
 import { OrderAdd200Response } from '../models/OrderAdd200Response';
+import { OrderCalculate } from '../models/OrderCalculate';
+import { OrderCalculate200Response } from '../models/OrderCalculate200Response';
 import { OrderCount200Response } from '../models/OrderCount200Response';
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
 import { OrderFulfillmentStatusList200Response } from '../models/OrderFulfillmentStatusList200Response';
@@ -205,6 +207,59 @@ export class OrderApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(orderAdd, "OrderAdd", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["StoreKeyAuth"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKeyAuth"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     * order.calculate
+     * @param orderCalculate 
+     */
+    public async orderCalculate(orderCalculate: OrderCalculate, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'orderCalculate' is not null or undefined
+        if (orderCalculate === null || orderCalculate === undefined) {
+            throw new RequiredError("OrderApi", "orderCalculate", "orderCalculate");
+        }
+
+
+        // Path Params
+        const localVarPath = '/order.calculate.json';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(orderCalculate, "OrderCalculate", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -2019,6 +2074,35 @@ export class OrderApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "OrderAdd200Response", ""
             ) as OrderAdd200Response;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to orderCalculate
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async orderCalculateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<OrderCalculate200Response >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: OrderCalculate200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OrderCalculate200Response", ""
+            ) as OrderCalculate200Response;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: OrderCalculate200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "OrderCalculate200Response", ""
+            ) as OrderCalculate200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

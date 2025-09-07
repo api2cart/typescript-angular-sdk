@@ -39,6 +39,7 @@ export class ProductAddBatchPayloadInner {
     'manageStock'?: boolean;
     'productType'?: string;
     'marketplaceItemProperties'?: any;
+    'specifics'?: any;
     'isFreeShipping'?: boolean;
     'taxable'?: boolean;
     'status'?: string;
@@ -73,6 +74,7 @@ export class ProductAddBatchPayloadInner {
     'harmonizedSystemCode'?: string;
     'url'?: string;
     'seoUrl'?: string;
+    'externalProductLink'?: string;
     'manufacturer'?: string;
     'manufacturerId'?: string;
     'backorderStatus'?: string;
@@ -220,6 +222,12 @@ export class ProductAddBatchPayloadInner {
         {
             "name": "marketplaceItemProperties",
             "baseName": "marketplace_item_properties",
+            "type": "any",
+            "format": ""
+        },
+        {
+            "name": "specifics",
+            "baseName": "specifics",
             "type": "any",
             "format": ""
         },
@@ -424,6 +432,12 @@ export class ProductAddBatchPayloadInner {
         {
             "name": "seoUrl",
             "baseName": "seo_url",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "externalProductLink",
+            "baseName": "external_product_link",
             "type": "string",
             "format": ""
         },

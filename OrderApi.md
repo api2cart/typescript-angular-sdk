@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**orderAbandonedList**](OrderApi.md#orderAbandonedList) | **GET** /order.abandoned.list.json | order.abandoned.list
 [**orderAdd**](OrderApi.md#orderAdd) | **POST** /order.add.json | order.add
+[**orderCalculate**](OrderApi.md#orderCalculate) | **POST** /order.calculate.json | order.calculate
 [**orderCount**](OrderApi.md#orderCount) | **GET** /order.count.json | order.count
 [**orderFinancialStatusList**](OrderApi.md#orderFinancialStatusList) | **GET** /order.financial_status.list.json | order.financial_status.list
 [**orderFulfillmentStatusList**](OrderApi.md#orderFulfillmentStatusList) | **GET** /order.fulfillment_status.list.json | order.fulfillment_status.list
@@ -263,6 +264,100 @@ Name | Type | Description  | Notes
 ### Return type
 
 **OrderAdd200Response**
+
+### Authorization
+
+[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **orderCalculate**
+> OrderCalculate200Response orderCalculate(orderCalculate)
+
+<p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+
+### Example
+
+
+```typescript
+import { createConfiguration, OrderApi } from '';
+import type { OrderApiOrderCalculateRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new OrderApi(configuration);
+
+const request: OrderApiOrderCalculateRequest = {
+  
+  orderCalculate: {
+    customerEmail: "jubari@hannsgroup.com",
+    currencyId: "usd",
+    storeId: "1",
+    coupons: [
+      "coupons_example",
+    ],
+    shippFirstName: "John",
+    shippLastName: "Smith",
+    shippAddress1: "Green str. 35",
+    shippAddress2: "Green str. 35",
+    shippCity: "Chicago",
+    shippPostcode: "24545",
+    shippState: "IL",
+    shippCountry: "US",
+    shippCompany: "Apple",
+    shippPhone: "880086544564",
+    billFirstName: "Adam",
+    billLastName: "Smith",
+    billAddress1: "Green str. 35",
+    billAddress2: "Red str, 2",
+    billCity: "Chicago",
+    billPostcode: "12345",
+    billState: "IL",
+    billCountry: "US",
+    billCompany: "Apple",
+    billPhone: "8 800 5659 6896",
+    responseFields: "{result}",
+    orderItem: [
+      {
+        orderItemId: "125, where {x} - 1,2,3,... etc",
+        orderItemQuantity: 5, where {x} - 1,2,3,... etc,
+        orderItemVariantId: "52",
+        orderItemOption: [
+          {
+            orderItemOptionName: "Color",
+            orderItemOptionValue: "green",
+          },
+        ],
+      },
+    ],
+  },
+};
+
+const data = await apiInstance.orderCalculate(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderCalculate** | **OrderCalculate**|  |
+
+
+### Return type
+
+**OrderCalculate200Response**
 
 ### Authorization
 

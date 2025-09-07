@@ -36,6 +36,10 @@ export class CustomerAdd {
     */
     'group'?: string;
     /**
+    * Customer group_id
+    */
+    'groupId'?: string;
+    /**
     * Groups that will be assigned to a customer
     */
     'groupIds'?: string;
@@ -137,6 +141,12 @@ export class CustomerAdd {
         {
             "name": "group",
             "baseName": "group",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "groupId",
+            "baseName": "group_id",
             "type": "string",
             "format": ""
         },

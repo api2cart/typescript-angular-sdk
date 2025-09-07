@@ -41,6 +41,7 @@ const request: CustomerApiCustomerAddRequest = {
     lastName: "Smith",
     password: "fd5gfd5g75fd",
     group: "Register",
+    groupId: "3",
     groupIds: "1,2,3",
     status: "disabled",
     createdTime: "2014-01-30 15:58:41",

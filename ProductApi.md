@@ -408,6 +408,7 @@ const request: ProductApiProductAddBatchRequest = {
         manageStock: true,
         productType: "productType_example",
         marketplaceItemProperties: {},
+        specifics: {},
         isFreeShipping: true,
         taxable: true,
         status: "status_example",
@@ -456,6 +457,7 @@ const request: ProductApiProductAddBatchRequest = {
         harmonizedSystemCode: "harmonizedSystemCode_example",
         url: "url_example",
         seoUrl: "seoUrl_example",
+        externalProductLink: "externalProductLink_example",
         manufacturer: "manufacturer_example",
         manufacturerId: "manufacturerId_example",
         backorderStatus: "backorderStatus_example",
@@ -2027,6 +2029,18 @@ const request: ProductApiProductManufacturerAddRequest = {
   manufacturer: "Samsung",
     // Store Id (optional)
   storeId: "1",
+    // Defines unique meta title for each entity (optional)
+  metaTitle: "category,test",
+    // Defines unique meta keywords for each entity (optional)
+  metaKeywords: "category,test",
+    // Defines unique meta description of a entity (optional)
+  metaDescription: "category,test",
+    // Defines unique search keywords (optional)
+  searchKeywords: "key1,key2,key3",
+    // Image Url (optional)
+  imageUrl: "https://docs.api2cart.com/img/logo.png",
+    // Defines unique URL for SEO (optional)
+  seoUrl: "some seo url",
 };
 
 const data = await apiInstance.productManufacturerAdd(request);
@@ -2041,6 +2055,12 @@ Name | Type | Description  | Notes
  **productId** | [**string**] | Defines products specified by product id | defaults to undefined
  **manufacturer** | [**string**] | Defines product’s manufacturer\&#39;s name | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **metaTitle** | [**string**] | Defines unique meta title for each entity | (optional) defaults to undefined
+ **metaKeywords** | [**string**] | Defines unique meta keywords for each entity | (optional) defaults to undefined
+ **metaDescription** | [**string**] | Defines unique meta description of a entity | (optional) defaults to undefined
+ **searchKeywords** | [**string**] | Defines unique search keywords | (optional) defaults to undefined
+ **imageUrl** | [**string**] | Image Url | (optional) defaults to undefined
+ **seoUrl** | [**string**] | Defines unique URL for SEO | (optional) defaults to undefined
 
 
 ### Return type
@@ -2813,8 +2833,20 @@ const request: ProductApiProductReviewListRequest = {
   ids: "24,25",
     // Store Id (optional)
   storeId: "1",
+    // Language id (optional)
+  langId: "3",
     // Defines status (optional)
   status: "disabled",
+    // Retrieve entities from their creation date (optional)
+  createdFrom: "2010-07-29 13:45:52",
+    // Retrieve entities to their creation date (optional)
+  createdTo: "2100-08-29 13:45:52",
+    // Retrieves orders specified by customer id (optional)
+  customerId: "5",
+    // Set field to sort by (optional)
+  sortBy: "value_id",
+    // Set sorting direction (optional)
+  sortDirection: "asc",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   responseFields: "{return_code,return_message,pagination,result}",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
@@ -2838,7 +2870,13 @@ Name | Type | Description  | Notes
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **ids** | [**string**] | Retrieves reviews specified by ids | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **langId** | [**string**] | Language id | (optional) defaults to undefined
  **status** | [**string**] | Defines status | (optional) defaults to undefined
+ **createdFrom** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
+ **createdTo** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **customerId** | [**string**] | Retrieves orders specified by customer id | (optional) defaults to undefined
+ **sortBy** | [**string**] | Set field to sort by | (optional) defaults to 'id'
+ **sortDirection** | [**string**] | Set sorting direction | (optional) defaults to 'asc'
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'id,customer_id,email,message,status,product_id,nick_name,summary,rating,ratings,status,created_time'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined

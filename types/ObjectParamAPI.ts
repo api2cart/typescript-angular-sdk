@@ -189,6 +189,15 @@ import { OrderAddNoteAttributesInner } from '../models/OrderAddNoteAttributesInn
 import { OrderAddOrderItemInner } from '../models/OrderAddOrderItemInner';
 import { OrderAddOrderItemInnerOrderItemOptionInner } from '../models/OrderAddOrderItemInnerOrderItemOptionInner';
 import { OrderAddOrderItemInnerOrderItemPropertyInner } from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
+import { OrderCalculate } from '../models/OrderCalculate';
+import { OrderCalculate200Response } from '../models/OrderCalculate200Response';
+import { OrderCalculateDiscount } from '../models/OrderCalculateDiscount';
+import { OrderCalculateItem } from '../models/OrderCalculateItem';
+import { OrderCalculateOrderItemInner } from '../models/OrderCalculateOrderItemInner';
+import { OrderCalculateOrderItemInnerOrderItemOptionInner } from '../models/OrderCalculateOrderItemInnerOrderItemOptionInner';
+import { OrderCalculateShippingRate } from '../models/OrderCalculateShippingRate';
+import { OrderCalculateSubtotal } from '../models/OrderCalculateSubtotal';
+import { OrderCalculateTax } from '../models/OrderCalculateTax';
 import { OrderCount200Response } from '../models/OrderCount200Response';
 import { OrderCount200ResponseResult } from '../models/OrderCount200ResponseResult';
 import { OrderFinancialStatusList200Response } from '../models/OrderFinancialStatusList200Response';
@@ -6411,6 +6420,15 @@ export interface OrderApiOrderAddRequest {
     orderAdd: OrderAdd
 }
 
+export interface OrderApiOrderCalculateRequest {
+    /**
+     * 
+     * @type OrderCalculate
+     * @memberof OrderApiorderCalculate
+     */
+    orderCalculate: OrderCalculate
+}
+
 export interface OrderApiOrderCountRequest {
     /**
      * Counts orders specified by order ids
@@ -7393,6 +7411,24 @@ export class ObjectOrderApi {
      */
     public orderAdd(param: OrderApiOrderAddRequest, options?: Configuration): Promise<OrderAdd200Response> {
         return this.api.orderAdd(param.orderAdd,  options).toPromise();
+    }
+
+    /**
+     * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     * order.calculate
+     * @param param the request object
+     */
+    public orderCalculateWithHttpInfo(param: OrderApiOrderCalculateRequest, options?: Configuration): Promise<HttpInfo<OrderCalculate200Response>> {
+        return this.api.orderCalculateWithHttpInfo(param.orderCalculate,  options).toPromise();
+    }
+
+    /**
+     * <p>Calculates the total cost of an order for a given customer and a set of products, as well as the available shipping methods based on the specified address. The calculation takes into account store product prices, discounts, taxes, shipping costs, and other store settings. The result includes a detailed breakdown of the final order cost by its components.</p> <p>Note that the final totals, taxes, and other amounts must include the corresponding values for the selected shipping method.</p><p>The result of this method can be used when creating an order using the <strong>order.add</strong> method.</p>
+     * order.calculate
+     * @param param the request object
+     */
+    public orderCalculate(param: OrderApiOrderCalculateRequest, options?: Configuration): Promise<OrderCalculate200Response> {
+        return this.api.orderCalculate(param.orderCalculate,  options).toPromise();
     }
 
     /**
@@ -9168,6 +9204,48 @@ export interface ProductApiProductManufacturerAddRequest {
      * @memberof ProductApiproductManufacturerAdd
      */
     storeId?: string
+    /**
+     * Defines unique meta title for each entity
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    metaTitle?: string
+    /**
+     * Defines unique meta keywords for each entity
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    metaKeywords?: string
+    /**
+     * Defines unique meta description of a entity
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    metaDescription?: string
+    /**
+     * Defines unique search keywords
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    searchKeywords?: string
+    /**
+     * Image Url
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    imageUrl?: string
+    /**
+     * Defines unique URL for SEO
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    seoUrl?: string
 }
 
 export interface ProductApiProductOptionAddRequest {
@@ -9559,12 +9637,54 @@ export interface ProductApiProductReviewListRequest {
      */
     storeId?: string
     /**
+     * Language id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    langId?: string
+    /**
      * Defines status
      * Defaults to: undefined
      * @type string
      * @memberof ProductApiproductReviewList
      */
     status?: string
+    /**
+     * Retrieve entities from their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    createdFrom?: string
+    /**
+     * Retrieve entities to their creation date
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    createdTo?: string
+    /**
+     * Retrieves orders specified by customer id
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    customerId?: string
+    /**
+     * Set field to sort by
+     * Defaults to: &#39;id&#39;
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    sortBy?: string
+    /**
+     * Set sorting direction
+     * Defaults to: &#39;asc&#39;
+     * @type string
+     * @memberof ProductApiproductReviewList
+     */
+    sortDirection?: string
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -10163,7 +10283,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productManufacturerAddWithHttpInfo(param: ProductApiProductManufacturerAddRequest, options?: Configuration): Promise<HttpInfo<ProductManufacturerAdd200Response>> {
-        return this.api.productManufacturerAddWithHttpInfo(param.productId, param.manufacturer, param.storeId,  options).toPromise();
+        return this.api.productManufacturerAddWithHttpInfo(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl,  options).toPromise();
     }
 
     /**
@@ -10172,7 +10292,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productManufacturerAdd(param: ProductApiProductManufacturerAddRequest, options?: Configuration): Promise<ProductManufacturerAdd200Response> {
-        return this.api.productManufacturerAdd(param.productId, param.manufacturer, param.storeId,  options).toPromise();
+        return this.api.productManufacturerAdd(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl,  options).toPromise();
     }
 
     /**
@@ -10379,7 +10499,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productReviewListWithHttpInfo(param: ProductApiProductReviewListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseProductReviewList>> {
-        return this.api.productReviewListWithHttpInfo(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.status, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.productReviewListWithHttpInfo(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.langId, param.status, param.createdFrom, param.createdTo, param.customerId, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -10388,7 +10508,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productReviewList(param: ProductApiProductReviewListRequest, options?: Configuration): Promise<ModelResponseProductReviewList> {
-        return this.api.productReviewList(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.status, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.productReviewList(param.productId, param.start, param.count, param.pageCursor, param.ids, param.storeId, param.langId, param.status, param.createdFrom, param.createdTo, param.customerId, param.sortBy, param.sortDirection, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
