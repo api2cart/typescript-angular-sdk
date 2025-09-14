@@ -41,6 +41,7 @@ export class ProductUpdateBatchPayloadInner {
     'status'?: string;
     'type'?: string;
     'condition'?: string;
+    'conditionDescription'?: string;
     'visible'?: string;
     'availableForView'?: boolean;
     'availableForSale'?: boolean;
@@ -234,6 +235,12 @@ export class ProductUpdateBatchPayloadInner {
         {
             "name": "condition",
             "baseName": "condition",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "conditionDescription",
+            "baseName": "condition_description",
             "type": "string",
             "format": ""
         },

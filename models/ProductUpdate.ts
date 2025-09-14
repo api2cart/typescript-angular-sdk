@@ -127,6 +127,10 @@ export class ProductUpdate {
     */
     'productClass'?: string;
     /**
+    * Retrieves brands specified by brand name
+    */
+    'brandName'?: string;
+    /**
     * Specifies the set of visible/invisible products for users
     */
     'availableForView'?: boolean;
@@ -530,6 +534,12 @@ export class ProductUpdate {
         {
             "name": "productClass",
             "baseName": "product_class",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "brandName",
+            "baseName": "brand_name",
             "type": "string",
             "format": ""
         },
