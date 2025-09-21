@@ -387,6 +387,10 @@ export class AccountCartAdd {
     */
     'shopwareAccessKey'?: string;
     /**
+    * UNAS API Key
+    */
+    'unasApiKey'?: string;
+    /**
     * Shopware api key
     */
     'shopwareApiKey'?: string;
@@ -1235,6 +1239,12 @@ export class AccountCartAdd {
         {
             "name": "shopwareAccessKey",
             "baseName": "shopware_access_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "unasApiKey",
+            "baseName": "unas_api_key",
             "type": "string",
             "format": ""
         },

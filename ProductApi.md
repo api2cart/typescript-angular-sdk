@@ -4172,6 +4172,7 @@ const request: ProductApiProductVariantUpdateRequest = {
     metaTitle: "category,test",
     metaDescription: "category,test",
     metaKeywords: "category,test",
+    manufacturer: "Samsung",
     reindex: false,
     clearCache: false,
   },

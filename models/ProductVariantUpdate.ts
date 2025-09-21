@@ -223,6 +223,10 @@ export class ProductVariantUpdate {
     */
     'metaKeywords'?: string;
     /**
+    * Specifies the product variant\'s manufacturer
+    */
+    'manufacturer'?: string;
+    /**
     * Is reindex required
     */
     'reindex'?: boolean;
@@ -545,6 +549,12 @@ export class ProductVariantUpdate {
         {
             "name": "metaKeywords",
             "baseName": "meta_keywords",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "manufacturer",
+            "baseName": "manufacturer",
             "type": "string",
             "format": ""
         },

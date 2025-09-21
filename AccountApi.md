@@ -122,6 +122,7 @@ const request: AccountApiAccountCartAddRequest = {
     shoplazzaAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
     shoplazzaSharedSecret: "gmz3iz45x2",
     shopwareAccessKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
+    unasApiKey: "c238908e29ceb6e6ad3df15f89a6234709d3f000",
     shopwareApiKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
     shopwareApiSecret: "V3NYNWg2b1dZdHBUWDN1cmdKdGhnenp5enVJYlJ0WlJvOFF2bnQ",
     mivaAccessToken: "227cbe434a1e358d72db0de993x9d9fd",
