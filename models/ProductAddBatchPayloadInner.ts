@@ -12,6 +12,7 @@
 
 import { ProductAddBatchPayloadInnerAdvancedPricesInner } from '../models/ProductAddBatchPayloadInnerAdvancedPricesInner';
 import { ProductAddBatchPayloadInnerImagesInner } from '../models/ProductAddBatchPayloadInnerImagesInner';
+import { ProductAddBatchPayloadInnerSalesTax } from '../models/ProductAddBatchPayloadInnerSalesTax';
 import { ProductAddFilesInner } from '../models/ProductAddFilesInner';
 import { HttpFile } from '../http/http';
 
@@ -26,6 +27,7 @@ export class ProductAddBatchPayloadInner {
     'ean'?: string;
     'gtin'?: string;
     'mpn'?: string;
+    'isbn'?: string;
     'barcode'?: string;
     'price'?: number;
     'oldPrice'?: number;
@@ -33,8 +35,12 @@ export class ProductAddBatchPayloadInner {
     'specialPrice'?: number;
     'spriceCreate'?: string;
     'spriceExpire'?: string;
+    'availFrom'?: string;
     'advancedPrices'?: Array<ProductAddBatchPayloadInnerAdvancedPricesInner>;
     'fixedCostShippingPrice'?: number;
+    'buyitnowPrice'?: number;
+    'reservePrice'?: number;
+    'bestOffer'?: number;
     'quantity'?: number;
     'manageStock'?: boolean;
     'productType'?: string;
@@ -44,12 +50,15 @@ export class ProductAddBatchPayloadInner {
     'taxable'?: boolean;
     'status'?: string;
     'condition'?: string;
+    'conditionDescription'?: string;
     'visible'?: string;
     'availableForView'?: boolean;
     'availableForSale'?: boolean;
     'isVirtual'?: boolean;
     'inStock'?: boolean;
     'type'?: string;
+    'listingType'?: string;
+    'listingDuration'?: string;
     'downloadable'?: boolean;
     'weight'?: number;
     'length'?: number;
@@ -67,6 +76,7 @@ export class ProductAddBatchPayloadInner {
     'crossSellProductsIds'?: Array<string>;
     'storesIds'?: Array<string>;
     'taxClassId'?: string;
+    'salesTax'?: ProductAddBatchPayloadInnerSalesTax;
     'metaTitle'?: string;
     'metaDescription'?: string;
     'metaKeywords'?: Array<string>;
@@ -148,6 +158,12 @@ export class ProductAddBatchPayloadInner {
             "format": ""
         },
         {
+            "name": "isbn",
+            "baseName": "isbn",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "barcode",
             "baseName": "barcode",
             "type": "string",
@@ -190,6 +206,12 @@ export class ProductAddBatchPayloadInner {
             "format": ""
         },
         {
+            "name": "availFrom",
+            "baseName": "avail_from",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "advancedPrices",
             "baseName": "advanced_prices",
             "type": "Array<ProductAddBatchPayloadInnerAdvancedPricesInner>",
@@ -198,6 +220,24 @@ export class ProductAddBatchPayloadInner {
         {
             "name": "fixedCostShippingPrice",
             "baseName": "fixed_cost_shipping_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "buyitnowPrice",
+            "baseName": "buyitnow_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "reservePrice",
+            "baseName": "reserve_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "bestOffer",
+            "baseName": "best_offer",
             "type": "number",
             "format": ""
         },
@@ -256,6 +296,12 @@ export class ProductAddBatchPayloadInner {
             "format": ""
         },
         {
+            "name": "conditionDescription",
+            "baseName": "condition_description",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "visible",
             "baseName": "visible",
             "type": "string",
@@ -288,6 +334,18 @@ export class ProductAddBatchPayloadInner {
         {
             "name": "type",
             "baseName": "type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "listingType",
+            "baseName": "listing_type",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "listingDuration",
+            "baseName": "listing_duration",
             "type": "string",
             "format": ""
         },
@@ -391,6 +449,12 @@ export class ProductAddBatchPayloadInner {
             "name": "taxClassId",
             "baseName": "tax_class_id",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "salesTax",
+            "baseName": "sales_tax",
+            "type": "ProductAddBatchPayloadInnerSalesTax",
             "format": ""
         },
         {

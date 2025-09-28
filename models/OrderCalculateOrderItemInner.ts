@@ -26,6 +26,14 @@ export class OrderCalculateOrderItemInner {
     * Ordered product variant. Where x is order item ID
     */
     'orderItemVariantId'?: string;
+    /**
+    * Index of the parent grouped/bundle product
+    */
+    'orderItemParent'?: number;
+    /**
+    * Option name of the parent grouped/bundle product
+    */
+    'orderItemParentOptionName'?: string;
     'orderItemOption'?: Array<OrderCalculateOrderItemInnerOrderItemOptionInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -48,6 +56,18 @@ export class OrderCalculateOrderItemInner {
         {
             "name": "orderItemVariantId",
             "baseName": "order_item_variant_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "orderItemParent",
+            "baseName": "order_item_parent",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "orderItemParentOptionName",
+            "baseName": "order_item_parent_option_name",
             "type": "string",
             "format": ""
         },

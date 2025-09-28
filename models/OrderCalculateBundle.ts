@@ -13,7 +13,7 @@
 import { OrderItemOption } from '../models/OrderItemOption';
 import { HttpFile } from '../http/http';
 
-export class OrderCalculateItem {
+export class OrderCalculateBundle {
     'productId'?: string;
     'sku'?: string;
     'name'?: string;
@@ -26,7 +26,6 @@ export class OrderCalculateItem {
     'weightUnit'?: string | null;
     'barcode'?: string | null;
     'variantId'?: string | null;
-    'bundleProductId'?: string | null;
     'options'?: Array<OrderItemOption>;
     'additionalFields'?: any | null;
     'customFields'?: any | null;
@@ -109,12 +108,6 @@ export class OrderCalculateItem {
             "format": ""
         },
         {
-            "name": "bundleProductId",
-            "baseName": "bundle_product_id",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "options",
             "baseName": "options",
             "type": "Array<OrderItemOption>",
@@ -134,7 +127,7 @@ export class OrderCalculateItem {
         }    ];
 
     static getAttributeTypeMap() {
-        return OrderCalculateItem.attributeTypeMap;
+        return OrderCalculateBundle.attributeTypeMap;
     }
 
     public constructor() {

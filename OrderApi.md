@@ -332,6 +332,8 @@ const request: OrderApiOrderCalculateRequest = {
         orderItemId: "125, where {x} - 1,2,3,... etc",
         orderItemQuantity: 5, where {x} - 1,2,3,... etc,
         orderItemVariantId: "52",
+        orderItemParent: 2,
+        orderItemParentOptionName: "Internal Memory Storage",
         orderItemOption: [
           {
             orderItemOptionName: "Color",

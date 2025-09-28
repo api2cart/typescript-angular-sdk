@@ -478,6 +478,8 @@ const request: AccountApiAccountConfigUpdateRequest = {
   mivaSignature: "1hpkrebfdsObGTor/0Gk9XcNBUQohrxrw67Sg9AM9ps=",
     // Shopware access key (optional)
   shopwareAccessKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
+    // UNAS API Key (optional)
+  unasApiKey: "c238908e29ceb6e6ad3df15f89a6234709d3f000",
     // Shopware api key (optional)
   shopwareApiKey: "SWSCS3O1RJBSRNBYQLFIYJN2ZQ",
     // Shopware client secret access key (optional)
@@ -737,6 +739,7 @@ Name | Type | Description  | Notes
  **mivaAccessToken** | [**string**] | Miva access token | (optional) defaults to undefined
  **mivaSignature** | [**string**] | Miva signature | (optional) defaults to undefined
  **shopwareAccessKey** | [**string**] | Shopware access key | (optional) defaults to undefined
+ **unasApiKey** | [**string**] | UNAS API Key | (optional) defaults to undefined
  **shopwareApiKey** | [**string**] | Shopware api key | (optional) defaults to undefined
  **shopwareApiSecret** | [**string**] | Shopware client secret access key | (optional) defaults to undefined
  **bigcartelUserName** | [**string**] | Subdomain of store | (optional) defaults to undefined

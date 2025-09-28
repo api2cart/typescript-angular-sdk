@@ -188,6 +188,7 @@ export * from '../models/OrderAddOrderItemInnerOrderItemOptionInner';
 export * from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
 export * from '../models/OrderCalculate';
 export * from '../models/OrderCalculate200Response';
+export * from '../models/OrderCalculateBundle';
 export * from '../models/OrderCalculateDiscount';
 export * from '../models/OrderCalculateItem';
 export * from '../models/OrderCalculateOrderItemInner';
@@ -256,6 +257,7 @@ export * from '../models/ProductAddBatch';
 export * from '../models/ProductAddBatchPayloadInner';
 export * from '../models/ProductAddBatchPayloadInnerAdvancedPricesInner';
 export * from '../models/ProductAddBatchPayloadInnerImagesInner';
+export * from '../models/ProductAddBatchPayloadInnerSalesTax';
 export * from '../models/ProductAddBestOffer';
 export * from '../models/ProductAddCertificationsInner';
 export * from '../models/ProductAddCertificationsInnerFilesInner';
@@ -617,6 +619,7 @@ import { OrderAddOrderItemInnerOrderItemOptionInner } from '../models/OrderAddOr
 import { OrderAddOrderItemInnerOrderItemPropertyInner } from '../models/OrderAddOrderItemInnerOrderItemPropertyInner';
 import { OrderCalculate } from '../models/OrderCalculate';
 import { OrderCalculate200Response } from '../models/OrderCalculate200Response';
+import { OrderCalculateBundle } from '../models/OrderCalculateBundle';
 import { OrderCalculateDiscount } from '../models/OrderCalculateDiscount';
 import { OrderCalculateItem } from '../models/OrderCalculateItem';
 import { OrderCalculateOrderItemInner } from '../models/OrderCalculateOrderItemInner';
@@ -685,6 +688,7 @@ import { ProductAddBatch, ProductAddBatchNestedItemsUpdateBehaviourEnum      } f
 import { ProductAddBatchPayloadInner } from '../models/ProductAddBatchPayloadInner';
 import { ProductAddBatchPayloadInnerAdvancedPricesInner } from '../models/ProductAddBatchPayloadInnerAdvancedPricesInner';
 import { ProductAddBatchPayloadInnerImagesInner } from '../models/ProductAddBatchPayloadInnerImagesInner';
+import { ProductAddBatchPayloadInnerSalesTax } from '../models/ProductAddBatchPayloadInnerSalesTax';
 import { ProductAddBestOffer } from '../models/ProductAddBestOffer';
 import { ProductAddCertificationsInner } from '../models/ProductAddCertificationsInner';
 import { ProductAddCertificationsInnerFilesInner } from '../models/ProductAddCertificationsInnerFilesInner';
@@ -1077,6 +1081,7 @@ let typeMap: {[index: string]: any} = {
     "OrderAddOrderItemInnerOrderItemPropertyInner": OrderAddOrderItemInnerOrderItemPropertyInner,
     "OrderCalculate": OrderCalculate,
     "OrderCalculate200Response": OrderCalculate200Response,
+    "OrderCalculateBundle": OrderCalculateBundle,
     "OrderCalculateDiscount": OrderCalculateDiscount,
     "OrderCalculateItem": OrderCalculateItem,
     "OrderCalculateOrderItemInner": OrderCalculateOrderItemInner,
@@ -1145,6 +1150,7 @@ let typeMap: {[index: string]: any} = {
     "ProductAddBatchPayloadInner": ProductAddBatchPayloadInner,
     "ProductAddBatchPayloadInnerAdvancedPricesInner": ProductAddBatchPayloadInnerAdvancedPricesInner,
     "ProductAddBatchPayloadInnerImagesInner": ProductAddBatchPayloadInnerImagesInner,
+    "ProductAddBatchPayloadInnerSalesTax": ProductAddBatchPayloadInnerSalesTax,
     "ProductAddBestOffer": ProductAddBestOffer,
     "ProductAddCertificationsInner": ProductAddCertificationsInner,
     "ProductAddCertificationsInnerFilesInner": ProductAddCertificationsInnerFilesInner,
