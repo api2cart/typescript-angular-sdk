@@ -1743,6 +1743,7 @@ export enum AccountCartAddCartIdEnum {
     TikTokShop = 'TikTokShop',
     Tomatocart = 'Tomatocart',
     Ubercart = 'Ubercart',
+    Unas = 'Unas',
     Virtuemart = 'Virtuemart',
     Volusion = 'Volusion',
     WPecommerce = 'WPecommerce',
