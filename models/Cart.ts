@@ -20,6 +20,7 @@ export class Cart {
     'url'?: string | null;
     'version'?: string | null;
     'bridgeVersion'?: string | null;
+    'defaultRoundingPrecision'?: number | null;
     'dbPrefix'?: string | null;
     'storesInfo'?: Array<CartStoreInfo>;
     'warehouses'?: Array<CartWarehouse>;
@@ -54,6 +55,12 @@ export class Cart {
             "name": "bridgeVersion",
             "baseName": "bridge_version",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "defaultRoundingPrecision",
+            "baseName": "default_rounding_precision",
+            "type": "number",
             "format": ""
         },
         {

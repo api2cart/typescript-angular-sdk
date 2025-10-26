@@ -399,6 +399,10 @@ export class ProductAdd {
     */
     'shippingTemplateId'?: number;
     /**
+    * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
+    */
+    'processingProfileId'?: number;
+    /**
     * The shipping details, including flat and calculated shipping costs and shipping insurance costs. Look at cart.info method response for allowed values.<hr><div style=\"font-style:normal\">Param structure:<div style=\"margin-left: 2%;\"><code style=\"padding:0; background-color:#ffffff;font-size:85%;font-family:monospace;\">shipping_details[0][<b>shipping_type</b>] = string </br>shipping_details[0][<b>shipping_service</b>] = string</br>shipping_details[0][<b>shipping_cost</b>] = decimal</br>shipping_details[1][<b>shipping_type</b>] = string </br>shipping_details[1][<b>shipping_service</b>] = string</br>shipping_details[1][<b>shipping_cost</b>] = decimal</br></code></div></div>
     */
     'shippingDetails'?: Array<ProductAddShippingDetailsInner>;
@@ -1051,6 +1055,12 @@ export class ProductAdd {
         {
             "name": "shippingTemplateId",
             "baseName": "shipping_template_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "processingProfileId",
+            "baseName": "processing_profile_id",
             "type": "number",
             "format": ""
         },

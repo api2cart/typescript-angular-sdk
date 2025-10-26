@@ -6651,6 +6651,13 @@ export interface OrderApiOrderInfoRequest {
      * @memberof OrderApiorderInfo
      */
     useLatestApiVersion?: boolean
+    /**
+     * &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * Defaults to: undefined
+     * @type number
+     * @memberof OrderApiorderInfo
+     */
+    roundingPrecision?: number
 }
 
 export interface OrderApiOrderListRequest {
@@ -6920,6 +6927,13 @@ export interface OrderApiOrderListRequest {
      * @memberof OrderApiorderList
      */
     useLatestApiVersion?: boolean
+    /**
+     * &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * Defaults to: undefined
+     * @type number
+     * @memberof OrderApiorderList
+     */
+    roundingPrecision?: number
 }
 
 export interface OrderApiOrderPreestimateShippingListRequest {
@@ -7500,7 +7514,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfoWithHttpInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<HttpInfo<OrderInfo200Response>> {
-        return this.api.orderInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
     }
 
     /**
@@ -7509,7 +7523,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<OrderInfo200Response> {
-        return this.api.orderInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
     }
 
     /**
@@ -7518,7 +7532,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderListWithHttpInfo(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseOrderList>> {
-        return this.api.orderListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
     }
 
     /**
@@ -7527,7 +7541,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderList(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<ModelResponseOrderList> {
-        return this.api.orderList(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion,  options).toPromise();
+        return this.api.orderList(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
     }
 
     /**

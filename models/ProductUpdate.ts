@@ -300,6 +300,10 @@ export class ProductUpdate {
     */
     'shippingTemplateId'?: number;
     /**
+    * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
+    */
+    'processingProfileId'?: number;
+    /**
     * An enumerated string for the era in which the maker made the product.
     */
     'whenMade'?: string;
@@ -798,6 +802,12 @@ export class ProductUpdate {
         {
             "name": "shippingTemplateId",
             "baseName": "shipping_template_id",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "processingProfileId",
+            "baseName": "processing_profile_id",
             "type": "number",
             "format": ""
         },

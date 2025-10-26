@@ -261,6 +261,7 @@ const request: ProductApiProductAddRequest = {
     ],
     paypalEmail: "paypall@mail.com",
     shippingTemplateId: 40256592690,
+    processingProfileId: `12345678`,
     shippingDetails: [
       {
         shippingType: "shippingType_example",
@@ -3137,6 +3138,7 @@ const request: ProductApiProductUpdateRequest = {
     countryOfOrigin: "123456",
     harmonizedSystemCode: "123456",
     shippingTemplateId: 40256592690,
+    processingProfileId: `12345678`,
     whenMade: "2020_2025",
     isSupply: false,
     downloadable: true,
