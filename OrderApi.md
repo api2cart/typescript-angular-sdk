@@ -215,6 +215,7 @@ const request: OrderApiOrderAddRequest = {
     ],
     clearCache: false,
     origin: "newsletter",
+    feePrice: 5.5,
     orderItem: [
       {
         orderItemId: "125, where {x} - 1,2,3,... etc",

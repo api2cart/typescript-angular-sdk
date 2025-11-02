@@ -1142,6 +1142,8 @@ const configuration = createConfiguration();
 const apiInstance = new ProductApi(configuration);
 
 const request: ProductApiProductCountRequest = {
+    // Filter by product\'s sku (optional)
+  sku: "bag_01",
     // Counts products specified by product ids (optional)
   productIds: "4,5",
     // Retrieve entities starting from the specified id. (optional)
@@ -1168,6 +1170,8 @@ const request: ProductApiProductCountRequest = {
   modifiedTo: "2100-08-29 13:45:52",
     // Retrieves brands specified by brand name (optional)
   brandName: "Abidas",
+    // Defines product\'s manufacturer by manufacturer_id (optional)
+  manufacturerId: "1",
     // Defines product attributes (optional)
   productAttributes: [
     "product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2",
@@ -1201,6 +1205,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **sku** | [**string**] | Filter by product\&#39;s sku | (optional) defaults to undefined
  **productIds** | [**string**] | Counts products specified by product ids | (optional) defaults to undefined
  **sinceId** | [**string**] | Retrieve entities starting from the specified id. | (optional) defaults to undefined
  **categoriesIds** | [**string**] | Defines product add that is specified by comma-separated categories id | (optional) defaults to undefined
@@ -1214,6 +1219,7 @@ Name | Type | Description  | Notes
  **modifiedFrom** | [**string**] | Retrieve entities from their modification date | (optional) defaults to undefined
  **modifiedTo** | [**string**] | Retrieve entities to their modification date | (optional) defaults to undefined
  **brandName** | [**string**] | Retrieves brands specified by brand name | (optional) defaults to undefined
+ **manufacturerId** | [**string**] | Defines product\&#39;s manufacturer by manufacturer_id | (optional) defaults to undefined
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
@@ -1919,6 +1925,8 @@ const request: ProductApiProductListRequest = {
   productAttributes: [
     "product_attributes[0][attribute_id]=132&product_attributes[0][values][0]=custom value 1&product_attributes[0][values][1]=custom value 2",
   ],
+    // Defines product\'s manufacturer by manufacturer_id (optional)
+  manufacturerId: "1",
     // Defines product\'s status (optional)
   status: "disabled",
     // Defines products\'s type (optional)
@@ -1981,6 +1989,7 @@ Name | Type | Description  | Notes
  **sku** | [**string**] | Filter by product\&#39;s sku | (optional) defaults to undefined
  **brandName** | [**string**] | Retrieves brands specified by brand name | (optional) defaults to undefined
  **productAttributes** | **Array&lt;string&gt;** | Defines product attributes | (optional) defaults to undefined
+ **manufacturerId** | [**string**] | Defines product\&#39;s manufacturer by manufacturer_id | (optional) defaults to undefined
  **status** | [**string**] | Defines product\&#39;s status | (optional) defaults to undefined
  **type** | [**string**] | Defines products\&#39;s type | (optional) defaults to undefined
  **visible** | [**string**] | Filter items by visibility status | (optional) defaults to 'everywhere'

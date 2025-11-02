@@ -291,6 +291,10 @@ export class OrderAdd {
     * The source of the order
     */
     'origin'?: string;
+    /**
+    * Specifies refund\'s fee price
+    */
+    'feePrice'?: number;
     'orderItem': Array<OrderAddOrderItemInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -710,6 +714,12 @@ export class OrderAdd {
             "name": "origin",
             "baseName": "origin",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "feePrice",
+            "baseName": "fee_price",
+            "type": "number",
             "format": ""
         },
         {

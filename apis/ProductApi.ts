@@ -1022,6 +1022,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Count products in store.
      * product.count
+     * @param sku Filter by product\&#39;s sku
      * @param productIds Counts products specified by product ids
      * @param sinceId Retrieve entities starting from the specified id.
      * @param categoriesIds Defines product add that is specified by comma-separated categories id
@@ -1035,6 +1036,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param modifiedFrom Retrieve entities from their modification date
      * @param modifiedTo Retrieve entities to their modification date
      * @param brandName Retrieves brands specified by brand name
+     * @param manufacturerId Defines product\&#39;s manufacturer by manufacturer_id
      * @param productAttributes Defines product attributes
      * @param status Defines product\&#39;s status
      * @param type Defines products\&#39;s type
@@ -1046,8 +1048,10 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param disableReportCache Disable report cache for current request
      * @param useLatestApiVersion Use the latest platform API version
      */
-    public async productCount(productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productCount(sku?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, brandName?: string, manufacturerId?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, reportRequestId?: string, returnGlobal?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
 
 
 
@@ -1078,6 +1082,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (sku !== undefined) {
+            requestContext.setQueryParam("sku", ObjectSerializer.serialize(sku, "string", ""));
+        }
 
         // Query Params
         if (productIds !== undefined) {
@@ -1142,6 +1151,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (brandName !== undefined) {
             requestContext.setQueryParam("brand_name", ObjectSerializer.serialize(brandName, "string", ""));
+        }
+
+        // Query Params
+        if (manufacturerId !== undefined) {
+            requestContext.setQueryParam("manufacturer_id", ObjectSerializer.serialize(manufacturerId, "string", ""));
         }
 
         // Query Params
@@ -1958,6 +1972,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param sku Filter by product\&#39;s sku
      * @param brandName Retrieves brands specified by brand name
      * @param productAttributes Defines product attributes
+     * @param manufacturerId Defines product\&#39;s manufacturer by manufacturer_id
      * @param status Defines product\&#39;s status
      * @param type Defines products\&#39;s type
      * @param visible Filter items by visibility status
@@ -1975,8 +1990,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param useLatestApiVersion Use the latest platform API version
      * @param productType A categorization for the product
      */
-    public async productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, productType?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productList(start?: number, count?: number, pageCursor?: string, productIds?: string, sinceId?: string, categoriesIds?: string, categoryId?: string, storeId?: string, langId?: string, currencyId?: string, availView?: boolean, availSale?: boolean, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, sku?: string, brandName?: string, productAttributes?: Array<string>, manufacturerId?: string, status?: string, type?: string, visible?: string, findValue?: string, findWhere?: string, returnGlobal?: boolean, params?: string, responseFields?: string, exclude?: string, sortBy?: string, sortDirection?: string, reportRequestId?: string, disableCache?: boolean, disableReportCache?: boolean, useLatestApiVersion?: boolean, productType?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -2116,6 +2132,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
             for (const serializedParam of serializedParams) {
                 requestContext.appendQueryParam("product_attributes", serializedParam);
             }
+        }
+
+        // Query Params
+        if (manufacturerId !== undefined) {
+            requestContext.setQueryParam("manufacturer_id", ObjectSerializer.serialize(manufacturerId, "string", ""));
         }
 
         // Query Params
