@@ -115,6 +115,22 @@ export class AccountCartAdd {
     */
     'aspdotnetstorefrontApiPass'?: string;
     /**
+    * Americommerce App ID
+    */
+    'americommerceAppId'?: string;
+    /**
+    * Americommerce App Secret
+    */
+    'americommerceAppSecret'?: string;
+    /**
+    * Americommerce Access Token
+    */
+    'americommerceAccessToken'?: string;
+    /**
+    * Americommerce Refresh Token
+    */
+    'americommerceRefreshToken'?: string;
+    /**
     * It\'s a BigCommerce account for which API is enabled
     */
     'bigcommerceapiAdminAccount'?: string;
@@ -831,6 +847,30 @@ export class AccountCartAdd {
         {
             "name": "aspdotnetstorefrontApiPass",
             "baseName": "aspdotnetstorefront_api_pass",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "americommerceAppId",
+            "baseName": "americommerce_app_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "americommerceAppSecret",
+            "baseName": "americommerce_app_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "americommerceAccessToken",
+            "baseName": "americommerce_access_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "americommerceRefreshToken",
+            "baseName": "americommerce_refresh_token",
             "type": "string",
             "format": ""
         },
@@ -1694,6 +1734,7 @@ export enum AccountCartAddCartIdEnum {
     _3DCartApi = '3DCartApi',
     AceShop = 'AceShop',
     AmazonSp = 'AmazonSP',
+    Americommerce = 'Americommerce',
     AspDotNetStorefront = 'AspDotNetStorefront',
     BigCartel = 'BigCartel',
     Bricklink = 'Bricklink',

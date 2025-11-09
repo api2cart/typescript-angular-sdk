@@ -108,6 +108,7 @@ const request: ProductApiProductAddRequest = {
       {
         groupId: "groupId_example",
         price: 3.14,
+        qty: 1,
       },
     ],
     buyitnowPrice: 65.9,
@@ -2667,6 +2668,7 @@ const request: ProductApiProductPriceAddRequest = {
       {
         groupId: "groupId_example",
         price: 3.14,
+        qty: 1,
       },
     ],
     storeId: "1",
@@ -2789,6 +2791,7 @@ const request: ProductApiProductPriceUpdateRequest = {
         id: 1,
         groupId: "groupId_example",
         price: 3.14,
+        qty: 1,
       },
     ],
   },
@@ -3956,6 +3959,7 @@ const request: ProductApiProductVariantPriceAddRequest = {
       {
         groupId: "groupId_example",
         price: 3.14,
+        qty: 1,
       },
     ],
     storeId: "1",
@@ -4082,6 +4086,7 @@ const request: ProductApiProductVariantPriceUpdateRequest = {
         id: 1,
         groupId: "groupId_example",
         price: 3.14,
+        qty: 1,
       },
     ],
   },

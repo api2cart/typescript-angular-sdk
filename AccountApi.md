@@ -54,6 +54,10 @@ const request: AccountApiAccountCartAddRequest = {
     amazonSellerId: "13P636B2M1N4WR",
     aspdotnetstorefrontApiUser: "admin",
     aspdotnetstorefrontApiPass: "f6471ef78f72b41849a8b8b67791b0b5",
+    americommerceAppId: "1",
+    americommerceAppSecret: "9fd3d282d65a007a2b9d541b5e0e410b2cecd6199632db53503b93637b8a6000",
+    americommerceAccessToken: "1e721f59b610e2666caea03094600765",
+    americommerceRefreshToken: "520c011444af41d916543cdda859a5114",
     bigcommerceapiAdminAccount: "admin",
     bigcommerceapiApiPath: "http://mystore.bigcommerce.com/api/v1",
     bigcommerceapiApiKey: "6b89704cd75738cb0f9f6468d5462aba",
@@ -364,6 +368,14 @@ const request: AccountApiAccountConfigUpdateRequest = {
   aspdotnetstorefrontApiUser: "admin",
     // AspDotNetStorefront API Password (optional)
   aspdotnetstorefrontApiPass: "f6471ef78f72b41849a8b8b67791b0b5",
+    // Americommerce App ID (optional)
+  americommerceAppId: "1",
+    // Americommerce App Secret (optional)
+  americommerceAppSecret: "9fd3d282d65a007a2b9d541b5e0e410b2cecd6199632db53503b93637b8a6000",
+    // Americommerce Access Token (optional)
+  americommerceAccessToken: "1e721f59b610e2666caea03094600765",
+    // Americommerce Refresh Token (optional)
+  americommerceRefreshToken: "520c011444af41d916543cdda859a5114",
     // It\'s a BigCommerce account for which API is enabled (optional)
   bigcommerceapiAdminAccount: "admin",
     // BigCommerce API URL (optional)
@@ -682,6 +694,10 @@ Name | Type | Description  | Notes
  **amazonSellerId** | [**string**] | Amazon Seller ID (Merchant token) | (optional) defaults to undefined
  **aspdotnetstorefrontApiUser** | [**string**] | It\&#39;s a AspDotNetStorefront account for which API is available | (optional) defaults to undefined
  **aspdotnetstorefrontApiPass** | [**string**] | AspDotNetStorefront API Password | (optional) defaults to undefined
+ **americommerceAppId** | [**string**] | Americommerce App ID | (optional) defaults to undefined
+ **americommerceAppSecret** | [**string**] | Americommerce App Secret | (optional) defaults to undefined
+ **americommerceAccessToken** | [**string**] | Americommerce Access Token | (optional) defaults to undefined
+ **americommerceRefreshToken** | [**string**] | Americommerce Refresh Token | (optional) defaults to undefined
  **bigcommerceapiAdminAccount** | [**string**] | It\&#39;s a BigCommerce account for which API is enabled | (optional) defaults to undefined
  **bigcommerceapiApiPath** | [**string**] | BigCommerce API URL | (optional) defaults to undefined
  **bigcommerceapiApiKey** | [**string**] | Bigcommerce API Key | (optional) defaults to undefined

@@ -31,6 +31,10 @@ export class OrderCalculate {
     */
     'coupons'?: Array<string>;
     /**
+    * <p>Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).</p> <p>Supported values range from <b>1</b> to <b>6</b>.</p> <p>The default rounding precision may vary depending on the platform. You can retrieve the default value using the <strong>cart.info</strong> method in the <code>default_rounding_precision</code> field. </p><p>Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.</p>
+    */
+    'roundingPrecision'?: number;
+    /**
     * Specifies shipping first name
     */
     'shippFirstName': string;
@@ -143,6 +147,12 @@ export class OrderCalculate {
             "name": "coupons",
             "baseName": "coupons",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "roundingPrecision",
+            "baseName": "rounding_precision",
+            "type": "number",
             "format": ""
         },
         {

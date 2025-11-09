@@ -15,6 +15,7 @@ import { HttpFile } from '../http/http';
 export class ProductAddGroupPricesInner {
     'groupId'?: string;
     'price'?: number;
+    'qty'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,6 +31,12 @@ export class ProductAddGroupPricesInner {
         {
             "name": "price",
             "baseName": "price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "qty",
+            "baseName": "qty",
             "type": "number",
             "format": ""
         }    ];

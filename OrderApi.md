@@ -307,6 +307,7 @@ const request: OrderApiOrderCalculateRequest = {
     coupons: [
       "coupons_example",
     ],
+    roundingPrecision: 3,
     shippFirstName: "John",
     shippLastName: "Smith",
     shippAddress1: "Green str. 35",
