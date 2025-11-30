@@ -212,6 +212,11 @@ const request: AccountApiAccountCartAddRequest = {
     temuAppSecret: "4782d2d827276688bf4758bed55dbdd4bbe79a78",
     temuAccessToken: "uplv3hfyt5kcwoymrgnajnbl1ow5qxlz4sqhev6hl3xosz5dejrtyl2jre6",
     temuRegion: "US",
+    scapiClientId: "b941ec85-v6b2-1dw8-9fe2-98e1d6eec7b1",
+    scapiClientSecret: "testpassword",
+    scapiOrganizationId: "f_ecom_xxxx_001",
+    scapiShortCode: "zs5ksm25",
+    scapiScopes: "sfcc.catalogs,sfcc.orders,sfcc.products",
   },
 };
 
@@ -665,6 +670,16 @@ const request: AccountApiAccountConfigUpdateRequest = {
   temuAccessToken: "uplv3hfyt5kcwoymrgnajnbl1ow5qxlz4sqhev6hl3xosz5dejrtyl2jre6",
     // Temu API endpoint Region. (optional)
   temuRegion: "US",
+    // Salesforce Commerce API Client ID (optional)
+  scapiClientId: "b941ec85-v6b2-1dw8-9fe2-98e1d6eec7b1",
+    // Salesforce Commerce API Client Secret (optional)
+  scapiClientSecret: "testpassword",
+    // Salesforce Commerce Organization ID (optional)
+  scapiOrganizationId: "f_ecom_xxxx_001",
+    // Salesforce Commerce Short Code (optional)
+  scapiShortCode: "zs5ksm25",
+    // Salesforce Commerce API Scopes (optional)
+  scapiScopes: "sfcc.catalogs,sfcc.orders,sfcc.products",
 };
 
 const data = await apiInstance.accountConfigUpdate(request);
@@ -839,6 +854,11 @@ Name | Type | Description  | Notes
  **temuAppSecret** | [**string**] | Temu App Secret | (optional) defaults to undefined
  **temuAccessToken** | [**string**] | Temu Access Token | (optional) defaults to undefined
  **temuRegion** | [**string**] | Temu API endpoint Region. | (optional) defaults to undefined
+ **scapiClientId** | [**string**] | Salesforce Commerce API Client ID | (optional) defaults to undefined
+ **scapiClientSecret** | [**string**] | Salesforce Commerce API Client Secret | (optional) defaults to undefined
+ **scapiOrganizationId** | [**string**] | Salesforce Commerce Organization ID | (optional) defaults to undefined
+ **scapiShortCode** | [**string**] | Salesforce Commerce Short Code | (optional) defaults to undefined
+ **scapiScopes** | [**string**] | Salesforce Commerce API Scopes | (optional) defaults to undefined
 
 
 ### Return type

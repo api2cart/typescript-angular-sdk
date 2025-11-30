@@ -153,6 +153,7 @@ const request: OrderApiOrderAddRequest = {
     customerCountry: "US",
     customerBirthday: "1990-12-03",
     customerFax: "5656598",
+    isGuest: true,
     orderPaymentMethod: "PayPal",
     transactionId: "d41d8cd98f00b204e9800998ecf8427e",
     currency: "USD",

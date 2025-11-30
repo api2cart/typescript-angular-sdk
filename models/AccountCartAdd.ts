@@ -694,6 +694,26 @@ export class AccountCartAdd {
     * Temu API endpoint Region.
     */
     'temuRegion'?: string;
+    /**
+    * Salesforce Commerce API Client ID
+    */
+    'scapiClientId'?: string;
+    /**
+    * Salesforce Commerce API Client Secret
+    */
+    'scapiClientSecret'?: string;
+    /**
+    * Salesforce Commerce Organization ID
+    */
+    'scapiOrganizationId'?: string;
+    /**
+    * Salesforce Commerce Short Code
+    */
+    'scapiShortCode'?: string;
+    /**
+    * Salesforce Commerce API Scopes
+    */
+    'scapiScopes'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -1717,6 +1737,36 @@ export class AccountCartAdd {
         {
             "name": "temuRegion",
             "baseName": "temu_region",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scapiClientId",
+            "baseName": "scapi_client_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scapiClientSecret",
+            "baseName": "scapi_client_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scapiOrganizationId",
+            "baseName": "scapi_organization_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scapiShortCode",
+            "baseName": "scapi_short_code",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "scapiScopes",
+            "baseName": "scapi_scopes",
             "type": "string",
             "format": ""
         }    ];

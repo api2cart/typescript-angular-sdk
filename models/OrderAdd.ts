@@ -72,6 +72,10 @@ export class OrderAdd {
     */
     'customerFax'?: string;
     /**
+    * Indicates whether the customer is a guest customer
+    */
+    'isGuest'?: boolean;
+    /**
     * Defines order payment method.<br/>Setting order_payment_method on Shopify will also change financial_status field value to \'paid\'
     */
     'orderPaymentMethod'?: string;
@@ -384,6 +388,12 @@ export class OrderAdd {
             "name": "customerFax",
             "baseName": "customer_fax",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isGuest",
+            "baseName": "is_guest",
+            "type": "boolean",
             "format": ""
         },
         {
