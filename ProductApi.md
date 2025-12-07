@@ -3501,6 +3501,7 @@ const request: ProductApiProductVariantAddRequest = {
     isFreeShipping: true,
     countryOfOrigin: "123456",
     harmonizedSystemCode: "123456",
+    processingProfileId: `12345678`,
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
     clearCache: false,
   },
@@ -4203,6 +4204,7 @@ const request: ProductApiProductVariantUpdateRequest = {
     manufacturer: "Samsung",
     reindex: false,
     clearCache: false,
+    processingProfileId: `12345678`,
   },
 };
 

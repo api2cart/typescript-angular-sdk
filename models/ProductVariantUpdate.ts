@@ -234,6 +234,10 @@ export class ProductVariantUpdate {
     * Is cache clear required
     */
     'clearCache'?: boolean;
+    /**
+    * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
+    */
+    'processingProfileId'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -568,6 +572,12 @@ export class ProductVariantUpdate {
             "name": "clearCache",
             "baseName": "clear_cache",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "processingProfileId",
+            "baseName": "processing_profile_id",
+            "type": "number",
             "format": ""
         }    ];
 
