@@ -355,6 +355,10 @@ export class AccountCartAdd {
     */
     'shopifyAccessToken'?: string;
     /**
+    * Shopify Client ID
+    */
+    'shopifyClientId'?: string;
+    /**
     * Shopify API Key
     */
     'shopifyApiKey'?: string;
@@ -1227,6 +1231,12 @@ export class AccountCartAdd {
         {
             "name": "shopifyAccessToken",
             "baseName": "shopify_access_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "shopifyClientId",
+            "baseName": "shopify_client_id",
             "type": "string",
             "format": ""
         },

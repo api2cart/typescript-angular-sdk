@@ -114,6 +114,7 @@ const request: AccountApiAccountCartAddRequest = {
     shoplineAppSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
     shoplineSharedSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
     shopifyAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
+    shopifyClientId: "b5defe55db3f6836fb4e0e6624ff9577",
     shopifyApiKey: "bbca57d8ff3c3677128112c15556d9e3",
     shopifyApiPassword: "860f3a6fc87632301a42cd88e4b5ab3d",
     shopifySharedSecret: "gmz3iz45x2",
@@ -467,6 +468,8 @@ const request: AccountApiAccountConfigUpdateRequest = {
   shoplineSharedSecret: "1701d123bb5cc14cd2732dcaed90638316c0a09",
     // Access token authorizing the app to access resources on behalf of a user (optional)
   shopifyAccessToken: "igse8e4rdmzkxdi937qe69d59en1imw",
+    // Shopify Client ID (optional)
+  shopifyClientId: "b5defe55db3f6836fb4e0e6624ff9577",
     // Shopify API Key (optional)
   shopifyApiKey: "bbca57d8ff3c3677128112c15556d9e3",
     // Shopify API Password (optional)
@@ -756,6 +759,7 @@ Name | Type | Description  | Notes
  **shoplineAppSecret** | [**string**] | Shopline App Secret | (optional) defaults to undefined
  **shoplineSharedSecret** | [**string**] | Shopline Shared Secret | (optional) defaults to undefined
  **shopifyAccessToken** | [**string**] | Access token authorizing the app to access resources on behalf of a user | (optional) defaults to undefined
+ **shopifyClientId** | [**string**] | Shopify Client ID | (optional) defaults to undefined
  **shopifyApiKey** | [**string**] | Shopify API Key | (optional) defaults to undefined
  **shopifyApiPassword** | [**string**] | Shopify API Password | (optional) defaults to undefined
  **shopifySharedSecret** | [**string**] | Shared secret | (optional) defaults to undefined
