@@ -4530,9 +4530,10 @@ export class ObservableOrderApi {
      * @param [enableCache] If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * @param [useLatestApiVersion] Use the latest platform API version
      * @param [roundingPrecision] &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      */
-    public orderInfoWithHttpInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, _options?: Configuration): Observable<HttpInfo<OrderInfo200Response>> {
-        const requestContextPromise = this.requestFactory.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, _options);
+    public orderInfoWithHttpInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, allowUserDefinedOrderStatuses?: boolean, _options?: Configuration): Observable<HttpInfo<OrderInfo200Response>> {
+        const requestContextPromise = this.requestFactory.orderInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4562,9 +4563,10 @@ export class ObservableOrderApi {
      * @param [enableCache] If the value is \&#39;true\&#39; and order exist in our cache, we will return order.info response from cache
      * @param [useLatestApiVersion] Use the latest platform API version
      * @param [roundingPrecision] &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      */
-    public orderInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, _options?: Configuration): Observable<OrderInfo200Response> {
-        return this.orderInfoWithHttpInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, _options).pipe(map((apiResponse: HttpInfo<OrderInfo200Response>) => apiResponse.data));
+    public orderInfo(id?: string, orderId?: string, storeId?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, allowUserDefinedOrderStatuses?: boolean, _options?: Configuration): Observable<OrderInfo200Response> {
+        return this.orderInfoWithHttpInfo(id, orderId, storeId, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses, _options).pipe(map((apiResponse: HttpInfo<OrderInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -4609,9 +4611,10 @@ export class ObservableOrderApi {
      * @param [enableCache] If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
      * @param [useLatestApiVersion] Use the latest platform API version
      * @param [roundingPrecision] &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      */
-    public orderListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderList>> {
-        const requestContextPromise = this.requestFactory.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, _options);
+    public orderListWithHttpInfo(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, allowUserDefinedOrderStatuses?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderList>> {
+        const requestContextPromise = this.requestFactory.orderList(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -4671,9 +4674,10 @@ export class ObservableOrderApi {
      * @param [enableCache] If the value is \&#39;true\&#39;, we will cache orders for a 15 minutes in order to increase speed and reduce requests throttling for some methods and shoping platforms (for example order.shipment.add)
      * @param [useLatestApiVersion] Use the latest platform API version
      * @param [roundingPrecision] &lt;p&gt;Specifies the rounding precision for fractional numeric values (such as prices, taxes, and weights).&lt;/p&gt; &lt;p&gt;Supported values range from &lt;b&gt;1&lt;/b&gt; to &lt;b&gt;6&lt;/b&gt;.&lt;/p&gt; &lt;p&gt;The default rounding precision may vary depending on the platform. You can retrieve the default value using the &lt;strong&gt;cart.info&lt;/strong&gt; method in the &lt;code&gt;default_rounding_precision&lt;/code&gt; field. &lt;/p&gt;&lt;p&gt;Values are rounded to the nearest number at the specified precision. Fractions of .5 or higher are rounded up, while fractions lower than .5 are rounded down.&lt;/p&gt;
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      */
-    public orderList(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, _options?: Configuration): Observable<ModelResponseOrderList> {
-        return this.orderListWithHttpInfo(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderList>) => apiResponse.data));
+    public orderList(start?: number, count?: number, pageCursor?: string, ids?: string, orderIds?: string, sinceId?: string, storeId?: string, customerId?: string, customerEmail?: string, basketId?: string, currencyId?: string, phone?: string, orderStatus?: string, orderStatusIds?: Array<string>, ebayOrderStatus?: string, financialStatus?: string, financialStatusIds?: Array<string>, fulfillmentStatus?: string, returnStatus?: string, fulfillmentChannel?: string, shippingMethod?: string, skipOrderIds?: string, isDeleted?: boolean, shippingCountryIso3?: string, deliveryMethod?: string, shipNodeType?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, tags?: string, sortBy?: string, sortDirection?: string, params?: string, responseFields?: string, exclude?: string, enableCache?: boolean, useLatestApiVersion?: boolean, roundingPrecision?: number, allowUserDefinedOrderStatuses?: boolean, _options?: Configuration): Observable<ModelResponseOrderList> {
+        return this.orderListWithHttpInfo(start, count, pageCursor, ids, orderIds, sinceId, storeId, customerId, customerEmail, basketId, currencyId, phone, orderStatus, orderStatusIds, ebayOrderStatus, financialStatus, financialStatusIds, fulfillmentStatus, returnStatus, fulfillmentChannel, shippingMethod, skipOrderIds, isDeleted, shippingCountryIso3, deliveryMethod, shipNodeType, createdTo, createdFrom, modifiedTo, modifiedFrom, tags, sortBy, sortDirection, params, responseFields, exclude, enableCache, useLatestApiVersion, roundingPrecision, allowUserDefinedOrderStatuses, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderList>) => apiResponse.data));
     }
 
     /**
@@ -5119,10 +5123,11 @@ export class ObservableOrderApi {
      * order.status.list
      * @param [storeId] Store Id
      * @param [action] Available statuses for the specified action.
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public orderStatusListWithHttpInfo(storeId?: string, action?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderStatusList>> {
-        const requestContextPromise = this.requestFactory.orderStatusList(storeId, action, responseFields, _options);
+    public orderStatusListWithHttpInfo(storeId?: string, action?: string, allowUserDefinedOrderStatuses?: boolean, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseOrderStatusList>> {
+        const requestContextPromise = this.requestFactory.orderStatusList(storeId, action, allowUserDefinedOrderStatuses, responseFields, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5145,10 +5150,11 @@ export class ObservableOrderApi {
      * order.status.list
      * @param [storeId] Store Id
      * @param [action] Available statuses for the specified action.
+     * @param [allowUserDefinedOrderStatuses] Indicates whether custom (user-defined) order statuses should be included in the response.
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public orderStatusList(storeId?: string, action?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseOrderStatusList> {
-        return this.orderStatusListWithHttpInfo(storeId, action, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderStatusList>) => apiResponse.data));
+    public orderStatusList(storeId?: string, action?: string, allowUserDefinedOrderStatuses?: boolean, responseFields?: string, _options?: Configuration): Observable<ModelResponseOrderStatusList> {
+        return this.orderStatusListWithHttpInfo(storeId, action, allowUserDefinedOrderStatuses, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseOrderStatusList>) => apiResponse.data));
     }
 
     /**

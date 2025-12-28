@@ -120,7 +120,7 @@ export class ProductAdd {
     */
     'specialPrice'?: number;
     /**
-    * Defines product\'s sale price
+    * This parameter is deprecated. Please use the <strong>old_price</strong> parameter instead.
     */
     'wholesalePrice'?: number;
     /**

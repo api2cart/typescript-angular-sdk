@@ -6728,6 +6728,13 @@ export interface OrderApiOrderInfoRequest {
      * @memberof OrderApiorderInfo
      */
     roundingPrecision?: number
+    /**
+     * Indicates whether custom (user-defined) order statuses should be included in the response.
+     * Defaults to: false
+     * @type boolean
+     * @memberof OrderApiorderInfo
+     */
+    allowUserDefinedOrderStatuses?: boolean
 }
 
 export interface OrderApiOrderListRequest {
@@ -7004,6 +7011,13 @@ export interface OrderApiOrderListRequest {
      * @memberof OrderApiorderList
      */
     roundingPrecision?: number
+    /**
+     * Indicates whether custom (user-defined) order statuses should be included in the response.
+     * Defaults to: false
+     * @type boolean
+     * @memberof OrderApiorderList
+     */
+    allowUserDefinedOrderStatuses?: boolean
 }
 
 export interface OrderApiOrderPreestimateShippingListRequest {
@@ -7280,6 +7294,13 @@ export interface OrderApiOrderStatusListRequest {
      * @memberof OrderApiorderStatusList
      */
     action?: string
+    /**
+     * Indicates whether custom (user-defined) order statuses should be included in the response.
+     * Defaults to: false
+     * @type boolean
+     * @memberof OrderApiorderStatusList
+     */
+    allowUserDefinedOrderStatuses?: boolean
     /**
      * Set this parameter in order to choose which entity fields you want to retrieve
      * Defaults to: undefined
@@ -7584,7 +7605,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfoWithHttpInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<HttpInfo<OrderInfo200Response>> {
-        return this.api.orderInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
+        return this.api.orderInfoWithHttpInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision, param.allowUserDefinedOrderStatuses,  options).toPromise();
     }
 
     /**
@@ -7593,7 +7614,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderInfo(param: OrderApiOrderInfoRequest = {}, options?: Configuration): Promise<OrderInfo200Response> {
-        return this.api.orderInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
+        return this.api.orderInfo(param.id, param.orderId, param.storeId, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision, param.allowUserDefinedOrderStatuses,  options).toPromise();
     }
 
     /**
@@ -7602,7 +7623,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderListWithHttpInfo(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseOrderList>> {
-        return this.api.orderListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
+        return this.api.orderListWithHttpInfo(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision, param.allowUserDefinedOrderStatuses,  options).toPromise();
     }
 
     /**
@@ -7611,7 +7632,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderList(param: OrderApiOrderListRequest = {}, options?: Configuration): Promise<ModelResponseOrderList> {
-        return this.api.orderList(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision,  options).toPromise();
+        return this.api.orderList(param.start, param.count, param.pageCursor, param.ids, param.orderIds, param.sinceId, param.storeId, param.customerId, param.customerEmail, param.basketId, param.currencyId, param.phone, param.orderStatus, param.orderStatusIds, param.ebayOrderStatus, param.financialStatus, param.financialStatusIds, param.fulfillmentStatus, param.returnStatus, param.fulfillmentChannel, param.shippingMethod, param.skipOrderIds, param.isDeleted, param.shippingCountryIso3, param.deliveryMethod, param.shipNodeType, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.tags, param.sortBy, param.sortDirection, param.params, param.responseFields, param.exclude, param.enableCache, param.useLatestApiVersion, param.roundingPrecision, param.allowUserDefinedOrderStatuses,  options).toPromise();
     }
 
     /**
@@ -7836,7 +7857,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderStatusListWithHttpInfo(param: OrderApiOrderStatusListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseOrderStatusList>> {
-        return this.api.orderStatusListWithHttpInfo(param.storeId, param.action, param.responseFields,  options).toPromise();
+        return this.api.orderStatusListWithHttpInfo(param.storeId, param.action, param.allowUserDefinedOrderStatuses, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -7845,7 +7866,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderStatusList(param: OrderApiOrderStatusListRequest = {}, options?: Configuration): Promise<ModelResponseOrderStatusList> {
-        return this.api.orderStatusList(param.storeId, param.action, param.responseFields,  options).toPromise();
+        return this.api.orderStatusList(param.storeId, param.action, param.allowUserDefinedOrderStatuses, param.responseFields,  options).toPromise();
     }
 
     /**
