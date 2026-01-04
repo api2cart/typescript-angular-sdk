@@ -148,6 +148,14 @@ export class ProductAdd {
     */
     'reservePrice'?: number;
     /**
+    * Unit for the price per unit. Must be in allowed list
+    */
+    'measureUnit'?: string;
+    /**
+    * Defines new product\'s unit price
+    */
+    'unitPrice'?: number;
+    /**
     * Defines product\'s quantity that has to be added
     */
     'quantity'?: number;
@@ -665,6 +673,18 @@ export class ProductAdd {
         {
             "name": "reservePrice",
             "baseName": "reserve_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
             "type": "number",
             "format": ""
         },

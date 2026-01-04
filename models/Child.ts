@@ -39,6 +39,8 @@ export class Child {
     'combination'?: Array<ProductChildItemCombination>;
     'defaultPrice'?: number | null;
     'costPrice'?: number | null;
+    'unitPrice'?: number | null;
+    'measureUnit'?: string | null;
     'listPrice'?: number | null;
     'wholesalePrice'?: number | null;
     'advancedPrice'?: Array<ProductAdvancedPrice>;
@@ -191,6 +193,18 @@ export class Child {
             "name": "costPrice",
             "baseName": "cost_price",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
             "format": ""
         },
         {

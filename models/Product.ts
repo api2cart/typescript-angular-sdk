@@ -33,6 +33,8 @@ export class Product {
     'price'?: number | null;
     'advancedPrice'?: Array<ProductAdvancedPrice>;
     'costPrice'?: number | null;
+    'unitPrice'?: number | null;
+    'measureUnit'?: string | null;
     'quantity'?: number | null;
     'inventory'?: Array<ProductInventory>;
     'groupItems'?: Array<ProductGroupItem>;
@@ -144,6 +146,18 @@ export class Product {
             "name": "costPrice",
             "baseName": "cost_price",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
             "format": ""
         },
         {

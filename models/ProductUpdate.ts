@@ -135,6 +135,14 @@ export class ProductUpdate {
     */
     'availableForView'?: boolean;
     /**
+    * Unit for the price per unit. Must be in allowed list
+    */
+    'measureUnit'?: string;
+    /**
+    * Defines new product\'s unit price
+    */
+    'unitPrice'?: number;
+    /**
     * Assign product to the stores that is specified by comma-separated stores\' id
     */
     'storesIds'?: string;
@@ -551,6 +559,18 @@ export class ProductUpdate {
             "name": "availableForView",
             "baseName": "available_for_view",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
+            "type": "number",
             "format": ""
         },
         {

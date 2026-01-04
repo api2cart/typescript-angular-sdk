@@ -159,6 +159,14 @@ export class ProductVariantUpdate {
     */
     'spriceExpire'?: string;
     /**
+    * Unit for the price per unit. Must be in allowed list
+    */
+    'measureUnit'?: string;
+    /**
+    * Defines new product\'s unit price
+    */
+    'unitPrice'?: number;
+    /**
     * Weight
     */
     'weight'?: number;
@@ -458,6 +466,18 @@ export class ProductVariantUpdate {
             "name": "spriceExpire",
             "baseName": "sprice_expire",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
+            "type": "number",
             "format": ""
         },
         {

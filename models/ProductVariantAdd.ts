@@ -104,6 +104,14 @@ export class ProductVariantAdd {
     */
     'tierPrices'?: Array<ProductAddTierPricesInner>;
     /**
+    * Unit for the price per unit. Must be in allowed list
+    */
+    'measureUnit'?: string;
+    /**
+    * Defines new product\'s unit price
+    */
+    'unitPrice'?: number;
+    /**
     * Defines product variant\'s quantity that has to be added
     */
     'quantity'?: number;
@@ -375,6 +383,18 @@ export class ProductVariantAdd {
             "name": "tierPrices",
             "baseName": "tier_prices",
             "type": "Array<ProductAddTierPricesInner>",
+            "format": ""
+        },
+        {
+            "name": "measureUnit",
+            "baseName": "measure_unit",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "unitPrice",
+            "baseName": "unit_price",
+            "type": "number",
             "format": ""
         },
         {
