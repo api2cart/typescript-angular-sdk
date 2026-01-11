@@ -118,6 +118,10 @@ export class OrderCalculate {
     * Set this parameter in order to choose which entity fields you want to retrieve
     */
     'responseFields'?: string;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
     'orderItem': Array<OrderCalculateOrderItemInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -278,6 +282,12 @@ export class OrderCalculate {
         {
             "name": "responseFields",
             "baseName": "response_fields",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
             "type": "string",
             "format": ""
         },

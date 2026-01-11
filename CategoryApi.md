@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**categoryAssign**](CategoryApi.md#categoryAssign) | **POST** /category.assign.json | category.assign
 [**categoryCount**](CategoryApi.md#categoryCount) | **GET** /category.count.json | category.count
 [**categoryDelete**](CategoryApi.md#categoryDelete) | **DELETE** /category.delete.json | category.delete
+[**categoryDeleteBatch**](CategoryApi.md#categoryDeleteBatch) | **POST** /category.delete.batch.json | category.delete.batch
 [**categoryFind**](CategoryApi.md#categoryFind) | **GET** /category.find.json | category.find
 [**categoryImageAdd**](CategoryApi.md#categoryImageAdd) | **POST** /category.image.add.json | category.image.add
 [**categoryImageDelete**](CategoryApi.md#categoryImageDelete) | **DELETE** /category.image.delete.json | category.image.delete
@@ -64,6 +65,8 @@ const request: CategoryApiCategoryAddRequest = {
   storesIds: "1,2",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.categoryAdd(request);
@@ -90,6 +93,7 @@ Name | Type | Description  | Notes
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **storesIds** | [**string**] | Create category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -158,6 +162,7 @@ const request: CategoryApiCategoryAddBatchRequest = {
         ],
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -216,6 +221,8 @@ const request: CategoryApiCategoryAssignRequest = {
   productId: "10",
     // Store Id (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.categoryAssign(request);
@@ -230,6 +237,7 @@ Name | Type | Description  | Notes
  **categoryId** | [**string**] | Defines category assign, specified by category id | defaults to undefined
  **productId** | [**string**] | Defines category assign to the product, specified by product id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -398,6 +406,65 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **categoryDeleteBatch**
+> CategoryAddBatch200Response categoryDeleteBatch(categoryDeleteBatch)
+
+Delete categories from the store.
+
+### Example
+
+
+```typescript
+import { createConfiguration, CategoryApi } from '';
+import type { CategoryApiCategoryDeleteBatchRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new CategoryApi(configuration);
+
+const request: CategoryApiCategoryDeleteBatchRequest = {
+  
+  categoryDeleteBatch: {
+    payload: [
+      {
+        id: "id_example",
+      },
+    ],
+  },
+};
+
+const data = await apiInstance.categoryDeleteBatch(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryDeleteBatch** | **CategoryDeleteBatch**|  |
+
+
+### Return type
+
+**CategoryAddBatch200Response**
+
+### Authorization
+
+[StoreKeyAuth](README.md#StoreKeyAuth), [ApiKeyAuth](README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | successful operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **categoryFind**
 > CategoryFind200Response categoryFind()
 
@@ -495,6 +562,8 @@ const request: CategoryApiCategoryImageAddRequest = {
   mime: "image/jpeg",
     // Defines image’s position in the list (optional)
   position: 5,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.categoryImageAdd(request);
@@ -514,6 +583,7 @@ Name | Type | Description  | Notes
  **label** | [**string**] | Defines alternative text that has to be attached to the picture | (optional) defaults to undefined
  **mime** | [**string**] | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | (optional) defaults to undefined
  **position** | [**number**] | Defines image’s position in the list | (optional) defaults to 0
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -805,6 +875,8 @@ const request: CategoryApiCategoryUnassignRequest = {
   productId: "10",
     // Store Id (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.categoryUnassign(request);
@@ -819,6 +891,7 @@ Name | Type | Description  | Notes
  **categoryId** | [**string**] | Defines category unassign, specified by category id | defaults to undefined
  **productId** | [**string**] | Defines category unassign to the product, specified by product id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -888,6 +961,8 @@ const request: CategoryApiCategoryUpdateRequest = {
   storesIds: "1,2",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.categoryUpdate(request);
@@ -914,6 +989,7 @@ Name | Type | Description  | Notes
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **storesIds** | [**string**] | Update category in the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type

@@ -683,6 +683,8 @@ const request: AccountApiAccountConfigUpdateRequest = {
   scapiShortCode: "zs5ksm25",
     // Salesforce Commerce API Scopes (optional)
   scapiScopes: "sfcc.catalogs,sfcc.orders,sfcc.products",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.accountConfigUpdate(request);
@@ -863,6 +865,7 @@ Name | Type | Description  | Notes
  **scapiOrganizationId** | [**string**] | Salesforce Commerce Organization ID | (optional) defaults to undefined
  **scapiShortCode** | [**string**] | Salesforce Commerce Short Code | (optional) defaults to undefined
  **scapiScopes** | [**string**] | Salesforce Commerce API Scopes | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type

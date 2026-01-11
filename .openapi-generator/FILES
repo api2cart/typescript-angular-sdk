@@ -141,6 +141,8 @@ models/CategoryCount200Response.ts
 models/CategoryCount200ResponseResult.ts
 models/CategoryDelete200Response.ts
 models/CategoryDelete200ResponseResult.ts
+models/CategoryDeleteBatch.ts
+models/CategoryDeleteBatchPayloadInner.ts
 models/CategoryFind200Response.ts
 models/CategoryFind200ResponseResult.ts
 models/CategoryFind200ResponseResultCategoryInner.ts

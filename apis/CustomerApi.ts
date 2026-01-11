@@ -361,14 +361,16 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * Delete customer from store.
      * customer.delete
      * @param id Identifies customer specified by the id
+     * @param storeId Store Id
      */
-    public async customerDelete(id: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerDelete(id: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("CustomerApi", "customerDelete", "id");
         }
+
 
 
         // Path Params
@@ -381,6 +383,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (id !== undefined) {
             requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
+        }
+
+        // Query Params
+        if (storeId !== undefined) {
+            requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
 
@@ -485,14 +492,16 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
      * @param name Customer group name
      * @param storeId Store Id
      * @param storesIds Assign customer group to the stores that is specified by comma-separated stores\&#39; id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async customerGroupAdd(name: string, storeId?: string, storesIds?: string, _options?: Configuration): Promise<RequestContext> {
+    public async customerGroupAdd(name: string, storeId?: string, storesIds?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'name' is not null or undefined
         if (name === null || name === undefined) {
             throw new RequiredError("CustomerApi", "customerGroupAdd", "name");
         }
+
 
 
 
@@ -517,6 +526,11 @@ export class CustomerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storesIds !== undefined) {
             requestContext.setQueryParam("stores_ids", ObjectSerializer.serialize(storesIds, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 

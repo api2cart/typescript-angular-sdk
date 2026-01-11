@@ -107,6 +107,10 @@ export class CustomerAdd {
     * Store Id
     */
     'storeId'?: string;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
     'address'?: Array<CustomerAddAddressInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -249,6 +253,12 @@ export class CustomerAdd {
         {
             "name": "storeId",
             "baseName": "store_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
             "type": "string",
             "format": ""
         },

@@ -299,6 +299,10 @@ export class OrderAdd {
     * Specifies refund\'s fee price
     */
     'feePrice'?: number;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
     'orderItem': Array<OrderAddOrderItemInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -730,6 +734,12 @@ export class OrderAdd {
             "name": "feePrice",
             "baseName": "fee_price",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
+            "type": "string",
             "format": ""
         },
         {

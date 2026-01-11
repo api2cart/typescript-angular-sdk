@@ -45,6 +45,10 @@ export class OrderShipmentTrackingAdd {
     * Send notifications to customer after tracking was created
     */
     'sendNotifications'?: boolean;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -97,6 +101,12 @@ export class OrderShipmentTrackingAdd {
             "name": "sendNotifications",
             "baseName": "send_notifications",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
+            "type": "string",
             "format": ""
         }    ];
 

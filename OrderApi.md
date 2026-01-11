@@ -217,6 +217,7 @@ const request: OrderApiOrderAddRequest = {
     clearCache: false,
     origin: "newsletter",
     feePrice: 5.5,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderItem: [
       {
         orderItemId: "125, where {x} - 1,2,3,... etc",
@@ -330,6 +331,7 @@ const request: OrderApiOrderCalculateRequest = {
     billCompany: "Apple",
     billPhone: "8 800 5659 6896",
     responseFields: "{result}",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderItem: [
       {
         orderItemId: "125, where {x} - 1,2,3,... etc",
@@ -877,6 +879,7 @@ const request: OrderApiOrderPreestimateShippingListRequest = {
     shippCountry: "US",
     params: "id,model,price,images",
     exclude: "false",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderItem: [
       {
         orderItemId: "125, where {x} - 1,2,3,... etc",
@@ -965,6 +968,7 @@ const request: OrderApiOrderRefundAddRequest = {
     sendNotifications: true,
     date: "2012-09-25 19:40:00",
     isOnline: false,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -1030,6 +1034,7 @@ const request: OrderApiOrderReturnAddRequest = {
     comment: "This coole order",
     sendNotifications: true,
     rejectReason: "ORDER_UNPAID",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderProducts: [
       {
         orderProductId: "125, where {x} - 1,2,3,... etc",
@@ -1165,6 +1170,7 @@ const request: OrderApiOrderReturnUpdateRequest = {
     comment: "This coole order",
     sendNotifications: true,
     rejectReason: "ORDER_UNPAID",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderProducts: [
       {
         orderProductId: "125, where {x} - 1,2,3,... etc",
@@ -1252,6 +1258,7 @@ const request: OrderApiOrderShipmentAddRequest = {
     checkProcessStatus: false,
     trackingProvider: "Custom tracker",
     useLatestApiVersion: true,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -1325,6 +1332,7 @@ const request: OrderApiOrderShipmentAddBatchRequest = {
         sendNotifications: true,
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -1603,6 +1611,7 @@ const request: OrderApiOrderShipmentTrackingAddRequest = {
     trackingNumber: "1А6745",
     trackingLink: "http://example.com?someParam=value",
     sendNotifications: true,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -1679,6 +1688,7 @@ const request: OrderApiOrderShipmentUpdateRequest = {
         quantity: 3.14,
       },
     ],
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -1898,6 +1908,8 @@ const request: OrderApiOrderUpdateRequest = {
   origin: "newsletter",
     // Order tags (optional)
   tags: "tag1,tag2",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.orderUpdate(request);
@@ -1926,6 +1938,7 @@ Name | Type | Description  | Notes
  **createInvoice** | [**boolean**] | Determines whether an invoice should be created if it has not already been created | (optional) defaults to undefined
  **origin** | [**string**] | The source of the order | (optional) defaults to undefined
  **tags** | [**string**] | Order tags | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type

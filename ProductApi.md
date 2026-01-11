@@ -322,6 +322,7 @@ const request: ProductApiProductAddRequest = {
       personalizationCharCountMax: 1,
       personalizationInstructions: "personalizationInstructions_example",
     },
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -497,6 +498,7 @@ const request: ProductApiProductAddBatchRequest = {
         ],
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -660,6 +662,8 @@ const request: ProductApiProductAttributeValueSetRequest = {
   langId: "3",
     // Store Id (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productAttributeValueSet(request);
@@ -679,6 +683,7 @@ Name | Type | Description  | Notes
  **valueId** | [**number**] | Define attribute value id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -730,6 +735,8 @@ const request: ProductApiProductAttributeValueUnsetRequest = {
   reindex: false,
     // Is cache clear required (optional)
   clearCache: false,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productAttributeValueUnset(request);
@@ -747,6 +754,7 @@ Name | Type | Description  | Notes
  **includeDefault** | [**boolean**] | Boolean, whether or not to unset default value of the attribute, if applicable | (optional) defaults to false
  **reindex** | [**boolean**] | Is reindex required | (optional) defaults to true
  **clearCache** | [**boolean**] | Is cache clear required | (optional) defaults to true
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -1286,6 +1294,8 @@ const request: ProductApiProductCurrencyAddRequest = {
   symbolRight: "грн",
     // Specifies currency\'s default meaning (optional)
   _default: true,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productCurrencyAdd(request);
@@ -1304,6 +1314,7 @@ Name | Type | Description  | Notes
  **symbolLeft** | [**string**] | Defines the symbol that is located before the currency | (optional) defaults to undefined
  **symbolRight** | [**string**] | Defines the symbol that is located after the currency | (optional) defaults to undefined
  **_default** | [**boolean**] | Specifies currency\&#39;s default meaning | (optional) defaults to false
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -1481,6 +1492,7 @@ const request: ProductApiProductDeleteBatchRequest = {
         storeId: "storeId_example",
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -1617,6 +1629,7 @@ const request: ProductApiProductImageAddRequest = {
     mime: "image/jpeg",
     position: 5,
     useLatestApiVersion: true,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -1748,6 +1761,8 @@ const request: ProductApiProductImageUpdateRequest = {
   position: 5,
     // Define is hide image (optional)
   hidden: true,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productImageUpdate(request);
@@ -1769,6 +1784,7 @@ Name | Type | Description  | Notes
  **label** | [**string**] | Defines alternative text that has to be attached to the picture | (optional) defaults to undefined
  **position** | [**number**] | Defines image’s position in the list | (optional) defaults to undefined
  **hidden** | [**boolean**] | Define is hide image | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2066,6 +2082,8 @@ const request: ProductApiProductManufacturerAddRequest = {
   imageUrl: "https://docs.api2cart.com/img/logo.png",
     // Defines unique URL for SEO (optional)
   seoUrl: "some seo url",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productManufacturerAdd(request);
@@ -2086,6 +2104,7 @@ Name | Type | Description  | Notes
  **searchKeywords** | [**string**] | Defines unique search keywords | (optional) defaults to undefined
  **imageUrl** | [**string**] | Image Url | (optional) defaults to undefined
  **seoUrl** | [**string**] | Defines unique URL for SEO | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2144,6 +2163,7 @@ const request: ProductApiProductOptionAddRequest = {
       },
     ],
     clearCache: false,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -2208,6 +2228,8 @@ const request: ProductApiProductOptionAssignRequest = {
   optionValues: "green,black,yellow",
     // Is cache clear required (optional)
   clearCache: false,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productOptionAssign(request);
@@ -2225,6 +2247,7 @@ Name | Type | Description  | Notes
  **sortOrder** | [**number**] | Sort number in the list | (optional) defaults to 0
  **optionValues** | [**string**] | Defines option values that has to be assigned | (optional) defaults to undefined
  **clearCache** | [**boolean**] | Is cache clear required | (optional) defaults to true
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2411,6 +2434,8 @@ const request: ProductApiProductOptionValueAddRequest = {
   isDefault: true,
     // Is cache clear required (optional)
   clearCache: false,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productOptionValueAdd(request);
@@ -2429,6 +2454,7 @@ Name | Type | Description  | Notes
  **displayValue** | [**string**] | Defines the value that will be displayed for the option value | (optional) defaults to undefined
  **isDefault** | [**boolean**] | Defines as a default | (optional) defaults to undefined
  **clearCache** | [**boolean**] | Is cache clear required | (optional) defaults to true
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2474,6 +2500,8 @@ const request: ProductApiProductOptionValueAssignRequest = {
   optionValueId: "45",
     // Is cache clear required (optional)
   clearCache: false,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productOptionValueAssign(request);
@@ -2488,6 +2516,7 @@ Name | Type | Description  | Notes
  **productOptionId** | [**number**] | Defines product\&#39;s option id where the value has to be assigned | defaults to undefined
  **optionValueId** | [**string**] | Defines value id that has to be assigned | defaults to undefined
  **clearCache** | [**boolean**] | Is cache clear required | (optional) defaults to true
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2605,6 +2634,8 @@ const request: ProductApiProductOptionValueUpdateRequest = {
   displayValue: "value",
     // Is cache clear required (optional)
   clearCache: false,
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productOptionValueUpdate(request);
@@ -2624,6 +2655,7 @@ Name | Type | Description  | Notes
  **quantity** | [**number**] | Defines new products\&#39; options quantity | (optional) defaults to undefined
  **displayValue** | [**string**] | Defines the value that will be displayed for the option value | (optional) defaults to undefined
  **clearCache** | [**boolean**] | Is cache clear required | (optional) defaults to true
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -2674,6 +2706,7 @@ const request: ProductApiProductPriceAddRequest = {
       },
     ],
     storeId: "1",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -2796,6 +2829,7 @@ const request: ProductApiProductPriceUpdateRequest = {
         qty: 1,
       },
     ],
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -2950,6 +2984,8 @@ const request: ProductApiProductStoreAssignRequest = {
   productId: "10",
     // Defines id of the store product should be assigned to
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.productStoreAssign(request);
@@ -2963,6 +2999,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **productId** | [**string**] | Defines id of the product which should be assigned to a store | defaults to undefined
  **storeId** | [**string**] | Defines id of the store product should be assigned to | defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -3013,6 +3050,7 @@ const request: ProductApiProductTaxAddRequest = {
         value: 3.14,
       },
     ],
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -3233,6 +3271,7 @@ const request: ProductApiProductUpdateRequest = {
     externalProductLink: "http://example.com/t-shirt",
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
     minOrderQuantity: 1,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -3387,6 +3426,7 @@ const request: ProductApiProductUpdateBatchRequest = {
         harmonizedSystemCode: "harmonizedSystemCode_example",
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -3510,6 +3550,7 @@ const request: ProductApiProductVariantAddRequest = {
     processingProfileId: `12345678`,
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
     clearCache: false,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -3657,6 +3698,7 @@ const request: ProductApiProductVariantAddBatchRequest = {
         ],
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -3779,6 +3821,7 @@ const request: ProductApiProductVariantDeleteBatchRequest = {
         storeId: "storeId_example",
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 
@@ -3844,6 +3887,7 @@ const request: ProductApiProductVariantImageAddRequest = {
     mime: "image/jpeg",
     position: 5,
     optionId: "5",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -4096,6 +4140,7 @@ const request: ProductApiProductVariantPriceUpdateRequest = {
         qty: 1,
       },
     ],
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -4213,6 +4258,7 @@ const request: ProductApiProductVariantUpdateRequest = {
     reindex: false,
     clearCache: false,
     processingProfileId: `12345678`,
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -4350,6 +4396,7 @@ const request: ProductApiProductVariantUpdateBatchRequest = {
         ],
       },
     ],
+    idempotencyKey: "idempotencyKey_example",
   },
 };
 

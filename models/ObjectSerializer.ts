@@ -98,6 +98,8 @@ export * from '../models/CategoryCount200Response';
 export * from '../models/CategoryCount200ResponseResult';
 export * from '../models/CategoryDelete200Response';
 export * from '../models/CategoryDelete200ResponseResult';
+export * from '../models/CategoryDeleteBatch';
+export * from '../models/CategoryDeleteBatchPayloadInner';
 export * from '../models/CategoryFind200Response';
 export * from '../models/CategoryFind200ResponseResult';
 export * from '../models/CategoryFind200ResponseResultCategoryInner';
@@ -487,7 +489,7 @@ import { Cart } from '../models/Cart';
 import { CartCatalogPriceRulesCount200Response } from '../models/CartCatalogPriceRulesCount200Response';
 import { CartCatalogPriceRulesCount200ResponseResult } from '../models/CartCatalogPriceRulesCount200ResponseResult';
 import { CartChannel } from '../models/CartChannel';
-import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                  } from '../models/CartCouponAdd';
+import { CartCouponAdd , CartCouponAddActionTypeEnum  , CartCouponAddActionApplyToEnum  , CartCouponAddActionScopeEnum                   } from '../models/CartCouponAdd';
 import { CartCouponAdd200Response } from '../models/CartCouponAdd200Response';
 import { CartCouponAdd200ResponseResult } from '../models/CartCouponAdd200ResponseResult';
 import { CartCouponCount200Response } from '../models/CartCouponCount200Response';
@@ -529,6 +531,8 @@ import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
 import { CategoryDelete200ResponseResult } from '../models/CategoryDelete200ResponseResult';
+import { CategoryDeleteBatch } from '../models/CategoryDeleteBatch';
+import { CategoryDeleteBatchPayloadInner } from '../models/CategoryDeleteBatchPayloadInner';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
 import { CategoryFind200ResponseResult } from '../models/CategoryFind200ResponseResult';
 import { CategoryFind200ResponseResultCategoryInner } from '../models/CategoryFind200ResponseResultCategoryInner';
@@ -684,7 +688,7 @@ import { Product } from '../models/Product';
 import { ProductAdd } from '../models/ProductAdd';
 import { ProductAdd200Response } from '../models/ProductAdd200Response';
 import { ProductAdd200ResponseResult } from '../models/ProductAdd200ResponseResult';
-import { ProductAddBatch, ProductAddBatchNestedItemsUpdateBehaviourEnum      } from '../models/ProductAddBatch';
+import { ProductAddBatch, ProductAddBatchNestedItemsUpdateBehaviourEnum       } from '../models/ProductAddBatch';
 import { ProductAddBatchPayloadInner } from '../models/ProductAddBatchPayloadInner';
 import { ProductAddBatchPayloadInnerAdvancedPricesInner } from '../models/ProductAddBatchPayloadInnerAdvancedPricesInner';
 import { ProductAddBatchPayloadInnerImagesInner } from '../models/ProductAddBatchPayloadInnerImagesInner';
@@ -732,7 +736,7 @@ import { ProductFind200ResponseResult } from '../models/ProductFind200ResponseRe
 import { ProductFind200ResponseResultProductInner } from '../models/ProductFind200ResponseResultProductInner';
 import { ProductGroupItem } from '../models/ProductGroupItem';
 import { ProductGroupPrice } from '../models/ProductGroupPrice';
-import { ProductImageAdd, ProductImageAddTypeEnum                } from '../models/ProductImageAdd';
+import { ProductImageAdd, ProductImageAddTypeEnum                 } from '../models/ProductImageAdd';
 import { ProductImageAdd200Response } from '../models/ProductImageAdd200Response';
 import { ProductImageAdd200ResponseResult } from '../models/ProductImageAdd200ResponseResult';
 import { ProductImageUpdate200Response } from '../models/ProductImageUpdate200Response';
@@ -742,7 +746,7 @@ import { ProductInventory } from '../models/ProductInventory';
 import { ProductManufacturerAdd200Response } from '../models/ProductManufacturerAdd200Response';
 import { ProductManufacturerAdd200ResponseResult } from '../models/ProductManufacturerAdd200ResponseResult';
 import { ProductOption } from '../models/ProductOption';
-import { ProductOptionAdd , ProductOptionAddTypeEnum            } from '../models/ProductOptionAdd';
+import { ProductOptionAdd , ProductOptionAddTypeEnum             } from '../models/ProductOptionAdd';
 import { ProductOptionAdd200Response } from '../models/ProductOptionAdd200Response';
 import { ProductOptionAdd200ResponseResult } from '../models/ProductOptionAdd200ResponseResult';
 import { ProductOptionAddValuesInner } from '../models/ProductOptionAddValuesInner';
@@ -764,7 +768,7 @@ import { ProductTaxAdd200ResponseResult } from '../models/ProductTaxAdd200Respon
 import { ProductTaxAddTaxRatesInner } from '../models/ProductTaxAddTaxRatesInner';
 import { ProductTierPrice } from '../models/ProductTierPrice';
 import { ProductUpdate } from '../models/ProductUpdate';
-import { ProductUpdateBatch, ProductUpdateBatchNestedItemsUpdateBehaviourEnum      } from '../models/ProductUpdateBatch';
+import { ProductUpdateBatch, ProductUpdateBatchNestedItemsUpdateBehaviourEnum       } from '../models/ProductUpdateBatch';
 import { ProductUpdateBatchPayloadInner } from '../models/ProductUpdateBatchPayloadInner';
 import { ProductUpdateBatchPayloadInnerAdvancedPricesInner } from '../models/ProductUpdateBatchPayloadInnerAdvancedPricesInner';
 import { ProductUpdateBatchPayloadInnerImagesInner } from '../models/ProductUpdateBatchPayloadInnerImagesInner';
@@ -777,13 +781,13 @@ import { ProductVariantAddBatchPayloadInner } from '../models/ProductVariantAddB
 import { ProductVariantAddBatchPayloadInnerCombinationInner } from '../models/ProductVariantAddBatchPayloadInnerCombinationInner';
 import { ProductVariantDeleteBatch } from '../models/ProductVariantDeleteBatch';
 import { ProductVariantDeleteBatchPayloadInner } from '../models/ProductVariantDeleteBatchPayloadInner';
-import { ProductVariantImageAdd    , ProductVariantImageAddTypeEnum         } from '../models/ProductVariantImageAdd';
+import { ProductVariantImageAdd    , ProductVariantImageAddTypeEnum          } from '../models/ProductVariantImageAdd';
 import { ProductVariantImageAdd200Response } from '../models/ProductVariantImageAdd200Response';
 import { ProductVariantImageAdd200ResponseResult } from '../models/ProductVariantImageAdd200ResponseResult';
 import { ProductVariantPriceAdd } from '../models/ProductVariantPriceAdd';
 import { ProductVariantPriceUpdate } from '../models/ProductVariantPriceUpdate';
 import { ProductVariantUpdate } from '../models/ProductVariantUpdate';
-import { ProductVariantUpdateBatch, ProductVariantUpdateBatchNestedItemsUpdateBehaviourEnum      } from '../models/ProductVariantUpdateBatch';
+import { ProductVariantUpdateBatch, ProductVariantUpdateBatchNestedItemsUpdateBehaviourEnum       } from '../models/ProductVariantUpdateBatch';
 import { ProductVariantUpdateBatchPayloadInner } from '../models/ProductVariantUpdateBatchPayloadInner';
 import { ProductVariantUpdateOptionsInner } from '../models/ProductVariantUpdateOptionsInner';
 import { ResponseAttributeAttributesetListResult } from '../models/ResponseAttributeAttributesetListResult';
@@ -991,6 +995,8 @@ let typeMap: {[index: string]: any} = {
     "CategoryCount200ResponseResult": CategoryCount200ResponseResult,
     "CategoryDelete200Response": CategoryDelete200Response,
     "CategoryDelete200ResponseResult": CategoryDelete200ResponseResult,
+    "CategoryDeleteBatch": CategoryDeleteBatch,
+    "CategoryDeleteBatchPayloadInner": CategoryDeleteBatchPayloadInner,
     "CategoryFind200Response": CategoryFind200Response,
     "CategoryFind200ResponseResult": CategoryFind200ResponseResult,
     "CategoryFind200ResponseResultCategoryInner": CategoryFind200ResponseResultCategoryInner,

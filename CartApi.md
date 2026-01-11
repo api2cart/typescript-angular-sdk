@@ -185,6 +185,7 @@ const request: CartApiCartCouponAddRequest = {
     storeId: "1",
     freeCashOnDelivery: true,
     customerId: "5",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -255,6 +256,8 @@ const request: CartApiCartCouponConditionAddRequest = {
   includeShipping: true,
     // Store Id (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.cartCouponConditionAdd(request);
@@ -275,6 +278,7 @@ Name | Type | Description  | Notes
  **includeTax** | [**boolean**] | Indicates whether to apply a discount for taxes. | (optional) defaults to false
  **includeShipping** | [**boolean**] | Indicates whether to apply a discount for shipping. | (optional) defaults to false
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -598,6 +602,8 @@ const request: CartApiCartGiftcardAddRequest = {
   recipientName: "John Doe",
     // Gift card owner name (optional)
   ownerName: "John Doe",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.cartGiftcardAdd(request);
@@ -615,6 +621,7 @@ Name | Type | Description  | Notes
  **recipientEmail** | [**string**] | Gift card recipient email | (optional) defaults to undefined
  **recipientName** | [**string**] | Gift card recipient name | (optional) defaults to undefined
  **ownerName** | [**string**] | Gift card owner name | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -987,6 +994,8 @@ const request: CartApiCartMetaDataSetRequest = {
   storeId: "1",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.cartMetaDataSet(request);
@@ -1005,6 +1014,7 @@ Name | Type | Description  | Notes
  **entity** | [**string**] | Entity | (optional) defaults to 'product'
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -1230,6 +1240,8 @@ const request: CartApiCartScriptAddRequest = {
   events: "purchase_event",
     // Store Id (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.cartScriptAdd(request);
@@ -1249,6 +1261,7 @@ Name | Type | Description  | Notes
  **scope** | [**string**] | The page or pages on the online store where the script should be included | (optional) defaults to 'storefront'
  **events** | [**string**] | Event for run scripts | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type

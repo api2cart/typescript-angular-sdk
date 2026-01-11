@@ -1831,6 +1831,7 @@ export enum AccountCartAddCartIdEnum {
     PrestashopApi = 'PrestashopApi',
     SsPremium = 'SSPremium',
     Salla = 'Salla',
+    Scapi = 'SCAPI',
     Shopify = 'Shopify',
     Shopee = 'Shopee',
     Shoplazza = 'Shoplazza',

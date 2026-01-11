@@ -101,6 +101,8 @@ import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
 import { CategoryDelete200ResponseResult } from '../models/CategoryDelete200ResponseResult';
+import { CategoryDeleteBatch } from '../models/CategoryDeleteBatch';
+import { CategoryDeleteBatchPayloadInner } from '../models/CategoryDeleteBatchPayloadInner';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
 import { CategoryFind200ResponseResult } from '../models/CategoryFind200ResponseResult';
 import { CategoryFind200ResponseResultCategoryInner } from '../models/CategoryFind200ResponseResultCategoryInner';
@@ -1673,6 +1675,13 @@ export interface AccountApiAccountConfigUpdateRequest {
      * @memberof AccountApiaccountConfigUpdate
      */
     scapiScopes?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AccountApiaccountConfigUpdate
+     */
+    idempotencyKey?: string
 }
 
 export interface AccountApiAccountFailedWebhooksRequest {
@@ -1751,7 +1760,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdateWithHttpInfo(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.americommerceAppId, param.americommerceAppSecret, param.americommerceAccessToken, param.americommerceRefreshToken, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyClientId, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.unasApiKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion, param.scapiClientId, param.scapiClientSecret, param.scapiOrganizationId, param.scapiShortCode, param.scapiScopes,  options).toPromise();
+        return this.api.accountConfigUpdateWithHttpInfo(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.americommerceAppId, param.americommerceAppSecret, param.americommerceAccessToken, param.americommerceRefreshToken, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyClientId, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.unasApiKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion, param.scapiClientId, param.scapiClientSecret, param.scapiOrganizationId, param.scapiShortCode, param.scapiScopes, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -1760,7 +1769,7 @@ export class ObjectAccountApi {
      * @param param the request object
      */
     public accountConfigUpdate(param: AccountApiAccountConfigUpdateRequest = {}, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.americommerceAppId, param.americommerceAppSecret, param.americommerceAccessToken, param.americommerceRefreshToken, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyClientId, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.unasApiKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion, param.scapiClientId, param.scapiClientSecret, param.scapiOrganizationId, param.scapiShortCode, param.scapiScopes,  options).toPromise();
+        return this.api.accountConfigUpdate(param.replaceParameters, param.newStoreUrl, param.newStoreKey, param.bridgeUrl, param.storeRoot, param.dbTablesPrefix, param.userAgent, param._3dcartPrivateKey, param._3dcartAccessToken, param._3dcartapiApiKey, param.amazonSpClientId, param.amazonSpClientSecret, param.amazonSpRefreshToken, param.amazonSpAwsRegion, param.amazonSpApiEnvironment, param.amazonSellerId, param.aspdotnetstorefrontApiUser, param.aspdotnetstorefrontApiPass, param.americommerceAppId, param.americommerceAppSecret, param.americommerceAccessToken, param.americommerceRefreshToken, param.bigcommerceapiAdminAccount, param.bigcommerceapiApiPath, param.bigcommerceapiApiKey, param.bigcommerceapiClientId, param.bigcommerceapiAccessToken, param.bigcommerceapiContext, param.bolApiKey, param.bolApiSecret, param.bolRetailerId, param.demandwareClientId, param.demandwareApiPassword, param.demandwareUserName, param.demandwareUserPassword, param.ebayClientId, param.ebayClientSecret, param.ebayRuname, param.ebayAccessToken, param.ebayRefreshToken, param.ebayEnvironment, param.ebaySiteId, param.ecwidAcessToken, param.ecwidStoreId, param.lazadaAppId, param.lazadaAppSecret, param.lazadaRefreshToken, param.lazadaRegion, param.etsyKeystring, param.etsySharedSecret, param.etsyAccessToken, param.etsyTokenSecret, param.etsyClientId, param.etsyRefreshToken, param.facebookAppId, param.facebookAppSecret, param.facebookAccessToken, param.facebookBusinessId, param.netoApiKey, param.netoApiUsername, param.shoplineAccessToken, param.shoplineAppKey, param.shoplineAppSecret, param.shoplineSharedSecret, param.shopifyAccessToken, param.shopifyClientId, param.shopifyApiKey, param.shopifyApiPassword, param.shopifySharedSecret, param.shopeePartnerId, param.shopeePartnerKey, param.shopeeShopId, param.shopeeRefreshToken, param.shopeeRegion, param.shopeeEnvironment, param.shoplazzaAccessToken, param.shoplazzaSharedSecret, param.mivaAccessToken, param.mivaSignature, param.shopwareAccessKey, param.unasApiKey, param.shopwareApiKey, param.shopwareApiSecret, param.bigcartelUserName, param.bigcartelPassword, param.bricklinkConsumerKey, param.bricklinkConsumerSecret, param.bricklinkToken, param.bricklinkTokenSecret, param.volusionLogin, param.volusionPassword, param.walmartClientId, param.walmartClientSecret, param.walmartEnvironment, param.walmartChannelType, param.walmartRegion, param.squareClientId, param.squareClientSecret, param.squareRefreshToken, param.squarespaceApiKey, param.squarespaceClientId, param.squarespaceClientSecret, param.squarespaceAccessToken, param.squarespaceRefreshToken, param.hybrisClientId, param.hybrisClientSecret, param.hybrisUsername, param.hybrisPassword, param.hybrisWebsites, param.lightspeedApiKey, param.lightspeedApiSecret, param.commercehqApiKey, param.commercehqApiPassword, param.wcConsumerKey, param.wcConsumerSecret, param.magentoConsumerKey, param.magentoConsumerSecret, param.magentoAccessToken, param.magentoTokenSecret, param.prestashopWebserviceKey, param.wixAppId, param.wixAppSecretKey, param.wixInstanceId, param.wixRefreshToken, param.mercadoLibreAppId, param.mercadoLibreAppSecretKey, param.mercadoLibreRefreshToken, param.zidClientId, param.zidClientSecret, param.zidAccessToken, param.zidAuthorization, param.zidRefreshToken, param.flipkartClientId, param.flipkartClientSecret, param.allegroClientId, param.allegroClientSecret, param.allegroAccessToken, param.allegroRefreshToken, param.allegroEnvironment, param.zohoClientId, param.zohoClientSecret, param.zohoRefreshToken, param.zohoRegion, param.tiendanubeUserId, param.tiendanubeAccessToken, param.tiendanubeClientSecret, param.ottoClientId, param.ottoClientSecret, param.ottoAppId, param.ottoRefreshToken, param.ottoEnvironment, param.ottoAccessToken, param.tiktokshopAppKey, param.tiktokshopAppSecret, param.tiktokshopRefreshToken, param.tiktokshopAccessToken, param.sallaClientId, param.sallaClientSecret, param.sallaRefreshToken, param.sallaAccessToken, param.temuAppKey, param.temuAppSecret, param.temuAccessToken, param.temuRegion, param.scapiClientId, param.scapiClientSecret, param.scapiOrganizationId, param.scapiShortCode, param.scapiScopes, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -1952,6 +1961,13 @@ export interface AttributeApiAttributeAddRequest {
      * @memberof AttributeApiattributeAdd
      */
     applyTo?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeAssignGroupRequest {
@@ -1976,6 +1992,13 @@ export interface AttributeApiAttributeAssignGroupRequest {
      * @memberof AttributeApiattributeAssignGroup
      */
     attributeSetId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeAssignGroup
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeAssignSetRequest {
@@ -2000,6 +2023,13 @@ export interface AttributeApiAttributeAssignSetRequest {
      * @memberof AttributeApiattributeAssignSet
      */
     groupId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeAssignSet
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeAttributesetListRequest {
@@ -2325,6 +2355,13 @@ export interface AttributeApiAttributeUnassignGroupRequest {
      * @memberof AttributeApiattributeUnassignGroup
      */
     groupId: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeUnassignGroup
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeUnassignSetRequest {
@@ -2342,6 +2379,13 @@ export interface AttributeApiAttributeUnassignSetRequest {
      * @memberof AttributeApiattributeUnassignSet
      */
     attributeSetId: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeUnassignSet
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeUpdateRequest {
@@ -2373,6 +2417,13 @@ export interface AttributeApiAttributeUpdateRequest {
      * @memberof AttributeApiattributeUpdate
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeUpdate
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeValueAddRequest {
@@ -2418,6 +2469,13 @@ export interface AttributeApiAttributeValueAddRequest {
      * @memberof AttributeApiattributeValueAdd
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeValueAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface AttributeApiAttributeValueDeleteRequest {
@@ -2494,6 +2552,13 @@ export interface AttributeApiAttributeValueUpdateRequest {
      * @memberof AttributeApiattributeValueUpdate
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof AttributeApiattributeValueUpdate
+     */
+    idempotencyKey?: string
 }
 
 export class ObjectAttributeApi {
@@ -2509,7 +2574,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAddWithHttpInfo(param: AttributeApiAttributeAddRequest, options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        return this.api.attributeAddWithHttpInfo(param.type, param.name, param.code, param.storeId, param.langId, param.visible, param.required, param.position, param.attributeGroupId, param.isGlobal, param.isSearchable, param.isFilterable, param.isComparable, param.isHtmlAllowedOnFront, param.isFilterableInSearch, param.isConfigurable, param.isVisibleInAdvancedSearch, param.isUsedForPromoRules, param.usedInProductListing, param.usedForSortBy, param.applyTo,  options).toPromise();
+        return this.api.attributeAddWithHttpInfo(param.type, param.name, param.code, param.storeId, param.langId, param.visible, param.required, param.position, param.attributeGroupId, param.isGlobal, param.isSearchable, param.isFilterable, param.isComparable, param.isHtmlAllowedOnFront, param.isFilterableInSearch, param.isConfigurable, param.isVisibleInAdvancedSearch, param.isUsedForPromoRules, param.usedInProductListing, param.usedForSortBy, param.applyTo, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2518,7 +2583,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAdd(param: AttributeApiAttributeAddRequest, options?: Configuration): Promise<AttributeAdd200Response> {
-        return this.api.attributeAdd(param.type, param.name, param.code, param.storeId, param.langId, param.visible, param.required, param.position, param.attributeGroupId, param.isGlobal, param.isSearchable, param.isFilterable, param.isComparable, param.isHtmlAllowedOnFront, param.isFilterableInSearch, param.isConfigurable, param.isVisibleInAdvancedSearch, param.isUsedForPromoRules, param.usedInProductListing, param.usedForSortBy, param.applyTo,  options).toPromise();
+        return this.api.attributeAdd(param.type, param.name, param.code, param.storeId, param.langId, param.visible, param.required, param.position, param.attributeGroupId, param.isGlobal, param.isSearchable, param.isFilterable, param.isComparable, param.isHtmlAllowedOnFront, param.isFilterableInSearch, param.isConfigurable, param.isVisibleInAdvancedSearch, param.isUsedForPromoRules, param.usedInProductListing, param.usedForSortBy, param.applyTo, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2527,7 +2592,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAssignGroupWithHttpInfo(param: AttributeApiAttributeAssignGroupRequest, options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
-        return this.api.attributeAssignGroupWithHttpInfo(param.id, param.groupId, param.attributeSetId,  options).toPromise();
+        return this.api.attributeAssignGroupWithHttpInfo(param.id, param.groupId, param.attributeSetId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2536,7 +2601,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAssignGroup(param: AttributeApiAttributeAssignGroupRequest, options?: Configuration): Promise<AttributeAssignGroup200Response> {
-        return this.api.attributeAssignGroup(param.id, param.groupId, param.attributeSetId,  options).toPromise();
+        return this.api.attributeAssignGroup(param.id, param.groupId, param.attributeSetId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2545,7 +2610,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAssignSetWithHttpInfo(param: AttributeApiAttributeAssignSetRequest, options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
-        return this.api.attributeAssignSetWithHttpInfo(param.id, param.attributeSetId, param.groupId,  options).toPromise();
+        return this.api.attributeAssignSetWithHttpInfo(param.id, param.attributeSetId, param.groupId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2554,7 +2619,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeAssignSet(param: AttributeApiAttributeAssignSetRequest, options?: Configuration): Promise<AttributeAssignGroup200Response> {
-        return this.api.attributeAssignSet(param.id, param.attributeSetId, param.groupId,  options).toPromise();
+        return this.api.attributeAssignSet(param.id, param.attributeSetId, param.groupId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2689,7 +2754,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUnassignGroupWithHttpInfo(param: AttributeApiAttributeUnassignGroupRequest, options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
-        return this.api.attributeUnassignGroupWithHttpInfo(param.id, param.groupId,  options).toPromise();
+        return this.api.attributeUnassignGroupWithHttpInfo(param.id, param.groupId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2698,7 +2763,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUnassignGroup(param: AttributeApiAttributeUnassignGroupRequest, options?: Configuration): Promise<AttributeUnassignGroup200Response> {
-        return this.api.attributeUnassignGroup(param.id, param.groupId,  options).toPromise();
+        return this.api.attributeUnassignGroup(param.id, param.groupId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2707,7 +2772,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUnassignSetWithHttpInfo(param: AttributeApiAttributeUnassignSetRequest, options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
-        return this.api.attributeUnassignSetWithHttpInfo(param.id, param.attributeSetId,  options).toPromise();
+        return this.api.attributeUnassignSetWithHttpInfo(param.id, param.attributeSetId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2716,7 +2781,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUnassignSet(param: AttributeApiAttributeUnassignSetRequest, options?: Configuration): Promise<AttributeUnassignGroup200Response> {
-        return this.api.attributeUnassignSet(param.id, param.attributeSetId,  options).toPromise();
+        return this.api.attributeUnassignSet(param.id, param.attributeSetId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2725,7 +2790,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUpdateWithHttpInfo(param: AttributeApiAttributeUpdateRequest, options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
-        return this.api.attributeUpdateWithHttpInfo(param.id, param.name, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeUpdateWithHttpInfo(param.id, param.name, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2734,7 +2799,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeUpdate(param: AttributeApiAttributeUpdateRequest, options?: Configuration): Promise<AttributeUpdate200Response> {
-        return this.api.attributeUpdate(param.id, param.name, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeUpdate(param.id, param.name, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2743,7 +2808,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeValueAddWithHttpInfo(param: AttributeApiAttributeValueAddRequest, options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        return this.api.attributeValueAddWithHttpInfo(param.attributeId, param.name, param.code, param.description, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeValueAddWithHttpInfo(param.attributeId, param.name, param.code, param.description, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2752,7 +2817,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeValueAdd(param: AttributeApiAttributeValueAddRequest, options?: Configuration): Promise<AttributeAdd200Response> {
-        return this.api.attributeValueAdd(param.attributeId, param.name, param.code, param.description, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeValueAdd(param.attributeId, param.name, param.code, param.description, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2779,7 +2844,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeValueUpdateWithHttpInfo(param: AttributeApiAttributeValueUpdateRequest, options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
-        return this.api.attributeValueUpdateWithHttpInfo(param.id, param.attributeId, param.name, param.description, param.code, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeValueUpdateWithHttpInfo(param.id, param.attributeId, param.name, param.description, param.code, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2788,7 +2853,7 @@ export class ObjectAttributeApi {
      * @param param the request object
      */
     public attributeValueUpdate(param: AttributeApiAttributeValueUpdateRequest, options?: Configuration): Promise<AttributeUpdate200Response> {
-        return this.api.attributeValueUpdate(param.id, param.attributeId, param.name, param.description, param.code, param.storeId, param.langId,  options).toPromise();
+        return this.api.attributeValueUpdate(param.id, param.attributeId, param.name, param.description, param.code, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
 }
@@ -2870,6 +2935,13 @@ export interface BasketApiBasketItemAddRequest {
      * @memberof BasketApibasketItemAdd
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof BasketApibasketItemAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface BasketApiBasketLiveShippingServiceCreateRequest {
@@ -2894,6 +2966,13 @@ export interface BasketApiBasketLiveShippingServiceCreateRequest {
      * @memberof BasketApibasketLiveShippingServiceCreate
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof BasketApibasketLiveShippingServiceCreate
+     */
+    idempotencyKey?: string
 }
 
 export interface BasketApiBasketLiveShippingServiceDeleteRequest {
@@ -2961,7 +3040,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketItemAddWithHttpInfo(param: BasketApiBasketItemAddRequest, options?: Configuration): Promise<HttpInfo<BasketItemAdd200Response>> {
-        return this.api.basketItemAddWithHttpInfo(param.customerId, param.productId, param.variantId, param.quantity, param.storeId,  options).toPromise();
+        return this.api.basketItemAddWithHttpInfo(param.customerId, param.productId, param.variantId, param.quantity, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2970,7 +3049,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketItemAdd(param: BasketApiBasketItemAddRequest, options?: Configuration): Promise<BasketItemAdd200Response> {
-        return this.api.basketItemAdd(param.customerId, param.productId, param.variantId, param.quantity, param.storeId,  options).toPromise();
+        return this.api.basketItemAdd(param.customerId, param.productId, param.variantId, param.quantity, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2979,7 +3058,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketLiveShippingServiceCreateWithHttpInfo(param: BasketApiBasketLiveShippingServiceCreateRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        return this.api.basketLiveShippingServiceCreateWithHttpInfo(param.name, param.callback, param.storeId,  options).toPromise();
+        return this.api.basketLiveShippingServiceCreateWithHttpInfo(param.name, param.callback, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -2988,7 +3067,7 @@ export class ObjectBasketApi {
      * @param param the request object
      */
     public basketLiveShippingServiceCreate(param: BasketApiBasketLiveShippingServiceCreateRequest, options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        return this.api.basketLiveShippingServiceCreate(param.name, param.callback, param.storeId,  options).toPromise();
+        return this.api.basketLiveShippingServiceCreate(param.name, param.callback, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -3359,6 +3438,13 @@ export interface CartApiCartCouponConditionAddRequest {
      * @memberof CartApicartCouponConditionAdd
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartCouponConditionAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CartApiCartCouponCountRequest {
@@ -3584,6 +3670,13 @@ export interface CartApiCartGiftcardAddRequest {
      * @memberof CartApicartGiftcardAdd
      */
     ownerName?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartGiftcardAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CartApiCartGiftcardCountRequest {
@@ -3812,6 +3905,13 @@ export interface CartApiCartMetaDataSetRequest {
      * @memberof CartApicartMetaDataSet
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartMetaDataSet
+     */
+    idempotencyKey?: string
 }
 
 export interface CartApiCartMetaDataUnsetRequest {
@@ -3936,6 +4036,13 @@ export interface CartApiCartScriptAddRequest {
      * @memberof CartApicartScriptAdd
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CartApicartScriptAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CartApiCartScriptDeleteRequest {
@@ -4164,7 +4271,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponConditionAddWithHttpInfo(param: CartApiCartCouponConditionAddRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
-        return this.api.cartCouponConditionAddWithHttpInfo(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId,  options).toPromise();
+        return this.api.cartCouponConditionAddWithHttpInfo(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4173,7 +4280,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartCouponConditionAdd(param: CartApiCartCouponConditionAddRequest, options?: Configuration): Promise<BasketLiveShippingServiceDelete200Response> {
-        return this.api.cartCouponConditionAdd(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId,  options).toPromise();
+        return this.api.cartCouponConditionAdd(param.couponId, param.entity, param.key, param.operator, param.value, param.target, param.includeTax, param.includeShipping, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4254,7 +4361,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartGiftcardAddWithHttpInfo(param: CartApiCartGiftcardAddRequest, options?: Configuration): Promise<HttpInfo<CartGiftcardAdd200Response>> {
-        return this.api.cartGiftcardAddWithHttpInfo(param.amount, param.code, param.ownerEmail, param.recipientEmail, param.recipientName, param.ownerName,  options).toPromise();
+        return this.api.cartGiftcardAddWithHttpInfo(param.amount, param.code, param.ownerEmail, param.recipientEmail, param.recipientName, param.ownerName, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4263,7 +4370,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartGiftcardAdd(param: CartApiCartGiftcardAddRequest, options?: Configuration): Promise<CartGiftcardAdd200Response> {
-        return this.api.cartGiftcardAdd(param.amount, param.code, param.ownerEmail, param.recipientEmail, param.recipientName, param.ownerName,  options).toPromise();
+        return this.api.cartGiftcardAdd(param.amount, param.code, param.ownerEmail, param.recipientEmail, param.recipientName, param.ownerName, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4362,7 +4469,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartMetaDataSetWithHttpInfo(param: CartApiCartMetaDataSetRequest, options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        return this.api.cartMetaDataSetWithHttpInfo(param.entityId, param.key, param.value, param.namespace, param.entity, param.storeId, param.langId,  options).toPromise();
+        return this.api.cartMetaDataSetWithHttpInfo(param.entityId, param.key, param.value, param.namespace, param.entity, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4371,7 +4478,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartMetaDataSet(param: CartApiCartMetaDataSetRequest, options?: Configuration): Promise<AttributeAdd200Response> {
-        return this.api.cartMetaDataSet(param.entityId, param.key, param.value, param.namespace, param.entity, param.storeId, param.langId,  options).toPromise();
+        return this.api.cartMetaDataSet(param.entityId, param.key, param.value, param.namespace, param.entity, param.storeId, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4434,7 +4541,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartScriptAddWithHttpInfo(param: CartApiCartScriptAddRequest = {}, options?: Configuration): Promise<HttpInfo<CartScriptAdd200Response>> {
-        return this.api.cartScriptAddWithHttpInfo(param.name, param.description, param.html, param.src, param.loadMethod, param.scope, param.events, param.storeId,  options).toPromise();
+        return this.api.cartScriptAddWithHttpInfo(param.name, param.description, param.html, param.src, param.loadMethod, param.scope, param.events, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4443,7 +4550,7 @@ export class ObjectCartApi {
      * @param param the request object
      */
     public cartScriptAdd(param: CartApiCartScriptAddRequest = {}, options?: Configuration): Promise<CartScriptAdd200Response> {
-        return this.api.cartScriptAdd(param.name, param.description, param.html, param.src, param.loadMethod, param.scope, param.events, param.storeId,  options).toPromise();
+        return this.api.cartScriptAdd(param.name, param.description, param.html, param.src, param.loadMethod, param.scope, param.events, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -4629,6 +4736,13 @@ export interface CategoryApiCategoryAddRequest {
      * @memberof CategoryApicategoryAdd
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CategoryApiCategoryAddBatchRequest {
@@ -4662,6 +4776,13 @@ export interface CategoryApiCategoryAssignRequest {
      * @memberof CategoryApicategoryAssign
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryAssign
+     */
+    idempotencyKey?: string
 }
 
 export interface CategoryApiCategoryCountRequest {
@@ -4775,6 +4896,15 @@ export interface CategoryApiCategoryDeleteRequest {
     storeId?: string
 }
 
+export interface CategoryApiCategoryDeleteBatchRequest {
+    /**
+     * 
+     * @type CategoryDeleteBatch
+     * @memberof CategoryApicategoryDeleteBatch
+     */
+    categoryDeleteBatch: CategoryDeleteBatch
+}
+
 export interface CategoryApiCategoryFindRequest {
     /**
      * Entity search that is specified by some value
@@ -4870,6 +5000,13 @@ export interface CategoryApiCategoryImageAddRequest {
      * @memberof CategoryApicategoryImageAdd
      */
     position?: number
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryImageAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CategoryApiCategoryImageDeleteRequest {
@@ -5127,6 +5264,13 @@ export interface CategoryApiCategoryUnassignRequest {
      * @memberof CategoryApicategoryUnassign
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUnassign
+     */
+    idempotencyKey?: string
 }
 
 export interface CategoryApiCategoryUpdateRequest {
@@ -5235,6 +5379,13 @@ export interface CategoryApiCategoryUpdateRequest {
      * @memberof CategoryApicategoryUpdate
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CategoryApicategoryUpdate
+     */
+    idempotencyKey?: string
 }
 
 export class ObjectCategoryApi {
@@ -5250,7 +5401,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAddWithHttpInfo(param: CategoryApiCategoryAddRequest, options?: Configuration): Promise<HttpInfo<CategoryAdd200Response>> {
-        return this.api.categoryAddWithHttpInfo(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
+        return this.api.categoryAddWithHttpInfo(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5259,7 +5410,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAdd(param: CategoryApiCategoryAddRequest, options?: Configuration): Promise<CategoryAdd200Response> {
-        return this.api.categoryAdd(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
+        return this.api.categoryAdd(param.name, param.description, param.shortDescription, param.parentId, param.avail, param.createdTime, param.modifiedTime, param.sortOrder, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5286,7 +5437,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAssignWithHttpInfo(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
-        return this.api.categoryAssignWithHttpInfo(param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.categoryAssignWithHttpInfo(param.categoryId, param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5295,7 +5446,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryAssign(param: CategoryApiCategoryAssignRequest, options?: Configuration): Promise<CategoryAssign200Response> {
-        return this.api.categoryAssign(param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.categoryAssign(param.categoryId, param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5335,6 +5486,24 @@ export class ObjectCategoryApi {
     }
 
     /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param param the request object
+     */
+    public categoryDeleteBatchWithHttpInfo(param: CategoryApiCategoryDeleteBatchRequest, options?: Configuration): Promise<HttpInfo<CategoryAddBatch200Response>> {
+        return this.api.categoryDeleteBatchWithHttpInfo(param.categoryDeleteBatch,  options).toPromise();
+    }
+
+    /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param param the request object
+     */
+    public categoryDeleteBatch(param: CategoryApiCategoryDeleteBatchRequest, options?: Configuration): Promise<CategoryAddBatch200Response> {
+        return this.api.categoryDeleteBatch(param.categoryDeleteBatch,  options).toPromise();
+    }
+
+    /**
      * Search category in store. \"Laptop\" is specified here by default.
      * category.find
      * @param param the request object
@@ -5358,7 +5527,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAddWithHttpInfo(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<HttpInfo<CategoryImageAdd200Response>> {
-        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position,  options).toPromise();
+        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5367,7 +5536,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAdd(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<CategoryImageAdd200Response> {
-        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position,  options).toPromise();
+        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5430,7 +5599,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUnassignWithHttpInfo(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
-        return this.api.categoryUnassignWithHttpInfo(param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.categoryUnassignWithHttpInfo(param.categoryId, param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5439,7 +5608,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUnassign(param: CategoryApiCategoryUnassignRequest, options?: Configuration): Promise<CategoryAssign200Response> {
-        return this.api.categoryUnassign(param.categoryId, param.productId, param.storeId,  options).toPromise();
+        return this.api.categoryUnassign(param.categoryId, param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5448,7 +5617,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUpdateWithHttpInfo(param: CategoryApiCategoryUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.categoryUpdateWithHttpInfo(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
+        return this.api.categoryUpdateWithHttpInfo(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5457,7 +5626,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryUpdate(param: CategoryApiCategoryUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.categoryUpdate(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId,  options).toPromise();
+        return this.api.categoryUpdate(param.id, param.name, param.description, param.shortDescription, param.parentId, param.avail, param.sortOrder, param.modifiedTime, param.metaTitle, param.metaDescription, param.metaKeywords, param.seoUrl, param.storeId, param.storesIds, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
 }
@@ -5644,6 +5813,13 @@ export interface CustomerApiCustomerDeleteRequest {
      * @memberof CustomerApicustomerDelete
      */
     id: string
+    /**
+     * Store Id
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerDelete
+     */
+    storeId?: string
 }
 
 export interface CustomerApiCustomerFindRequest {
@@ -5706,6 +5882,13 @@ export interface CustomerApiCustomerGroupAddRequest {
      * @memberof CustomerApicustomerGroupAdd
      */
     storesIds?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof CustomerApicustomerGroupAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface CustomerApiCustomerGroupListRequest {
@@ -6115,7 +6298,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerDeleteWithHttpInfo(param: CustomerApiCustomerDeleteRequest, options?: Configuration): Promise<HttpInfo<CustomerDelete200Response>> {
-        return this.api.customerDeleteWithHttpInfo(param.id,  options).toPromise();
+        return this.api.customerDeleteWithHttpInfo(param.id, param.storeId,  options).toPromise();
     }
 
     /**
@@ -6124,7 +6307,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerDelete(param: CustomerApiCustomerDeleteRequest, options?: Configuration): Promise<CustomerDelete200Response> {
-        return this.api.customerDelete(param.id,  options).toPromise();
+        return this.api.customerDelete(param.id, param.storeId,  options).toPromise();
     }
 
     /**
@@ -6151,7 +6334,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerGroupAddWithHttpInfo(param: CustomerApiCustomerGroupAddRequest, options?: Configuration): Promise<HttpInfo<CustomerGroupAdd200Response>> {
-        return this.api.customerGroupAddWithHttpInfo(param.name, param.storeId, param.storesIds,  options).toPromise();
+        return this.api.customerGroupAddWithHttpInfo(param.name, param.storeId, param.storesIds, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -6160,7 +6343,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerGroupAdd(param: CustomerApiCustomerGroupAddRequest, options?: Configuration): Promise<CustomerGroupAdd200Response> {
-        return this.api.customerGroupAdd(param.name, param.storeId, param.storesIds,  options).toPromise();
+        return this.api.customerGroupAdd(param.name, param.storeId, param.storesIds, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -7482,6 +7665,13 @@ export interface OrderApiOrderUpdateRequest {
      * @memberof OrderApiorderUpdate
      */
     tags?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof OrderApiorderUpdate
+     */
+    idempotencyKey?: string
 }
 
 export class ObjectOrderApi {
@@ -7893,7 +8083,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdateWithHttpInfo(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags,  options).toPromise();
+        return this.api.orderUpdateWithHttpInfo(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -7902,7 +8092,7 @@ export class ObjectOrderApi {
      * @param param the request object
      */
     public orderUpdate(param: OrderApiOrderUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags,  options).toPromise();
+        return this.api.orderUpdate(param.orderId, param.storeId, param.orderStatus, param.financialStatus, param.fulfillmentStatus, param.cancellationReason, param.orderPaymentMethod, param.comment, param.adminComment, param.adminPrivateComment, param.invoiceAdminComment, param.dateModified, param.dateFinished, param.sendNotifications, param.createInvoice, param.origin, param.tags, param.idempotencyKey,  options).toPromise();
     }
 
 }
@@ -8093,6 +8283,13 @@ export interface ProductApiProductAttributeValueSetRequest {
      * @memberof ProductApiproductAttributeValueSet
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeValueSet
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductAttributeValueUnsetRequest {
@@ -8138,6 +8335,13 @@ export interface ProductApiProductAttributeValueUnsetRequest {
      * @memberof ProductApiproductAttributeValueUnset
      */
     clearCache?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductAttributeValueUnset
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductBrandListRequest {
@@ -8751,6 +8955,13 @@ export interface ProductApiProductCurrencyAddRequest {
      * @memberof ProductApiproductCurrencyAdd
      */
     _default?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductCurrencyAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductCurrencyListRequest {
@@ -8987,6 +9198,13 @@ export interface ProductApiProductImageUpdateRequest {
      * @memberof ProductApiproductImageUpdate
      */
     hidden?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductImageUpdate
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductInfoRequest {
@@ -9381,6 +9599,13 @@ export interface ProductApiProductManufacturerAddRequest {
      * @memberof ProductApiproductManufacturerAdd
      */
     seoUrl?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductManufacturerAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductOptionAddRequest {
@@ -9435,6 +9660,13 @@ export interface ProductApiProductOptionAssignRequest {
      * @memberof ProductApiproductOptionAssign
      */
     clearCache?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionAssign
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductOptionDeleteRequest {
@@ -9570,6 +9802,13 @@ export interface ProductApiProductOptionValueAddRequest {
      * @memberof ProductApiproductOptionValueAdd
      */
     clearCache?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionValueAdd
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductOptionValueAssignRequest {
@@ -9594,6 +9833,13 @@ export interface ProductApiProductOptionValueAssignRequest {
      * @memberof ProductApiproductOptionValueAssign
      */
     clearCache?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionValueAssign
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductOptionValueDeleteRequest {
@@ -9684,6 +9930,13 @@ export interface ProductApiProductOptionValueUpdateRequest {
      * @memberof ProductApiproductOptionValueUpdate
      */
     clearCache?: boolean
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductOptionValueUpdate
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductPriceAddRequest {
@@ -9858,6 +10111,13 @@ export interface ProductApiProductStoreAssignRequest {
      * @memberof ProductApiproductStoreAssign
      */
     storeId: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof ProductApiproductStoreAssign
+     */
+    idempotencyKey?: string
 }
 
 export interface ProductApiProductTaxAddRequest {
@@ -10112,7 +10372,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeValueSetWithHttpInfo(param: ProductApiProductAttributeValueSetRequest, options?: Configuration): Promise<HttpInfo<ProductAttributeValueSet200Response>> {
-        return this.api.productAttributeValueSetWithHttpInfo(param.productId, param.attributeId, param.attributeGroupId, param.attributeName, param.value, param.valueId, param.langId, param.storeId,  options).toPromise();
+        return this.api.productAttributeValueSetWithHttpInfo(param.productId, param.attributeId, param.attributeGroupId, param.attributeName, param.value, param.valueId, param.langId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10121,7 +10381,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeValueSet(param: ProductApiProductAttributeValueSetRequest, options?: Configuration): Promise<ProductAttributeValueSet200Response> {
-        return this.api.productAttributeValueSet(param.productId, param.attributeId, param.attributeGroupId, param.attributeName, param.value, param.valueId, param.langId, param.storeId,  options).toPromise();
+        return this.api.productAttributeValueSet(param.productId, param.attributeId, param.attributeGroupId, param.attributeName, param.value, param.valueId, param.langId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10130,7 +10390,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeValueUnsetWithHttpInfo(param: ProductApiProductAttributeValueUnsetRequest, options?: Configuration): Promise<HttpInfo<ProductAttributeValueUnset200Response>> {
-        return this.api.productAttributeValueUnsetWithHttpInfo(param.productId, param.attributeId, param.storeId, param.includeDefault, param.reindex, param.clearCache,  options).toPromise();
+        return this.api.productAttributeValueUnsetWithHttpInfo(param.productId, param.attributeId, param.storeId, param.includeDefault, param.reindex, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10139,7 +10399,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productAttributeValueUnset(param: ProductApiProductAttributeValueUnsetRequest, options?: Configuration): Promise<ProductAttributeValueUnset200Response> {
-        return this.api.productAttributeValueUnset(param.productId, param.attributeId, param.storeId, param.includeDefault, param.reindex, param.clearCache,  options).toPromise();
+        return this.api.productAttributeValueUnset(param.productId, param.attributeId, param.storeId, param.includeDefault, param.reindex, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10238,7 +10498,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCurrencyAddWithHttpInfo(param: ProductApiProductCurrencyAddRequest, options?: Configuration): Promise<HttpInfo<ProductCurrencyAdd200Response>> {
-        return this.api.productCurrencyAddWithHttpInfo(param.iso3, param.rate, param.name, param.avail, param.symbolLeft, param.symbolRight, param._default,  options).toPromise();
+        return this.api.productCurrencyAddWithHttpInfo(param.iso3, param.rate, param.name, param.avail, param.symbolLeft, param.symbolRight, param._default, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10247,7 +10507,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productCurrencyAdd(param: ProductApiProductCurrencyAddRequest, options?: Configuration): Promise<ProductCurrencyAdd200Response> {
-        return this.api.productCurrencyAdd(param.iso3, param.rate, param.name, param.avail, param.symbolLeft, param.symbolRight, param._default,  options).toPromise();
+        return this.api.productCurrencyAdd(param.iso3, param.rate, param.name, param.avail, param.symbolLeft, param.symbolRight, param._default, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10364,7 +10624,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productImageUpdateWithHttpInfo(param: ProductApiProductImageUpdateRequest, options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        return this.api.productImageUpdateWithHttpInfo(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden,  options).toPromise();
+        return this.api.productImageUpdateWithHttpInfo(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10373,7 +10633,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productImageUpdate(param: ProductApiProductImageUpdateRequest, options?: Configuration): Promise<ProductImageUpdate200Response> {
-        return this.api.productImageUpdate(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden,  options).toPromise();
+        return this.api.productImageUpdate(param.productId, param.id, param.variantIds, param.storeId, param.langId, param.imageName, param.type, param.label, param.position, param.hidden, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10418,7 +10678,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productManufacturerAddWithHttpInfo(param: ProductApiProductManufacturerAddRequest, options?: Configuration): Promise<HttpInfo<ProductManufacturerAdd200Response>> {
-        return this.api.productManufacturerAddWithHttpInfo(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl,  options).toPromise();
+        return this.api.productManufacturerAddWithHttpInfo(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10427,7 +10687,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productManufacturerAdd(param: ProductApiProductManufacturerAddRequest, options?: Configuration): Promise<ProductManufacturerAdd200Response> {
-        return this.api.productManufacturerAdd(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl,  options).toPromise();
+        return this.api.productManufacturerAdd(param.productId, param.manufacturer, param.storeId, param.metaTitle, param.metaKeywords, param.metaDescription, param.searchKeywords, param.imageUrl, param.seoUrl, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10454,7 +10714,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionAssignWithHttpInfo(param: ProductApiProductOptionAssignRequest, options?: Configuration): Promise<HttpInfo<ProductOptionAssign200Response>> {
-        return this.api.productOptionAssignWithHttpInfo(param.productId, param.optionId, param.required, param.sortOrder, param.optionValues, param.clearCache,  options).toPromise();
+        return this.api.productOptionAssignWithHttpInfo(param.productId, param.optionId, param.required, param.sortOrder, param.optionValues, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10463,7 +10723,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionAssign(param: ProductApiProductOptionAssignRequest, options?: Configuration): Promise<ProductOptionAssign200Response> {
-        return this.api.productOptionAssign(param.productId, param.optionId, param.required, param.sortOrder, param.optionValues, param.clearCache,  options).toPromise();
+        return this.api.productOptionAssign(param.productId, param.optionId, param.required, param.sortOrder, param.optionValues, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10508,7 +10768,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueAddWithHttpInfo(param: ProductApiProductOptionValueAddRequest, options?: Configuration): Promise<HttpInfo<ProductOptionValueAdd200Response>> {
-        return this.api.productOptionValueAddWithHttpInfo(param.productId, param.optionId, param.optionValue, param.sortOrder, param.displayValue, param.isDefault, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueAddWithHttpInfo(param.productId, param.optionId, param.optionValue, param.sortOrder, param.displayValue, param.isDefault, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10517,7 +10777,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueAdd(param: ProductApiProductOptionValueAddRequest, options?: Configuration): Promise<ProductOptionValueAdd200Response> {
-        return this.api.productOptionValueAdd(param.productId, param.optionId, param.optionValue, param.sortOrder, param.displayValue, param.isDefault, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueAdd(param.productId, param.optionId, param.optionValue, param.sortOrder, param.displayValue, param.isDefault, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10526,7 +10786,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueAssignWithHttpInfo(param: ProductApiProductOptionValueAssignRequest, options?: Configuration): Promise<HttpInfo<ProductOptionValueAssign200Response>> {
-        return this.api.productOptionValueAssignWithHttpInfo(param.productOptionId, param.optionValueId, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueAssignWithHttpInfo(param.productOptionId, param.optionValueId, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10535,7 +10795,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueAssign(param: ProductApiProductOptionValueAssignRequest, options?: Configuration): Promise<ProductOptionValueAssign200Response> {
-        return this.api.productOptionValueAssign(param.productOptionId, param.optionValueId, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueAssign(param.productOptionId, param.optionValueId, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10562,7 +10822,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueUpdateWithHttpInfo(param: ProductApiProductOptionValueUpdateRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.productOptionValueUpdateWithHttpInfo(param.productId, param.optionId, param.optionValueId, param.optionValue, param.price, param.quantity, param.displayValue, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueUpdateWithHttpInfo(param.productId, param.optionId, param.optionValueId, param.optionValue, param.price, param.quantity, param.displayValue, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10571,7 +10831,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productOptionValueUpdate(param: ProductApiProductOptionValueUpdateRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.productOptionValueUpdate(param.productId, param.optionId, param.optionValueId, param.optionValue, param.price, param.quantity, param.displayValue, param.clearCache,  options).toPromise();
+        return this.api.productOptionValueUpdate(param.productId, param.optionId, param.optionValueId, param.optionValue, param.price, param.quantity, param.displayValue, param.clearCache, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10652,7 +10912,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productStoreAssignWithHttpInfo(param: ProductApiProductStoreAssignRequest, options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        return this.api.productStoreAssignWithHttpInfo(param.productId, param.storeId,  options).toPromise();
+        return this.api.productStoreAssignWithHttpInfo(param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -10661,7 +10921,7 @@ export class ObjectProductApi {
      * @param param the request object
      */
     public productStoreAssign(param: ProductApiProductStoreAssignRequest, options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        return this.api.productStoreAssign(param.productId, param.storeId,  options).toPromise();
+        return this.api.productStoreAssign(param.productId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -11696,6 +11956,13 @@ export interface WebhookApiWebhookCreateRequest {
      * @memberof WebhookApiwebhookCreate
      */
     storeId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookCreate
+     */
+    idempotencyKey?: string
 }
 
 export interface WebhookApiWebhookDeleteRequest {
@@ -11813,6 +12080,13 @@ export interface WebhookApiWebhookUpdateRequest {
      * @memberof WebhookApiwebhookUpdate
      */
     langId?: string
+    /**
+     * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
+     * Defaults to: undefined
+     * @type string
+     * @memberof WebhookApiwebhookUpdate
+     */
+    idempotencyKey?: string
 }
 
 export class ObjectWebhookApi {
@@ -11846,7 +12120,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreateWithHttpInfo(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId,  options).toPromise();
+        return this.api.webhookCreateWithHttpInfo(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -11855,7 +12129,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookCreate(param: WebhookApiWebhookCreateRequest, options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId,  options).toPromise();
+        return this.api.webhookCreate(param.entity, param.action, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.storeId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -11918,7 +12192,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdateWithHttpInfo(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId,  options).toPromise();
+        return this.api.webhookUpdateWithHttpInfo(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -11927,7 +12201,7 @@ export class ObjectWebhookApi {
      * @param param the request object
      */
     public webhookUpdate(param: WebhookApiWebhookUpdateRequest, options?: Configuration): Promise<ProductImageUpdate200Response> {
-        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId,  options).toPromise();
+        return this.api.webhookUpdate(param.id, param.callback, param.label, param.fields, param.responseFields, param.active, param.langId, param.idempotencyKey,  options).toPromise();
     }
 
 }

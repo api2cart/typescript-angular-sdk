@@ -102,6 +102,8 @@ import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
 import { CategoryDelete200ResponseResult } from '../models/CategoryDelete200ResponseResult';
+import { CategoryDeleteBatch } from '../models/CategoryDeleteBatch';
+import { CategoryDeleteBatchPayloadInner } from '../models/CategoryDeleteBatchPayloadInner';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
 import { CategoryFind200ResponseResult } from '../models/CategoryFind200ResponseResult';
 import { CategoryFind200ResponseResultCategoryInner } from '../models/CategoryFind200ResponseResultCategoryInner';
@@ -697,9 +699,10 @@ export class ObservableAccountApi {
      * @param [scapiOrganizationId] Salesforce Commerce Organization ID
      * @param [scapiShortCode] Salesforce Commerce Short Code
      * @param [scapiScopes] Salesforce Commerce API Scopes
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, _options);
+    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -889,9 +892,10 @@ export class ObservableAccountApi {
      * @param [scapiOrganizationId] Salesforce Commerce Organization ID
      * @param [scapiShortCode] Salesforce Commerce Short Code
      * @param [scapiScopes] Salesforce Commerce API Scopes
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, idempotencyKey?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -1004,9 +1008,10 @@ export class ObservableAttributeApi {
      * @param [usedInProductListing] Used in Product Listing
      * @param [usedForSortBy] Used for Sorting in Product Listing
      * @param [applyTo] Types of products which can have this attribute
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAddWithHttpInfo(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
-        const requestContextPromise = this.requestFactory.attributeAdd(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, _options);
+    public attributeAddWithHttpInfo(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
+        const requestContextPromise = this.requestFactory.attributeAdd(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1048,9 +1053,10 @@ export class ObservableAttributeApi {
      * @param [usedInProductListing] Used in Product Listing
      * @param [usedForSortBy] Used for Sorting in Product Listing
      * @param [applyTo] Types of products which can have this attribute
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
-        return this.attributeAddWithHttpInfo(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
+    public attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
+        return this.attributeAddWithHttpInfo(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -1059,9 +1065,10 @@ export class ObservableAttributeApi {
      * @param id Entity id
      * @param groupId Attribute group_id
      * @param [attributeSetId] Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignGroupWithHttpInfo(id: string, groupId: string, attributeSetId?: string, _options?: Configuration): Observable<HttpInfo<AttributeAssignGroup200Response>> {
-        const requestContextPromise = this.requestFactory.attributeAssignGroup(id, groupId, attributeSetId, _options);
+    public attributeAssignGroupWithHttpInfo(id: string, groupId: string, attributeSetId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeAssignGroup200Response>> {
+        const requestContextPromise = this.requestFactory.attributeAssignGroup(id, groupId, attributeSetId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1085,9 +1092,10 @@ export class ObservableAttributeApi {
      * @param id Entity id
      * @param groupId Attribute group_id
      * @param [attributeSetId] Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, _options?: Configuration): Observable<AttributeAssignGroup200Response> {
-        return this.attributeAssignGroupWithHttpInfo(id, groupId, attributeSetId, _options).pipe(map((apiResponse: HttpInfo<AttributeAssignGroup200Response>) => apiResponse.data));
+    public attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeAssignGroup200Response> {
+        return this.attributeAssignGroupWithHttpInfo(id, groupId, attributeSetId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeAssignGroup200Response>) => apiResponse.data));
     }
 
     /**
@@ -1096,9 +1104,10 @@ export class ObservableAttributeApi {
      * @param id Entity id
      * @param attributeSetId Attribute set id
      * @param [groupId] Attribute group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignSetWithHttpInfo(id: string, attributeSetId: string, groupId?: string, _options?: Configuration): Observable<HttpInfo<AttributeAssignGroup200Response>> {
-        const requestContextPromise = this.requestFactory.attributeAssignSet(id, attributeSetId, groupId, _options);
+    public attributeAssignSetWithHttpInfo(id: string, attributeSetId: string, groupId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeAssignGroup200Response>> {
+        const requestContextPromise = this.requestFactory.attributeAssignSet(id, attributeSetId, groupId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1122,9 +1131,10 @@ export class ObservableAttributeApi {
      * @param id Entity id
      * @param attributeSetId Attribute set id
      * @param [groupId] Attribute group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignSet(id: string, attributeSetId: string, groupId?: string, _options?: Configuration): Observable<AttributeAssignGroup200Response> {
-        return this.attributeAssignSetWithHttpInfo(id, attributeSetId, groupId, _options).pipe(map((apiResponse: HttpInfo<AttributeAssignGroup200Response>) => apiResponse.data));
+    public attributeAssignSet(id: string, attributeSetId: string, groupId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeAssignGroup200Response> {
+        return this.attributeAssignSetWithHttpInfo(id, attributeSetId, groupId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeAssignGroup200Response>) => apiResponse.data));
     }
 
     /**
@@ -1431,9 +1441,10 @@ export class ObservableAttributeApi {
      * attribute.unassign.group
      * @param id Entity id
      * @param groupId Customer group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignGroupWithHttpInfo(id: string, groupId: string, _options?: Configuration): Observable<HttpInfo<AttributeUnassignGroup200Response>> {
-        const requestContextPromise = this.requestFactory.attributeUnassignGroup(id, groupId, _options);
+    public attributeUnassignGroupWithHttpInfo(id: string, groupId: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeUnassignGroup200Response>> {
+        const requestContextPromise = this.requestFactory.attributeUnassignGroup(id, groupId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1456,9 +1467,10 @@ export class ObservableAttributeApi {
      * attribute.unassign.group
      * @param id Entity id
      * @param groupId Customer group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignGroup(id: string, groupId: string, _options?: Configuration): Observable<AttributeUnassignGroup200Response> {
-        return this.attributeUnassignGroupWithHttpInfo(id, groupId, _options).pipe(map((apiResponse: HttpInfo<AttributeUnassignGroup200Response>) => apiResponse.data));
+    public attributeUnassignGroup(id: string, groupId: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeUnassignGroup200Response> {
+        return this.attributeUnassignGroupWithHttpInfo(id, groupId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeUnassignGroup200Response>) => apiResponse.data));
     }
 
     /**
@@ -1466,9 +1478,10 @@ export class ObservableAttributeApi {
      * attribute.unassign.set
      * @param id Entity id
      * @param attributeSetId Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignSetWithHttpInfo(id: string, attributeSetId: string, _options?: Configuration): Observable<HttpInfo<AttributeUnassignGroup200Response>> {
-        const requestContextPromise = this.requestFactory.attributeUnassignSet(id, attributeSetId, _options);
+    public attributeUnassignSetWithHttpInfo(id: string, attributeSetId: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeUnassignGroup200Response>> {
+        const requestContextPromise = this.requestFactory.attributeUnassignSet(id, attributeSetId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1491,9 +1504,10 @@ export class ObservableAttributeApi {
      * attribute.unassign.set
      * @param id Entity id
      * @param attributeSetId Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignSet(id: string, attributeSetId: string, _options?: Configuration): Observable<AttributeUnassignGroup200Response> {
-        return this.attributeUnassignSetWithHttpInfo(id, attributeSetId, _options).pipe(map((apiResponse: HttpInfo<AttributeUnassignGroup200Response>) => apiResponse.data));
+    public attributeUnassignSet(id: string, attributeSetId: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeUnassignGroup200Response> {
+        return this.attributeUnassignSetWithHttpInfo(id, attributeSetId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeUnassignGroup200Response>) => apiResponse.data));
     }
 
     /**
@@ -1503,9 +1517,10 @@ export class ObservableAttributeApi {
      * @param name Defines new attributes\&#39;s name
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUpdateWithHttpInfo(id: string, name: string, storeId?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AttributeUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.attributeUpdate(id, name, storeId, langId, _options);
+    public attributeUpdateWithHttpInfo(id: string, name: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.attributeUpdate(id, name, storeId, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1530,9 +1545,10 @@ export class ObservableAttributeApi {
      * @param name Defines new attributes\&#39;s name
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUpdate(id: string, name: string, storeId?: string, langId?: string, _options?: Configuration): Observable<AttributeUpdate200Response> {
-        return this.attributeUpdateWithHttpInfo(id, name, storeId, langId, _options).pipe(map((apiResponse: HttpInfo<AttributeUpdate200Response>) => apiResponse.data));
+    public attributeUpdate(id: string, name: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeUpdate200Response> {
+        return this.attributeUpdateWithHttpInfo(id, name, storeId, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -1544,9 +1560,10 @@ export class ObservableAttributeApi {
      * @param [description] Defines attribute value\&#39;s description
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueAddWithHttpInfo(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
-        const requestContextPromise = this.requestFactory.attributeValueAdd(attributeId, name, code, description, storeId, langId, _options);
+    public attributeValueAddWithHttpInfo(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
+        const requestContextPromise = this.requestFactory.attributeValueAdd(attributeId, name, code, description, storeId, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1573,9 +1590,10 @@ export class ObservableAttributeApi {
      * @param [description] Defines attribute value\&#39;s description
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
-        return this.attributeValueAddWithHttpInfo(attributeId, name, code, description, storeId, langId, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
+    public attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
+        return this.attributeValueAddWithHttpInfo(attributeId, name, code, description, storeId, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -1625,9 +1643,10 @@ export class ObservableAttributeApi {
      * @param [code] Entity code
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueUpdateWithHttpInfo(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AttributeUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId, _options);
+    public attributeValueUpdateWithHttpInfo(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1655,9 +1674,10 @@ export class ObservableAttributeApi {
      * @param [code] Entity code
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<AttributeUpdate200Response> {
-        return this.attributeValueUpdateWithHttpInfo(id, attributeId, name, description, code, storeId, langId, _options).pipe(map((apiResponse: HttpInfo<AttributeUpdate200Response>) => apiResponse.data));
+    public attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeUpdate200Response> {
+        return this.attributeValueUpdateWithHttpInfo(id, attributeId, name, description, code, storeId, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeUpdate200Response>) => apiResponse.data));
     }
 
 }
@@ -1727,9 +1747,10 @@ export class ObservableBasketApi {
      * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [quantity] Defines new items quantity
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketItemAddWithHttpInfo(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketItemAdd200Response>> {
-        const requestContextPromise = this.requestFactory.basketItemAdd(customerId, productId, variantId, quantity, storeId, _options);
+    public basketItemAddWithHttpInfo(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<BasketItemAdd200Response>> {
+        const requestContextPromise = this.requestFactory.basketItemAdd(customerId, productId, variantId, quantity, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1755,9 +1776,10 @@ export class ObservableBasketApi {
      * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [quantity] Defines new items quantity
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, _options?: Configuration): Observable<BasketItemAdd200Response> {
-        return this.basketItemAddWithHttpInfo(customerId, productId, variantId, quantity, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketItemAdd200Response>) => apiResponse.data));
+    public basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<BasketItemAdd200Response> {
+        return this.basketItemAddWithHttpInfo(customerId, productId, variantId, quantity, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<BasketItemAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -1766,9 +1788,10 @@ export class ObservableBasketApi {
      * @param name Shipping Service Name
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketLiveShippingServiceCreateWithHttpInfo(name: string, callback: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const requestContextPromise = this.requestFactory.basketLiveShippingServiceCreate(name, callback, storeId, _options);
+    public basketLiveShippingServiceCreateWithHttpInfo(name: string, callback: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const requestContextPromise = this.requestFactory.basketLiveShippingServiceCreate(name, callback, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1792,9 +1815,10 @@ export class ObservableBasketApi {
      * @param name Shipping Service Name
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
-        return this.basketLiveShippingServiceCreateWithHttpInfo(name, callback, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
+    public basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
+        return this.basketLiveShippingServiceCreateWithHttpInfo(name, callback, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
     }
 
     /**
@@ -2217,9 +2241,10 @@ export class ObservableCartApi {
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
-        const requestContextPromise = this.requestFactory.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options);
+    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
+        const requestContextPromise = this.requestFactory.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2249,9 +2274,10 @@ export class ObservableCartApi {
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceDelete200Response> {
-        return this.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceDelete200Response>) => apiResponse.data));
+    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<BasketLiveShippingServiceDelete200Response> {
+        return this.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceDelete200Response>) => apiResponse.data));
     }
 
     /**
@@ -2435,9 +2461,10 @@ export class ObservableCartApi {
      * @param [recipientEmail] Gift card recipient email
      * @param [recipientName] Gift card recipient name
      * @param [ownerName] Gift card owner name
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartGiftcardAddWithHttpInfo(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, _options?: Configuration): Observable<HttpInfo<CartGiftcardAdd200Response>> {
-        const requestContextPromise = this.requestFactory.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, _options);
+    public cartGiftcardAddWithHttpInfo(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CartGiftcardAdd200Response>> {
+        const requestContextPromise = this.requestFactory.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2464,9 +2491,10 @@ export class ObservableCartApi {
      * @param [recipientEmail] Gift card recipient email
      * @param [recipientName] Gift card recipient name
      * @param [ownerName] Gift card owner name
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, _options?: Configuration): Observable<CartGiftcardAdd200Response> {
-        return this.cartGiftcardAddWithHttpInfo(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, _options).pipe(map((apiResponse: HttpInfo<CartGiftcardAdd200Response>) => apiResponse.data));
+    public cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, idempotencyKey?: string, _options?: Configuration): Observable<CartGiftcardAdd200Response> {
+        return this.cartGiftcardAddWithHttpInfo(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CartGiftcardAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -2680,9 +2708,10 @@ export class ObservableCartApi {
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartMetaDataSetWithHttpInfo(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
-        const requestContextPromise = this.requestFactory.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId, _options);
+    public cartMetaDataSetWithHttpInfo(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AttributeAdd200Response>> {
+        const requestContextPromise = this.requestFactory.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2710,9 +2739,10 @@ export class ObservableCartApi {
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
-        return this.cartMetaDataSetWithHttpInfo(entityId, key, value, namespace, entity, storeId, langId, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
+    public cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AttributeAdd200Response> {
+        return this.cartMetaDataSetWithHttpInfo(entityId, key, value, namespace, entity, storeId, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AttributeAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -2835,9 +2865,10 @@ export class ObservableCartApi {
      * @param [scope] The page or pages on the online store where the script should be included
      * @param [events] Event for run scripts
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartScriptAddWithHttpInfo(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CartScriptAdd200Response>> {
-        const requestContextPromise = this.requestFactory.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId, _options);
+    public cartScriptAddWithHttpInfo(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CartScriptAdd200Response>> {
+        const requestContextPromise = this.requestFactory.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2866,9 +2897,10 @@ export class ObservableCartApi {
      * @param [scope] The page or pages on the online store where the script should be included
      * @param [events] Event for run scripts
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, _options?: Configuration): Observable<CartScriptAdd200Response> {
-        return this.cartScriptAddWithHttpInfo(name, description, html, src, loadMethod, scope, events, storeId, _options).pipe(map((apiResponse: HttpInfo<CartScriptAdd200Response>) => apiResponse.data));
+    public cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<CartScriptAdd200Response> {
+        return this.cartScriptAddWithHttpInfo(name, description, html, src, loadMethod, scope, events, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CartScriptAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3073,9 +3105,10 @@ export class ObservableCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAddWithHttpInfo(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAdd200Response>> {
-        const requestContextPromise = this.requestFactory.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryAddWithHttpInfo(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryAdd200Response>> {
+        const requestContextPromise = this.requestFactory.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3111,9 +3144,10 @@ export class ObservableCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<CategoryAdd200Response> {
-        return this.categoryAddWithHttpInfo(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options).pipe(map((apiResponse: HttpInfo<CategoryAdd200Response>) => apiResponse.data));
+    public categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<CategoryAdd200Response> {
+        return this.categoryAddWithHttpInfo(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3155,9 +3189,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category assign, specified by category id
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
-        const requestContextPromise = this.requestFactory.categoryAssign(categoryId, productId, storeId, _options);
+    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
+        const requestContextPromise = this.requestFactory.categoryAssign(categoryId, productId, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3181,9 +3216,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category assign, specified by category id
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
-        return this.categoryAssignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
+    public categoryAssign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
+        return this.categoryAssignWithHttpInfo(categoryId, productId, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -3279,6 +3315,39 @@ export class ObservableCategoryApi {
     }
 
     /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param categoryDeleteBatch
+     */
+    public categoryDeleteBatchWithHttpInfo(categoryDeleteBatch: CategoryDeleteBatch, _options?: Configuration): Observable<HttpInfo<CategoryAddBatch200Response>> {
+        const requestContextPromise = this.requestFactory.categoryDeleteBatch(categoryDeleteBatch, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.categoryDeleteBatchWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param categoryDeleteBatch
+     */
+    public categoryDeleteBatch(categoryDeleteBatch: CategoryDeleteBatch, _options?: Configuration): Observable<CategoryAddBatch200Response> {
+        return this.categoryDeleteBatchWithHttpInfo(categoryDeleteBatch, _options).pipe(map((apiResponse: HttpInfo<CategoryAddBatch200Response>) => apiResponse.data));
+    }
+
+    /**
      * Search category in store. \"Laptop\" is specified here by default.
      * category.find
      * @param findValue Entity search that is specified by some value
@@ -3330,9 +3399,10 @@ export class ObservableCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
-        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, _options);
+    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
+        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3361,9 +3431,10 @@ export class ObservableCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Observable<CategoryImageAdd200Response> {
-        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
+    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Observable<CategoryImageAdd200Response> {
+        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3529,9 +3600,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category unassign, specified by category id
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
-        const requestContextPromise = this.requestFactory.categoryUnassign(categoryId, productId, storeId, _options);
+    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryAssign200Response>> {
+        const requestContextPromise = this.requestFactory.categoryUnassign(categoryId, productId, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3555,9 +3627,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category unassign, specified by category id
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUnassign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
-        return this.categoryUnassignWithHttpInfo(categoryId, productId, storeId, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
+    public categoryUnassign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<CategoryAssign200Response> {
+        return this.categoryUnassignWithHttpInfo(categoryId, productId, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -3578,9 +3651,10 @@ export class ObservableCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUpdateWithHttpInfo(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryUpdateWithHttpInfo(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3616,9 +3690,10 @@ export class ObservableCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.categoryUpdateWithHttpInfo(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.categoryUpdateWithHttpInfo(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
 }
@@ -3813,9 +3888,10 @@ export class ObservableCustomerApi {
      * Delete customer from store.
      * customer.delete
      * @param id Identifies customer specified by the id
+     * @param [storeId] Store Id
      */
-    public customerDeleteWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<CustomerDelete200Response>> {
-        const requestContextPromise = this.requestFactory.customerDelete(id, _options);
+    public customerDeleteWithHttpInfo(id: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<CustomerDelete200Response>> {
+        const requestContextPromise = this.requestFactory.customerDelete(id, storeId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3837,9 +3913,10 @@ export class ObservableCustomerApi {
      * Delete customer from store.
      * customer.delete
      * @param id Identifies customer specified by the id
+     * @param [storeId] Store Id
      */
-    public customerDelete(id: string, _options?: Configuration): Observable<CustomerDelete200Response> {
-        return this.customerDeleteWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<CustomerDelete200Response>) => apiResponse.data));
+    public customerDelete(id: string, storeId?: string, _options?: Configuration): Observable<CustomerDelete200Response> {
+        return this.customerDeleteWithHttpInfo(id, storeId, _options).pipe(map((apiResponse: HttpInfo<CustomerDelete200Response>) => apiResponse.data));
     }
 
     /**
@@ -3889,9 +3966,10 @@ export class ObservableCustomerApi {
      * @param name Customer group name
      * @param [storeId] Store Id
      * @param [storesIds] Assign customer group to the stores that is specified by comma-separated stores\&#39; id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public customerGroupAddWithHttpInfo(name: string, storeId?: string, storesIds?: string, _options?: Configuration): Observable<HttpInfo<CustomerGroupAdd200Response>> {
-        const requestContextPromise = this.requestFactory.customerGroupAdd(name, storeId, storesIds, _options);
+    public customerGroupAddWithHttpInfo(name: string, storeId?: string, storesIds?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CustomerGroupAdd200Response>> {
+        const requestContextPromise = this.requestFactory.customerGroupAdd(name, storeId, storesIds, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3915,9 +3993,10 @@ export class ObservableCustomerApi {
      * @param name Customer group name
      * @param [storeId] Store Id
      * @param [storesIds] Assign customer group to the stores that is specified by comma-separated stores\&#39; id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public customerGroupAdd(name: string, storeId?: string, storesIds?: string, _options?: Configuration): Observable<CustomerGroupAdd200Response> {
-        return this.customerGroupAddWithHttpInfo(name, storeId, storesIds, _options).pipe(map((apiResponse: HttpInfo<CustomerGroupAdd200Response>) => apiResponse.data));
+    public customerGroupAdd(name: string, storeId?: string, storesIds?: string, idempotencyKey?: string, _options?: Configuration): Observable<CustomerGroupAdd200Response> {
+        return this.customerGroupAddWithHttpInfo(name, storeId, storesIds, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CustomerGroupAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -5222,9 +5301,10 @@ export class ObservableOrderApi {
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
      * @param [tags] Order tags
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options);
+    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5262,9 +5342,10 @@ export class ObservableOrderApi {
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
      * @param [tags] Order tags
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, idempotencyKey?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
 }
@@ -5423,9 +5504,10 @@ export class ObservableProductApi {
      * @param [valueId] Define attribute value id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueSetWithHttpInfo(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<ProductAttributeValueSet200Response>> {
-        const requestContextPromise = this.requestFactory.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, _options);
+    public productAttributeValueSetWithHttpInfo(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductAttributeValueSet200Response>> {
+        const requestContextPromise = this.requestFactory.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5454,9 +5536,10 @@ export class ObservableProductApi {
      * @param [valueId] Define attribute value id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, _options?: Configuration): Observable<ProductAttributeValueSet200Response> {
-        return this.productAttributeValueSetWithHttpInfo(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, _options).pipe(map((apiResponse: HttpInfo<ProductAttributeValueSet200Response>) => apiResponse.data));
+    public productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<ProductAttributeValueSet200Response> {
+        return this.productAttributeValueSetWithHttpInfo(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductAttributeValueSet200Response>) => apiResponse.data));
     }
 
     /**
@@ -5468,9 +5551,10 @@ export class ObservableProductApi {
      * @param [includeDefault] Boolean, whether or not to unset default value of the attribute, if applicable
      * @param [reindex] Is reindex required
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueUnsetWithHttpInfo(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, _options?: Configuration): Observable<HttpInfo<ProductAttributeValueUnset200Response>> {
-        const requestContextPromise = this.requestFactory.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache, _options);
+    public productAttributeValueUnsetWithHttpInfo(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductAttributeValueUnset200Response>> {
+        const requestContextPromise = this.requestFactory.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5497,9 +5581,10 @@ export class ObservableProductApi {
      * @param [includeDefault] Boolean, whether or not to unset default value of the attribute, if applicable
      * @param [reindex] Is reindex required
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, _options?: Configuration): Observable<ProductAttributeValueUnset200Response> {
-        return this.productAttributeValueUnsetWithHttpInfo(productId, attributeId, storeId, includeDefault, reindex, clearCache, _options).pipe(map((apiResponse: HttpInfo<ProductAttributeValueUnset200Response>) => apiResponse.data));
+    public productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductAttributeValueUnset200Response> {
+        return this.productAttributeValueUnsetWithHttpInfo(productId, attributeId, storeId, includeDefault, reindex, clearCache, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductAttributeValueUnset200Response>) => apiResponse.data));
     }
 
     /**
@@ -5823,9 +5908,10 @@ export class ObservableProductApi {
      * @param [symbolLeft] Defines the symbol that is located before the currency
      * @param [symbolRight] Defines the symbol that is located after the currency
      * @param [_default] Specifies currency\&#39;s default meaning
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productCurrencyAddWithHttpInfo(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, _options?: Configuration): Observable<HttpInfo<ProductCurrencyAdd200Response>> {
-        const requestContextPromise = this.requestFactory.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, _default, _options);
+    public productCurrencyAddWithHttpInfo(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductCurrencyAdd200Response>> {
+        const requestContextPromise = this.requestFactory.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, _default, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -5853,9 +5939,10 @@ export class ObservableProductApi {
      * @param [symbolLeft] Defines the symbol that is located before the currency
      * @param [symbolRight] Defines the symbol that is located after the currency
      * @param [_default] Specifies currency\&#39;s default meaning
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, _options?: Configuration): Observable<ProductCurrencyAdd200Response> {
-        return this.productCurrencyAddWithHttpInfo(iso3, rate, name, avail, symbolLeft, symbolRight, _default, _options).pipe(map((apiResponse: HttpInfo<ProductCurrencyAdd200Response>) => apiResponse.data));
+    public productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductCurrencyAdd200Response> {
+        return this.productCurrencyAddWithHttpInfo(iso3, rate, name, avail, symbolLeft, symbolRight, _default, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductCurrencyAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -6099,9 +6186,10 @@ export class ObservableProductApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
      * @param [hidden] Define is hide image
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options);
+    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6132,9 +6220,10 @@ export class ObservableProductApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
      * @param [hidden] Define is hide image
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Observable<ProductImageUpdate200Response> {
-        return this.productImageUpdateWithHttpInfo(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
+    public productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductImageUpdate200Response> {
+        return this.productImageUpdateWithHttpInfo(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -6303,9 +6392,10 @@ export class ObservableProductApi {
      * @param [searchKeywords] Defines unique search keywords
      * @param [imageUrl] Image Url
      * @param [seoUrl] Defines unique URL for SEO
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Observable<HttpInfo<ProductManufacturerAdd200Response>> {
-        const requestContextPromise = this.requestFactory.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options);
+    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductManufacturerAdd200Response>> {
+        const requestContextPromise = this.requestFactory.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6335,9 +6425,10 @@ export class ObservableProductApi {
      * @param [searchKeywords] Defines unique search keywords
      * @param [imageUrl] Image Url
      * @param [seoUrl] Defines unique URL for SEO
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Observable<ProductManufacturerAdd200Response> {
-        return this.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options).pipe(map((apiResponse: HttpInfo<ProductManufacturerAdd200Response>) => apiResponse.data));
+    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, idempotencyKey?: string, _options?: Configuration): Observable<ProductManufacturerAdd200Response> {
+        return this.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductManufacturerAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -6382,9 +6473,10 @@ export class ObservableProductApi {
      * @param [sortOrder] Sort number in the list
      * @param [optionValues] Defines option values that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionAssignWithHttpInfo(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, _options?: Configuration): Observable<HttpInfo<ProductOptionAssign200Response>> {
-        const requestContextPromise = this.requestFactory.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache, _options);
+    public productOptionAssignWithHttpInfo(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductOptionAssign200Response>> {
+        const requestContextPromise = this.requestFactory.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6411,9 +6503,10 @@ export class ObservableProductApi {
      * @param [sortOrder] Sort number in the list
      * @param [optionValues] Defines option values that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, _options?: Configuration): Observable<ProductOptionAssign200Response> {
-        return this.productOptionAssignWithHttpInfo(productId, optionId, required, sortOrder, optionValues, clearCache, _options).pipe(map((apiResponse: HttpInfo<ProductOptionAssign200Response>) => apiResponse.data));
+    public productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductOptionAssign200Response> {
+        return this.productOptionAssignWithHttpInfo(productId, optionId, required, sortOrder, optionValues, clearCache, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductOptionAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -6510,9 +6603,10 @@ export class ObservableProductApi {
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [isDefault] Defines as a default
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAddWithHttpInfo(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, _options?: Configuration): Observable<HttpInfo<ProductOptionValueAdd200Response>> {
-        const requestContextPromise = this.requestFactory.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, _options);
+    public productOptionValueAddWithHttpInfo(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductOptionValueAdd200Response>> {
+        const requestContextPromise = this.requestFactory.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6540,9 +6634,10 @@ export class ObservableProductApi {
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [isDefault] Defines as a default
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, _options?: Configuration): Observable<ProductOptionValueAdd200Response> {
-        return this.productOptionValueAddWithHttpInfo(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, _options).pipe(map((apiResponse: HttpInfo<ProductOptionValueAdd200Response>) => apiResponse.data));
+    public productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductOptionValueAdd200Response> {
+        return this.productOptionValueAddWithHttpInfo(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductOptionValueAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -6551,9 +6646,10 @@ export class ObservableProductApi {
      * @param productOptionId Defines product\&#39;s option id where the value has to be assigned
      * @param optionValueId Defines value id that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAssignWithHttpInfo(productOptionId: number, optionValueId: string, clearCache?: boolean, _options?: Configuration): Observable<HttpInfo<ProductOptionValueAssign200Response>> {
-        const requestContextPromise = this.requestFactory.productOptionValueAssign(productOptionId, optionValueId, clearCache, _options);
+    public productOptionValueAssignWithHttpInfo(productOptionId: number, optionValueId: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductOptionValueAssign200Response>> {
+        const requestContextPromise = this.requestFactory.productOptionValueAssign(productOptionId, optionValueId, clearCache, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6577,9 +6673,10 @@ export class ObservableProductApi {
      * @param productOptionId Defines product\&#39;s option id where the value has to be assigned
      * @param optionValueId Defines value id that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, _options?: Configuration): Observable<ProductOptionValueAssign200Response> {
-        return this.productOptionValueAssignWithHttpInfo(productOptionId, optionValueId, clearCache, _options).pipe(map((apiResponse: HttpInfo<ProductOptionValueAssign200Response>) => apiResponse.data));
+    public productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<ProductOptionValueAssign200Response> {
+        return this.productOptionValueAssignWithHttpInfo(productOptionId, optionValueId, clearCache, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductOptionValueAssign200Response>) => apiResponse.data));
     }
 
     /**
@@ -6632,9 +6729,10 @@ export class ObservableProductApi {
      * @param [quantity] Defines new products\&#39; options quantity
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueUpdateWithHttpInfo(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, _options);
+    public productOptionValueUpdateWithHttpInfo(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6663,9 +6761,10 @@ export class ObservableProductApi {
      * @param [quantity] Defines new products\&#39; options quantity
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.productOptionValueUpdateWithHttpInfo(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.productOptionValueUpdateWithHttpInfo(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -6839,9 +6938,10 @@ export class ObservableProductApi {
      * product.store.assign
      * @param productId Defines id of the product which should be assigned to a store
      * @param storeId Defines id of the store product should be assigned to
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productStoreAssignWithHttpInfo(productId: string, storeId: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.productStoreAssign(productId, storeId, _options);
+    public productStoreAssignWithHttpInfo(productId: string, storeId: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<AccountConfigUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.productStoreAssign(productId, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -6864,9 +6964,10 @@ export class ObservableProductApi {
      * product.store.assign
      * @param productId Defines id of the product which should be assigned to a store
      * @param storeId Defines id of the store product should be assigned to
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productStoreAssign(productId: string, storeId: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
-        return this.productStoreAssignWithHttpInfo(productId, storeId, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
+    public productStoreAssign(productId: string, storeId: string, idempotencyKey?: string, _options?: Configuration): Observable<AccountConfigUpdate200Response> {
+        return this.productStoreAssignWithHttpInfo(productId, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<AccountConfigUpdate200Response>) => apiResponse.data));
     }
 
     /**
@@ -7879,9 +7980,10 @@ export class ObservableWebhookApi {
      * @param [active] Webhook status
      * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const requestContextPromise = this.requestFactory.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, _options);
+    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const requestContextPromise = this.requestFactory.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7911,9 +8013,10 @@ export class ObservableWebhookApi {
      * @param [active] Webhook status
      * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
-        return this.webhookCreateWithHttpInfo(entity, action, callback, label, fields, responseFields, active, langId, storeId, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
+    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Observable<BasketLiveShippingServiceCreate200Response> {
+        return this.webhookCreateWithHttpInfo(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<BasketLiveShippingServiceCreate200Response>) => apiResponse.data));
     }
 
     /**
@@ -8035,9 +8138,10 @@ export class ObservableWebhookApi {
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [active] Webhook status
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
-        const requestContextPromise = this.requestFactory.webhookUpdate(id, callback, label, fields, responseFields, active, langId, _options);
+    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<ProductImageUpdate200Response>> {
+        const requestContextPromise = this.requestFactory.webhookUpdate(id, callback, label, fields, responseFields, active, langId, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -8065,9 +8169,10 @@ export class ObservableWebhookApi {
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [active] Webhook status
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, _options?: Configuration): Observable<ProductImageUpdate200Response> {
-        return this.webhookUpdateWithHttpInfo(id, callback, label, fields, responseFields, active, langId, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
+    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, idempotencyKey?: string, _options?: Configuration): Observable<ProductImageUpdate200Response> {
+        return this.webhookUpdateWithHttpInfo(id, callback, label, fields, responseFields, active, langId, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<ProductImageUpdate200Response>) => apiResponse.data));
     }
 
 }

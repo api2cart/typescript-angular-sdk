@@ -65,6 +65,7 @@ const request: CustomerApiCustomerAddRequest = {
     note: "Customer note",
     country: "US",
     storeId: "1",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     address: [
       {
         addressBookType: "billing",
@@ -166,6 +167,7 @@ const request: CustomerApiCustomerAddressAddRequest = {
     gender: "male",
     taxId: "`12345678`",
     alias: "Address alias",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
 
@@ -383,6 +385,8 @@ const apiInstance = new CustomerApi(configuration);
 const request: CustomerApiCustomerDeleteRequest = {
     // Identifies customer specified by the id
   id: "10",
+    // Store Id (optional)
+  storeId: "1",
 };
 
 const data = await apiInstance.customerDelete(request);
@@ -395,6 +399,7 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Identifies customer specified by the id | defaults to undefined
+ **storeId** | [**string**] | Store Id | (optional) defaults to undefined
 
 
 ### Return type
@@ -505,6 +510,8 @@ const request: CustomerApiCustomerGroupAddRequest = {
   storeId: "1",
     // Assign customer group to the stores that is specified by comma-separated stores\' id (optional)
   storesIds: "1,2",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.customerGroupAdd(request);
@@ -519,6 +526,7 @@ Name | Type | Description  | Notes
  **name** | [**string**] | Customer group name | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **storesIds** | [**string**] | Assign customer group to the stores that is specified by comma-separated stores\&#39; id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -840,6 +848,7 @@ const request: CustomerApiCustomerUpdateRequest = {
     note: "Customer note",
     status: "disabled",
     storeId: "1",
+    idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     address: [
       {
         addressBookId: "7805807034473",

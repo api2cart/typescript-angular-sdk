@@ -246,6 +246,10 @@ export class ProductVariantUpdate {
     * The numeric ID of the processing profile (readiness state) for physical products in Etsy. You can find possible values in the \"cart.info\" API method response, in the field processing_profiles[]->readiness_state_id.
     */
     'processingProfileId'?: number;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -598,6 +602,12 @@ export class ProductVariantUpdate {
             "name": "processingProfileId",
             "baseName": "processing_profile_id",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
+            "type": "string",
             "format": ""
         }    ];
 

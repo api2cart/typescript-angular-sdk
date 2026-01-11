@@ -16,6 +16,7 @@ import { CategoryAddBatch200Response } from '../models/CategoryAddBatch200Respon
 import { CategoryAssign200Response } from '../models/CategoryAssign200Response';
 import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
+import { CategoryDeleteBatch } from '../models/CategoryDeleteBatch';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
 import { CategoryImageAdd200Response } from '../models/CategoryImageAdd200Response';
 import { CategoryInfo200Response } from '../models/CategoryInfo200Response';
@@ -44,14 +45,16 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param storeId Store Id
      * @param storesIds Create category in the stores that is specified by comma-separated stores\&#39; id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'name' is not null or undefined
         if (name === null || name === undefined) {
             throw new RequiredError("CategoryApi", "categoryAdd", "name");
         }
+
 
 
 
@@ -150,6 +153,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
         }
 
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -230,8 +238,9 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param categoryId Defines category assign, specified by category id
      * @param productId Defines category assign to the product, specified by product id
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryAssign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -244,6 +253,7 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         if (productId === null || productId === undefined) {
             throw new RequiredError("CategoryApi", "categoryAssign", "productId");
         }
+
 
 
 
@@ -267,6 +277,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -471,6 +486,59 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param categoryDeleteBatch 
+     */
+    public async categoryDeleteBatch(categoryDeleteBatch: CategoryDeleteBatch, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'categoryDeleteBatch' is not null or undefined
+        if (categoryDeleteBatch === null || categoryDeleteBatch === undefined) {
+            throw new RequiredError("CategoryApi", "categoryDeleteBatch", "categoryDeleteBatch");
+        }
+
+
+        // Path Params
+        const localVarPath = '/category.delete.batch.json';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(categoryDeleteBatch, "CategoryDeleteBatch", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["StoreKeyAuth"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        // Apply auth methods
+        authMethod = _config.authMethods["ApiKeyAuth"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * Search category in store. \"Laptop\" is specified here by default.
      * category.find
      * @param findValue Entity search that is specified by some value
@@ -556,8 +624,9 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param label Defines alternative text that has to be attached to the picture
      * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param position Defines image’s position in the list
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Promise<RequestContext> {
+    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -582,6 +651,7 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         if (type === null || type === undefined) {
             throw new RequiredError("CategoryApi", "categoryImageAdd", "type");
         }
+
 
 
 
@@ -633,6 +703,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (position !== undefined) {
             requestContext.setQueryParam("position", ObjectSerializer.serialize(position, "number", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1006,8 +1081,9 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param categoryId Defines category unassign, specified by category id
      * @param productId Defines category unassign to the product, specified by product id
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryUnassign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryUnassign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -1020,6 +1096,7 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         if (productId === null || productId === undefined) {
             throw new RequiredError("CategoryApi", "categoryUnassign", "productId");
         }
+
 
 
 
@@ -1043,6 +1120,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1084,14 +1166,16 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param storeId Store Id
      * @param storesIds Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("CategoryApi", "categoryUpdate", "id");
         }
+
 
 
 
@@ -1188,6 +1272,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1354,6 +1443,35 @@ export class CategoryApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "CategoryDelete200Response", ""
             ) as CategoryDelete200Response;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to categoryDeleteBatch
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async categoryDeleteBatchWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CategoryAddBatch200Response >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: CategoryAddBatch200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CategoryAddBatch200Response", ""
+            ) as CategoryAddBatch200Response;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: CategoryAddBatch200Response = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "CategoryAddBatch200Response", ""
+            ) as CategoryAddBatch200Response;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

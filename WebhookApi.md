@@ -105,6 +105,8 @@ const request: WebhookApiWebhookCreateRequest = {
   langId: "3",
     // Defines store id where the webhook should be assigned (optional)
   storeId: "1",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.webhookCreate(request);
@@ -125,6 +127,7 @@ Name | Type | Description  | Notes
  **active** | [**boolean**] | Webhook status | (optional) defaults to true
  **langId** | [**string**] | Language id | (optional) defaults to undefined
  **storeId** | [**string**] | Defines store id where the webhook should be assigned | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -348,6 +351,8 @@ const request: WebhookApiWebhookUpdateRequest = {
   active: true,
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.webhookUpdate(request);
@@ -366,6 +371,7 @@ Name | Type | Description  | Notes
  **responseFields** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to undefined
  **active** | [**boolean**] | Webhook status | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type

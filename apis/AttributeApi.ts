@@ -50,8 +50,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param usedInProductListing Used in Product Listing
      * @param usedForSortBy Used for Sorting in Product Listing
      * @param applyTo Types of products which can have this attribute
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'type' is not null or undefined
@@ -64,6 +65,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (name === null || name === undefined) {
             throw new RequiredError("AttributeApi", "attributeAdd", "name");
         }
+
 
 
 
@@ -197,6 +199,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("apply_to", ObjectSerializer.serialize(applyTo, "string", ""));
         }
 
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -224,8 +231,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param id Entity id
      * @param groupId Attribute group_id
      * @param attributeSetId Attribute set id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -238,6 +246,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (groupId === null || groupId === undefined) {
             throw new RequiredError("AttributeApi", "attributeAssignGroup", "groupId");
         }
+
 
 
 
@@ -261,6 +270,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (attributeSetId !== undefined) {
             requestContext.setQueryParam("attribute_set_id", ObjectSerializer.serialize(attributeSetId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -290,8 +304,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param id Entity id
      * @param attributeSetId Attribute set id
      * @param groupId Attribute group_id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeAssignSet(id: string, attributeSetId: string, groupId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeAssignSet(id: string, attributeSetId: string, groupId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -304,6 +319,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (attributeSetId === null || attributeSetId === undefined) {
             throw new RequiredError("AttributeApi", "attributeAssignSet", "attributeSetId");
         }
+
 
 
 
@@ -327,6 +343,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (attributeSetId !== undefined) {
             requestContext.setQueryParam("attribute_set_id", ObjectSerializer.serialize(attributeSetId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -897,8 +918,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * attribute.unassign.group
      * @param id Entity id
      * @param groupId Customer group_id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeUnassignGroup(id: string, groupId: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeUnassignGroup(id: string, groupId: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -911,6 +933,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (groupId === null || groupId === undefined) {
             throw new RequiredError("AttributeApi", "attributeUnassignGroup", "groupId");
         }
+
 
 
         // Path Params
@@ -928,6 +951,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (groupId !== undefined) {
             requestContext.setQueryParam("group_id", ObjectSerializer.serialize(groupId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -956,8 +984,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * attribute.unassign.set
      * @param id Entity id
      * @param attributeSetId Attribute set id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeUnassignSet(id: string, attributeSetId: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeUnassignSet(id: string, attributeSetId: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -970,6 +999,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (attributeSetId === null || attributeSetId === undefined) {
             throw new RequiredError("AttributeApi", "attributeUnassignSet", "attributeSetId");
         }
+
 
 
         // Path Params
@@ -987,6 +1017,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (attributeSetId !== undefined) {
             requestContext.setQueryParam("attribute_set_id", ObjectSerializer.serialize(attributeSetId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1017,8 +1052,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param name Defines new attributes\&#39;s name
      * @param storeId Store Id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeUpdate(id: string, name: string, storeId?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeUpdate(id: string, name: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1031,6 +1067,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (name === null || name === undefined) {
             throw new RequiredError("AttributeApi", "attributeUpdate", "name");
         }
+
 
 
 
@@ -1060,6 +1097,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1092,8 +1134,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param description Defines attribute value\&#39;s description
      * @param storeId Store Id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'attributeId' is not null or undefined
@@ -1106,6 +1149,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (name === null || name === undefined) {
             throw new RequiredError("AttributeApi", "attributeValueAdd", "name");
         }
+
 
 
 
@@ -1147,6 +1191,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1246,8 +1295,9 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
      * @param code Entity code
      * @param storeId Store Id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
@@ -1260,6 +1310,7 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         if (attributeId === null || attributeId === undefined) {
             throw new RequiredError("AttributeApi", "attributeValueUpdate", "attributeId");
         }
+
 
 
 
@@ -1307,6 +1358,11 @@ export class AttributeApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 

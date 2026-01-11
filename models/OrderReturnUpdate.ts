@@ -50,6 +50,10 @@ export class OrderReturnUpdate {
     * Defines return reject reason
     */
     'rejectReason'?: string;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
     'orderProducts': Array<OrderReturnUpdateOrderProductsInner>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -108,6 +112,12 @@ export class OrderReturnUpdate {
         {
             "name": "rejectReason",
             "baseName": "reject_reason",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
             "type": "string",
             "format": ""
         },

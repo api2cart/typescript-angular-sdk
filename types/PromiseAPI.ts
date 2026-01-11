@@ -101,6 +101,8 @@ import { CategoryCount200Response } from '../models/CategoryCount200Response';
 import { CategoryCount200ResponseResult } from '../models/CategoryCount200ResponseResult';
 import { CategoryDelete200Response } from '../models/CategoryDelete200Response';
 import { CategoryDelete200ResponseResult } from '../models/CategoryDelete200ResponseResult';
+import { CategoryDeleteBatch } from '../models/CategoryDeleteBatch';
+import { CategoryDeleteBatchPayloadInner } from '../models/CategoryDeleteBatchPayloadInner';
 import { CategoryFind200Response } from '../models/CategoryFind200Response';
 import { CategoryFind200ResponseResult } from '../models/CategoryFind200ResponseResult';
 import { CategoryFind200ResponseResultCategoryInner } from '../models/CategoryFind200ResponseResultCategoryInner';
@@ -667,9 +669,10 @@ export class PromiseAccountApi {
      * @param [scapiOrganizationId] Salesforce Commerce Organization ID
      * @param [scapiShortCode] Salesforce Commerce Short Code
      * @param [scapiScopes] Salesforce Commerce API Scopes
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, _options);
+    public accountConfigUpdateWithHttpInfo(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.accountConfigUpdateWithHttpInfo(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -845,9 +848,10 @@ export class PromiseAccountApi {
      * @param [scapiOrganizationId] Salesforce Commerce Organization ID
      * @param [scapiShortCode] Salesforce Commerce Short Code
      * @param [scapiScopes] Salesforce Commerce API Scopes
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, _options);
+    public accountConfigUpdate(replaceParameters?: boolean, newStoreUrl?: string, newStoreKey?: string, bridgeUrl?: string, storeRoot?: string, dbTablesPrefix?: string, userAgent?: string, _3dcartPrivateKey?: string, _3dcartAccessToken?: string, _3dcartapiApiKey?: string, amazonSpClientId?: string, amazonSpClientSecret?: string, amazonSpRefreshToken?: string, amazonSpAwsRegion?: string, amazonSpApiEnvironment?: string, amazonSellerId?: string, aspdotnetstorefrontApiUser?: string, aspdotnetstorefrontApiPass?: string, americommerceAppId?: string, americommerceAppSecret?: string, americommerceAccessToken?: string, americommerceRefreshToken?: string, bigcommerceapiAdminAccount?: string, bigcommerceapiApiPath?: string, bigcommerceapiApiKey?: string, bigcommerceapiClientId?: string, bigcommerceapiAccessToken?: string, bigcommerceapiContext?: string, bolApiKey?: string, bolApiSecret?: string, bolRetailerId?: number, demandwareClientId?: string, demandwareApiPassword?: string, demandwareUserName?: string, demandwareUserPassword?: string, ebayClientId?: string, ebayClientSecret?: string, ebayRuname?: string, ebayAccessToken?: string, ebayRefreshToken?: string, ebayEnvironment?: string, ebaySiteId?: number, ecwidAcessToken?: string, ecwidStoreId?: string, lazadaAppId?: string, lazadaAppSecret?: string, lazadaRefreshToken?: string, lazadaRegion?: string, etsyKeystring?: string, etsySharedSecret?: string, etsyAccessToken?: string, etsyTokenSecret?: string, etsyClientId?: string, etsyRefreshToken?: string, facebookAppId?: string, facebookAppSecret?: string, facebookAccessToken?: string, facebookBusinessId?: string, netoApiKey?: string, netoApiUsername?: string, shoplineAccessToken?: string, shoplineAppKey?: string, shoplineAppSecret?: string, shoplineSharedSecret?: string, shopifyAccessToken?: string, shopifyClientId?: string, shopifyApiKey?: string, shopifyApiPassword?: string, shopifySharedSecret?: string, shopeePartnerId?: string, shopeePartnerKey?: string, shopeeShopId?: string, shopeeRefreshToken?: string, shopeeRegion?: string, shopeeEnvironment?: string, shoplazzaAccessToken?: string, shoplazzaSharedSecret?: string, mivaAccessToken?: string, mivaSignature?: string, shopwareAccessKey?: string, unasApiKey?: string, shopwareApiKey?: string, shopwareApiSecret?: string, bigcartelUserName?: string, bigcartelPassword?: string, bricklinkConsumerKey?: string, bricklinkConsumerSecret?: string, bricklinkToken?: string, bricklinkTokenSecret?: string, volusionLogin?: string, volusionPassword?: string, walmartClientId?: string, walmartClientSecret?: string, walmartEnvironment?: string, walmartChannelType?: string, walmartRegion?: string, squareClientId?: string, squareClientSecret?: string, squareRefreshToken?: string, squarespaceApiKey?: string, squarespaceClientId?: string, squarespaceClientSecret?: string, squarespaceAccessToken?: string, squarespaceRefreshToken?: string, hybrisClientId?: string, hybrisClientSecret?: string, hybrisUsername?: string, hybrisPassword?: string, hybrisWebsites?: Array<string>, lightspeedApiKey?: string, lightspeedApiSecret?: string, commercehqApiKey?: string, commercehqApiPassword?: string, wcConsumerKey?: string, wcConsumerSecret?: string, magentoConsumerKey?: string, magentoConsumerSecret?: string, magentoAccessToken?: string, magentoTokenSecret?: string, prestashopWebserviceKey?: string, wixAppId?: string, wixAppSecretKey?: string, wixInstanceId?: string, wixRefreshToken?: string, mercadoLibreAppId?: string, mercadoLibreAppSecretKey?: string, mercadoLibreRefreshToken?: string, zidClientId?: number, zidClientSecret?: string, zidAccessToken?: string, zidAuthorization?: string, zidRefreshToken?: string, flipkartClientId?: string, flipkartClientSecret?: string, allegroClientId?: string, allegroClientSecret?: string, allegroAccessToken?: string, allegroRefreshToken?: string, allegroEnvironment?: string, zohoClientId?: string, zohoClientSecret?: string, zohoRefreshToken?: string, zohoRegion?: string, tiendanubeUserId?: number, tiendanubeAccessToken?: string, tiendanubeClientSecret?: string, ottoClientId?: string, ottoClientSecret?: string, ottoAppId?: string, ottoRefreshToken?: string, ottoEnvironment?: string, ottoAccessToken?: string, tiktokshopAppKey?: string, tiktokshopAppSecret?: string, tiktokshopRefreshToken?: string, tiktokshopAccessToken?: string, sallaClientId?: string, sallaClientSecret?: string, sallaRefreshToken?: string, sallaAccessToken?: string, temuAppKey?: string, temuAppSecret?: string, temuAccessToken?: string, temuRegion?: string, scapiClientId?: string, scapiClientSecret?: string, scapiOrganizationId?: string, scapiShortCode?: string, scapiScopes?: string, idempotencyKey?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.accountConfigUpdate(replaceParameters, newStoreUrl, newStoreKey, bridgeUrl, storeRoot, dbTablesPrefix, userAgent, _3dcartPrivateKey, _3dcartAccessToken, _3dcartapiApiKey, amazonSpClientId, amazonSpClientSecret, amazonSpRefreshToken, amazonSpAwsRegion, amazonSpApiEnvironment, amazonSellerId, aspdotnetstorefrontApiUser, aspdotnetstorefrontApiPass, americommerceAppId, americommerceAppSecret, americommerceAccessToken, americommerceRefreshToken, bigcommerceapiAdminAccount, bigcommerceapiApiPath, bigcommerceapiApiKey, bigcommerceapiClientId, bigcommerceapiAccessToken, bigcommerceapiContext, bolApiKey, bolApiSecret, bolRetailerId, demandwareClientId, demandwareApiPassword, demandwareUserName, demandwareUserPassword, ebayClientId, ebayClientSecret, ebayRuname, ebayAccessToken, ebayRefreshToken, ebayEnvironment, ebaySiteId, ecwidAcessToken, ecwidStoreId, lazadaAppId, lazadaAppSecret, lazadaRefreshToken, lazadaRegion, etsyKeystring, etsySharedSecret, etsyAccessToken, etsyTokenSecret, etsyClientId, etsyRefreshToken, facebookAppId, facebookAppSecret, facebookAccessToken, facebookBusinessId, netoApiKey, netoApiUsername, shoplineAccessToken, shoplineAppKey, shoplineAppSecret, shoplineSharedSecret, shopifyAccessToken, shopifyClientId, shopifyApiKey, shopifyApiPassword, shopifySharedSecret, shopeePartnerId, shopeePartnerKey, shopeeShopId, shopeeRefreshToken, shopeeRegion, shopeeEnvironment, shoplazzaAccessToken, shoplazzaSharedSecret, mivaAccessToken, mivaSignature, shopwareAccessKey, unasApiKey, shopwareApiKey, shopwareApiSecret, bigcartelUserName, bigcartelPassword, bricklinkConsumerKey, bricklinkConsumerSecret, bricklinkToken, bricklinkTokenSecret, volusionLogin, volusionPassword, walmartClientId, walmartClientSecret, walmartEnvironment, walmartChannelType, walmartRegion, squareClientId, squareClientSecret, squareRefreshToken, squarespaceApiKey, squarespaceClientId, squarespaceClientSecret, squarespaceAccessToken, squarespaceRefreshToken, hybrisClientId, hybrisClientSecret, hybrisUsername, hybrisPassword, hybrisWebsites, lightspeedApiKey, lightspeedApiSecret, commercehqApiKey, commercehqApiPassword, wcConsumerKey, wcConsumerSecret, magentoConsumerKey, magentoConsumerSecret, magentoAccessToken, magentoTokenSecret, prestashopWebserviceKey, wixAppId, wixAppSecretKey, wixInstanceId, wixRefreshToken, mercadoLibreAppId, mercadoLibreAppSecretKey, mercadoLibreRefreshToken, zidClientId, zidClientSecret, zidAccessToken, zidAuthorization, zidRefreshToken, flipkartClientId, flipkartClientSecret, allegroClientId, allegroClientSecret, allegroAccessToken, allegroRefreshToken, allegroEnvironment, zohoClientId, zohoClientSecret, zohoRefreshToken, zohoRegion, tiendanubeUserId, tiendanubeAccessToken, tiendanubeClientSecret, ottoClientId, ottoClientSecret, ottoAppId, ottoRefreshToken, ottoEnvironment, ottoAccessToken, tiktokshopAppKey, tiktokshopAppSecret, tiktokshopRefreshToken, tiktokshopAccessToken, sallaClientId, sallaClientSecret, sallaRefreshToken, sallaAccessToken, temuAppKey, temuAppSecret, temuAccessToken, temuRegion, scapiClientId, scapiClientSecret, scapiOrganizationId, scapiShortCode, scapiScopes, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -936,9 +940,10 @@ export class PromiseAttributeApi {
      * @param [usedInProductListing] Used in Product Listing
      * @param [usedForSortBy] Used for Sorting in Product Listing
      * @param [applyTo] Types of products which can have this attribute
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAddWithHttpInfo(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        const result = this.api.attributeAddWithHttpInfo(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, _options);
+    public attributeAddWithHttpInfo(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
+        const result = this.api.attributeAddWithHttpInfo(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -966,9 +971,10 @@ export class PromiseAttributeApi {
      * @param [usedInProductListing] Used in Product Listing
      * @param [usedForSortBy] Used for Sorting in Product Listing
      * @param [applyTo] Types of products which can have this attribute
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
-        const result = this.api.attributeAdd(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, _options);
+    public attributeAdd(type: 'text' | 'select' | 'textarea' | 'date' | 'price' | 'multiselect' | 'boolean', name: string, code?: string, storeId?: string, langId?: string, visible?: boolean, required?: boolean, position?: number, attributeGroupId?: string, isGlobal?: string, isSearchable?: boolean, isFilterable?: string, isComparable?: boolean, isHtmlAllowedOnFront?: boolean, isFilterableInSearch?: boolean, isConfigurable?: boolean, isVisibleInAdvancedSearch?: boolean, isUsedForPromoRules?: boolean, usedInProductListing?: boolean, usedForSortBy?: boolean, applyTo?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
+        const result = this.api.attributeAdd(type, name, code, storeId, langId, visible, required, position, attributeGroupId, isGlobal, isSearchable, isFilterable, isComparable, isHtmlAllowedOnFront, isFilterableInSearch, isConfigurable, isVisibleInAdvancedSearch, isUsedForPromoRules, usedInProductListing, usedForSortBy, applyTo, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -978,9 +984,10 @@ export class PromiseAttributeApi {
      * @param id Entity id
      * @param groupId Attribute group_id
      * @param [attributeSetId] Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignGroupWithHttpInfo(id: string, groupId: string, attributeSetId?: string, _options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
-        const result = this.api.attributeAssignGroupWithHttpInfo(id, groupId, attributeSetId, _options);
+    public attributeAssignGroupWithHttpInfo(id: string, groupId: string, attributeSetId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
+        const result = this.api.attributeAssignGroupWithHttpInfo(id, groupId, attributeSetId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -990,9 +997,10 @@ export class PromiseAttributeApi {
      * @param id Entity id
      * @param groupId Attribute group_id
      * @param [attributeSetId] Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, _options?: Configuration): Promise<AttributeAssignGroup200Response> {
-        const result = this.api.attributeAssignGroup(id, groupId, attributeSetId, _options);
+    public attributeAssignGroup(id: string, groupId: string, attributeSetId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeAssignGroup200Response> {
+        const result = this.api.attributeAssignGroup(id, groupId, attributeSetId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1002,9 +1010,10 @@ export class PromiseAttributeApi {
      * @param id Entity id
      * @param attributeSetId Attribute set id
      * @param [groupId] Attribute group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignSetWithHttpInfo(id: string, attributeSetId: string, groupId?: string, _options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
-        const result = this.api.attributeAssignSetWithHttpInfo(id, attributeSetId, groupId, _options);
+    public attributeAssignSetWithHttpInfo(id: string, attributeSetId: string, groupId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeAssignGroup200Response>> {
+        const result = this.api.attributeAssignSetWithHttpInfo(id, attributeSetId, groupId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1014,9 +1023,10 @@ export class PromiseAttributeApi {
      * @param id Entity id
      * @param attributeSetId Attribute set id
      * @param [groupId] Attribute group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeAssignSet(id: string, attributeSetId: string, groupId?: string, _options?: Configuration): Promise<AttributeAssignGroup200Response> {
-        const result = this.api.attributeAssignSet(id, attributeSetId, groupId, _options);
+    public attributeAssignSet(id: string, attributeSetId: string, groupId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeAssignGroup200Response> {
+        const result = this.api.attributeAssignSet(id, attributeSetId, groupId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1233,9 +1243,10 @@ export class PromiseAttributeApi {
      * attribute.unassign.group
      * @param id Entity id
      * @param groupId Customer group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignGroupWithHttpInfo(id: string, groupId: string, _options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
-        const result = this.api.attributeUnassignGroupWithHttpInfo(id, groupId, _options);
+    public attributeUnassignGroupWithHttpInfo(id: string, groupId: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
+        const result = this.api.attributeUnassignGroupWithHttpInfo(id, groupId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1244,9 +1255,10 @@ export class PromiseAttributeApi {
      * attribute.unassign.group
      * @param id Entity id
      * @param groupId Customer group_id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignGroup(id: string, groupId: string, _options?: Configuration): Promise<AttributeUnassignGroup200Response> {
-        const result = this.api.attributeUnassignGroup(id, groupId, _options);
+    public attributeUnassignGroup(id: string, groupId: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeUnassignGroup200Response> {
+        const result = this.api.attributeUnassignGroup(id, groupId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1255,9 +1267,10 @@ export class PromiseAttributeApi {
      * attribute.unassign.set
      * @param id Entity id
      * @param attributeSetId Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignSetWithHttpInfo(id: string, attributeSetId: string, _options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
-        const result = this.api.attributeUnassignSetWithHttpInfo(id, attributeSetId, _options);
+    public attributeUnassignSetWithHttpInfo(id: string, attributeSetId: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeUnassignGroup200Response>> {
+        const result = this.api.attributeUnassignSetWithHttpInfo(id, attributeSetId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1266,9 +1279,10 @@ export class PromiseAttributeApi {
      * attribute.unassign.set
      * @param id Entity id
      * @param attributeSetId Attribute set id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUnassignSet(id: string, attributeSetId: string, _options?: Configuration): Promise<AttributeUnassignGroup200Response> {
-        const result = this.api.attributeUnassignSet(id, attributeSetId, _options);
+    public attributeUnassignSet(id: string, attributeSetId: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeUnassignGroup200Response> {
+        const result = this.api.attributeUnassignSet(id, attributeSetId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1279,9 +1293,10 @@ export class PromiseAttributeApi {
      * @param name Defines new attributes\&#39;s name
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUpdateWithHttpInfo(id: string, name: string, storeId?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
-        const result = this.api.attributeUpdateWithHttpInfo(id, name, storeId, langId, _options);
+    public attributeUpdateWithHttpInfo(id: string, name: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
+        const result = this.api.attributeUpdateWithHttpInfo(id, name, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1292,9 +1307,10 @@ export class PromiseAttributeApi {
      * @param name Defines new attributes\&#39;s name
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeUpdate(id: string, name: string, storeId?: string, langId?: string, _options?: Configuration): Promise<AttributeUpdate200Response> {
-        const result = this.api.attributeUpdate(id, name, storeId, langId, _options);
+    public attributeUpdate(id: string, name: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeUpdate200Response> {
+        const result = this.api.attributeUpdate(id, name, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1307,9 +1323,10 @@ export class PromiseAttributeApi {
      * @param [description] Defines attribute value\&#39;s description
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueAddWithHttpInfo(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        const result = this.api.attributeValueAddWithHttpInfo(attributeId, name, code, description, storeId, langId, _options);
+    public attributeValueAddWithHttpInfo(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
+        const result = this.api.attributeValueAddWithHttpInfo(attributeId, name, code, description, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1322,9 +1339,10 @@ export class PromiseAttributeApi {
      * @param [description] Defines attribute value\&#39;s description
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
-        const result = this.api.attributeValueAdd(attributeId, name, code, description, storeId, langId, _options);
+    public attributeValueAdd(attributeId: string, name: string, code?: string, description?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
+        const result = this.api.attributeValueAdd(attributeId, name, code, description, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1362,9 +1380,10 @@ export class PromiseAttributeApi {
      * @param [code] Entity code
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueUpdateWithHttpInfo(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
-        const result = this.api.attributeValueUpdateWithHttpInfo(id, attributeId, name, description, code, storeId, langId, _options);
+    public attributeValueUpdateWithHttpInfo(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeUpdate200Response>> {
+        const result = this.api.attributeValueUpdateWithHttpInfo(id, attributeId, name, description, code, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1378,9 +1397,10 @@ export class PromiseAttributeApi {
      * @param [code] Entity code
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<AttributeUpdate200Response> {
-        const result = this.api.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId, _options);
+    public attributeValueUpdate(id: string, attributeId: string, name?: string, description?: string, code?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeUpdate200Response> {
+        const result = this.api.attributeValueUpdate(id, attributeId, name, description, code, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1439,9 +1459,10 @@ export class PromiseBasketApi {
      * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [quantity] Defines new items quantity
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketItemAddWithHttpInfo(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketItemAdd200Response>> {
-        const result = this.api.basketItemAddWithHttpInfo(customerId, productId, variantId, quantity, storeId, _options);
+    public basketItemAddWithHttpInfo(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<BasketItemAdd200Response>> {
+        const result = this.api.basketItemAddWithHttpInfo(customerId, productId, variantId, quantity, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1453,9 +1474,10 @@ export class PromiseBasketApi {
      * @param [variantId] Defines product\&#39;s variants specified by variant id
      * @param [quantity] Defines new items quantity
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, _options?: Configuration): Promise<BasketItemAdd200Response> {
-        const result = this.api.basketItemAdd(customerId, productId, variantId, quantity, storeId, _options);
+    public basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<BasketItemAdd200Response> {
+        const result = this.api.basketItemAdd(customerId, productId, variantId, quantity, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1465,9 +1487,10 @@ export class PromiseBasketApi {
      * @param name Shipping Service Name
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketLiveShippingServiceCreateWithHttpInfo(name: string, callback: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const result = this.api.basketLiveShippingServiceCreateWithHttpInfo(name, callback, storeId, _options);
+    public basketLiveShippingServiceCreateWithHttpInfo(name: string, callback: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const result = this.api.basketLiveShippingServiceCreateWithHttpInfo(name, callback, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1477,9 +1500,10 @@ export class PromiseBasketApi {
      * @param name Shipping Service Name
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        const result = this.api.basketLiveShippingServiceCreate(name, callback, storeId, _options);
+    public basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
+        const result = this.api.basketLiveShippingServiceCreate(name, callback, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1776,9 +1800,10 @@ export class PromiseCartApi {
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
-        const result = this.api.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options);
+    public cartCouponConditionAddWithHttpInfo(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceDelete200Response>> {
+        const result = this.api.cartCouponConditionAddWithHttpInfo(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1794,9 +1819,10 @@ export class PromiseCartApi {
      * @param [includeTax] Indicates whether to apply a discount for taxes.
      * @param [includeShipping] Indicates whether to apply a discount for shipping.
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Promise<BasketLiveShippingServiceDelete200Response> {
-        const result = this.api.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, _options);
+    public cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<BasketLiveShippingServiceDelete200Response> {
+        const result = this.api.cartCouponConditionAdd(couponId, entity, key, operator, value, target, includeTax, includeShipping, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1929,9 +1955,10 @@ export class PromiseCartApi {
      * @param [recipientEmail] Gift card recipient email
      * @param [recipientName] Gift card recipient name
      * @param [ownerName] Gift card owner name
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartGiftcardAddWithHttpInfo(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, _options?: Configuration): Promise<HttpInfo<CartGiftcardAdd200Response>> {
-        const result = this.api.cartGiftcardAddWithHttpInfo(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, _options);
+    public cartGiftcardAddWithHttpInfo(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CartGiftcardAdd200Response>> {
+        const result = this.api.cartGiftcardAddWithHttpInfo(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -1944,9 +1971,10 @@ export class PromiseCartApi {
      * @param [recipientEmail] Gift card recipient email
      * @param [recipientName] Gift card recipient name
      * @param [ownerName] Gift card owner name
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, _options?: Configuration): Promise<CartGiftcardAdd200Response> {
-        const result = this.api.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, _options);
+    public cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, idempotencyKey?: string, _options?: Configuration): Promise<CartGiftcardAdd200Response> {
+        const result = this.api.cartGiftcardAdd(amount, code, ownerEmail, recipientEmail, recipientName, ownerName, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2096,9 +2124,10 @@ export class PromiseCartApi {
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartMetaDataSetWithHttpInfo(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
-        const result = this.api.cartMetaDataSetWithHttpInfo(entityId, key, value, namespace, entity, storeId, langId, _options);
+    public cartMetaDataSetWithHttpInfo(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AttributeAdd200Response>> {
+        const result = this.api.cartMetaDataSetWithHttpInfo(entityId, key, value, namespace, entity, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2112,9 +2141,10 @@ export class PromiseCartApi {
      * @param [entity] Entity
      * @param [storeId] Store Id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
-        const result = this.api.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId, _options);
+    public cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AttributeAdd200Response> {
+        const result = this.api.cartMetaDataSet(entityId, key, value, namespace, entity, storeId, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2199,9 +2229,10 @@ export class PromiseCartApi {
      * @param [scope] The page or pages on the online store where the script should be included
      * @param [events] Event for run scripts
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartScriptAddWithHttpInfo(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<CartScriptAdd200Response>> {
-        const result = this.api.cartScriptAddWithHttpInfo(name, description, html, src, loadMethod, scope, events, storeId, _options);
+    public cartScriptAddWithHttpInfo(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CartScriptAdd200Response>> {
+        const result = this.api.cartScriptAddWithHttpInfo(name, description, html, src, loadMethod, scope, events, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2216,9 +2247,10 @@ export class PromiseCartApi {
      * @param [scope] The page or pages on the online store where the script should be included
      * @param [events] Event for run scripts
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, _options?: Configuration): Promise<CartScriptAdd200Response> {
-        const result = this.api.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId, _options);
+    public cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<CartScriptAdd200Response> {
+        const result = this.api.cartScriptAdd(name, description, html, src, loadMethod, scope, events, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2373,9 +2405,10 @@ export class PromiseCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAddWithHttpInfo(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<CategoryAdd200Response>> {
-        const result = this.api.categoryAddWithHttpInfo(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryAddWithHttpInfo(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CategoryAdd200Response>> {
+        const result = this.api.categoryAddWithHttpInfo(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2397,9 +2430,10 @@ export class PromiseCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Create category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<CategoryAdd200Response> {
-        const result = this.api.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryAdd(name: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, createdTime?: string, modifiedTime?: string, sortOrder?: number, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<CategoryAdd200Response> {
+        const result = this.api.categoryAdd(name, description, shortDescription, parentId, avail, createdTime, modifiedTime, sortOrder, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2429,9 +2463,10 @@ export class PromiseCategoryApi {
      * @param categoryId Defines category assign, specified by category id
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
-        const result = this.api.categoryAssignWithHttpInfo(categoryId, productId, storeId, _options);
+    public categoryAssignWithHttpInfo(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
+        const result = this.api.categoryAssignWithHttpInfo(categoryId, productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2441,9 +2476,10 @@ export class PromiseCategoryApi {
      * @param categoryId Defines category assign, specified by category id
      * @param productId Defines category assign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryAssign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<CategoryAssign200Response> {
-        const result = this.api.categoryAssign(categoryId, productId, storeId, _options);
+    public categoryAssign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<CategoryAssign200Response> {
+        const result = this.api.categoryAssign(categoryId, productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2514,6 +2550,26 @@ export class PromiseCategoryApi {
     }
 
     /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param categoryDeleteBatch
+     */
+    public categoryDeleteBatchWithHttpInfo(categoryDeleteBatch: CategoryDeleteBatch, _options?: Configuration): Promise<HttpInfo<CategoryAddBatch200Response>> {
+        const result = this.api.categoryDeleteBatchWithHttpInfo(categoryDeleteBatch, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * Delete categories from the store.
+     * category.delete.batch
+     * @param categoryDeleteBatch
+     */
+    public categoryDeleteBatch(categoryDeleteBatch: CategoryDeleteBatch, _options?: Configuration): Promise<CategoryAddBatch200Response> {
+        const result = this.api.categoryDeleteBatch(categoryDeleteBatch, _options);
+        return result.toPromise();
+    }
+
+    /**
      * Search category in store. \"Laptop\" is specified here by default.
      * category.find
      * @param findValue Entity search that is specified by some value
@@ -2552,9 +2608,10 @@ export class PromiseCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Promise<HttpInfo<CategoryImageAdd200Response>> {
-        const result = this.api.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, _options);
+    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CategoryImageAdd200Response>> {
+        const result = this.api.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2569,9 +2626,10 @@ export class PromiseCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, _options?: Configuration): Promise<CategoryImageAdd200Response> {
-        const result = this.api.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, _options);
+    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Promise<CategoryImageAdd200Response> {
+        const result = this.api.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2699,9 +2757,10 @@ export class PromiseCategoryApi {
      * @param categoryId Defines category unassign, specified by category id
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
-        const result = this.api.categoryUnassignWithHttpInfo(categoryId, productId, storeId, _options);
+    public categoryUnassignWithHttpInfo(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CategoryAssign200Response>> {
+        const result = this.api.categoryUnassignWithHttpInfo(categoryId, productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2711,9 +2770,10 @@ export class PromiseCategoryApi {
      * @param categoryId Defines category unassign, specified by category id
      * @param productId Defines category unassign to the product, specified by product id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUnassign(categoryId: string, productId: string, storeId?: string, _options?: Configuration): Promise<CategoryAssign200Response> {
-        const result = this.api.categoryUnassign(categoryId, productId, storeId, _options);
+    public categoryUnassign(categoryId: string, productId: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<CategoryAssign200Response> {
+        const result = this.api.categoryUnassign(categoryId, productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2735,9 +2795,10 @@ export class PromiseCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUpdateWithHttpInfo(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.categoryUpdateWithHttpInfo(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryUpdateWithHttpInfo(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.categoryUpdateWithHttpInfo(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2759,9 +2820,10 @@ export class PromiseCategoryApi {
      * @param [storeId] Store Id
      * @param [storesIds] Update category in the stores that is specified by comma-separated stores\&#39; id
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, _options);
+    public categoryUpdate(id: string, name?: string, description?: string, shortDescription?: string, parentId?: string, avail?: boolean, sortOrder?: number, modifiedTime?: string, metaTitle?: string, metaDescription?: string, metaKeywords?: string, seoUrl?: string, storeId?: string, storesIds?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.categoryUpdate(id, name, description, shortDescription, parentId, avail, sortOrder, modifiedTime, metaTitle, metaDescription, metaKeywords, seoUrl, storeId, storesIds, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2906,9 +2968,10 @@ export class PromiseCustomerApi {
      * Delete customer from store.
      * customer.delete
      * @param id Identifies customer specified by the id
+     * @param [storeId] Store Id
      */
-    public customerDeleteWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<CustomerDelete200Response>> {
-        const result = this.api.customerDeleteWithHttpInfo(id, _options);
+    public customerDeleteWithHttpInfo(id: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<CustomerDelete200Response>> {
+        const result = this.api.customerDeleteWithHttpInfo(id, storeId, _options);
         return result.toPromise();
     }
 
@@ -2916,9 +2979,10 @@ export class PromiseCustomerApi {
      * Delete customer from store.
      * customer.delete
      * @param id Identifies customer specified by the id
+     * @param [storeId] Store Id
      */
-    public customerDelete(id: string, _options?: Configuration): Promise<CustomerDelete200Response> {
-        const result = this.api.customerDelete(id, _options);
+    public customerDelete(id: string, storeId?: string, _options?: Configuration): Promise<CustomerDelete200Response> {
+        const result = this.api.customerDelete(id, storeId, _options);
         return result.toPromise();
     }
 
@@ -2956,9 +3020,10 @@ export class PromiseCustomerApi {
      * @param name Customer group name
      * @param [storeId] Store Id
      * @param [storesIds] Assign customer group to the stores that is specified by comma-separated stores\&#39; id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public customerGroupAddWithHttpInfo(name: string, storeId?: string, storesIds?: string, _options?: Configuration): Promise<HttpInfo<CustomerGroupAdd200Response>> {
-        const result = this.api.customerGroupAddWithHttpInfo(name, storeId, storesIds, _options);
+    public customerGroupAddWithHttpInfo(name: string, storeId?: string, storesIds?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<CustomerGroupAdd200Response>> {
+        const result = this.api.customerGroupAddWithHttpInfo(name, storeId, storesIds, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -2968,9 +3033,10 @@ export class PromiseCustomerApi {
      * @param name Customer group name
      * @param [storeId] Store Id
      * @param [storesIds] Assign customer group to the stores that is specified by comma-separated stores\&#39; id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public customerGroupAdd(name: string, storeId?: string, storesIds?: string, _options?: Configuration): Promise<CustomerGroupAdd200Response> {
-        const result = this.api.customerGroupAdd(name, storeId, storesIds, _options);
+    public customerGroupAdd(name: string, storeId?: string, storesIds?: string, idempotencyKey?: string, _options?: Configuration): Promise<CustomerGroupAdd200Response> {
+        const result = this.api.customerGroupAdd(name, storeId, storesIds, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -3914,9 +3980,10 @@ export class PromiseOrderApi {
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
      * @param [tags] Order tags
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options);
+    public orderUpdateWithHttpInfo(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.orderUpdateWithHttpInfo(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -3940,9 +4007,10 @@ export class PromiseOrderApi {
      * @param [createInvoice] Determines whether an invoice should be created if it has not already been created
      * @param [origin] The source of the order
      * @param [tags] Order tags
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, _options);
+    public orderUpdate(orderId: string, storeId?: string, orderStatus?: string, financialStatus?: string, fulfillmentStatus?: string, cancellationReason?: string, orderPaymentMethod?: string, comment?: string, adminComment?: string, adminPrivateComment?: string, invoiceAdminComment?: string, dateModified?: string, dateFinished?: string, sendNotifications?: boolean, createInvoice?: boolean, origin?: string, tags?: string, idempotencyKey?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.orderUpdate(orderId, storeId, orderStatus, financialStatus, fulfillmentStatus, cancellationReason, orderPaymentMethod, comment, adminComment, adminPrivateComment, invoiceAdminComment, dateModified, dateFinished, sendNotifications, createInvoice, origin, tags, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4064,9 +4132,10 @@ export class PromiseProductApi {
      * @param [valueId] Define attribute value id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueSetWithHttpInfo(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<ProductAttributeValueSet200Response>> {
-        const result = this.api.productAttributeValueSetWithHttpInfo(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, _options);
+    public productAttributeValueSetWithHttpInfo(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductAttributeValueSet200Response>> {
+        const result = this.api.productAttributeValueSetWithHttpInfo(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4081,9 +4150,10 @@ export class PromiseProductApi {
      * @param [valueId] Define attribute value id
      * @param [langId] Language id
      * @param [storeId] Store Id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, _options?: Configuration): Promise<ProductAttributeValueSet200Response> {
-        const result = this.api.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, _options);
+    public productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<ProductAttributeValueSet200Response> {
+        const result = this.api.productAttributeValueSet(productId, attributeId, attributeGroupId, attributeName, value, valueId, langId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4096,9 +4166,10 @@ export class PromiseProductApi {
      * @param [includeDefault] Boolean, whether or not to unset default value of the attribute, if applicable
      * @param [reindex] Is reindex required
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueUnsetWithHttpInfo(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, _options?: Configuration): Promise<HttpInfo<ProductAttributeValueUnset200Response>> {
-        const result = this.api.productAttributeValueUnsetWithHttpInfo(productId, attributeId, storeId, includeDefault, reindex, clearCache, _options);
+    public productAttributeValueUnsetWithHttpInfo(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductAttributeValueUnset200Response>> {
+        const result = this.api.productAttributeValueUnsetWithHttpInfo(productId, attributeId, storeId, includeDefault, reindex, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4111,9 +4182,10 @@ export class PromiseProductApi {
      * @param [includeDefault] Boolean, whether or not to unset default value of the attribute, if applicable
      * @param [reindex] Is reindex required
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, _options?: Configuration): Promise<ProductAttributeValueUnset200Response> {
-        const result = this.api.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache, _options);
+    public productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductAttributeValueUnset200Response> {
+        const result = this.api.productAttributeValueUnset(productId, attributeId, storeId, includeDefault, reindex, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4373,9 +4445,10 @@ export class PromiseProductApi {
      * @param [symbolLeft] Defines the symbol that is located before the currency
      * @param [symbolRight] Defines the symbol that is located after the currency
      * @param [_default] Specifies currency\&#39;s default meaning
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productCurrencyAddWithHttpInfo(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, _options?: Configuration): Promise<HttpInfo<ProductCurrencyAdd200Response>> {
-        const result = this.api.productCurrencyAddWithHttpInfo(iso3, rate, name, avail, symbolLeft, symbolRight, _default, _options);
+    public productCurrencyAddWithHttpInfo(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductCurrencyAdd200Response>> {
+        const result = this.api.productCurrencyAddWithHttpInfo(iso3, rate, name, avail, symbolLeft, symbolRight, _default, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4389,9 +4462,10 @@ export class PromiseProductApi {
      * @param [symbolLeft] Defines the symbol that is located before the currency
      * @param [symbolRight] Defines the symbol that is located after the currency
      * @param [_default] Specifies currency\&#39;s default meaning
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, _options?: Configuration): Promise<ProductCurrencyAdd200Response> {
-        const result = this.api.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, _default, _options);
+    public productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductCurrencyAdd200Response> {
+        const result = this.api.productCurrencyAdd(iso3, rate, name, avail, symbolLeft, symbolRight, _default, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4558,9 +4632,10 @@ export class PromiseProductApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
      * @param [hidden] Define is hide image
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        const result = this.api.productImageUpdateWithHttpInfo(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options);
+    public productImageUpdateWithHttpInfo(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
+        const result = this.api.productImageUpdateWithHttpInfo(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4577,9 +4652,10 @@ export class PromiseProductApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [position] Defines image’s position in the list
      * @param [hidden] Define is hide image
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Promise<ProductImageUpdate200Response> {
-        const result = this.api.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, _options);
+    public productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductImageUpdate200Response> {
+        const result = this.api.productImageUpdate(productId, id, variantIds, storeId, langId, imageName, type, label, position, hidden, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4723,9 +4799,10 @@ export class PromiseProductApi {
      * @param [searchKeywords] Defines unique search keywords
      * @param [imageUrl] Image Url
      * @param [seoUrl] Defines unique URL for SEO
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Promise<HttpInfo<ProductManufacturerAdd200Response>> {
-        const result = this.api.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options);
+    public productManufacturerAddWithHttpInfo(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductManufacturerAdd200Response>> {
+        const result = this.api.productManufacturerAddWithHttpInfo(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4741,9 +4818,10 @@ export class PromiseProductApi {
      * @param [searchKeywords] Defines unique search keywords
      * @param [imageUrl] Image Url
      * @param [seoUrl] Defines unique URL for SEO
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Promise<ProductManufacturerAdd200Response> {
-        const result = this.api.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, _options);
+    public productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, idempotencyKey?: string, _options?: Configuration): Promise<ProductManufacturerAdd200Response> {
+        const result = this.api.productManufacturerAdd(productId, manufacturer, storeId, metaTitle, metaKeywords, metaDescription, searchKeywords, imageUrl, seoUrl, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4776,9 +4854,10 @@ export class PromiseProductApi {
      * @param [sortOrder] Sort number in the list
      * @param [optionValues] Defines option values that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionAssignWithHttpInfo(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, _options?: Configuration): Promise<HttpInfo<ProductOptionAssign200Response>> {
-        const result = this.api.productOptionAssignWithHttpInfo(productId, optionId, required, sortOrder, optionValues, clearCache, _options);
+    public productOptionAssignWithHttpInfo(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductOptionAssign200Response>> {
+        const result = this.api.productOptionAssignWithHttpInfo(productId, optionId, required, sortOrder, optionValues, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4791,9 +4870,10 @@ export class PromiseProductApi {
      * @param [sortOrder] Sort number in the list
      * @param [optionValues] Defines option values that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, _options?: Configuration): Promise<ProductOptionAssign200Response> {
-        const result = this.api.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache, _options);
+    public productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductOptionAssign200Response> {
+        const result = this.api.productOptionAssign(productId, optionId, required, sortOrder, optionValues, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4865,9 +4945,10 @@ export class PromiseProductApi {
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [isDefault] Defines as a default
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAddWithHttpInfo(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, _options?: Configuration): Promise<HttpInfo<ProductOptionValueAdd200Response>> {
-        const result = this.api.productOptionValueAddWithHttpInfo(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, _options);
+    public productOptionValueAddWithHttpInfo(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductOptionValueAdd200Response>> {
+        const result = this.api.productOptionValueAddWithHttpInfo(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4881,9 +4962,10 @@ export class PromiseProductApi {
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [isDefault] Defines as a default
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, _options?: Configuration): Promise<ProductOptionValueAdd200Response> {
-        const result = this.api.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, _options);
+    public productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductOptionValueAdd200Response> {
+        const result = this.api.productOptionValueAdd(productId, optionId, optionValue, sortOrder, displayValue, isDefault, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4893,9 +4975,10 @@ export class PromiseProductApi {
      * @param productOptionId Defines product\&#39;s option id where the value has to be assigned
      * @param optionValueId Defines value id that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAssignWithHttpInfo(productOptionId: number, optionValueId: string, clearCache?: boolean, _options?: Configuration): Promise<HttpInfo<ProductOptionValueAssign200Response>> {
-        const result = this.api.productOptionValueAssignWithHttpInfo(productOptionId, optionValueId, clearCache, _options);
+    public productOptionValueAssignWithHttpInfo(productOptionId: number, optionValueId: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductOptionValueAssign200Response>> {
+        const result = this.api.productOptionValueAssignWithHttpInfo(productOptionId, optionValueId, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4905,9 +4988,10 @@ export class PromiseProductApi {
      * @param productOptionId Defines product\&#39;s option id where the value has to be assigned
      * @param optionValueId Defines value id that has to be assigned
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, _options?: Configuration): Promise<ProductOptionValueAssign200Response> {
-        const result = this.api.productOptionValueAssign(productOptionId, optionValueId, clearCache, _options);
+    public productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<ProductOptionValueAssign200Response> {
+        const result = this.api.productOptionValueAssign(productOptionId, optionValueId, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4948,9 +5032,10 @@ export class PromiseProductApi {
      * @param [quantity] Defines new products\&#39; options quantity
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueUpdateWithHttpInfo(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.productOptionValueUpdateWithHttpInfo(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, _options);
+    public productOptionValueUpdateWithHttpInfo(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.productOptionValueUpdateWithHttpInfo(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -4965,9 +5050,10 @@ export class PromiseProductApi {
      * @param [quantity] Defines new products\&#39; options quantity
      * @param [displayValue] Defines the value that will be displayed for the option value
      * @param [clearCache] Is cache clear required
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, _options);
+    public productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.productOptionValueUpdate(productId, optionId, optionValueId, optionValue, price, quantity, displayValue, clearCache, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5090,9 +5176,10 @@ export class PromiseProductApi {
      * product.store.assign
      * @param productId Defines id of the product which should be assigned to a store
      * @param storeId Defines id of the store product should be assigned to
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productStoreAssignWithHttpInfo(productId: string, storeId: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
-        const result = this.api.productStoreAssignWithHttpInfo(productId, storeId, _options);
+    public productStoreAssignWithHttpInfo(productId: string, storeId: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<AccountConfigUpdate200Response>> {
+        const result = this.api.productStoreAssignWithHttpInfo(productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5101,9 +5188,10 @@ export class PromiseProductApi {
      * product.store.assign
      * @param productId Defines id of the product which should be assigned to a store
      * @param storeId Defines id of the store product should be assigned to
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public productStoreAssign(productId: string, storeId: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
-        const result = this.api.productStoreAssign(productId, storeId, _options);
+    public productStoreAssign(productId: string, storeId: string, idempotencyKey?: string, _options?: Configuration): Promise<AccountConfigUpdate200Response> {
+        const result = this.api.productStoreAssign(productId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5809,9 +5897,10 @@ export class PromiseWebhookApi {
      * @param [active] Webhook status
      * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
-        const result = this.api.webhookCreateWithHttpInfo(entity, action, callback, label, fields, responseFields, active, langId, storeId, _options);
+    public webhookCreateWithHttpInfo(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<BasketLiveShippingServiceCreate200Response>> {
+        const result = this.api.webhookCreateWithHttpInfo(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5827,9 +5916,10 @@ export class PromiseWebhookApi {
      * @param [active] Webhook status
      * @param [langId] Language id
      * @param [storeId] Defines store id where the webhook should be assigned
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
-        const result = this.api.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, _options);
+    public webhookCreate(entity: string, action: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<BasketLiveShippingServiceCreate200Response> {
+        const result = this.api.webhookCreate(entity, action, callback, label, fields, responseFields, active, langId, storeId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5913,9 +6003,10 @@ export class PromiseWebhookApi {
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [active] Webhook status
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
-        const result = this.api.webhookUpdateWithHttpInfo(id, callback, label, fields, responseFields, active, langId, _options);
+    public webhookUpdateWithHttpInfo(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<HttpInfo<ProductImageUpdate200Response>> {
+        const result = this.api.webhookUpdateWithHttpInfo(id, callback, label, fields, responseFields, active, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 
@@ -5929,9 +6020,10 @@ export class PromiseWebhookApi {
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [active] Webhook status
      * @param [langId] Language id
+     * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, _options?: Configuration): Promise<ProductImageUpdate200Response> {
-        const result = this.api.webhookUpdate(id, callback, label, fields, responseFields, active, langId, _options);
+    public webhookUpdate(id: string, callback?: string, label?: string, fields?: string, responseFields?: string, active?: boolean, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<ProductImageUpdate200Response> {
+        const result = this.api.webhookUpdate(id, callback, label, fields, responseFields, active, langId, idempotencyKey, _options);
         return result.toPromise();
     }
 

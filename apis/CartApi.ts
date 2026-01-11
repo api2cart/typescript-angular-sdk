@@ -219,8 +219,9 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param includeTax Indicates whether to apply a discount for taxes.
      * @param includeShipping Indicates whether to apply a discount for shipping.
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cartCouponConditionAdd(couponId: string, entity: 'order' | 'order_shipping_address' | 'product' | 'customer', key: 'total' | 'subtotal' | 'shipping_total' | 'total_quantity' | 'total_weight' | 'country' | 'product_id' | 'variant_id' | 'category_id' | 'customer_id' | 'item_price' | 'item_total_price' | 'item_quantity' | 'carrier_id', operator: string, value: string, target?: string, includeTax?: boolean, includeShipping?: boolean, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'couponId' is not null or undefined
@@ -251,6 +252,7 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         if (value === null || value === undefined) {
             throw new RequiredError("CartApi", "cartCouponConditionAdd", "value");
         }
+
 
 
 
@@ -307,6 +309,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -652,14 +659,16 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param recipientEmail Gift card recipient email
      * @param recipientName Gift card recipient name
      * @param ownerName Gift card owner name
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cartGiftcardAdd(amount: number, code?: string, ownerEmail?: string, recipientEmail?: string, recipientName?: string, ownerName?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'amount' is not null or undefined
         if (amount === null || amount === undefined) {
             throw new RequiredError("CartApi", "cartGiftcardAdd", "amount");
         }
+
 
 
 
@@ -702,6 +711,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (ownerName !== undefined) {
             requestContext.setQueryParam("owner_name", ObjectSerializer.serialize(ownerName, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1081,8 +1095,9 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param entity Entity
      * @param storeId Store Id
      * @param langId Language id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cartMetaDataSet(entityId: string, key: string, value: string, namespace: string, entity?: string, storeId?: string, langId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'entityId' is not null or undefined
@@ -1107,6 +1122,7 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         if (namespace === null || namespace === undefined) {
             throw new RequiredError("CartApi", "cartMetaDataSet", "namespace");
         }
+
 
 
 
@@ -1152,6 +1168,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (langId !== undefined) {
             requestContext.setQueryParam("lang_id", ObjectSerializer.serialize(langId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1362,9 +1383,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
      * @param scope The page or pages on the online store where the script should be included
      * @param events Event for run scripts
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async cartScriptAdd(name?: string, description?: string, html?: string, src?: string, loadMethod?: string, scope?: string, events?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -1419,6 +1442,11 @@ export class CartApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 

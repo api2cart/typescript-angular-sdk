@@ -326,14 +326,16 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param valueId Define attribute value id
      * @param langId Language id
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productAttributeValueSet(productId: string, attributeId?: string, attributeGroupId?: string, attributeName?: string, value?: string, valueId?: number, langId?: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
         if (productId === null || productId === undefined) {
             throw new RequiredError("ProductApi", "productAttributeValueSet", "productId");
         }
+
 
 
 
@@ -390,6 +392,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -420,8 +427,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param includeDefault Boolean, whether or not to unset default value of the attribute, if applicable
      * @param reindex Is reindex required
      * @param clearCache Is cache clear required
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productAttributeValueUnset(productId: string, attributeId: string, storeId?: string, includeDefault?: boolean, reindex?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -434,6 +442,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (attributeId === null || attributeId === undefined) {
             throw new RequiredError("ProductApi", "productAttributeValueUnset", "attributeId");
         }
+
 
 
 
@@ -475,6 +484,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (clearCache !== undefined) {
             requestContext.setQueryParam("clear_cache", ObjectSerializer.serialize(clearCache, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1242,8 +1256,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param symbolLeft Defines the symbol that is located before the currency
      * @param symbolRight Defines the symbol that is located after the currency
      * @param _default Specifies currency\&#39;s default meaning
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productCurrencyAdd(iso3: string, rate: number, name?: string, avail?: boolean, symbolLeft?: string, symbolRight?: string, _default?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'iso3' is not null or undefined
@@ -1256,6 +1271,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (rate === null || rate === undefined) {
             throw new RequiredError("ProductApi", "productCurrencyAdd", "rate");
         }
+
 
 
 
@@ -1303,6 +1319,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (_default !== undefined) {
             requestContext.setQueryParam("default", ObjectSerializer.serialize(_default, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -1738,8 +1759,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param label Defines alternative text that has to be attached to the picture
      * @param position Defines image’s position in the list
      * @param hidden Define is hide image
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productImageUpdate(productId: string, id: string, variantIds?: string, storeId?: string, langId?: string, imageName?: string, type?: string, label?: string, position?: number, hidden?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -1752,6 +1774,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (id === null || id === undefined) {
             throw new RequiredError("ProductApi", "productImageUpdate", "id");
         }
+
 
 
 
@@ -1817,6 +1840,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (hidden !== undefined) {
             requestContext.setQueryParam("hidden", ObjectSerializer.serialize(hidden, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -2252,8 +2280,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param searchKeywords Defines unique search keywords
      * @param imageUrl Image Url
      * @param seoUrl Defines unique URL for SEO
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, _options?: Configuration): Promise<RequestContext> {
+    public async productManufacturerAdd(productId: string, manufacturer: string, storeId?: string, metaTitle?: string, metaKeywords?: string, metaDescription?: string, searchKeywords?: string, imageUrl?: string, seoUrl?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -2266,6 +2295,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (manufacturer === null || manufacturer === undefined) {
             throw new RequiredError("ProductApi", "productManufacturerAdd", "manufacturer");
         }
+
 
 
 
@@ -2325,6 +2355,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (seoUrl !== undefined) {
             requestContext.setQueryParam("seo_url", ObjectSerializer.serialize(seoUrl, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -2410,8 +2445,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param sortOrder Sort number in the list
      * @param optionValues Defines option values that has to be assigned
      * @param clearCache Is cache clear required
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productOptionAssign(productId: string, optionId: string, required?: boolean, sortOrder?: number, optionValues?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -2424,6 +2460,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (optionId === null || optionId === undefined) {
             throw new RequiredError("ProductApi", "productOptionAssign", "optionId");
         }
+
 
 
 
@@ -2465,6 +2502,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (clearCache !== undefined) {
             requestContext.setQueryParam("clear_cache", ObjectSerializer.serialize(clearCache, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -2655,8 +2697,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param displayValue Defines the value that will be displayed for the option value
      * @param isDefault Defines as a default
      * @param clearCache Is cache clear required
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productOptionValueAdd(productId: string, optionId: string, optionValue?: string, sortOrder?: number, displayValue?: string, isDefault?: boolean, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -2669,6 +2712,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (optionId === null || optionId === undefined) {
             throw new RequiredError("ProductApi", "productOptionValueAdd", "optionId");
         }
+
 
 
 
@@ -2718,6 +2762,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("clear_cache", ObjectSerializer.serialize(clearCache, "boolean", ""));
         }
 
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -2745,8 +2794,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param productOptionId Defines product\&#39;s option id where the value has to be assigned
      * @param optionValueId Defines value id that has to be assigned
      * @param clearCache Is cache clear required
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productOptionValueAssign(productOptionId: number, optionValueId: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productOptionId' is not null or undefined
@@ -2759,6 +2809,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (optionValueId === null || optionValueId === undefined) {
             throw new RequiredError("ProductApi", "productOptionValueAssign", "optionValueId");
         }
+
 
 
 
@@ -2782,6 +2833,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (clearCache !== undefined) {
             requestContext.setQueryParam("clear_cache", ObjectSerializer.serialize(clearCache, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -2894,8 +2950,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * @param quantity Defines new products\&#39; options quantity
      * @param displayValue Defines the value that will be displayed for the option value
      * @param clearCache Is cache clear required
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async productOptionValueUpdate(productId: string, optionId: string, optionValueId: string, optionValue?: string, price?: number, quantity?: number, displayValue?: string, clearCache?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -2914,6 +2971,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (optionValueId === null || optionValueId === undefined) {
             throw new RequiredError("ProductApi", "productOptionValueUpdate", "optionValueId");
         }
+
 
 
 
@@ -2966,6 +3024,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (clearCache !== undefined) {
             requestContext.setQueryParam("clear_cache", ObjectSerializer.serialize(clearCache, "boolean", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 
@@ -3313,8 +3376,9 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
      * product.store.assign
      * @param productId Defines id of the product which should be assigned to a store
      * @param storeId Defines id of the store product should be assigned to
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async productStoreAssign(productId: string, storeId: string, _options?: Configuration): Promise<RequestContext> {
+    public async productStoreAssign(productId: string, storeId: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'productId' is not null or undefined
@@ -3327,6 +3391,7 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         if (storeId === null || storeId === undefined) {
             throw new RequiredError("ProductApi", "productStoreAssign", "storeId");
         }
+
 
 
         // Path Params
@@ -3344,6 +3409,11 @@ export class ProductApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 

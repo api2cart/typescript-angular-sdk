@@ -69,6 +69,10 @@ export class ProductImageAdd {
     * Use the latest platform API version
     */
     'useLatestApiVersion'?: boolean;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -157,6 +161,12 @@ export class ProductImageAdd {
             "name": "useLatestApiVersion",
             "baseName": "use_latest_api_version",
             "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
+            "type": "string",
             "format": ""
         }    ];
 

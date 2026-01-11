@@ -102,8 +102,9 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
      * @param variantId Defines product\&#39;s variants specified by variant id
      * @param quantity Defines new items quantity
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async basketItemAdd(customerId: string, productId: string, variantId?: string, quantity?: number, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'customerId' is not null or undefined
@@ -116,6 +117,7 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         if (productId === null || productId === undefined) {
             throw new RequiredError("BasketApi", "basketItemAdd", "productId");
         }
+
 
 
 
@@ -153,6 +155,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
         }
 
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -180,8 +187,9 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
      * @param name Shipping Service Name
      * @param callback Callback url that returns shipping rates. It should be able to accept POST requests with json data.
      * @param storeId Store Id
+     * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async basketLiveShippingServiceCreate(name: string, callback: string, storeId?: string, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'name' is not null or undefined
@@ -194,6 +202,7 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         if (callback === null || callback === undefined) {
             throw new RequiredError("BasketApi", "basketLiveShippingServiceCreate", "callback");
         }
+
 
 
 
@@ -217,6 +226,11 @@ export class BasketApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (idempotencyKey !== undefined) {
+            requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
 
 

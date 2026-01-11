@@ -18,6 +18,10 @@ export class ProductDeleteBatch {
     * Contains an array of product deletion requests, each including the product ID.
     */
     'payload': Array<ProductDeleteBatchPayloadInner>;
+    /**
+    * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
+    */
+    'idempotencyKey'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,6 +32,12 @@ export class ProductDeleteBatch {
             "name": "payload",
             "baseName": "payload",
             "type": "Array<ProductDeleteBatchPayloadInner>",
+            "format": ""
+        },
+        {
+            "name": "idempotencyKey",
+            "baseName": "idempotency_key",
+            "type": "string",
             "format": ""
         }    ];
 

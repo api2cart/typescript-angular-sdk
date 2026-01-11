@@ -80,6 +80,8 @@ const request: AttributeApiAttributeAddRequest = {
   usedForSortBy: true,
     // Types of products which can have this attribute (optional)
   applyTo: "Global",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeAdd(request);
@@ -112,6 +114,7 @@ Name | Type | Description  | Notes
  **usedInProductListing** | [**boolean**] | Used in Product Listing | (optional) defaults to false
  **usedForSortBy** | [**boolean**] | Used for Sorting in Product Listing | (optional) defaults to false
  **applyTo** | [**string**] | Types of products which can have this attribute | (optional) defaults to 'all_types'
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -157,6 +160,8 @@ const request: AttributeApiAttributeAssignGroupRequest = {
   groupId: "3",
     // Attribute set id (optional)
   attributeSetId: "4",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeAssignGroup(request);
@@ -171,6 +176,7 @@ Name | Type | Description  | Notes
  **id** | [**string**] | Entity id | defaults to undefined
  **groupId** | [**string**] | Attribute group_id | defaults to undefined
  **attributeSetId** | [**string**] | Attribute set id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -216,6 +222,8 @@ const request: AttributeApiAttributeAssignSetRequest = {
   attributeSetId: "4",
     // Attribute group_id (optional)
   groupId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeAssignSet(request);
@@ -230,6 +238,7 @@ Name | Type | Description  | Notes
  **id** | [**string**] | Entity id | defaults to undefined
  **attributeSetId** | [**string**] | Attribute set id | defaults to undefined
  **groupId** | [**string**] | Attribute group_id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -742,6 +751,8 @@ const request: AttributeApiAttributeUnassignGroupRequest = {
   id: "10",
     // Customer group_id
   groupId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeUnassignGroup(request);
@@ -755,6 +766,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Entity id | defaults to undefined
  **groupId** | [**string**] | Customer group_id | defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -798,6 +810,8 @@ const request: AttributeApiAttributeUnassignSetRequest = {
   id: "10",
     // Attribute set id
   attributeSetId: "4",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeUnassignSet(request);
@@ -811,6 +825,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] | Entity id | defaults to undefined
  **attributeSetId** | [**string**] | Attribute set id | defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -858,6 +873,8 @@ const request: AttributeApiAttributeUpdateRequest = {
   storeId: "1",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeUpdate(request);
@@ -873,6 +890,7 @@ Name | Type | Description  | Notes
  **name** | [**string**] | Defines new attributes\&#39;s name | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -924,6 +942,8 @@ const request: AttributeApiAttributeValueAddRequest = {
   storeId: "1",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeValueAdd(request);
@@ -941,6 +961,7 @@ Name | Type | Description  | Notes
  **description** | [**string**] | Defines attribute value\&#39;s description | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
@@ -1053,6 +1074,8 @@ const request: AttributeApiAttributeValueUpdateRequest = {
   storeId: "1",
     // Language id (optional)
   langId: "3",
+    // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
+  idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
 
 const data = await apiInstance.attributeValueUpdate(request);
@@ -1071,6 +1094,7 @@ Name | Type | Description  | Notes
  **code** | [**string**] | Entity code | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **langId** | [**string**] | Language id | (optional) defaults to undefined
+ **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
 ### Return type
