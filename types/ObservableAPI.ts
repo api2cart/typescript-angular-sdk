@@ -75,6 +75,7 @@ import { CartInfo200Response } from '../models/CartInfo200Response';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
+import { CartPickupLocation } from '../models/CartPickupLocation';
 import { CartPluginList200Response } from '../models/CartPluginList200Response';
 import { CartPluginList200ResponseResult } from '../models/CartPluginList200ResponseResult';
 import { CartScriptAdd200Response } from '../models/CartScriptAdd200Response';
@@ -3486,9 +3487,10 @@ export class ObservableCategoryApi {
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryInfoWithHttpInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryInfo200Response>> {
-        const requestContextPromise = this.requestFactory.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options);
+    public categoryInfoWithHttpInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<CategoryInfo200Response>> {
+        const requestContextPromise = this.requestFactory.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3518,9 +3520,10 @@ export class ObservableCategoryApi {
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Observable<CategoryInfo200Response> {
-        return this.categoryInfoWithHttpInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options).pipe(map((apiResponse: HttpInfo<CategoryInfo200Response>) => apiResponse.data));
+    public categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<CategoryInfo200Response> {
+        return this.categoryInfoWithHttpInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<CategoryInfo200Response>) => apiResponse.data));
     }
 
     /**
@@ -3546,9 +3549,10 @@ export class ObservableCategoryApi {
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseCategoryList>> {
-        const requestContextPromise = this.requestFactory.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options);
+    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<HttpInfo<ModelResponseCategoryList>> {
+        const requestContextPromise = this.requestFactory.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, useLatestApiVersion, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3589,9 +3593,10 @@ export class ObservableCategoryApi {
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Observable<ModelResponseCategoryList> {
-        return this.categoryListWithHttpInfo(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCategoryList>) => apiResponse.data));
+    public categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Observable<ModelResponseCategoryList> {
+        return this.categoryListWithHttpInfo(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, useLatestApiVersion, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCategoryList>) => apiResponse.data));
     }
 
     /**

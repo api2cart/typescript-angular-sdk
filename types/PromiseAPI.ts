@@ -74,6 +74,7 @@ import { CartInfo200Response } from '../models/CartInfo200Response';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
+import { CartPickupLocation } from '../models/CartPickupLocation';
 import { CartPluginList200Response } from '../models/CartPluginList200Response';
 import { CartPluginList200ResponseResult } from '../models/CartPluginList200ResponseResult';
 import { CartScriptAdd200Response } from '../models/CartScriptAdd200Response';
@@ -2669,9 +2670,10 @@ export class PromiseCategoryApi {
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryInfoWithHttpInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<HttpInfo<CategoryInfo200Response>> {
-        const result = this.api.categoryInfoWithHttpInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options);
+    public categoryInfoWithHttpInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<CategoryInfo200Response>> {
+        const result = this.api.categoryInfoWithHttpInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -2687,9 +2689,10 @@ export class PromiseCategoryApi {
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<CategoryInfo200Response> {
-        const result = this.api.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, _options);
+    public categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<CategoryInfo200Response> {
+        const result = this.api.categoryInfo(id, storeId, langId, schemaType, responseFields, params, exclude, reportRequestId, disableReportCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -2716,9 +2719,10 @@ export class PromiseCategoryApi {
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Promise<HttpInfo<ModelResponseCategoryList>> {
-        const result = this.api.categoryListWithHttpInfo(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options);
+    public categoryListWithHttpInfo(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<HttpInfo<ModelResponseCategoryList>> {
+        const result = this.api.categoryListWithHttpInfo(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 
@@ -2745,9 +2749,10 @@ export class PromiseCategoryApi {
      * @param [reportRequestId] Report request id
      * @param [disableReportCache] Disable report cache for current request
      * @param [disableCache] Disable cache for current request
+     * @param [useLatestApiVersion] Use the latest platform API version
      */
-    public categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Promise<ModelResponseCategoryList> {
-        const result = this.api.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, _options);
+    public categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<ModelResponseCategoryList> {
+        const result = this.api.categoryList(start, count, pageCursor, storeId, langId, parentId, avail, productType, createdFrom, createdTo, modifiedFrom, modifiedTo, findValue, findWhere, responseFields, params, exclude, reportRequestId, disableReportCache, disableCache, useLatestApiVersion, _options);
         return result.toPromise();
     }
 

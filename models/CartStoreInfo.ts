@@ -12,6 +12,7 @@
 
 import { Carrier } from '../models/Carrier';
 import { CartChannel } from '../models/CartChannel';
+import { CartPickupLocation } from '../models/CartPickupLocation';
 import { Currency } from '../models/Currency';
 import { Info } from '../models/Info';
 import { Language } from '../models/Language';
@@ -36,6 +37,7 @@ export class CartStoreInfo {
     'storeOwnerInfo'?: Info | null;
     'defaultWarehouseId'?: string | null;
     'channels'?: Array<CartChannel>;
+    'pickupLocations'?: Array<CartPickupLocation>;
     'additionalFields'?: any | null;
     'customFields'?: any | null;
 
@@ -150,6 +152,12 @@ export class CartStoreInfo {
             "name": "channels",
             "baseName": "channels",
             "type": "Array<CartChannel>",
+            "format": ""
+        },
+        {
+            "name": "pickupLocations",
+            "baseName": "pickup_locations",
+            "type": "Array<CartPickupLocation>",
             "format": ""
         },
         {

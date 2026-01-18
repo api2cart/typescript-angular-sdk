@@ -74,6 +74,7 @@ import { CartInfo200Response } from '../models/CartInfo200Response';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
+import { CartPickupLocation } from '../models/CartPickupLocation';
 import { CartPluginList200Response } from '../models/CartPluginList200Response';
 import { CartPluginList200ResponseResult } from '../models/CartPluginList200ResponseResult';
 import { CartScriptAdd200Response } from '../models/CartScriptAdd200Response';
@@ -5097,6 +5098,13 @@ export interface CategoryApiCategoryInfoRequest {
      * @memberof CategoryApicategoryInfo
      */
     disableReportCache?: boolean
+    /**
+     * Use the latest platform API version
+     * Defaults to: false
+     * @type boolean
+     * @memberof CategoryApicategoryInfo
+     */
+    useLatestApiVersion?: boolean
 }
 
 export interface CategoryApiCategoryListRequest {
@@ -5240,6 +5248,13 @@ export interface CategoryApiCategoryListRequest {
      * @memberof CategoryApicategoryList
      */
     disableCache?: boolean
+    /**
+     * Use the latest platform API version
+     * Defaults to: false
+     * @type boolean
+     * @memberof CategoryApicategoryList
+     */
+    useLatestApiVersion?: boolean
 }
 
 export interface CategoryApiCategoryUnassignRequest {
@@ -5563,7 +5578,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryInfoWithHttpInfo(param: CategoryApiCategoryInfoRequest, options?: Configuration): Promise<HttpInfo<CategoryInfo200Response>> {
-        return this.api.categoryInfoWithHttpInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryInfoWithHttpInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -5572,7 +5587,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryInfo(param: CategoryApiCategoryInfoRequest, options?: Configuration): Promise<CategoryInfo200Response> {
-        return this.api.categoryInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache,  options).toPromise();
+        return this.api.categoryInfo(param.id, param.storeId, param.langId, param.schemaType, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -5581,7 +5596,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryListWithHttpInfo(param: CategoryApiCategoryListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseCategoryList>> {
-        return this.api.categoryListWithHttpInfo(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
+        return this.api.categoryListWithHttpInfo(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**
@@ -5590,7 +5605,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryList(param: CategoryApiCategoryListRequest = {}, options?: Configuration): Promise<ModelResponseCategoryList> {
-        return this.api.categoryList(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache,  options).toPromise();
+        return this.api.categoryList(param.start, param.count, param.pageCursor, param.storeId, param.langId, param.parentId, param.avail, param.productType, param.createdFrom, param.createdTo, param.modifiedFrom, param.modifiedTo, param.findValue, param.findWhere, param.responseFields, param.params, param.exclude, param.reportRequestId, param.disableReportCache, param.disableCache, param.useLatestApiVersion,  options).toPromise();
     }
 
     /**

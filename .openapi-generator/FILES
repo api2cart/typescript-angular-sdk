@@ -114,6 +114,7 @@ models/CartInfo200Response.ts
 models/CartMetaData.ts
 models/CartMethods200Response.ts
 models/CartMethods200ResponseResult.ts
+models/CartPickupLocation.ts
 models/CartPluginList200Response.ts
 models/CartPluginList200ResponseResult.ts
 models/CartScriptAdd200Response.ts

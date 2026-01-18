@@ -700,6 +700,8 @@ const request: CategoryApiCategoryInfoRequest = {
   reportRequestId: "105245017661",
     // Disable report cache for current request (optional)
   disableReportCache: false,
+    // Use the latest platform API version (optional)
+  useLatestApiVersion: true,
 };
 
 const data = await apiInstance.categoryInfo(request);
@@ -720,6 +722,7 @@ Name | Type | Description  | Notes
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
+ **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
 ### Return type
@@ -799,6 +802,8 @@ const request: CategoryApiCategoryListRequest = {
   disableReportCache: false,
     // Disable cache for current request (optional)
   disableCache: false,
+    // Use the latest platform API version (optional)
+  useLatestApiVersion: true,
 };
 
 const data = await apiInstance.categoryList(request);
@@ -830,6 +835,7 @@ Name | Type | Description  | Notes
  **reportRequestId** | [**string**] | Report request id | (optional) defaults to undefined
  **disableReportCache** | [**boolean**] | Disable report cache for current request | (optional) defaults to false
  **disableCache** | [**boolean**] | Disable cache for current request | (optional) defaults to false
+ **useLatestApiVersion** | [**boolean**] | Use the latest platform API version | (optional) defaults to false
 
 
 ### Return type

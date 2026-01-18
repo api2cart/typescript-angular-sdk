@@ -71,6 +71,7 @@ export * from '../models/CartInfo200Response';
 export * from '../models/CartMetaData';
 export * from '../models/CartMethods200Response';
 export * from '../models/CartMethods200ResponseResult';
+export * from '../models/CartPickupLocation';
 export * from '../models/CartPluginList200Response';
 export * from '../models/CartPluginList200ResponseResult';
 export * from '../models/CartScriptAdd200Response';
@@ -504,6 +505,7 @@ import { CartInfo200Response } from '../models/CartInfo200Response';
 import { CartMetaData } from '../models/CartMetaData';
 import { CartMethods200Response } from '../models/CartMethods200Response';
 import { CartMethods200ResponseResult } from '../models/CartMethods200ResponseResult';
+import { CartPickupLocation } from '../models/CartPickupLocation';
 import { CartPluginList200Response } from '../models/CartPluginList200Response';
 import { CartPluginList200ResponseResult } from '../models/CartPluginList200ResponseResult';
 import { CartScriptAdd200Response } from '../models/CartScriptAdd200Response';
@@ -968,6 +970,7 @@ let typeMap: {[index: string]: any} = {
     "CartMetaData": CartMetaData,
     "CartMethods200Response": CartMethods200Response,
     "CartMethods200ResponseResult": CartMethods200ResponseResult,
+    "CartPickupLocation": CartPickupLocation,
     "CartPluginList200Response": CartPluginList200Response,
     "CartPluginList200ResponseResult": CartPluginList200ResponseResult,
     "CartScriptAdd200Response": CartScriptAdd200Response,

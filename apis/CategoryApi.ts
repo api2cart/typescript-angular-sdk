@@ -809,14 +809,16 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param exclude Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
+     * @param useLatestApiVersion Use the latest platform API version
      */
-    public async categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async categoryInfo(id: string, storeId?: string, langId?: string, schemaType?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new RequiredError("CategoryApi", "categoryInfo", "id");
         }
+
 
 
 
@@ -879,6 +881,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
             requestContext.setQueryParam("disable_report_cache", ObjectSerializer.serialize(disableReportCache, "boolean", ""));
         }
 
+        // Query Params
+        if (useLatestApiVersion !== undefined) {
+            requestContext.setQueryParam("use_latest_api_version", ObjectSerializer.serialize(useLatestApiVersion, "boolean", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -923,9 +930,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param reportRequestId Report request id
      * @param disableReportCache Disable report cache for current request
      * @param disableCache Disable cache for current request
+     * @param useLatestApiVersion Use the latest platform API version
      */
-    public async categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, _options?: Configuration): Promise<RequestContext> {
+    public async categoryList(start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, parentId?: string, avail?: boolean, productType?: string, createdFrom?: string, createdTo?: string, modifiedFrom?: string, modifiedTo?: string, findValue?: string, findWhere?: string, responseFields?: string, params?: string, exclude?: string, reportRequestId?: string, disableReportCache?: boolean, disableCache?: boolean, useLatestApiVersion?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -1052,6 +1061,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (disableCache !== undefined) {
             requestContext.setQueryParam("disable_cache", ObjectSerializer.serialize(disableCache, "boolean", ""));
+        }
+
+        // Query Params
+        if (useLatestApiVersion !== undefined) {
+            requestContext.setQueryParam("use_latest_api_version", ObjectSerializer.serialize(useLatestApiVersion, "boolean", ""));
         }
 
 
