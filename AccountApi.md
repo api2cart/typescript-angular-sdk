@@ -34,6 +34,8 @@ const request: AccountApiAccountCartAddRequest = {
     bridgeUrl: "https://your-store.com/custom/bridge/path/bridge.php",
     storeRoot: "/home/www/stores/magento1922",
     storeKey: "ab37fc230bc5df63a5be1b11220949be",
+    label: "This cool image",
+    customLabel: "This is test store",
     validateVersion: true,
     verify: false,
     dbTablesPrefix: "oc_",
@@ -184,6 +186,11 @@ const request: AccountApiAccountCartAddRequest = {
     zidAccessToken: "def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d",
     zidAuthorization: "def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d",
     zidRefreshToken: "def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d",
+    jumpsellerClientId: "your_client_id",
+    jumpsellerClientSecret: "your_client_secret",
+    jumpsellerRefreshToken: "your_oauth_refresh_token",
+    jumpsellerLogin: "your_login",
+    jumpsellerAuthtoken: "your_auth_token",
     flipkartClientId: "19414773883a13a850b6a52350b7246499a24",
     flipkartClientSecret: "nl5l1lE0vxgv6cV111fHsdlOOIfb0Ms5IR7l4Igs",
     allegroClientId: "2915e189ce3d23d23d2327d204ae6a0bd",
@@ -278,6 +285,8 @@ const request: AccountApiAccountCartListRequest = {
   requestFromDate: "2010-07-29",
     // Retrieve entities to their creation date (optional)
   requestToDate: "2100-08-29",
+    // Defines a custom label for the store in the app (optional)
+  customLabel: "This is test store",
     // Set this parameter in order to choose which entity fields you want to retrieve (optional)
   params: "url,store_key",
     // Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter `params` equal force_all (optional)
@@ -297,6 +306,7 @@ Name | Type | Description  | Notes
  **storeKey** | [**string**] | Find store by store key | (optional) defaults to undefined
  **requestFromDate** | [**string**] | Retrieve entities from their creation date | (optional) defaults to undefined
  **requestToDate** | [**string**] | Retrieve entities to their creation date | (optional) defaults to undefined
+ **customLabel** | [**string**] | Defines a custom label for the store in the app | (optional) defaults to undefined
  **params** | [**string**] | Set this parameter in order to choose which entity fields you want to retrieve | (optional) defaults to 'force_all'
  **exclude** | [**string**] | Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all | (optional) defaults to undefined
 
@@ -344,6 +354,8 @@ const request: AccountApiAccountConfigUpdateRequest = {
   newStoreUrl: "http://mystore.com",
     // Update store key (optional)
   newStoreKey: "b636495648de3086f6f57b1bd4be548f",
+    // Defines a custom label for the store in the app (optional)
+  customLabel: "This is test store",
     // This parameter allows to set up store with custom bridge url (also you must use store_root parameter if a bridge folder is not in the root folder of the store) (optional)
   bridgeUrl: "https://your-store.com/custom/bridge/path/bridge.php",
     // Absolute path to the store root directory (used with \"bridge_url\" parameter) (optional)
@@ -609,6 +621,16 @@ const request: AccountApiAccountConfigUpdateRequest = {
   zidAuthorization: "def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d",
     // Zid refresh token (optional)
   zidRefreshToken: "def50eyfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe657e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65d7e64a0cfe9fe65de64a0c865d",
+    // Jumpseller OAuth2 Client ID (optional)
+  jumpsellerClientId: "your_client_id",
+    // Jumpseller OAuth2 Client Secret (optional)
+  jumpsellerClientSecret: "your_client_secret",
+    // Jumpseller OAuth2 refresh token (optional)
+  jumpsellerRefreshToken: "your_oauth_refresh_token",
+    // Jumpseller API login (optional)
+  jumpsellerLogin: "your_login",
+    // Jumpseller API auth token (optional)
+  jumpsellerAuthtoken: "your_auth_token",
     // Flipkart Client ID (optional)
   flipkartClientId: "19414773883a13a850b6a52350b7246499a24",
     // Flipkart Client Secret (optional)
@@ -699,6 +721,7 @@ Name | Type | Description  | Notes
  **replaceParameters** | [**boolean**] | Identifies if there is a necessity to replace parameters | (optional) defaults to undefined
  **newStoreUrl** | [**string**] | The web address of the store you want to update to connect to API2Cart | (optional) defaults to undefined
  **newStoreKey** | [**string**] | Update store key | (optional) defaults to undefined
+ **customLabel** | [**string**] | Defines a custom label for the store in the app | (optional) defaults to undefined
  **bridgeUrl** | [**string**] | This parameter allows to set up store with custom bridge url (also you must use store_root parameter if a bridge folder is not in the root folder of the store) | (optional) defaults to undefined
  **storeRoot** | [**string**] | Absolute path to the store root directory (used with \&quot;bridge_url\&quot; parameter) | (optional) defaults to undefined
  **dbTablesPrefix** | [**string**] | DB tables prefix | (optional) defaults to undefined
@@ -828,6 +851,11 @@ Name | Type | Description  | Notes
  **zidAccessToken** | [**string**] | Zid Access Token | (optional) defaults to undefined
  **zidAuthorization** | [**string**] | Zid Authorization | (optional) defaults to undefined
  **zidRefreshToken** | [**string**] | Zid refresh token | (optional) defaults to undefined
+ **jumpsellerClientId** | [**string**] | Jumpseller OAuth2 Client ID | (optional) defaults to undefined
+ **jumpsellerClientSecret** | [**string**] | Jumpseller OAuth2 Client Secret | (optional) defaults to undefined
+ **jumpsellerRefreshToken** | [**string**] | Jumpseller OAuth2 refresh token | (optional) defaults to undefined
+ **jumpsellerLogin** | [**string**] | Jumpseller API login | (optional) defaults to undefined
+ **jumpsellerAuthtoken** | [**string**] | Jumpseller API auth token | (optional) defaults to undefined
  **flipkartClientId** | [**string**] | Flipkart Client ID | (optional) defaults to undefined
  **flipkartClientSecret** | [**string**] | Flipkart Client Secret | (optional) defaults to undefined
  **allegroClientId** | [**string**] | Allegro Client ID | (optional) defaults to undefined

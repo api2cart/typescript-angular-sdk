@@ -17,6 +17,8 @@ export class AccountCartList200ResponseResultCartsInner {
     'url'?: string;
     'storeKey'?: string;
     'cartId'?: string;
+    'customLabel'?: string;
+    'bridgeVersion'?: string;
     'totalCalls'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -45,6 +47,18 @@ export class AccountCartList200ResponseResultCartsInner {
         {
             "name": "cartId",
             "baseName": "cart_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customLabel",
+            "baseName": "custom_label",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "bridgeVersion",
+            "baseName": "bridge_version",
             "type": "string",
             "format": ""
         },

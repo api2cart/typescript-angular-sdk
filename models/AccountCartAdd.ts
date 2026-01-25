@@ -35,6 +35,14 @@ export class AccountCartAdd {
     */
     'storeKey'?: string;
     /**
+    * Defines alternative text that has to be attached to the picture
+    */
+    'label'?: string;
+    /**
+    * Defines a custom label for the store in the app
+    */
+    'customLabel'?: string;
+    /**
     * Specify if api2cart should validate cart version
     */
     'validateVersion'?: boolean;
@@ -583,6 +591,26 @@ export class AccountCartAdd {
     */
     'zidRefreshToken'?: string;
     /**
+    * Jumpseller OAuth2 Client ID
+    */
+    'jumpsellerClientId'?: string;
+    /**
+    * Jumpseller OAuth2 Client Secret
+    */
+    'jumpsellerClientSecret'?: string;
+    /**
+    * Jumpseller OAuth2 refresh token
+    */
+    'jumpsellerRefreshToken'?: string;
+    /**
+    * Jumpseller API login
+    */
+    'jumpsellerLogin'?: string;
+    /**
+    * Jumpseller API auth token
+    */
+    'jumpsellerAuthtoken'?: string;
+    /**
     * Flipkart Client ID
     */
     'flipkartClientId'?: string;
@@ -751,6 +779,18 @@ export class AccountCartAdd {
         {
             "name": "storeKey",
             "baseName": "store_key",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "label",
+            "baseName": "label",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "customLabel",
+            "baseName": "custom_label",
             "type": "string",
             "format": ""
         },
@@ -1573,6 +1613,36 @@ export class AccountCartAdd {
         {
             "name": "zidRefreshToken",
             "baseName": "zid_refresh_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "jumpsellerClientId",
+            "baseName": "jumpseller_client_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "jumpsellerClientSecret",
+            "baseName": "jumpseller_client_secret",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "jumpsellerRefreshToken",
+            "baseName": "jumpseller_refresh_token",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "jumpsellerLogin",
+            "baseName": "jumpseller_login",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "jumpsellerAuthtoken",
+            "baseName": "jumpseller_authtoken",
             "type": "string",
             "format": ""
         },
