@@ -1028,6 +1028,7 @@ const request: OrderApiOrderReturnAddRequest = {
     returnStatusId: "RETURNED",
     returnActionId: "RETURNED",
     returnReasonId: "broken",
+    returnAction: "refund",
     returnReason: "broken",
     itemRestock: true,
     staffNote: "Test",
@@ -1170,6 +1171,8 @@ const request: OrderApiOrderReturnUpdateRequest = {
     comment: "This coole order",
     sendNotifications: true,
     rejectReason: "ORDER_UNPAID",
+    returnAction: "refund",
+    returnReason: "broken",
     idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     orderProducts: [
       {

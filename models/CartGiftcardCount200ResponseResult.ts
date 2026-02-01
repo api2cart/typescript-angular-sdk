@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class CartGiftcardCount200ResponseResult {
-    'giftCardsCount'?: string;
+    'giftCardsCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,7 +23,7 @@ export class CartGiftcardCount200ResponseResult {
         {
             "name": "giftCardsCount",
             "baseName": "gift_cards_count",
-            "type": "string",
+            "type": "number",
             "format": ""
         }    ];
 

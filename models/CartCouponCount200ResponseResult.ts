@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class CartCouponCount200ResponseResult {
-    'couponsCount'?: string;
+    'couponsCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,7 +23,7 @@ export class CartCouponCount200ResponseResult {
         {
             "name": "couponsCount",
             "baseName": "coupons_count",
-            "type": "string",
+            "type": "number",
             "format": ""
         }    ];
 

@@ -35,6 +35,10 @@ export class OrderReturnAdd {
     */
     'returnReasonId': string;
     /**
+    * Defines return request action
+    */
+    'returnAction'?: string;
+    /**
     * Defines return request reason
     */
     'returnReason'?: string;
@@ -96,6 +100,12 @@ export class OrderReturnAdd {
         {
             "name": "returnReasonId",
             "baseName": "return_reason_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "returnAction",
+            "baseName": "return_action",
             "type": "string",
             "format": ""
         },

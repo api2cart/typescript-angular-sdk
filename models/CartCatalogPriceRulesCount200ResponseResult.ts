@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class CartCatalogPriceRulesCount200ResponseResult {
-    'catalogPriceRulesCount'?: string;
+    'catalogPriceRulesCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,7 +23,7 @@ export class CartCatalogPriceRulesCount200ResponseResult {
         {
             "name": "catalogPriceRulesCount",
             "baseName": "catalog_price_rules_count",
-            "type": "string",
+            "type": "number",
             "format": ""
         }    ];
 

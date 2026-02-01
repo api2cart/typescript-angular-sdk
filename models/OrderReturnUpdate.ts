@@ -51,6 +51,14 @@ export class OrderReturnUpdate {
     */
     'rejectReason'?: string;
     /**
+    * Defines return request action
+    */
+    'returnAction'?: string;
+    /**
+    * Defines return request reason
+    */
+    'returnReason'?: string;
+    /**
     * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     */
     'idempotencyKey'?: string;
@@ -112,6 +120,18 @@ export class OrderReturnUpdate {
         {
             "name": "rejectReason",
             "baseName": "reject_reason",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "returnAction",
+            "baseName": "return_action",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "returnReason",
+            "baseName": "return_reason",
             "type": "string",
             "format": ""
         },
