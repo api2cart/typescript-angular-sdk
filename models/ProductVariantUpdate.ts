@@ -127,6 +127,10 @@ export class ProductVariantUpdate {
     */
     'reduceQuantity'?: number;
     /**
+    * Indicates whether prices include tax.
+    */
+    'pricesIncTax'?: boolean;
+    /**
     * Defines new product\'s variant price
     */
     'price'?: number;
@@ -422,6 +426,12 @@ export class ProductVariantUpdate {
             "name": "reduceQuantity",
             "baseName": "reduce_quantity",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "pricesIncTax",
+            "baseName": "prices_inc_tax",
+            "type": "boolean",
             "format": ""
         },
         {

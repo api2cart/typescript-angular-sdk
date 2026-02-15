@@ -112,6 +112,10 @@ export class ProductVariantAdd {
     */
     'unitPrice'?: number;
     /**
+    * Indicates whether prices include tax.
+    */
+    'pricesIncTax'?: boolean;
+    /**
     * Defines product variant\'s quantity that has to be added
     */
     'quantity'?: number;
@@ -399,6 +403,12 @@ export class ProductVariantAdd {
             "name": "unitPrice",
             "baseName": "unit_price",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "pricesIncTax",
+            "baseName": "prices_inc_tax",
+            "type": "boolean",
             "format": ""
         },
         {

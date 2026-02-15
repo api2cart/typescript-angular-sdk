@@ -43,6 +43,10 @@ export class ProductUpdate {
     */
     'shortDescription'?: string;
     /**
+    * Indicates whether prices include tax.
+    */
+    'pricesIncTax'?: boolean;
+    /**
     * Defines new product\'s price
     */
     'price'?: number;
@@ -425,6 +429,12 @@ export class ProductUpdate {
             "name": "shortDescription",
             "baseName": "short_description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pricesIncTax",
+            "baseName": "prices_inc_tax",
+            "type": "boolean",
             "format": ""
         },
         {

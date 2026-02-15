@@ -208,7 +208,7 @@ export class OrderAdd {
     */
     'totalWeight'?: number;
     /**
-    * Indicates whether prices and subtotal includes tax.
+    * Indicates whether prices and subtotal include tax.
     */
     'pricesIncTax'?: boolean;
     /**
