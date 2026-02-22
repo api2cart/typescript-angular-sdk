@@ -102,6 +102,7 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
      * Get list of tax classes from your store.
      * tax.class.list
      * @param count This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param start This parameter sets the number from which you want to get entities
      * @param pageCursor Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param storeId Store Id
      * @param findValue Entity search that is specified by some value
@@ -112,8 +113,9 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
      * @param modifiedFrom Retrieve entities from their modification date
      * @param responseFields Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public async taxClassList(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
+    public async taxClassList(count?: number, start?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
 
 
 
@@ -135,6 +137,11 @@ export class TaxApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (count !== undefined) {
             requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", ""));
+        }
+
+        // Query Params
+        if (start !== undefined) {
+            requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", ""));
         }
 
         // Query Params

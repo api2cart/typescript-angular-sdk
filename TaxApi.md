@@ -94,6 +94,8 @@ const apiInstance = new TaxApi(configuration);
 const request: TaxApiTaxClassListRequest = {
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
+    // This parameter sets the number from which you want to get entities (optional)
+  start: 0,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
   pageCursor: "",
     // Store Id (optional)
@@ -124,6 +126,7 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
+ **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
  **findValue** | [**string**] | Entity search that is specified by some value | (optional) defaults to undefined

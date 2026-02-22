@@ -5051,6 +5051,13 @@ export interface CategoryApiCategoryImageAddRequest {
      */
     position?: number
     /**
+     * Defines whether to add image to all category translations
+     * Defaults to: true
+     * @type boolean
+     * @memberof CategoryApicategoryImageAdd
+     */
+    applyToTranslations?: boolean
+    /**
      * A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      * Defaults to: undefined
      * @type string
@@ -5081,6 +5088,13 @@ export interface CategoryApiCategoryImageDeleteRequest {
      * @memberof CategoryApicategoryImageDelete
      */
     storeId?: string
+    /**
+     * Defines whether to delete image from all category translations
+     * Defaults to: true
+     * @type boolean
+     * @memberof CategoryApicategoryImageDelete
+     */
+    applyToTranslations?: boolean
 }
 
 export interface CategoryApiCategoryInfoRequest {
@@ -5591,7 +5605,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAddWithHttpInfo(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<HttpInfo<CategoryImageAdd200Response>> {
-        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.idempotencyKey,  options).toPromise();
+        return this.api.categoryImageAddWithHttpInfo(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.applyToTranslations, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5600,7 +5614,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageAdd(param: CategoryApiCategoryImageAddRequest, options?: Configuration): Promise<CategoryImageAdd200Response> {
-        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.idempotencyKey,  options).toPromise();
+        return this.api.categoryImageAdd(param.categoryId, param.imageName, param.url, param.type, param.storeId, param.label, param.mime, param.position, param.applyToTranslations, param.idempotencyKey,  options).toPromise();
     }
 
     /**
@@ -5609,7 +5623,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageDeleteWithHttpInfo(param: CategoryApiCategoryImageDeleteRequest, options?: Configuration): Promise<HttpInfo<AttributeDelete200Response>> {
-        return this.api.categoryImageDeleteWithHttpInfo(param.categoryId, param.imageId, param.storeId,  options).toPromise();
+        return this.api.categoryImageDeleteWithHttpInfo(param.categoryId, param.imageId, param.storeId, param.applyToTranslations,  options).toPromise();
     }
 
     /**
@@ -5618,7 +5632,7 @@ export class ObjectCategoryApi {
      * @param param the request object
      */
     public categoryImageDelete(param: CategoryApiCategoryImageDeleteRequest, options?: Configuration): Promise<AttributeDelete200Response> {
-        return this.api.categoryImageDelete(param.categoryId, param.imageId, param.storeId,  options).toPromise();
+        return this.api.categoryImageDelete(param.categoryId, param.imageId, param.storeId, param.applyToTranslations,  options).toPromise();
     }
 
     /**
@@ -5724,6 +5738,13 @@ export interface CustomerApiCustomerAttributeListRequest {
      * @memberof CustomerApicustomerAttributeList
      */
     customerId: string
+    /**
+     * This parameter sets the number from which you want to get entities
+     * Defaults to: 0
+     * @type number
+     * @memberof CustomerApicustomerAttributeList
+     */
+    start?: number
     /**
      * This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * Defaults to: 10
@@ -6326,7 +6347,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerAttributeListWithHttpInfo(param: CustomerApiCustomerAttributeListRequest, options?: Configuration): Promise<HttpInfo<ModelResponseCustomerAttributeList>> {
-        return this.api.customerAttributeListWithHttpInfo(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.customerAttributeListWithHttpInfo(param.customerId, param.start, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -6335,7 +6356,7 @@ export class ObjectCustomerApi {
      * @param param the request object
      */
     public customerAttributeList(param: CustomerApiCustomerAttributeListRequest, options?: Configuration): Promise<ModelResponseCustomerAttributeList> {
-        return this.api.customerAttributeList(param.customerId, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
+        return this.api.customerAttributeList(param.customerId, param.start, param.count, param.pageCursor, param.storeId, param.langId, param.responseFields, param.params, param.exclude,  options).toPromise();
     }
 
     /**
@@ -11820,6 +11841,13 @@ export interface TaxApiTaxClassListRequest {
      */
     count?: number
     /**
+     * This parameter sets the number from which you want to get entities
+     * Defaults to: 0
+     * @type number
+     * @memberof TaxApitaxClassList
+     */
+    start?: number
+    /**
      * Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * Defaults to: undefined
      * @type string
@@ -11915,7 +11943,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassListWithHttpInfo(param: TaxApiTaxClassListRequest = {}, options?: Configuration): Promise<HttpInfo<ModelResponseTaxClassList>> {
-        return this.api.taxClassListWithHttpInfo(param.count, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
+        return this.api.taxClassListWithHttpInfo(param.count, param.start, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
     }
 
     /**
@@ -11924,7 +11952,7 @@ export class ObjectTaxApi {
      * @param param the request object
      */
     public taxClassList(param: TaxApiTaxClassListRequest = {}, options?: Configuration): Promise<ModelResponseTaxClassList> {
-        return this.api.taxClassList(param.count, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
+        return this.api.taxClassList(param.count, param.start, param.pageCursor, param.storeId, param.findValue, param.findWhere, param.createdTo, param.createdFrom, param.modifiedTo, param.modifiedFrom, param.responseFields,  options).toPromise();
     }
 
 }

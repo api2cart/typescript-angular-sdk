@@ -624,9 +624,10 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param label Defines alternative text that has to be attached to the picture
      * @param mime Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param position Defines image’s position in the list
+     * @param applyToTranslations Defines whether to add image to all category translations
      * @param idempotencyKey A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, applyToTranslations?: boolean, idempotencyKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -651,6 +652,7 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         if (type === null || type === undefined) {
             throw new RequiredError("CategoryApi", "categoryImageAdd", "type");
         }
+
 
 
 
@@ -706,6 +708,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         }
 
         // Query Params
+        if (applyToTranslations !== undefined) {
+            requestContext.setQueryParam("apply_to_translations", ObjectSerializer.serialize(applyToTranslations, "boolean", ""));
+        }
+
+        // Query Params
         if (idempotencyKey !== undefined) {
             requestContext.setQueryParam("idempotency_key", ObjectSerializer.serialize(idempotencyKey, "string", ""));
         }
@@ -737,8 +744,9 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
      * @param categoryId Defines category id where the image should be deleted
      * @param imageId Define image id
      * @param storeId Store Id
+     * @param applyToTranslations Defines whether to delete image from all category translations
      */
-    public async categoryImageDelete(categoryId: string, imageId: string, storeId?: string, _options?: Configuration): Promise<RequestContext> {
+    public async categoryImageDelete(categoryId: string, imageId: string, storeId?: string, applyToTranslations?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'categoryId' is not null or undefined
@@ -751,6 +759,7 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         if (imageId === null || imageId === undefined) {
             throw new RequiredError("CategoryApi", "categoryImageDelete", "imageId");
         }
+
 
 
 
@@ -774,6 +783,11 @@ export class CategoryApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (storeId !== undefined) {
             requestContext.setQueryParam("store_id", ObjectSerializer.serialize(storeId, "string", ""));
+        }
+
+        // Query Params
+        if (applyToTranslations !== undefined) {
+            requestContext.setQueryParam("apply_to_translations", ObjectSerializer.serialize(applyToTranslations, "boolean", ""));
         }
 
 

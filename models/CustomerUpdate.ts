@@ -76,6 +76,10 @@ export class CustomerUpdate {
     */
     'status'?: string;
     /**
+    * Defines customer\'s unique password
+    */
+    'password'?: string;
+    /**
     * Store Id
     */
     'storeId'?: string;
@@ -177,6 +181,12 @@ export class CustomerUpdate {
         {
             "name": "status",
             "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "password",
+            "baseName": "password",
             "type": "string",
             "format": ""
         },

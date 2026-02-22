@@ -562,6 +562,8 @@ const request: CategoryApiCategoryImageAddRequest = {
   mime: "image/jpeg",
     // Defines image’s position in the list (optional)
   position: 5,
+    // Defines whether to add image to all category translations (optional)
+  applyToTranslations: true,
     // A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong> (optional)
   idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
 };
@@ -583,6 +585,7 @@ Name | Type | Description  | Notes
  **label** | [**string**] | Defines alternative text that has to be attached to the picture | (optional) defaults to undefined
  **mime** | [**string**] | Mime type of image http://en.wikipedia.org/wiki/Internet_media_type. | (optional) defaults to undefined
  **position** | [**number**] | Defines image’s position in the list | (optional) defaults to 0
+ **applyToTranslations** | [**boolean**] | Defines whether to add image to all category translations | (optional) defaults to true
  **idempotencyKey** | [**string**] | A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt; | (optional) defaults to undefined
 
 
@@ -629,6 +632,8 @@ const request: CategoryApiCategoryImageDeleteRequest = {
   imageId: "82950b84f468edff480680f99cedbe0d",
     // Store Id (optional)
   storeId: "1",
+    // Defines whether to delete image from all category translations (optional)
+  applyToTranslations: false,
 };
 
 const data = await apiInstance.categoryImageDelete(request);
@@ -643,6 +648,7 @@ Name | Type | Description  | Notes
  **categoryId** | [**string**] | Defines category id where the image should be deleted | defaults to undefined
  **imageId** | [**string**] | Define image id | defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
+ **applyToTranslations** | [**boolean**] | Defines whether to delete image from all category translations | (optional) defaults to true
 
 
 ### Return type

@@ -3414,10 +3414,11 @@ export class ObservableCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [applyToTranslations] Defines whether to add image to all category translations
      * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
-        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options);
+    public categoryImageAddWithHttpInfo(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, applyToTranslations?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<HttpInfo<CategoryImageAdd200Response>> {
+        const requestContextPromise = this.requestFactory.categoryImageAdd(categoryId, imageName, url, type, storeId, label, mime, position, applyToTranslations, idempotencyKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3446,10 +3447,11 @@ export class ObservableCategoryApi {
      * @param [label] Defines alternative text that has to be attached to the picture
      * @param [mime] Mime type of image http://en.wikipedia.org/wiki/Internet_media_type.
      * @param [position] Defines image’s position in the list
+     * @param [applyToTranslations] Defines whether to add image to all category translations
      * @param [idempotencyKey] A unique identifier associated with a specific request. Repeated requests with the same &lt;strong&gt;idempotency_key&lt;/strong&gt; return a cached response without re-executing the business logic. &lt;strong&gt;Please note that the cache lifetime is 15 minutes.&lt;/strong&gt;
      */
-    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, idempotencyKey?: string, _options?: Configuration): Observable<CategoryImageAdd200Response> {
-        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
+    public categoryImageAdd(categoryId: string, imageName: string, url: string, type: 'base' | 'thumbnail', storeId?: string, label?: string, mime?: string, position?: number, applyToTranslations?: boolean, idempotencyKey?: string, _options?: Configuration): Observable<CategoryImageAdd200Response> {
+        return this.categoryImageAddWithHttpInfo(categoryId, imageName, url, type, storeId, label, mime, position, applyToTranslations, idempotencyKey, _options).pipe(map((apiResponse: HttpInfo<CategoryImageAdd200Response>) => apiResponse.data));
     }
 
     /**
@@ -3458,9 +3460,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category id where the image should be deleted
      * @param imageId Define image id
      * @param [storeId] Store Id
+     * @param [applyToTranslations] Defines whether to delete image from all category translations
      */
-    public categoryImageDeleteWithHttpInfo(categoryId: string, imageId: string, storeId?: string, _options?: Configuration): Observable<HttpInfo<AttributeDelete200Response>> {
-        const requestContextPromise = this.requestFactory.categoryImageDelete(categoryId, imageId, storeId, _options);
+    public categoryImageDeleteWithHttpInfo(categoryId: string, imageId: string, storeId?: string, applyToTranslations?: boolean, _options?: Configuration): Observable<HttpInfo<AttributeDelete200Response>> {
+        const requestContextPromise = this.requestFactory.categoryImageDelete(categoryId, imageId, storeId, applyToTranslations, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3484,9 +3487,10 @@ export class ObservableCategoryApi {
      * @param categoryId Defines category id where the image should be deleted
      * @param imageId Define image id
      * @param [storeId] Store Id
+     * @param [applyToTranslations] Defines whether to delete image from all category translations
      */
-    public categoryImageDelete(categoryId: string, imageId: string, storeId?: string, _options?: Configuration): Observable<AttributeDelete200Response> {
-        return this.categoryImageDeleteWithHttpInfo(categoryId, imageId, storeId, _options).pipe(map((apiResponse: HttpInfo<AttributeDelete200Response>) => apiResponse.data));
+    public categoryImageDelete(categoryId: string, imageId: string, storeId?: string, applyToTranslations?: boolean, _options?: Configuration): Observable<AttributeDelete200Response> {
+        return this.categoryImageDeleteWithHttpInfo(categoryId, imageId, storeId, applyToTranslations, _options).pipe(map((apiResponse: HttpInfo<AttributeDelete200Response>) => apiResponse.data));
     }
 
     /**
@@ -3803,6 +3807,7 @@ export class ObservableCustomerApi {
      * Get attributes for specific customer
      * customer.attribute.list
      * @param customerId Retrieves orders specified by customer id
+     * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
@@ -3811,8 +3816,8 @@ export class ObservableCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerAttributeListWithHttpInfo(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerAttributeList>> {
-        const requestContextPromise = this.requestFactory.customerAttributeList(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude, _options);
+    public customerAttributeListWithHttpInfo(customerId: string, start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseCustomerAttributeList>> {
+        const requestContextPromise = this.requestFactory.customerAttributeList(customerId, start, count, pageCursor, storeId, langId, responseFields, params, exclude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -3834,6 +3839,7 @@ export class ObservableCustomerApi {
      * Get attributes for specific customer
      * customer.attribute.list
      * @param customerId Retrieves orders specified by customer id
+     * @param [start] This parameter sets the number from which you want to get entities
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
@@ -3842,8 +3848,8 @@ export class ObservableCustomerApi {
      * @param [params] Set this parameter in order to choose which entity fields you want to retrieve
      * @param [exclude] Set this parameter in order to choose which entity fields you want to ignore. Works only if parameter &#x60;params&#x60; equal force_all
      */
-    public customerAttributeList(customerId: string, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerAttributeList> {
-        return this.customerAttributeListWithHttpInfo(customerId, count, pageCursor, storeId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerAttributeList>) => apiResponse.data));
+    public customerAttributeList(customerId: string, start?: number, count?: number, pageCursor?: string, storeId?: string, langId?: string, responseFields?: string, params?: string, exclude?: string, _options?: Configuration): Observable<ModelResponseCustomerAttributeList> {
+        return this.customerAttributeListWithHttpInfo(customerId, start, count, pageCursor, storeId, langId, responseFields, params, exclude, _options).pipe(map((apiResponse: HttpInfo<ModelResponseCustomerAttributeList>) => apiResponse.data));
     }
 
     /**
@@ -7885,6 +7891,7 @@ export class ObservableTaxApi {
      * Get list of tax classes from your store.
      * tax.class.list
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [start] This parameter sets the number from which you want to get entities
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [findValue] Entity search that is specified by some value
@@ -7895,8 +7902,8 @@ export class ObservableTaxApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public taxClassListWithHttpInfo(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassList>> {
-        const requestContextPromise = this.requestFactory.taxClassList(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options);
+    public taxClassListWithHttpInfo(count?: number, start?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<HttpInfo<ModelResponseTaxClassList>> {
+        const requestContextPromise = this.requestFactory.taxClassList(count, start, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -7918,6 +7925,7 @@ export class ObservableTaxApi {
      * Get list of tax classes from your store.
      * tax.class.list
      * @param [count] This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250
+     * @param [start] This parameter sets the number from which you want to get entities
      * @param [pageCursor] Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter)
      * @param [storeId] Store Id
      * @param [findValue] Entity search that is specified by some value
@@ -7928,8 +7936,8 @@ export class ObservableTaxApi {
      * @param [modifiedFrom] Retrieve entities from their modification date
      * @param [responseFields] Set this parameter in order to choose which entity fields you want to retrieve
      */
-    public taxClassList(count?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseTaxClassList> {
-        return this.taxClassListWithHttpInfo(count, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassList>) => apiResponse.data));
+    public taxClassList(count?: number, start?: number, pageCursor?: string, storeId?: string, findValue?: string, findWhere?: string, createdTo?: string, createdFrom?: string, modifiedTo?: string, modifiedFrom?: string, responseFields?: string, _options?: Configuration): Observable<ModelResponseTaxClassList> {
+        return this.taxClassListWithHttpInfo(count, start, pageCursor, storeId, findValue, findWhere, createdTo, createdFrom, modifiedTo, modifiedFrom, responseFields, _options).pipe(map((apiResponse: HttpInfo<ModelResponseTaxClassList>) => apiResponse.data));
     }
 
 }

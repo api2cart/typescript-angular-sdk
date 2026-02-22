@@ -1883,6 +1883,7 @@ export enum AccountCartAddCartIdEnum {
     Gambio = 'Gambio',
     Hybris = 'Hybris',
     JooCart = 'JooCart',
+    Jumpseller = 'Jumpseller',
     Lazada = 'Lazada',
     LightSpeed = 'LightSpeed',
     Magento1212 = 'Magento1212',

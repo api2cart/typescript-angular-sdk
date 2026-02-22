@@ -222,6 +222,8 @@ const apiInstance = new CustomerApi(configuration);
 const request: CustomerApiCustomerAttributeListRequest = {
     // Retrieves orders specified by customer id
   customerId: "5",
+    // This parameter sets the number from which you want to get entities (optional)
+  start: 0,
     // This parameter sets the entity amount that has to be retrieved. Max allowed count=250 (optional)
   count: 20,
     // Used to retrieve entities via cursor-based pagination (it can\'t be used with any other filtering parameter) (optional)
@@ -248,6 +250,7 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerId** | [**string**] | Retrieves orders specified by customer id | defaults to undefined
+ **start** | [**number**] | This parameter sets the number from which you want to get entities | (optional) defaults to 0
  **count** | [**number**] | This parameter sets the entity amount that has to be retrieved. Max allowed count&#x3D;250 | (optional) defaults to 10
  **pageCursor** | [**string**] | Used to retrieve entities via cursor-based pagination (it can\&#39;t be used with any other filtering parameter) | (optional) defaults to undefined
  **storeId** | [**string**] | Store Id | (optional) defaults to undefined
@@ -847,6 +850,7 @@ const request: CustomerApiCustomerUpdateRequest = {
     gender: "male",
     note: "Customer note",
     status: "disabled",
+    password: "fd5gfd5g75fd",
     storeId: "1",
     idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
     address: [
