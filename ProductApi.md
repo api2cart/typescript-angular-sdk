@@ -323,6 +323,19 @@ const request: ProductApiProductAddRequest = {
       personalizationCharCountMax: 1,
       personalizationInstructions: "personalizationInstructions_example",
     },
+    personalizationQuestions: [
+      {
+        questionText: "questionText_example",
+        instructions: "instructions_example",
+        questionType: "text_input",
+        required: true,
+        maxAllowedCharacters: 1,
+        maxAllowedFiles: 1,
+        options: [
+          "options_example",
+        ],
+      },
+    ],
     idempotencyKey: "098f6bcd4621d373cade4e832627b4f6",
   },
 };
@@ -3270,6 +3283,19 @@ const request: ProductApiProductUpdateRequest = {
       personalizationCharCountMax: 1,
       personalizationInstructions: "personalizationInstructions_example",
     },
+    personalizationQuestions: [
+      {
+        questionText: "questionText_example",
+        instructions: "instructions_example",
+        questionType: "text_input",
+        required: true,
+        maxAllowedCharacters: 1,
+        maxAllowedFiles: 1,
+        options: [
+          "options_example",
+        ],
+      },
+    ],
     externalProductLink: "http://example.com/t-shirt",
     marketplaceItemProperties: "{"color":["Silver"],"manufacturer":"Philips","features":["3 way"],"countPerPack":1,"watts":{"unit":"W","measure":40}}",
     minOrderQuantity: 1,

@@ -315,6 +315,7 @@ models/ProductAddLogisticInfoInner.ts
 models/ProductAddManufacturerInfo.ts
 models/ProductAddPackageDetails.ts
 models/ProductAddPersonalizationDetails.ts
+models/ProductAddPersonalizationQuestionsInner.ts
 models/ProductAddSalesTax.ts
 models/ProductAddSellerProfiles.ts
 models/ProductAddShippingDetailsInner.ts

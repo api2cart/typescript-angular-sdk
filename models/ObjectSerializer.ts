@@ -271,6 +271,7 @@ export * from '../models/ProductAddLogisticInfoInner';
 export * from '../models/ProductAddManufacturerInfo';
 export * from '../models/ProductAddPackageDetails';
 export * from '../models/ProductAddPersonalizationDetails';
+export * from '../models/ProductAddPersonalizationQuestionsInner';
 export * from '../models/ProductAddSalesTax';
 export * from '../models/ProductAddSellerProfiles';
 export * from '../models/ProductAddShippingDetailsInner';
@@ -705,6 +706,7 @@ import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInn
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
+import { ProductAddPersonalizationQuestionsInner  , ProductAddPersonalizationQuestionsInnerQuestionTypeEnum       } from '../models/ProductAddPersonalizationQuestionsInner';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';
@@ -885,6 +887,7 @@ let enumsMap: Set<string> = new Set<string>([
     "CartCouponAddActionScopeEnum",
     "CustomerAddConsentsInnerTypeEnum",
     "ProductAddBatchNestedItemsUpdateBehaviourEnum",
+    "ProductAddPersonalizationQuestionsInnerQuestionTypeEnum",
     "ProductAddSpecificsInnerBookingDetailsTypeEnum",
     "ProductAddSpecificsInnerBookingDetailsTimeStrictTypeEnum",
     "ProductAddSpecificsInnerBookingDetailsAvailabilitiesInnerDayEnum",
@@ -1170,6 +1173,7 @@ let typeMap: {[index: string]: any} = {
     "ProductAddManufacturerInfo": ProductAddManufacturerInfo,
     "ProductAddPackageDetails": ProductAddPackageDetails,
     "ProductAddPersonalizationDetails": ProductAddPersonalizationDetails,
+    "ProductAddPersonalizationQuestionsInner": ProductAddPersonalizationQuestionsInner,
     "ProductAddSalesTax": ProductAddSalesTax,
     "ProductAddSellerProfiles": ProductAddSellerProfiles,
     "ProductAddShippingDetailsInner": ProductAddShippingDetailsInner,

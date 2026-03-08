@@ -275,6 +275,7 @@ import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInn
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
+import { ProductAddPersonalizationQuestionsInner } from '../models/ProductAddPersonalizationQuestionsInner';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';

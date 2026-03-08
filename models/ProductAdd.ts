@@ -18,6 +18,7 @@ import { ProductAddLogisticInfoInner } from '../models/ProductAddLogisticInfoInn
 import { ProductAddManufacturerInfo } from '../models/ProductAddManufacturerInfo';
 import { ProductAddPackageDetails } from '../models/ProductAddPackageDetails';
 import { ProductAddPersonalizationDetails } from '../models/ProductAddPersonalizationDetails';
+import { ProductAddPersonalizationQuestionsInner } from '../models/ProductAddPersonalizationQuestionsInner';
 import { ProductAddSalesTax } from '../models/ProductAddSalesTax';
 import { ProductAddSellerProfiles } from '../models/ProductAddSellerProfiles';
 import { ProductAddShippingDetailsInner } from '../models/ProductAddShippingDetailsInner';
@@ -494,6 +495,10 @@ export class ProductAdd {
     */
     'returnPolicyId'?: number;
     'personalizationDetails'?: ProductAddPersonalizationDetails;
+    /**
+    * Defines personalization questions for the listing as an array of question objects. Each question object supports the following fields: question_id (integer, nullable), question_text (string, 1-45 chars), instructions (string, nullable), question_type (string), required (boolean), max_allowed_characters (integer, nullable), max_allowed_files (integer, nullable), options (array, nullable). Cannot be used together with <strong>personalization_details</strong>.
+    */
+    'personalizationQuestions'?: Array<ProductAddPersonalizationQuestionsInner>;
     /**
     * A unique identifier associated with a specific request. Repeated requests with the same <strong>idempotency_key</strong> return a cached response without re-executing the business logic. <strong>Please note that the cache lifetime is 15 minutes.</strong>
     */
@@ -1234,6 +1239,12 @@ export class ProductAdd {
             "name": "personalizationDetails",
             "baseName": "personalization_details",
             "type": "ProductAddPersonalizationDetails",
+            "format": ""
+        },
+        {
+            "name": "personalizationQuestions",
+            "baseName": "personalization_questions",
+            "type": "Array<ProductAddPersonalizationQuestionsInner>",
             "format": ""
         },
         {
